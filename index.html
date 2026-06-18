@@ -682,7 +682,7 @@
               <div class="summary-row"><dt>구성</dt><dd id="summaryCount">2개 선택</dd></div>
             </dl>
             <textarea id="summaryText" readonly></textarea>
-            <a id="mailLink" class="btn btn-primary" href="mailto:contact@videoroastery.kr">상담 메일 열기</a>
+            <a id="mailLink" class="btn btn-primary" href="mailto:kiwee1223@gmail.com">상담 메일 열기</a>
             <button id="copySummary" class="btn btn-ghost" type="button">상담 내용 복사</button>
             <p id="copyStatus" class="summary-note" aria-live="polite"></p>
           </aside>
@@ -869,13 +869,13 @@
         <h2>시안을 고른 뒤, 필요한 기능만 묶어서 견적을 받아보세요.</h2>
         <p class="lead">아래 버튼을 누르면 선택한 업종, 시안, 기능이 메일 본문에 자동으로 들어갑니다. 연락처와 현재 운영 중인 채널 링크를 추가해서 보내주세요.</p>
         <div class="hero-actions" style="justify-content: center;">
-          <a id="finalMailLink" class="btn btn-primary" href="mailto:contact@videoroastery.kr">선택한 구성으로 상담 메일 열기</a>
+          <a id="finalMailLink" class="btn btn-primary" href="mailto:kiwee1223@gmail.com">선택한 구성으로 상담 메일 열기</a>
           <a class="btn btn-ghost" style="background: #fff;" href="#choose">시안 다시 고르기</a>
         </div>
         <div class="contact-grid">
           <div class="contact-box">
             <h3>메일 상담</h3>
-            <p class="small" style="color: rgba(255,255,255,.72);">contact@videoroastery.kr</p>
+            <p class="small" style="color: rgba(255,255,255,.72);">kiwee1223@gmail.com</p>
           </div>
           <div class="contact-box">
             <h3>상담 때 필요한 정보</h3>
@@ -943,7 +943,7 @@
       summaryText.value = body;
       const subject = encodeURIComponent(`[홈페이지 상담] ${state.industry} / ${state.style}`);
       const encodedBody = encodeURIComponent(body);
-      const href = `mailto:contact@videoroastery.kr?subject=${subject}&body=${encodedBody}`;
+      const href = `mailto:kiwee1223@gmail.com?subject=${subject}&body=${encodedBody}`;
       mailLink.href = href;
       finalMailLink.href = href;
     }
