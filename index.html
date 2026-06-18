@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <title>홈페이지 시안 선택부터 24시간 문의 자동화까지 | Video Roastery</title>
+  <meta name="description" content="동네 사장님을 위한 홈페이지 제작, 24시간 문의 자동화 에이전트, 영상·카드뉴스, 인스타그램·유튜브 홍보관리를 한 견적으로 설계합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="홈페이지 시안 선택부터 문의 자동화까지">
+  <meta property="og:description" content="시안을 고르고 필요한 기능을 선택하면 홈페이지 제작과 24시간 문의 자동화, 홍보 콘텐츠까지 한 번에 상담받을 수 있습니다.">
+  <meta property="og:image" content="./assets/danggeun_ad_homepage_ai_1080.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #18191c;
+      --muted: #626a73;
+      --soft: #f5f7fa;
+      --line: #dce3ea;
+      --paper: #ffffff;
+      --green: #0c8f6a;
+      --green-dark: #096d53;
+      --blue: #1e65d8;
+      --orange: #f07822;
+      --yellow: #ffd76a;
+      --navy: #17253f;
+      --shadow: 0 18px 42px rgba(23, 37, 63, .12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    section { padding: clamp(64px, 9vw, 120px) 20px; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 {
+      font-family: "Noto Serif KR", serif;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-size: clamp(30px, 4.4vw, 52px);
+      margin-bottom: 18px;
+    }
+    h3 { font-size: 22px; line-height: 1.35; margin-bottom: 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      max-width: 760px;
+    }
+    .small { color: var(--muted); font-size: 14px; }
+    .accent { color: var(--green); }
+    .blue { color: var(--blue); }
+    .orange { color: var(--orange); }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .9);
+      border-bottom: 1px solid rgba(220, 227, 234, .75);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      height: 68px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      box-shadow: 0 8px 20px rgba(12, 143, 106, .22);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 22px;
+      border-radius: 7px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      color: #fff;
+      background: var(--green);
+      box-shadow: 0 14px 28px rgba(12, 143, 106, .22);
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-dark { color: #fff; background: var(--navy); }
+    .btn-ghost { color: var(--ink); border-color: var(--line); background: #fff; }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green-dark); }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: clamp(58px, 8vw, 110px);
+      background:
+        linear-gradient(115deg, rgba(12, 143, 106, .08), transparent 36%),
+        linear-gradient(145deg, #ffffff 0%, #f7fbff 62%, #edf6f3 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(340px, .78fr);
+      gap: clamp(32px, 5vw, 70px);
+      align-items: center;
+    }
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(12, 143, 106, .24);
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: rgba(12, 143, 106, .08);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 18px; }
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 680px;
+    }
+    .proof {
+      border-top: 2px solid var(--line);
+      padding-top: 12px;
+    }
+    .proof strong { display: block; font-size: 19px; }
+    .proof span { color: var(--muted); font-size: 13px; }
+    .hero-visual {
+      position: relative;
+      min-height: 540px;
+    }
+    .phone-frame, .desktop-frame, .flow-panel {
+      position: absolute;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .desktop-frame {
+      inset: 32px 0 auto 0;
+      border-radius: 8px;
+    }
+    .desktop-bar {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+      background: #f1f4f7;
+      border-bottom: 1px solid var(--line);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 99px; background: #c8d0d8; }
+    .desktop-frame img { width: 100%; height: 280px; object-fit: cover; object-position: top center; }
+    .phone-frame {
+      right: 10px;
+      bottom: 34px;
+      width: 230px;
+      border-radius: 22px;
+      padding: 10px;
+    }
+    .phone-screen {
+      border-radius: 16px;
+      background: var(--navy);
+      min-height: 330px;
+      padding: 18px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .phone-screen img { border-radius: 10px; margin-bottom: 16px; }
+    .phone-screen strong { font-size: 22px; line-height: 1.25; display: block; }
+    .phone-screen span { color: rgba(255,255,255,.72); font-size: 13px; }
+    .flow-panel {
+      left: 0;
+      bottom: 0;
+      width: 260px;
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .flow-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .flow-line:last-child { border-bottom: 0; }
+    .num {
+      width: 24px;
+      height: 24px;
+      border-radius: 99px;
+      background: var(--green);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .band { background: var(--soft); border-block: 1px solid var(--line); }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+    .section-head .lead { margin-bottom: 0; }
+    .picker-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 26px;
+      align-items: start;
+    }
+    .picker-block {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .choice {
+      min-height: 104px;
+      text-align: left;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+    .choice:hover, .choice.active {
+      border-color: var(--green);
+      background: rgba(12, 143, 106, .07);
+      transform: translateY(-1px);
+    }
+    .choice strong { display: block; margin-bottom: 6px; }
+    .choice span { display: block; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .feature-chip {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 9px 14px;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .feature-chip.active {
+      color: #fff;
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .summary {
+      position: sticky;
+      top: 88px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .summary h3 { color: #fff; }
+    .summary dl { margin: 18px 0; }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    .summary-row dt { color: rgba(255,255,255,.62); }
+    .summary-row dd { margin: 0; text-align: right; font-weight: 700; }
+    .summary textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      border-radius: 7px;
+      padding: 14px;
+      outline: none;
+      margin-bottom: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .summary .btn { width: 100%; margin-top: 8px; }
+    .summary-note { color: rgba(255,255,255,.66); font-size: 12px; margin: 12px 0 0; }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 24px;
+    }
+    .card.dark { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .card.dark p, .card.dark .small { color: rgba(255,255,255,.72); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .portfolio-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+    .portfolio-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
+      border-bottom: 1px solid var(--line);
+      filter: saturate(.92);
+    }
+    .portfolio-card div { padding: 16px; }
+    .portfolio-card strong { display: block; margin-bottom: 4px; }
+    .portfolio-card span { color: var(--muted); font-size: 13px; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+    .time-step {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+    }
+    .time-step:last-child { border-right: 0; }
+    .time-step b { color: var(--green); font-size: 13px; }
+    .agent-demo {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .message-stack {
+      background: #f7f9fc;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .msg {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .msg.me { margin-left: auto; background: rgba(12,143,106,.09); border-color: rgba(12,143,106,.22); }
+    .deliverable {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .deliverable:last-child { border-bottom: 0; }
+    .deliverable .num { margin-top: 2px; }
+    .price-note {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .faq details {
+      border-top: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq p { color: var(--muted); margin: 12px 0 0; }
+    .final-cta {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+    }
+    .final-cta h2 { color: #fff; }
+    .final-cta .lead { color: rgba(255,255,255,.72); margin-inline: auto; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 32px;
+      text-align: left;
+    }
+    .contact-box {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .footer {
+      padding: 36px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sticky-cta {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 8px;
+      background: rgba(23, 37, 63, .94);
+      color: #fff;
+      box-shadow: 0 18px 42px rgba(23,37,63,.22);
+      backdrop-filter: blur(14px);
+    }
+    .sticky-cta strong { display: block; font-size: 14px; line-height: 1.25; }
+    .sticky-cta span { color: rgba(255,255,255,.66); font-size: 12px; }
+    .sticky-cta .btn { min-height: 40px; padding: 9px 14px; }
+    @media (max-width: 980px) {
+      .hero-grid, .picker-layout, .agent-demo, .contact-grid, .price-note { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 600px; }
+      .summary { position: static; }
+      .option-grid, .portfolio-grid, .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; }
+      .timeline { grid-template-columns: 1fr 1fr; }
+      .time-step:nth-child(2) { border-right: 0; }
+      .time-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .hero-actions .btn { width: 100%; }
+      .proof-row, .option-grid, .portfolio-grid, .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
+      .time-step { border-right: 0; border-bottom: 1px solid var(--line); }
+      .time-step:last-child { border-bottom: 0; }
+      .hero-visual { min-height: 500px; }
+      .desktop-frame { inset: 10px 0 auto 0; }
+      .desktop-frame img { height: 220px; }
+      .phone-frame { width: 190px; right: 0; bottom: 20px; }
+      .flow-panel { width: 210px; bottom: 0; }
+      .section-head { display: block; }
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 84px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="주요 메뉴">
+    <div class="nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Video Roastery</a>
+      <div class="nav-links">
+        <a href="#choose">시안 선택</a>
+        <a href="#portfolio">포트폴리오</a>
+        <a href="#agent">문의 자동화</a>
+        <a href="#contact">상담 신청</a>
+      </div>
+      <a class="btn btn-primary" href="#choose">시안 고르기</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-note">당근 광고 전용 홈페이지 제작 상담</div>
+          <h1>사장님 대신 일하는 홈페이지, <span class="accent">문의는 24시간</span> 먼저 정리되게 만드세요.</h1>
+          <p class="lead">디자인을 몰라도 괜찮습니다. 마음에 드는 시안을 고르고 업종과 필요한 기능을 선택하면, 홈페이지 제작·24시간 문의 접수·영상·카드뉴스·인스타/유튜브 홍보관리까지 한 견적으로 정리해드립니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#choose">3분 만에 원하는 구성 고르기</a>
+            <a class="btn btn-ghost" href="#portfolio">제작 예시 먼저 보기</a>
+          </div>
+          <p class="small">무제한 관리나 매출 보장을 약속하지 않습니다. 실제로 만들 수 있는 범위와 견적을 상담 후 명확히 적어드립니다.</p>
+          <div class="proof-row">
+            <div class="proof"><strong>홈페이지</strong><span>랜딩·문의폼·모바일 화면</span></div>
+            <div class="proof"><strong>24시간 접수</strong><span>문의 정리와 답변 초안</span></div>
+            <div class="proof"><strong>홍보 운영</strong><span>영상·카드뉴스·SNS 연결</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="홈페이지 제작과 문의 자동화 미리보기">
+          <div class="desktop-frame">
+            <div class="desktop-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <img src="./assets/videoroastery.png" alt="홈페이지 제작 예시 화면">
+          </div>
+          <div class="flow-panel">
+            <div class="flow-line"><span class="num">1</span>시안 선택</div>
+            <div class="flow-line"><span class="num">2</span>홈페이지 제작</div>
+            <div class="flow-line"><span class="num">3</span>문의 자동화</div>
+            <div class="flow-line"><span class="num">4</span>SNS 홍보 연결</div>
+          </div>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div>
+                <img src="./assets/danggeun_ad_homepage_ai_1080.jpg" alt="당근 광고용 대표 이미지">
+                <strong>문의가 들어오면 먼저 정리됩니다</strong>
+              </div>
+              <span>문의 내용 · 희망 일정 · 예산 · 답변 초안</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">why this matters</p>
+        <h2>광고를 켜도 문의가 남지 않으면 돈만 나갑니다.</h2>
+        <p class="lead">당근 광고, 인스타그램, 유튜브 쇼츠는 사람을 데려오는 역할입니다. 하지만 도착한 화면에 설명, 신뢰, 문의 버튼, 자동 정리 흐름이 없으면 상담으로 이어지기 어렵습니다.</p>
+        <div class="grid-3" style="margin-top: 34px;">
+          <article class="card">
+            <h3>전화와 DM이 흩어집니다</h3>
+            <p class="small">고객 문의가 여기저기 들어오면 일정, 예산, 요청사항을 다시 물어보느라 시간이 새어 나갑니다.</p>
+          </article>
+          <article class="card">
+            <h3>홈페이지가 예쁘기만 합니다</h3>
+            <p class="small">보여주기는 좋은데 무엇을 신청해야 하는지, 어떤 순서로 문의해야 하는지 모르면 고객은 나갑니다.</p>
+          </article>
+          <article class="card">
+            <h3>SNS와 홈페이지가 따로 놉니다</h3>
+            <p class="small">게시물은 열심히 올리는데 홈페이지, 문의폼, 광고 소재가 같은 말투로 이어지지 않으면 전환이 약해집니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="choose" class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">3-minute estimate builder</p>
+            <h2>원하는 홈페이지를 직접 고르면 상담 내용이 바로 정리됩니다.</h2>
+          </div>
+          <p class="lead">업종, 시안, 필요한 기능을 누르세요. 오른쪽 상담 요약이 자동으로 채워집니다.</p>
+        </div>
+
+        <div class="picker-layout">
+          <div>
+            <div class="picker-block">
+              <h3>1. 업종을 골라주세요</h3>
+              <p class="small">아직 업종이 정확히 정해지지 않았으면 가장 가까운 항목을 선택하셔도 됩니다.</p>
+              <div class="option-grid" data-group="industry">
+                <button class="choice active" data-value="카페·식당·매장"><strong>카페·식당·매장</strong><span>메뉴, 위치, 예약, 후기 중심</span></button>
+                <button class="choice" data-value="강사·교육·클래스"><strong>강사·교육·클래스</strong><span>커리큘럼, 수강 후기, 신청 중심</span></button>
+                <button class="choice" data-value="뷰티·상담·병원"><strong>뷰티·상담·병원</strong><span>신뢰, 전후 과정, 상담 예약 중심</span></button>
+                <button class="choice" data-value="공방·브랜드·제품"><strong>공방·브랜드·제품</strong><span>상품 스토리, 구매 문의 중심</span></button>
+                <button class="choice" data-value="프리랜서·포트폴리오"><strong>프리랜서·포트폴리오</strong><span>작업물, 소개, 프로젝트 문의 중심</span></button>
+                <button class="choice" data-value="아직 상담 후 결정"><strong>상담 후 결정</strong><span>업종 진단부터 같이 정리</span></button>
+              </div>
+            </div>
+
+            <div class="picker-block">
+              <h3>2. 마음에 드는 시안 방향을 골라주세요</h3>
+              <p class="small">선택한 방향을 바탕으로 색감, 문구, 섹션 순서를 맞춰드립니다.</p>
+              <div class="option-grid" data-group="style">
+                <button class="choice active" data-value="클린 신뢰형"><strong>클린 신뢰형</strong><span>화이트 배경, 또렷한 CTA, 병원·상담에 적합</span></button>
+                <button class="choice" data-value="감성 브랜드형"><strong>감성 브랜드형</strong><span>사진과 스토리 중심, 카페·공방에 적합</span></button>
+                <button class="choice" data-value="강의 모집형"><strong>강의 모집형</strong><span>강사 소개, 커리큘럼, 신청 버튼 중심</span></button>
+                <button class="choice" data-value="이벤트 랜딩형"><strong>이벤트 랜딩형</strong><span>짧은 제안과 혜택, 광고 유입에 적합</span></button>
+                <button class="choice" data-value="포트폴리오형"><strong>포트폴리오형</strong><span>작업물과 사례를 먼저 보여주는 구성</span></button>
+                <button class="choice" data-value="AI 자동화형"><strong>AI 자동화형</strong><span>문의폼, 자동 정리, 운영 흐름 강조</span></button>
+              </div>
+            </div>
+
+            <div class="picker-block">
+              <h3>3. 필요한 기능을 선택해주세요</h3>
+              <p class="small">여러 개를 고를 수 있습니다. 한 견적 안에서 우선순위를 정리해드립니다.</p>
+              <div class="feature-list" data-features>
+                <button class="feature-chip active" data-value="홈페이지/랜딩페이지 제작">홈페이지/랜딩페이지 제작</button>
+                <button class="feature-chip active" data-value="24시간 문의 접수 에이전트">24시간 문의 접수 에이전트</button>
+                <button class="feature-chip" data-value="예약/견적 문의폼">예약/견적 문의폼</button>
+                <button class="feature-chip" data-value="홍보 영상 제작">홍보 영상 제작</button>
+                <button class="feature-chip" data-value="카드뉴스 제작">카드뉴스 제작</button>
+                <button class="feature-chip" data-value="인스타그램 관리">인스타그램 관리</button>
+                <button class="feature-chip" data-value="유튜브 쇼츠 관리">유튜브 쇼츠 관리</button>
+                <button class="feature-chip" data-value="당근 광고 세팅">당근 광고 세팅</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary" aria-label="상담 요약">
+            <h3>상담 요청 요약</h3>
+            <p class="summary-note">선택값은 자동으로 정리됩니다. 메일 앱이 열리면 그대로 보내거나 연락처를 추가해 주세요.</p>
+            <dl>
+              <div class="summary-row"><dt>업종</dt><dd id="summaryIndustry">카페·식당·매장</dd></div>
+              <div class="summary-row"><dt>시안</dt><dd id="summaryStyle">클린 신뢰형</dd></div>
+              <div class="summary-row"><dt>구성</dt><dd id="summaryCount">2개 선택</dd></div>
+            </dl>
+            <textarea id="summaryText" readonly></textarea>
+            <a id="mailLink" class="btn btn-primary" href="mailto:contact@videoroastery.kr">상담 메일 열기</a>
+            <button id="copySummary" class="btn btn-ghost" type="button">상담 내용 복사</button>
+            <p id="copyStatus" class="summary-note" aria-live="polite"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">real screens</p>
+            <h2>말로만 설명하지 않고, 제작된 화면을 보고 고르게 합니다.</h2>
+          </div>
+          <p class="lead">아래 예시는 실제 제작된 홈페이지·앱·랜딩 화면입니다. 초상권 리스크가 있는 인물 중심 이미지는 제외하고 화면 구조 중심으로 보여드립니다.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <img src="./assets/vibecoding_1.png" alt="제주 바이브코딩 강사 홈페이지 예시">
+            <div><strong>강사·클래스형</strong><span>소개, 커리큘럼, 신청 흐름을 한 화면에 정리</span></div>
+          </article>
+          <article class="portfolio-card">
+            <img src="./assets/vibecoding_2.png" alt="다크 네온 스타일 홈페이지 예시">
+            <div><strong>스타트업·AI 빌드형</strong><span>전문성, 결과물, 4주 실행 메시지 강조</span></div>
+          </article>
+          <article class="portfolio-card">
+            <img src="./assets/vibecoding_3.png" alt="시네마틱 크림 스타일 홈페이지 예시">
+            <div><strong>미니멀 시네마틱형</strong><span>고급스러운 톤과 서비스 설명을 균형 있게 구성</span></div>
+          </article>
+          <article class="portfolio-card">
+            <img src="./assets/videoroastery.png" alt="Video Roastery 홈페이지 예시">
+            <div><strong>브랜드 스튜디오형</strong><span>서비스 철학과 상담 CTA를 중심으로 설계</span></div>
+          </article>
+          <article class="portfolio-card">
+            <img src="./assets/pawshare_landing.png" alt="서비스 랜딩페이지 예시">
+            <div><strong>서비스 런칭형</strong><span>가치 제안, 기능, 참여 행동을 단계적으로 정리</span></div>
+          </article>
+          <article class="portfolio-card">
+            <img src="./assets/vr_canada.png" alt="해외 타깃 랜딩페이지 예시">
+            <div><strong>글로벌 소개형</strong><span>외국어 타깃 설명과 신뢰 구조를 함께 구성</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="bundle">
+      <div class="wrap">
+        <p class="eyebrow">one quote package</p>
+        <h2>홈페이지 하나만 만들고 끝내지 않습니다.</h2>
+        <p class="lead">광고를 보고 들어온 고객이 문의를 남기고, 그 문의가 정리되고, 이후 SNS 콘텐츠로 다시 홍보될 수 있게 한 흐름으로 묶습니다.</p>
+        <div class="grid-3" style="margin-top: 34px;">
+          <article class="card">
+            <span class="num">1</span>
+            <h3>홈페이지/랜딩페이지 제작</h3>
+            <p class="small">첫 화면 카피, 서비스 소개, 신뢰 요소, 포트폴리오, 문의 CTA를 모바일 기준으로 설계합니다.</p>
+          </article>
+          <article class="card">
+            <span class="num">2</span>
+            <h3>24시간 문의 접수 에이전트</h3>
+            <p class="small">고객이 남긴 문의를 업종, 요청사항, 희망 일정, 예산, 답변 초안 형태로 정리하는 흐름을 만듭니다.</p>
+          </article>
+          <article class="card">
+            <span class="num">3</span>
+            <h3>영상·카드뉴스·SNS 홍보관리</h3>
+            <p class="small">홈페이지 메시지를 인스타그램, 유튜브 쇼츠, 당근 광고, 카드뉴스 문구로 확장합니다.</p>
+          </article>
+        </div>
+        <div class="price-note">
+          <article class="card dark">
+            <h3>한 견적 안에 들어가는 것</h3>
+            <p>홈페이지 제작, 문의폼/자동 정리, 홍보용 카드뉴스, 짧은 영상 구성, SNS 게시물 방향, 당근 광고 소재 방향까지 범위를 나눠 적어드립니다.</p>
+          </article>
+          <article class="card">
+            <h3>먼저 정해야 하는 것</h3>
+            <p class="small">업종, 현재 운영 중인 채널, 원하는 시안, 필요한 기능, 예산 범위, 운영 기간을 확인해야 무리 없는 견적이 나옵니다.</p>
+          </article>
+        </div>
+        <div class="grid-3" style="margin-top: 18px;">
+          <article class="card">
+            <h3>무료인 것은 상담과 견적입니다</h3>
+            <p class="small">제작 전체가 무료처럼 보이지 않도록, 상담 후 범위와 비용을 따로 안내합니다.</p>
+          </article>
+          <article class="card">
+            <h3>자동화는 검토 가능한 구조로</h3>
+            <p class="small">AI가 계약을 확정하지 않고, 사장님이 확인할 수 있는 문의 정리와 답변 초안부터 세팅합니다.</p>
+          </article>
+          <article class="card">
+            <h3>성과 보장 대신 실행 범위 명확화</h3>
+            <p class="small">매출 보장 같은 과장 표현 없이, 실제 제작물과 운영 범위를 기준으로 견적을 냅니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="agent">
+      <div class="wrap agent-demo">
+        <div>
+          <p class="eyebrow">24-hour inquiry agent</p>
+          <h2>밤에 들어온 문의도 다음 날 바로 대응할 수 있게 정리합니다.</h2>
+          <p class="lead">AI가 고객에게 임의로 계약을 확정하거나 과장 답변을 하지 않습니다. 문의 내용을 정리하고, 사장님이 확인할 수 있는 답변 초안과 체크리스트를 준비하는 구조입니다.</p>
+          <div class="deliverable">
+            <span class="num">A</span>
+            <div><strong>문의 접수</strong><p class="small">홈페이지 폼, 메일, 채팅 링크 등 현재 상황에 맞게 연결</p></div>
+          </div>
+          <div class="deliverable">
+            <span class="num">B</span>
+            <div><strong>내용 정리</strong><p class="small">업종, 일정, 예산, 필요한 서비스, 긴급도를 한눈에 보기 좋게 요약</p></div>
+          </div>
+          <div class="deliverable">
+            <span class="num">C</span>
+            <div><strong>답변 초안</strong><p class="small">사장님 말투에 맞춰 보내기 전 검토용 답변 초안 작성</p></div>
+          </div>
+        </div>
+        <div class="message-stack">
+          <div class="msg">홈페이지 제작이랑 인스타 홍보까지 같이 가능한가요? 예산은 아직 모르겠어요.</div>
+          <div class="msg me">문의 분류: 홈페이지+SNS 패키지<br>필요 확인: 업종, 기존 채널, 희망 오픈일, 콘텐츠 수량</div>
+          <div class="msg me">답변 초안: 안녕하세요. 홈페이지 제작과 인스타 홍보를 한 견적으로 묶어 상담 가능합니다. 현재 운영 중인 채널과 원하는 시안 방향을 알려주시면 범위부터 정리해드릴게요.</div>
+          <div class="msg">좋아요. 카페 오픈 준비 중이고 한 달 안에 필요해요.</div>
+          <div class="msg me">긴급도: 높음<br>추천 흐름: 시안 선택 → 1차 문구 → 랜딩 제작 → 문의폼 → 오픈 홍보 카드뉴스</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow">process</p>
+        <h2>상담 후에는 이렇게 진행됩니다.</h2>
+        <div class="timeline" style="margin-top: 34px;">
+          <article class="time-step"><b>Step 01</b><h3>업종 진단</h3><p class="small">현재 채널, 목표 고객, 경쟁 화면, 필요한 문의 흐름을 확인합니다.</p></article>
+          <article class="time-step"><b>Step 02</b><h3>시안 확정</h3><p class="small">선택한 디자인 방향을 바탕으로 색감, 섹션, 문구 톤을 정합니다.</p></article>
+          <article class="time-step"><b>Step 03</b><h3>제작·자동화</h3><p class="small">홈페이지와 문의폼을 만들고 문의 정리/답변 초안 흐름을 세팅합니다.</p></article>
+          <article class="time-step"><b>Step 04</b><h3>홍보 연결</h3><p class="small">카드뉴스, 영상, SNS 게시물, 당근 광고 소재로 확장합니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">deliverables</p>
+        <h2>상담 후 견적서에는 범위를 이렇게 나눠 적습니다.</h2>
+        <div class="grid-2" style="margin-top: 34px;">
+          <article class="card">
+            <h3>기본 제작 범위</h3>
+            <div class="deliverable"><span class="num">1</span><div><strong>모바일 우선 홈페이지</strong><p class="small">첫 화면, 서비스 설명, 포트폴리오, FAQ, 문의 CTA</p></div></div>
+            <div class="deliverable"><span class="num">2</span><div><strong>문의폼/상담 동선</strong><p class="small">필요 질문 구성, 자동 요약에 맞는 입력 구조</p></div></div>
+            <div class="deliverable"><span class="num">3</span><div><strong>기본 SEO/공유 이미지</strong><p class="small">검색 설명, SNS 공유 제목, 대표 이미지 방향</p></div></div>
+          </article>
+          <article class="card">
+            <h3>확장 운영 범위</h3>
+            <div class="deliverable"><span class="num">4</span><div><strong>영상·카드뉴스</strong><p class="small">홈페이지 메시지를 짧은 홍보 소재로 재구성</p></div></div>
+            <div class="deliverable"><span class="num">5</span><div><strong>인스타그램·유튜브 관리</strong><p class="small">게시물 주제, 캡션, 쇼츠 방향, 업로드 루틴 제안</p></div></div>
+            <div class="deliverable"><span class="num">6</span><div><strong>당근 광고 세팅</strong><p class="small">광고 제목, 이미지, 랜딩 연결, 예산 테스트 기준 정리</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band faq">
+      <div class="wrap">
+        <p class="eyebrow">faq</p>
+        <h2>상담 전에 많이 물어보는 내용입니다.</h2>
+        <details open>
+          <summary>정말 홈페이지 제작부터 SNS 관리까지 한 견적에 넣을 수 있나요?</summary>
+          <p>가능합니다. 다만 모든 항목을 무제한으로 넣는 것이 아니라, 예산과 기간 안에서 우선순위를 정해 범위를 명확히 나눕니다.</p>
+        </details>
+        <details>
+          <summary>24시간 자동 문의 에이전트가 고객에게 바로 답변하나요?</summary>
+          <p>기본은 접수와 정리, 답변 초안 생성입니다. 실제 발송 자동화는 업종과 리스크를 확인한 뒤 별도로 정합니다.</p>
+        </details>
+        <details>
+          <summary>기존 홈페이지나 SNS가 있어도 되나요?</summary>
+          <p>됩니다. 기존 채널을 버리지 않고, 현재 상태를 확인한 뒤 새로 만들지 고쳐 쓸지 결정합니다.</p>
+        </details>
+        <details>
+          <summary>얼마나 빨리 만들 수 있나요?</summary>
+          <p>간단한 랜딩은 비교적 빠르게 시작할 수 있지만, 자동화와 콘텐츠 제작이 포함되면 범위 확인이 필요합니다. 상담 후 일정표로 안내합니다.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="final-cta">
+      <div class="wrap">
+        <p class="eyebrow" style="color: var(--yellow);">start here</p>
+        <h2>시안을 고른 뒤, 필요한 기능만 묶어서 견적을 받아보세요.</h2>
+        <p class="lead">아래 버튼을 누르면 선택한 업종, 시안, 기능이 메일 본문에 자동으로 들어갑니다. 연락처와 현재 운영 중인 채널 링크를 추가해서 보내주세요.</p>
+        <div class="hero-actions" style="justify-content: center;">
+          <a id="finalMailLink" class="btn btn-primary" href="mailto:contact@videoroastery.kr">선택한 구성으로 상담 메일 열기</a>
+          <a class="btn btn-ghost" style="background: #fff;" href="#choose">시안 다시 고르기</a>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>메일 상담</h3>
+            <p class="small" style="color: rgba(255,255,255,.72);">contact@videoroastery.kr</p>
+          </div>
+          <div class="contact-box">
+            <h3>상담 때 필요한 정보</h3>
+            <p class="small" style="color: rgba(255,255,255,.72);">업종, 기존 채널, 원하는 시안, 필요한 기능, 희망 오픈일, 예산 범위</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta" aria-label="빠른 상담 신청">
+    <div>
+      <strong>내 업종 시안 먼저 고르기</strong>
+      <span>선택 후 상담 메일 자동 작성</span>
+    </div>
+    <a class="btn btn-primary" href="#choose">시작</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© 2026 Video Roastery. Website, automation and content production.</span>
+      <span>광고·상담 목적의 랜딩페이지입니다.</span>
+    </div>
+  </footer>
+
+  <script>
+    const state = {
+      industry: "카페·식당·매장",
+      style: "클린 신뢰형",
+      features: ["홈페이지/랜딩페이지 제작", "24시간 문의 접수 에이전트"]
+    };
+
+    const summaryIndustry = document.getElementById("summaryIndustry");
+    const summaryStyle = document.getElementById("summaryStyle");
+    const summaryCount = document.getElementById("summaryCount");
+    const summaryText = document.getElementById("summaryText");
+    const mailLink = document.getElementById("mailLink");
+    const finalMailLink = document.getElementById("finalMailLink");
+    const copyStatus = document.getElementById("copyStatus");
+
+    function buildSummary() {
+      return [
+        "안녕하세요. 홈페이지 제작 상담 문의드립니다.",
+        "",
+        `업종: ${state.industry}`,
+        `원하는 시안 방향: ${state.style}`,
+        `필요한 기능: ${state.features.join(", ")}`,
+        "",
+        "상담 때 확인하고 싶은 내용:",
+        "- 홈페이지/랜딩페이지 제작 범위",
+        "- 24시간 문의 접수/정리 에이전트 세팅",
+        "- 영상, 카드뉴스, 인스타그램, 유튜브 홍보관리 포함 견적",
+        "",
+        "연락처:",
+        "현재 운영 중인 채널 링크:",
+        "희망 오픈일/예산 범위:"
+      ].join("\n");
+    }
+
+    function updateSummary() {
+      summaryIndustry.textContent = state.industry;
+      summaryStyle.textContent = state.style;
+      summaryCount.textContent = `${state.features.length}개 선택`;
+      const body = buildSummary();
+      summaryText.value = body;
+      const subject = encodeURIComponent(`[홈페이지 상담] ${state.industry} / ${state.style}`);
+      const encodedBody = encodeURIComponent(body);
+      const href = `mailto:contact@videoroastery.kr?subject=${subject}&body=${encodedBody}`;
+      mailLink.href = href;
+      finalMailLink.href = href;
+    }
+
+    document.querySelectorAll("[data-group]").forEach(group => {
+      group.addEventListener("click", event => {
+        const button = event.target.closest(".choice");
+        if (!button) return;
+        group.querySelectorAll(".choice").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        state[group.dataset.group] = button.dataset.value;
+        copyStatus.textContent = "";
+        updateSummary();
+      });
+    });
+
+    document.querySelector("[data-features]").addEventListener("click", event => {
+      const button = event.target.closest(".feature-chip");
+      if (!button) return;
+      button.classList.toggle("active");
+      state.features = Array.from(document.querySelectorAll(".feature-chip.active")).map(item => item.dataset.value);
+      if (state.features.length === 0) {
+        button.classList.add("active");
+        state.features = [button.dataset.value];
+      }
+      copyStatus.textContent = "";
+      updateSummary();
+    });
+
+    document.getElementById("copySummary").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(summaryText.value);
+        copyStatus.textContent = "상담 내용이 복사됐습니다.";
+      } catch {
+        summaryText.select();
+        copyStatus.textContent = "본문을 선택해두었습니다. 복사해서 보내주세요.";
+      }
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
