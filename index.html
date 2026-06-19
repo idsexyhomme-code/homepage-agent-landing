@@ -9,7 +9,9 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="홈페이지·AI영상·촬영 제작 상담">
   <meta property="og:description" content="홈페이지 문의자동화, AI 영상, 웨딩 촬영, 드론 촬영, AI 컨설팅까지 원하는 서비스를 골라 상담받을 수 있습니다.">
-  <meta property="og:image" content="./assets/ai_service_landing.png">
+  <meta property="og:image" content="./assets/logo_A.png">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -127,12 +129,14 @@
       min-width: 0;
     }
     .brand-mark {
+      display: block;
       width: 30px;
       height: 30px;
       flex: 0 0 30px;
-      border-radius: 7px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      box-shadow: 0 8px 20px rgba(12, 143, 106, .22);
+      border-radius: 999px;
+      object-fit: cover;
+      background: #fbf6df;
+      box-shadow: 0 8px 20px rgba(15, 80, 51, .18);
     }
     .nav-links {
       display: flex;
@@ -765,7 +769,7 @@
 <body>
   <nav class="nav" aria-label="주요 메뉴">
     <div class="nav-inner">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Video Roastery</a>
+      <a class="brand" href="#top"><img class="brand-mark" src="./assets/profile_symbol.png" alt="" aria-hidden="true">Video Roastery</a>
       <div class="nav-links">
         <a href="#services">서비스</a>
         <a href="#choose">시안 선택</a>
