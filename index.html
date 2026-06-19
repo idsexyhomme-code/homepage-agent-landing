@@ -525,6 +525,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
+      align-items: stretch;
     }
     .portfolio-toolbar {
       display: flex;
@@ -552,34 +553,57 @@
       transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
     .portfolio-filter.active {
-      background: var(--navy);
-      border-color: var(--navy);
+      background: var(--green);
+      border-color: var(--green);
       color: #fff;
+      box-shadow: 0 12px 26px rgba(12,143,106,.18);
     }
     .portfolio-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
       background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
     .portfolio-card[hidden] { display: none; }
     .portfolio-card img {
+      display: block;
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: contain;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
       object-position: center;
-      background: #f2f5f7;
+      background: #eef4f1;
       border-bottom: 1px solid var(--line);
-      filter: saturate(.92);
     }
-    .portfolio-body { padding: 16px; }
-    .portfolio-card strong { display: block; margin-bottom: 6px; }
-    .portfolio-card span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .portfolio-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .portfolio-card strong {
+      display: block;
+      min-height: 52px;
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+    .portfolio-card span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .portfolio-body > span {
+      min-height: 70px;
+    }
     .portfolio-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 12px 0 13px;
+      margin: 14px 0 16px;
     }
     .portfolio-meta span {
       border: 1px solid rgba(12,143,106,.18);
@@ -593,10 +617,18 @@
     }
     .portfolio-card a {
       display: inline-flex;
-      color: var(--green-dark);
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+      margin-top: auto;
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      padding: 10px 14px;
       font-size: 14px;
       font-weight: 900;
       text-decoration: none;
+      box-shadow: 0 10px 24px rgba(12,143,106,.16);
     }
     .timeline {
       display: grid;
@@ -1140,21 +1172,20 @@
             <p class="eyebrow">portfolio picker</p>
             <h2>업종별 시안과 실제 작업 컷을 보고 고르세요.</h2>
           </div>
-          <p class="lead">처음에는 대표 샘플 6장만 보여드립니다. 관심 있는 탭을 누르면 해당 서비스 포트폴리오 6장만 따로 보여드려 뒤섞이지 않게 비교할 수 있습니다.</p>
+          <p class="lead">홈페이지 사례 6장부터 먼저 보여드립니다. 필요한 서비스 탭을 누르면 같은 기준으로 정리한 포트폴리오 6장만 따로 비교할 수 있습니다.</p>
         </div>
         <div class="portfolio-toolbar" aria-label="포트폴리오 필터">
-          <button class="portfolio-filter active" type="button" data-filter="all">대표</button>
-          <button class="portfolio-filter" type="button" data-filter="web">홈페이지</button>
+          <button class="portfolio-filter active" type="button" data-filter="web">홈페이지</button>
           <button class="portfolio-filter" type="button" data-filter="automation">자동화</button>
           <button class="portfolio-filter" type="button" data-filter="video">AI영상</button>
           <button class="portfolio-filter" type="button" data-filter="content">콘텐츠</button>
           <button class="portfolio-filter" type="button" data-filter="wedding">웨딩</button>
           <button class="portfolio-filter" type="button" data-filter="drone">드론</button>
         </div>
-        <p class="portfolio-hint" id="portfolioHint">대표 샘플 6장만 먼저 보여드립니다. 탭을 누르면 서비스별 6장 전체를 볼 수 있습니다.</p>
+        <p class="portfolio-hint" id="portfolioHint">홈페이지 제작 예시 6장입니다. 원하는 화면 방향을 고르면 상담 요약에 반영됩니다.</p>
         <div class="portfolio-grid">
-          <article class="portfolio-card" data-kind="web" data-featured="true">
-            <img src="./assets/videoroastery.png" alt="대표 홈페이지 제작 상담 화면 예시">
+          <article class="portfolio-card" data-kind="web">
+            <img src="./assets/portfolio_covers/web_01.jpg" alt="대표 홈페이지 제작 상담 화면 예시">
             <div class="portfolio-body">
               <strong>대표 홈페이지 상담형</strong>
               <span>첫 화면에서 서비스 제안, 문의 버튼, 상담 흐름을 바로 이해하도록 구성</span>
@@ -1163,7 +1194,7 @@
             </div>
           </article>
           <article class="portfolio-card" data-kind="web">
-            <img src="./assets/ai_service_landing.png" alt="AI 서비스 랜딩페이지 예시">
+            <img src="./assets/portfolio_covers/web_02.jpg" alt="AI 서비스 랜딩페이지 예시">
             <div class="portfolio-body">
               <strong>AI 서비스 랜딩형</strong>
               <span>서비스 설명, 기능, 신청 버튼을 빠르게 이해하도록 정리</span>
@@ -1172,7 +1203,7 @@
             </div>
           </article>
           <article class="portfolio-card" data-kind="web">
-            <img src="./assets/vibecoding_3.png" alt="시네마틱 크림 스타일 홈페이지 예시">
+            <img src="./assets/portfolio_covers/web_03.jpg" alt="시네마틱 크림 스타일 홈페이지 예시">
             <div class="portfolio-body">
               <strong>강사·클래스 모집형</strong>
               <span>강사 소개, 커리큘럼, 신청 흐름을 한 화면에서 이해하도록 구성</span>
@@ -1181,7 +1212,7 @@
             </div>
           </article>
           <article class="portfolio-card" data-kind="web">
-            <img src="./assets/danggeun_ad_homepage_ai_1080.jpg" alt="홈페이지부터 콘텐츠 홍보까지 연결한 상담 화면 예시">
+            <img src="./assets/portfolio_covers/web_04.jpg" alt="홈페이지부터 콘텐츠 홍보까지 연결한 상담 화면 예시">
             <div class="portfolio-body">
               <strong>홍보 패키지 안내형</strong>
               <span>홈페이지, 문의 접수, 영상·카드뉴스, SNS 관리 흐름을 한 번에 설명</span>
@@ -1190,7 +1221,7 @@
             </div>
           </article>
           <article class="portfolio-card" data-kind="web">
-            <img src="./assets/pawshare_landing.png" alt="서비스 랜딩페이지 예시">
+            <img src="./assets/portfolio_covers/web_05.jpg" alt="서비스 랜딩페이지 예시">
             <div class="portfolio-body">
               <strong>서비스 런칭형</strong>
               <span>가치 제안, 기능, 참여 행동을 단계적으로 정리</span>
@@ -1199,7 +1230,7 @@
             </div>
           </article>
           <article class="portfolio-card" data-kind="web">
-            <img src="./assets/vr_canada.png" alt="해외 타깃 랜딩페이지 예시">
+            <img src="./assets/portfolio_covers/web_06.jpg" alt="해외 타깃 랜딩페이지 예시">
             <div class="portfolio-body">
               <strong>글로벌 소개형</strong>
               <span>외국어 타깃 설명과 신뢰 구조를 함께 구성</span>
@@ -1207,8 +1238,8 @@
               <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation" data-featured="true">
-            <img src="./assets/portfolio_automation_main.jpg" alt="문의 자동화 에이전트 구성 예시">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_01.jpg" alt="문의 자동화 에이전트 구성 예시">
             <div class="portfolio-body">
               <strong>문의 자동화 에이전트</strong>
               <span>문의·견적·자료 요청을 AI가 먼저 정리하고 답장 초안까지 준비하는 구조</span>
@@ -1216,8 +1247,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="문의 요약·답장 초안">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation">
-            <img src="./assets/portfolio_automation_task_flow.jpg" alt="반복 문의 자동 정리 예시">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_02.jpg" alt="반복 문의 자동 정리 예시">
             <div class="portfolio-body">
               <strong>반복 문의 정리형</strong>
               <span>매일 들어오는 문의, 자료 요청, 콘텐츠 요청을 한눈에 볼 수 있게 분류</span>
@@ -1225,8 +1256,8 @@
               <a href="#choose" data-portfolio-industry="카페·식당·매장" data-portfolio-feature="문의 요약·답장 초안">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation">
-            <img src="./assets/portfolio_automation_examples.jpg" alt="자동화 예시 카드 구성">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_03.jpg" alt="자동화 예시 카드 구성">
             <div class="portfolio-body">
               <strong>견적 답장 초안형</strong>
               <span>견적 문의가 들어오면 필요한 확인 항목과 답장 문장을 먼저 준비</span>
@@ -1234,8 +1265,8 @@
               <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="예약/견적 문의폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation">
-            <img src="./assets/portfolio_automation_homepage_flow.jpg" alt="홈페이지 문의 자동화 흐름 예시">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_04.jpg" alt="홈페이지 문의 자동화 흐름 예시">
             <div class="portfolio-body">
               <strong>홈페이지 문의 연결형</strong>
               <span>광고·검색·SNS에서 들어온 문의가 폼, 정리, 알림으로 이어지는 흐름</span>
@@ -1243,8 +1274,8 @@
               <a href="#choose" data-portfolio-industry="카페·식당·매장" data-portfolio-feature="유입 채널 연결">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation">
-            <img src="./assets/portfolio_automation_portfolio.jpg" alt="홈페이지 제작 포트폴리오 자동화 예시">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_05.jpg" alt="홈페이지 제작 포트폴리오 자동화 예시">
             <div class="portfolio-body">
               <strong>포트폴리오 문의형</strong>
               <span>작업물 소개 페이지와 상담 요청을 연결해 포트폴리오가 문의로 이어지게 구성</span>
@@ -1252,8 +1283,8 @@
               <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="automation">
-            <img src="./assets/portfolio_automation_scope.jpg" alt="홈페이지 제작 범위 체크리스트 예시">
+          <article class="portfolio-card" data-kind="automation" hidden>
+            <img src="./assets/portfolio_covers/automation_06.jpg" alt="홈페이지 제작 범위 체크리스트 예시">
             <div class="portfolio-body">
               <strong>제작 범위 체크형</strong>
               <span>기획, 카피, 화면 구성, 문의폼, 운영 연결까지 필요한 범위를 먼저 나눔</span>
@@ -1261,8 +1292,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="예약/견적 문의폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video" data-featured="true">
-            <img src="./assets/portfolio_video_shortform_main.jpg" alt="AI 광고 숏폼 제작 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_01.jpg" alt="AI 광고 숏폼 제작 예시">
             <div class="portfolio-body">
               <strong>AI 광고 숏폼형</strong>
               <span>촬영 없이 빠르게 테스트할 수 있는 광고용 세로 영상 방향을 구성</span>
@@ -1270,8 +1301,8 @@
               <a href="#choose" data-portfolio-industry="카페·식당·매장" data-portfolio-feature="매장 홍보 AI 숏폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video">
-            <img src="./assets/portfolio_video_industrial_brand.jpg" alt="산업 도시 브랜드필름 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_02.jpg" alt="산업 도시 브랜드필름 예시">
             <div class="portfolio-body">
               <strong>산업·도시 브랜드필름</strong>
               <span>기업 소개, 기술 이미지, 도시·산업 무드를 영상 톤으로 정리</span>
@@ -1279,8 +1310,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="AI 기업 홍보영상">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video">
-            <img src="./assets/portfolio_video_esg_brand.jpg" alt="ESG 메시지 브랜드 영상 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_03.jpg" alt="ESG 메시지 브랜드 영상 예시">
             <div class="portfolio-body">
               <strong>ESG 메시지 영상</strong>
               <span>환경, 지속가능성, 사회적 메시지를 차분한 브랜드 영상으로 표현</span>
@@ -1288,8 +1319,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="AI 기업 홍보영상">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video">
-            <img src="./assets/portfolio_video_corporate_main.jpg" alt="AI 기업 홍보영상 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_04.jpg" alt="AI 기업 홍보영상 예시">
             <div class="portfolio-body">
               <strong>AI 기업 홍보영상</strong>
               <span>촬영이 어려운 회사 소개도 분위기, 메시지, 장면 흐름으로 영상화</span>
@@ -1297,8 +1328,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="AI 기업 홍보영상">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video">
-            <img src="./assets/portfolio_video_product_reels_ad.jpg" alt="AI 제품 릴스 광고 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_05.jpg" alt="AI 제품 릴스 광고 예시">
             <div class="portfolio-body">
               <strong>AI 제품 릴스 광고</strong>
               <span>제품 사진과 콘셉트를 바탕으로 짧은 광고 영상의 첫 인상을 설계</span>
@@ -1306,8 +1337,8 @@
               <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="매장 홍보 AI 숏폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="video">
-            <img src="./assets/portfolio_video_product_style.jpg" alt="제품 숏폼 스타일 보드 예시">
+          <article class="portfolio-card" data-kind="video" hidden>
+            <img src="./assets/portfolio_covers/video_06.jpg" alt="제품 숏폼 스타일 보드 예시">
             <div class="portfolio-body">
               <strong>제품 숏폼 스타일 보드</strong>
               <span>제품 분위기, 화면 톤, 문구 방향을 먼저 잡고 영상 제작으로 연결</span>
@@ -1315,8 +1346,8 @@
               <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="매장 홍보 AI 숏폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content" data-featured="true">
-            <img src="./assets/portfolio_content_ai_video.jpg" alt="AI 영상 활용법 카드뉴스 캐러셀 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_01.jpg" alt="AI 영상 활용법 카드뉴스 캐러셀 예시">
             <div class="portfolio-body">
               <strong>AI 영상 카드뉴스 세트</strong>
               <span>릴스·쇼츠 주제를 카드뉴스로 풀어 영상 소재와 게시물 소재를 함께 확보</span>
@@ -1324,8 +1355,8 @@
               <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="카드뉴스 제작">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content">
-            <img src="./assets/portfolio_content_product.jpg" alt="제품사진 홍보 카드뉴스 캐러셀 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_02.jpg" alt="제품사진 홍보 카드뉴스 캐러셀 예시">
             <div class="portfolio-body">
               <strong>제품사진 홍보 콘텐츠</strong>
               <span>제품·매장 사진을 설명형 콘텐츠로 재구성해 SNS 유입 소재로 활용</span>
@@ -1333,8 +1364,8 @@
               <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="인스타그램 운영관리">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content">
-            <img src="./assets/portfolio_content_review.jpg" alt="AI 작업물 검수 카드뉴스 캐러셀 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_03.jpg" alt="AI 작업물 검수 카드뉴스 캐러셀 예시">
             <div class="portfolio-body">
               <strong>AI 결과물 검수 콘텐츠</strong>
               <span>AI로 만든 결과물을 다시 점검하는 과정을 교육형 카드뉴스로 구성</span>
@@ -1342,8 +1373,8 @@
               <a href="#choose" data-portfolio-industry="강사·교육·클래스" data-portfolio-feature="AI 활용 컨설팅">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content">
-            <img src="./assets/portfolio_content_context.jpg" alt="AI 프롬프트 맥락 설명 카드뉴스 캐러셀 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_04.jpg" alt="AI 프롬프트 맥락 설명 카드뉴스 캐러셀 예시">
             <div class="portfolio-body">
               <strong>AI 활용법 캐러셀</strong>
               <span>어려운 AI 활용법을 고객이 저장하고 넘겨볼 수 있는 카드뉴스로 정리</span>
@@ -1351,8 +1382,8 @@
               <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="카드뉴스 제작">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content">
-            <img src="./assets/portfolio_content_reels_page.jpg" alt="AI 영상 포트폴리오 소개 페이지 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_05.jpg" alt="AI 영상 포트폴리오 소개 페이지 예시">
             <div class="portfolio-body">
               <strong>AI 영상 포트폴리오 페이지</strong>
               <span>완성 영상, 썸네일, 설명 문구를 한 화면에서 보여주는 소개형 구성</span>
@@ -1360,8 +1391,8 @@
               <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="카드뉴스 제작">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="content">
-            <img src="./assets/portfolio_content_request_form.jpg" alt="콘텐츠 제작 문의 구성 예시">
+          <article class="portfolio-card" data-kind="content" hidden>
+            <img src="./assets/portfolio_covers/content_06.jpg" alt="콘텐츠 제작 문의 구성 예시">
             <div class="portfolio-body">
               <strong>콘텐츠 제작 문의 구성</strong>
               <span>요청사항, 참고 링크, 원하는 톤을 정리해 제작자가 바로 이해하도록 구성</span>
@@ -1369,8 +1400,8 @@
               <a href="#choose" data-portfolio-industry="상담 후 결정(미정)" data-portfolio-feature="예약/견적 문의폼">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding" data-featured="true">
-            <img src="./assets/portfolio_wedding_ring_detail.jpg" alt="웨딩 반지 디테일 촬영 컷">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_01.jpg" alt="웨딩 반지 디테일 촬영 컷">
             <div class="portfolio-body">
               <strong>반지·손 디테일 컷</strong>
               <span>얼굴 노출 없이 반지, 손, 드레스 질감으로 감정선을 보여주는 구성</span>
@@ -1378,8 +1409,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding">
-            <img src="./assets/portfolio_wedding_flower_detail.jpg" alt="웨딩 플라워 디테일 촬영 컷">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_02.jpg" alt="웨딩 플라워 디테일 촬영 컷">
             <div class="portfolio-body">
               <strong>플라워 무드 컷</strong>
               <span>작은 소품을 클로즈업해 쇼츠, 릴스 첫 장면에 쓰기 좋은 감성 컷</span>
@@ -1387,8 +1418,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding">
-            <img src="./assets/portfolio_wedding_studio_mood.jpg" alt="웨딩 스튜디오 무드 촬영 컷">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_03.jpg" alt="웨딩 스튜디오 무드 촬영 컷">
             <div class="portfolio-body">
               <strong>실내 스튜디오 무드</strong>
               <span>공간 분위기, 드레스 라인, 조명 톤을 함께 보여주는 영상용 와이드 컷</span>
@@ -1396,8 +1427,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding">
-            <img src="./assets/portfolio_wedding_bouquet_lens.jpg" alt="웨딩 부케와 촬영 렌즈 디테일 컷">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_04.jpg" alt="웨딩 부케와 촬영 렌즈 디테일 컷">
             <div class="portfolio-body">
               <strong>부케·렌즈 준비 컷</strong>
               <span>얼굴 노출 없이 촬영 준비 분위기와 고급스러운 웨딩 무드를 전달</span>
@@ -1405,8 +1436,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding">
-            <img src="./assets/portfolio_wedding_beach_privacy.jpg" alt="웨딩 해변 무드 촬영 컷">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_05.jpg" alt="웨딩 해변 무드 촬영 컷">
             <div class="portfolio-body">
               <strong>해변 무드 하이라이트</strong>
               <span>인물보다 동작과 배경을 중심으로 잡아 웨딩 영상의 장면감을 강조</span>
@@ -1414,8 +1445,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="wedding">
-            <img src="./assets/portfolio_wedding_detail_sixcut.jpg" alt="웨딩 디테일과 실루엣 6컷 구성">
+          <article class="portfolio-card" data-kind="wedding" hidden>
+            <img src="./assets/portfolio_covers/wedding_06.jpg" alt="웨딩 디테일과 실루엣 6컷 구성">
             <div class="portfolio-body">
               <strong>디테일·실루엣 6컷 구성</strong>
               <span>귀걸이, 부케, 드레스 움직임처럼 얼굴 노출 부담을 낮춘 컷을 묶어 제안</span>
@@ -1423,8 +1454,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone" data-featured="true">
-            <img src="./assets/portfolio_drone_wedding_wide.jpg" alt="웨딩 드론 와이드 항공촬영 컷">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_01.jpg" alt="웨딩 드론 와이드 항공촬영 컷">
             <div class="portfolio-body">
               <strong>웨딩 드론 와이드 컷</strong>
               <span>해변, 드레스 라인, 주변 배경을 넓게 잡아 영상 오프닝에 쓰기 좋은 컷</span>
@@ -1432,8 +1463,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone">
-            <img src="./assets/portfolio_drone_coastal_overview.jpg" alt="해안 전경 항공촬영 컷">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_02.jpg" alt="해안 전경 항공촬영 컷">
             <div class="portfolio-body">
               <strong>해안 전경 항공촬영</strong>
               <span>바다, 해변, 주변 동선을 한눈에 보여주는 관광·행사 홍보용 전경</span>
@@ -1441,8 +1472,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone">
-            <img src="./assets/portfolio_drone_resort_facility.jpg" alt="리조트 시설 항공촬영 컷">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_03.jpg" alt="리조트 시설 항공촬영 컷">
             <div class="portfolio-body">
               <strong>리조트·시설 소개 컷</strong>
               <span>건물 규모, 바다 조망, 주변 환경을 함께 보여주는 숙소·시설 홍보 컷</span>
@@ -1450,8 +1481,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone">
-            <img src="./assets/portfolio_drone_village_overview.jpg" alt="마을과 해안 전경 항공촬영 컷">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_04.jpg" alt="마을과 해안 전경 항공촬영 컷">
             <div class="portfolio-body">
               <strong>마을·상권 전경 컷</strong>
               <span>숙소, 상권, 마을, 주변 자연환경을 한 화면에 담는 넓은 항공 구도</span>
@@ -1459,8 +1490,8 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone">
-            <img src="./assets/portfolio_drone_facility_route.jpg" alt="시설 동선 점검 항공촬영 컷">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_05.jpg" alt="시설 동선 점검 항공촬영 컷">
             <div class="portfolio-body">
               <strong>시설 동선 점검 컷</strong>
               <span>주차장, 진입로, 건물 배치를 한눈에 보여줘야 하는 시설 홍보에 적합</span>
@@ -1468,12 +1499,12 @@
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
-          <article class="portfolio-card" data-kind="drone">
-            <img src="./assets/portfolio_drone_grid_supplement.jpg" alt="목적별 드론 포트폴리오 그리드">
+          <article class="portfolio-card" data-kind="drone" hidden>
+            <img src="./assets/portfolio_covers/drone_06.jpg" alt="야간 외관 항공촬영 컷">
             <div class="portfolio-body">
-              <strong>목적별 드론 포트폴리오</strong>
-              <span>숙소, 시설, 관광지, 자연 공간처럼 목적별 촬영 구도를 비교해 제안</span>
-              <div class="portfolio-meta"><span>드론 촬영</span><span>포트폴리오</span></div>
+              <strong>야간 외관 항공촬영</strong>
+              <span>조명, 건물 외관, 주변 분위기를 저녁 시간대 항공 컷으로 보여주는 구성</span>
+              <div class="portfolio-meta"><span>드론 촬영</span><span>야간 외관</span></div>
               <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
             </div>
           </article>
@@ -1735,41 +1766,30 @@
 
     const portfolioHint = document.getElementById("portfolioHint");
     const portfolioHintText = {
-      all: "대표 샘플 6장만 먼저 보여드립니다. 탭을 누르면 서비스별 6장 전체를 볼 수 있습니다.",
       web: "홈페이지 제작 예시 6장입니다. 원하는 화면 방향을 고르면 상담 요약에 반영됩니다.",
       automation: "문의 자동화와 답장 초안 흐름을 보여주는 예시 6장입니다.",
       video: "AI 숏폼과 기업 홍보영상 방향을 비교할 수 있는 예시 6장입니다.",
       content: "카드뉴스, 릴스, SNS 콘텐츠 운영에 쓸 수 있는 예시 6장입니다.",
       wedding: "인물 노출 부담을 낮춘 웨딩 영상·스냅 예시 6장입니다.",
-      drone: "시설, 숙소, 행사, 자연 공간에 쓸 수 있는 드론 촬영 예시 6장입니다."
-    };
-    const portfolioCtaText = {
-      web: "홈페이지 상담하기",
-      automation: "자동화 구축 상담하기",
-      video: "AI 영상 상담하기",
-      content: "콘텐츠 제작 상담하기",
-      wedding: "웨딩 촬영 상담하기",
-      drone: "드론 촬영 상담하기"
+      drone: "시설, 숙소, 야간 외관까지 목적별 드론 촬영 예시 6장입니다."
     };
 
     document.querySelectorAll(".portfolio-card").forEach(card => {
       const link = card.querySelector("a");
-      if (link) link.textContent = portfolioCtaText[card.dataset.kind] || "상담하기";
+      if (link) link.textContent = "내 프로젝트 문의하기";
     });
 
     function applyPortfolioFilter(filter) {
       const activeButton = document.querySelector(`.portfolio-filter[data-filter="${filter}"]`)
-        || document.querySelector('.portfolio-filter[data-filter="all"]');
+        || document.querySelector('.portfolio-filter[data-filter="web"]');
       const activeFilter = activeButton.dataset.filter;
       document.querySelectorAll(".portfolio-filter").forEach(item => {
         item.classList.toggle("active", item === activeButton);
       });
       document.querySelectorAll(".portfolio-card").forEach(card => {
-        card.hidden = activeFilter === "all"
-          ? card.dataset.featured !== "true"
-          : card.dataset.kind !== activeFilter;
+        card.hidden = card.dataset.kind !== activeFilter;
       });
-      portfolioHint.textContent = portfolioHintText[activeFilter] || portfolioHintText.all;
+      portfolioHint.textContent = portfolioHintText[activeFilter] || portfolioHintText.web;
     }
 
     document.querySelectorAll(".portfolio-filter").forEach(button => {
@@ -1815,7 +1835,7 @@
     });
 
     updateSummary();
-    applyPortfolioFilter("all");
+    applyPortfolioFilter("web");
   </script>
 </body>
 </html>
