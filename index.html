@@ -585,7 +585,7 @@
     }
     .deliverable:last-child { border-bottom: 0; }
     .deliverable .num { margin-top: 2px; }
-    .price-note {
+    .bundle-note {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
@@ -631,43 +631,6 @@
     .shortform-check:last-child { border-bottom: 0; }
     .shortform-check strong { display: block; color: #fff; margin-bottom: 4px; }
     .shortform-check span { color: rgba(255,255,255,.68); font-size: 14px; }
-    .shortform-pricing {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
-    }
-    .price-tile {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      padding: 22px;
-    }
-    .price-tile.featured {
-      border-color: rgba(12,143,106,.42);
-      box-shadow: 0 14px 32px rgba(12,143,106,.14);
-    }
-    .price-label {
-      display: inline-flex;
-      min-height: 26px;
-      align-items: center;
-      border-radius: 999px;
-      padding: 4px 9px;
-      background: rgba(12,143,106,.08);
-      color: var(--green-dark);
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-    .price-amount {
-      display: block;
-      margin: 8px 0;
-      color: var(--ink);
-      font-size: 30px;
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
     .shortform-note {
       margin-top: 14px;
       color: var(--muted);
@@ -739,10 +702,10 @@
     .sticky-cta span { color: rgba(255,255,255,.66); font-size: 12px; }
     .sticky-cta .btn { min-height: 40px; padding: 9px 14px; }
     @media (max-width: 980px) {
-      .hero-grid, .picker-layout, .agent-demo, .contact-grid, .price-note, .shortform-hero { grid-template-columns: 1fr; }
+      .hero-grid, .picker-layout, .agent-demo, .contact-grid, .bundle-note, .shortform-hero { grid-template-columns: 1fr; }
       .hero-visual { min-height: 600px; }
       .summary { position: static; }
-      .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2, .shortform-pricing { grid-template-columns: 1fr 1fr; }
+      .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: 1fr 1fr; }
       .time-step:nth-child(2) { border-right: 0; }
       .time-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -804,7 +767,7 @@
       .proof-row { margin-top: 24px; }
       .proof { padding: 14px; border-right: 0; border-bottom: 1px solid var(--line); }
       .proof:last-child { border-bottom: 0; }
-      .proof-row, .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2, .timeline, .shortform-pricing { grid-template-columns: 1fr; }
+      .proof-row, .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
       .time-step { border-right: 0; border-bottom: 1px solid var(--line); }
       .time-step:last-child { border-bottom: 0; }
       .hero-visual { min-height: 430px; margin-top: 26px; }
@@ -877,7 +840,7 @@
             <a class="btn btn-primary" href="#choose">내 업종에 맞는 구성 고르기</a>
             <a class="btn btn-ghost" href="#portfolio">제작 화면 예시 보기</a>
           </div>
-          <p class="small">상담 후 제작 범위, 일정, 비용을 명확하게 적어드립니다.</p>
+          <p class="small">상담 후 제작 범위, 일정, 진행 순서를 명확하게 적어드립니다.</p>
           <div class="proof-row">
             <div class="proof"><span class="proof-index">01 / 선택</span><strong>서비스 선택</strong><span>홈페이지·AI숏폼·촬영·컨설팅</span></div>
             <div class="proof"><span class="proof-index">02 / 상담</span><strong>제작 범위 정리</strong><span>일정·예산·필요 결과물 확인</span></div>
@@ -991,27 +954,21 @@
           </div>
         </div>
 
-        <div class="shortform-pricing" aria-label="AI 숏폼 제작 요금 예시">
-          <article class="price-tile">
-            <span class="price-label">가볍게 시작</span>
-            <h3>단품</h3>
-            <strong class="price-amount">69,000원</strong>
-            <p class="small">숏폼 1편 기준. 첫 홍보 영상이나 이벤트 안내에 적합합니다.</p>
+        <div class="grid-3" style="margin-top: 24px;">
+          <article class="card">
+            <h3>첫 홍보 영상</h3>
+            <p class="small">이벤트, 신메뉴, 신규 오픈처럼 바로 보여줄 소재가 필요할 때 적합합니다.</p>
           </article>
-          <article class="price-tile featured">
-            <span class="price-label">추천</span>
-            <h3>패키지 3편</h3>
-            <strong class="price-amount">169,000원</strong>
-            <p class="small">서로 다른 콘셉트로 테스트하고 싶은 매장에 맞는 구성입니다.</p>
+          <article class="card">
+            <h3>콘셉트 테스트</h3>
+            <p class="small">서로 다른 분위기의 시안을 비교하며 우리 매장에 맞는 톤을 찾습니다.</p>
           </article>
-          <article class="price-tile">
-            <span class="price-label">꾸준한 업로드</span>
-            <h3>정기 월 8편</h3>
-            <strong class="price-amount">399,000원</strong>
-            <p class="small">매주 2편 정도의 릴스·쇼츠 소재가 필요한 운영형 구성입니다.</p>
+          <article class="card">
+            <h3>정기 업로드</h3>
+            <p class="small">릴스·쇼츠를 꾸준히 올리고 싶은 경우 월 운영 흐름까지 함께 정리합니다.</p>
           </article>
         </div>
-        <p class="shortform-note">요금은 워터마크 없는 최종 납품본 기준 예시입니다. 촬영, 긴 영상 편집, 대량 운영이 함께 들어가면 상담 후 견적을 나눠 안내합니다.</p>
+        <p class="shortform-note">촬영, 긴 영상 편집, 대량 운영이 함께 들어가면 상담 후 작업 범위를 나눠 안내합니다.</p>
       </div>
     </section>
 
@@ -1172,7 +1129,7 @@
             <p class="small">홈페이지 메시지와 매장 사진을 인스타그램, 유튜브 쇼츠, 카드뉴스 문구로 재가공해 유입 콘텐츠로 확장합니다.</p>
           </article>
         </div>
-        <div class="price-note">
+        <div class="bundle-note">
           <article class="card dark">
             <h3>한 견적에서 연결되는 흐름</h3>
             <p>홈페이지 제작, 문의폼, 문의 요약, 답장 초안, 카드뉴스, 매장 홍보 AI 숏폼, SNS 게시물 방향까지 실제 작업 범위를 나눠 적어드립니다.</p>
@@ -1185,7 +1142,7 @@
         <div class="grid-3" style="margin-top: 18px;">
           <article class="card">
             <h3>상담과 견적은 무료입니다</h3>
-            <p class="small">제작·운영 비용은 상담 후 필요한 범위에 맞춰 따로 안내드립니다.</p>
+            <p class="small">제작·운영 범위는 상담 후 필요한 항목에 맞춰 따로 안내드립니다.</p>
           </article>
           <article class="card">
             <h3>자동화는 검토 가능한 구조로</h3>
