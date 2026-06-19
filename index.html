@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <title>홈페이지 제작부터 문의 요약·답장 초안까지 | Video Roastery</title>
-  <meta name="description" content="동네 사장님·1인 사업자를 위한 홈페이지 제작. 문의 접수부터 내용 요약, 답장 초안, 영상·카드뉴스·SNS 운영 방향까지 한 견적으로 설계합니다.">
+  <title>홈페이지·AI영상·웨딩·드론 제작 상담 | Video Roastery</title>
+  <meta name="description" content="홈페이지 문의자동화, AI 광고 영상, 제주 웨딩스냅 영상, 드론 항공촬영, AI 활용 컨설팅까지 필요한 제작 범위를 상담합니다.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="홈페이지 제작부터 문의 요약·답장 초안까지">
-  <meta property="og:description" content="시안과 기능을 고르면 홈페이지 제작, 문의폼, 문의 요약, 답장 초안, 홍보 콘텐츠까지 한 번에 상담받을 수 있습니다.">
+  <meta property="og:title" content="홈페이지·AI영상·웨딩·드론 제작 상담">
+  <meta property="og:description" content="홈페이지 문의자동화, AI 영상, 제주 웨딩, 드론 촬영, AI 컨설팅까지 원하는 서비스를 골라 상담받을 수 있습니다.">
   <meta property="og:image" content="./assets/ai_service_landing.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -325,6 +325,56 @@
       margin-bottom: 34px;
     }
     .section-head .lead { margin-bottom: 0; }
+    .service-menu {
+      padding-top: clamp(48px, 7vw, 84px);
+      padding-bottom: clamp(48px, 7vw, 84px);
+      background: #fff;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .service-card {
+      position: relative;
+      min-height: 212px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff, #f9fbfb);
+      padding: 24px;
+      overflow: hidden;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(12, 143, 106, .38);
+      box-shadow: 0 16px 34px rgba(23, 37, 63, .1);
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--blue), var(--orange));
+    }
+    .service-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(12, 143, 106, .08);
+      color: var(--green-dark);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .service-card h3 { margin-bottom: 10px; }
+    .service-card p { color: var(--muted); margin-bottom: 18px; font-size: 14px; }
+    .service-card a { color: var(--green-dark); font-weight: 800; font-size: 14px; }
     .picker-layout {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 340px;
@@ -584,7 +634,7 @@
       .hero-grid, .picker-layout, .agent-demo, .contact-grid, .price-note { grid-template-columns: 1fr; }
       .hero-visual { min-height: 600px; }
       .summary { position: static; }
-      .option-grid, .portfolio-grid, .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; }
+      .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: 1fr 1fr; }
       .time-step:nth-child(2) { border-right: 0; }
       .time-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -592,7 +642,7 @@
     @media (max-width: 680px) {
       .nav-links { display: none; }
       .hero-actions .btn { width: 100%; }
-      .proof-row, .option-grid, .portfolio-grid, .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
+      .proof-row, .option-grid, .portfolio-grid, .service-grid, .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
       .time-step { border-right: 0; border-bottom: 1px solid var(--line); }
       .time-step:last-child { border-bottom: 0; }
       .hero-visual { min-height: 500px; }
@@ -616,6 +666,7 @@
     <div class="nav-inner">
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>Video Roastery</a>
       <div class="nav-links">
+        <a href="#services">서비스</a>
         <a href="#choose">시안 선택</a>
         <a href="#portfolio">포트폴리오</a>
         <a href="#agent">문의 요약</a>
@@ -629,18 +680,18 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="hero-note">설계형 홈페이지·문의 시스템</div>
-          <h1><span class="line">홈페이지 제작부터</span><span class="line accent">문의 요약·답장 초안까지</span></h1>
-          <p class="lead">고객이 보는 첫 화면부터 문의 접수, 내용 요약, 답장 초안까지 함께 설계합니다. 시안, 문의폼, 카드뉴스·SNS 콘텐츠 방향을 한 견적 안에서 정리합니다.</p>
+          <div class="hero-note">홈페이지·AI영상·촬영 제작 상담</div>
+          <h1><span class="line">홈페이지·영상·촬영까지</span><span class="line accent">문의로 이어지게</span></h1>
+          <p class="lead">홈페이지 문의자동화, AI 광고 영상, 제주 웨딩스냅, 드론 촬영, AI 활용 컨설팅까지 필요한 제작 범위를 고르고 상담으로 이어지게 설계합니다.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#choose">내 업종에 맞는 구성 고르기</a>
             <a class="btn btn-ghost" href="#portfolio">제작 화면 예시 보기</a>
           </div>
           <p class="small">상담 후 제작 범위, 일정, 비용을 명확하게 적어드립니다.</p>
           <div class="proof-row">
-            <div class="proof"><span class="proof-index">01 / 화면</span><strong>홈페이지 제작</strong><span>첫 화면·서비스 설명·문의 버튼</span></div>
-            <div class="proof"><span class="proof-index">02 / 흐름</span><strong>문의 요약·답장 초안</strong><span>요청사항·일정·예산·확인할 것 정리</span></div>
-            <div class="proof"><span class="proof-index">03 / 유입</span><strong>콘텐츠 확장</strong><span>영상·카드뉴스·SNS 운영 방향</span></div>
+            <div class="proof"><span class="proof-index">01 / 선택</span><strong>서비스 선택</strong><span>홈페이지·영상·웨딩·드론·컨설팅</span></div>
+            <div class="proof"><span class="proof-index">02 / 상담</span><strong>제작 범위 정리</strong><span>일정·예산·필요 결과물 확인</span></div>
+            <div class="proof"><span class="proof-index">03 / 문의</span><strong>상담 동선 연결</strong><span>문의폼·요약·답장 초안 구성</span></div>
           </div>
         </div>
         <div class="hero-visual" aria-label="홈페이지 제작과 문의 요약 흐름 미리보기">
@@ -667,6 +718,56 @@
               <span>문의 내용 · 희망 일정 · 예산 · 답장 초안</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="service-menu">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">service menu</p>
+            <h2>지금 필요한 제작부터 고르세요.</h2>
+          </div>
+          <p class="lead">홈페이지 제작, AI 영상, 제주 웨딩, 드론 촬영, AI 컨설팅까지 현재 바로 상담 가능한 서비스만 정리했습니다.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-tag">WEB + INQUIRY</span>
+            <h3>홈페이지 문의자동화</h3>
+            <p>시안 선택, 모바일 홈페이지, 문의폼, 문의 요약, 답장 초안, SNS 홍보 흐름까지 연결합니다.</p>
+            <a href="#choose">구성 고르기</a>
+          </article>
+          <article class="service-card">
+            <span class="service-tag">WEDDING</span>
+            <h3>제주 웨딩스냅·영상</h3>
+            <p>제주 스몰웨딩, 야외 예식, 본식 전후 스냅과 하이라이트 영상을 상담합니다.</p>
+            <a href="#contact">웨딩 상담하기</a>
+          </article>
+          <article class="service-card">
+            <span class="service-tag">DRONE</span>
+            <h3>제주 드론 항공촬영</h3>
+            <p>숙소, 건물, 관광지, 농장·시설 홍보에 필요한 항공 사진과 영상을 촬영합니다.</p>
+            <a href="#contact">드론 상담하기</a>
+          </article>
+          <article class="service-card">
+            <span class="service-tag">AI SHORTS</span>
+            <h3>AI 광고 숏폼영상</h3>
+            <p>서비스 소개, 이벤트, 브랜드 무드를 짧은 광고 영상으로 빠르게 구성합니다.</p>
+            <a href="#contact">영상 상담하기</a>
+          </article>
+          <article class="service-card">
+            <span class="service-tag">BRAND FILM</span>
+            <h3>AI 기업 홍보영상</h3>
+            <p>회사 소개, 제품 설명, 브랜드필름 방향을 AI 영상 제작 흐름에 맞게 설계합니다.</p>
+            <a href="#contact">기업영상 상담하기</a>
+          </article>
+          <article class="service-card">
+            <span class="service-tag">AI CONSULTING</span>
+            <h3>AI 활용 컨설팅</h3>
+            <p>반복 업무, 콘텐츠 제작, 마케팅 운영에 AI를 어떻게 붙일지 현실적인 실행 순서를 잡습니다.</p>
+            <a href="#contact">컨설팅 상담하기</a>
+          </article>
         </div>
       </div>
     </section>
@@ -714,6 +815,7 @@
                 <button class="choice" data-value="뷰티·상담·병원"><strong>뷰티·상담·병원</strong><span>신뢰, 전후 과정, 상담 예약 중심</span></button>
                 <button class="choice" data-value="공방·브랜드·제품"><strong>공방·브랜드·제품</strong><span>상품 스토리, 구매 문의 중심</span></button>
                 <button class="choice" data-value="프리랜서·포트폴리오"><strong>프리랜서·포트폴리오</strong><span>작업물, 소개, 프로젝트 문의 중심</span></button>
+                <button class="choice" data-value="웨딩·촬영·드론"><strong>웨딩·촬영·드론</strong><span>촬영 상품, 포트폴리오, 예약 문의 중심</span></button>
                 <button class="choice" data-value="상담 후 결정(미정)"><strong>상담 후 결정</strong><span>업종 진단부터 같이 정리</span></button>
               </div>
             </div>
@@ -739,6 +841,9 @@
                 <button class="feature-chip active" data-value="문의 요약·답장 초안">문의 요약·답장 초안</button>
                 <button class="feature-chip" data-value="예약/견적 문의폼">예약/견적 문의폼</button>
                 <button class="feature-chip" data-value="홍보 영상 제작">홍보 영상 제작</button>
+                <button class="feature-chip" data-value="웨딩스냅·영상 촬영">웨딩스냅·영상 촬영</button>
+                <button class="feature-chip" data-value="드론 항공촬영">드론 항공촬영</button>
+                <button class="feature-chip" data-value="AI 활용 컨설팅">AI 활용 컨설팅</button>
                 <button class="feature-chip" data-value="카드뉴스 제작">카드뉴스 제작</button>
                 <button class="feature-chip" data-value="인스타그램 운영관리">인스타그램 운영관리</button>
                 <button class="feature-chip" data-value="유튜브 쇼츠 운영관리">유튜브 쇼츠 운영관리</button>
@@ -940,8 +1045,8 @@
     <section id="contact" class="final-cta">
       <div class="wrap">
         <p class="eyebrow" style="color: var(--yellow);">start here</p>
-        <h2>내 업종에 맞는 홈페이지와 문의 요약·답장 초안 견적을 받아보세요.</h2>
-        <p class="lead">아래 버튼을 누르면 선택한 업종, 시안, 기능이 메일 본문에 자동으로 들어갑니다. 연락처와 현재 운영 중인 채널 링크를 추가해서 보내주세요.</p>
+        <h2>필요한 제작 범위를 골라 상담 견적을 받아보세요.</h2>
+        <p class="lead">홈페이지, AI 영상, 웨딩, 드론, 컨설팅 중 필요한 항목을 적어 보내주세요. 연락처와 현재 운영 중인 채널 링크를 추가하면 더 빠르게 범위를 정리할 수 있습니다.</p>
         <div class="hero-actions" style="justify-content: center;">
           <a id="finalMailLink" class="btn btn-primary" href="mailto:kiwee1223@gmail.com">선택한 구성으로 상담 메일 열기</a>
           <a class="btn btn-ghost" style="background: #fff;" href="#choose">시안 다시 고르기</a>
@@ -992,7 +1097,7 @@
 
     function buildSummary() {
       return [
-        "안녕하세요. 홈페이지 제작과 문의 자동화 상담 문의드립니다.",
+        "안녕하세요. 제작 상담 문의드립니다.",
         "",
         "[선택한 구성]",
         `업종: ${state.industry}`,
@@ -1008,7 +1113,7 @@
         "[확인하고 싶은 내용]",
         "- 홈페이지/랜딩페이지 제작 범위",
         "- 문의 접수/요약/답장 초안 구성",
-        "- 영상, 카드뉴스, 인스타그램, 유튜브 운영관리 포함 견적"
+        "- AI 영상, 웨딩, 드론, 카드뉴스, SNS 운영 포함 견적"
       ].join("\n");
     }
 
@@ -1018,7 +1123,7 @@
       summaryCount.textContent = `${state.features.length}개 선택`;
       const body = buildSummary();
       summaryText.value = body;
-      const subject = encodeURIComponent(`[홈페이지 상담] ${state.industry} / ${state.style}`);
+      const subject = encodeURIComponent(`[제작 상담] ${state.industry} / ${state.style}`);
       const encodedBody = encodeURIComponent(body);
       const href = `mailto:kiwee1223@gmail.com?subject=${subject}&body=${encodedBody}`;
       mailLink.href = href;
