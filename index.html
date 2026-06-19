@@ -112,6 +112,7 @@
     }
     .nav-inner {
       max-width: var(--max);
+      width: 100%;
       height: 68px;
       margin: 0 auto;
       padding: 0 20px;
@@ -128,6 +129,7 @@
       font-weight: 800;
       letter-spacing: 0;
       min-width: 0;
+      white-space: nowrap;
     }
     .brand-mark {
       display: block;
@@ -523,12 +525,37 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
+    .portfolio-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -8px 0 24px;
+    }
+    .portfolio-filter {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 14px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .portfolio-filter.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
     .portfolio-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
       background: #fff;
     }
+    .portfolio-card[hidden] { display: none; }
     .portfolio-card img {
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -538,9 +565,32 @@
       border-bottom: 1px solid var(--line);
       filter: saturate(.92);
     }
-    .portfolio-card div { padding: 16px; }
-    .portfolio-card strong { display: block; margin-bottom: 4px; }
-    .portfolio-card span { color: var(--muted); font-size: 13px; }
+    .portfolio-body { padding: 16px; }
+    .portfolio-card strong { display: block; margin-bottom: 6px; }
+    .portfolio-card span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .portfolio-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 13px;
+    }
+    .portfolio-meta span {
+      border: 1px solid rgba(12,143,106,.18);
+      border-radius: 999px;
+      background: rgba(12,143,106,.08);
+      color: var(--green-dark);
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .portfolio-card a {
+      display: inline-flex;
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+    }
     .timeline {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -718,10 +768,14 @@
         padding: 0 14px;
         gap: 10px;
       }
+      .nav-links { display: none; }
       section[id] { scroll-margin-top: 66px; }
       .brand {
+        flex: 1 1 auto;
         gap: 8px;
         font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .brand-mark {
         width: 28px;
@@ -749,6 +803,12 @@
       .lead {
         font-size: 16px;
         line-height: 1.7;
+        word-break: normal;
+        overflow-wrap: anywhere;
+      }
+      .small, .portfolio-card span, .choice span, .feature-chip {
+        word-break: normal;
+        overflow-wrap: anywhere;
       }
       .hero-actions {
         margin: 24px 0 14px;
@@ -1073,35 +1133,107 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">real screens</p>
-            <h2>말로만 설명하지 않고, 화면 예시를 보고 고르게 합니다.</h2>
+            <p class="eyebrow">portfolio picker</p>
+            <h2>업종별 시안과 실제 작업 컷을 보고 고르세요.</h2>
           </div>
-          <p class="lead">보유한 홈페이지·앱·랜딩 제작 화면입니다. 첫 화면 구조와 상담 동선을 어떻게 잡는지 중심으로 보여드립니다.</p>
+          <p class="lead">홈페이지 화면 6개에 웨딩·드론 작업 컷을 더했습니다. 마음에 드는 방향을 누르면 상담 요청 내용에 바로 반영됩니다.</p>
+        </div>
+        <div class="portfolio-toolbar" aria-label="포트폴리오 필터">
+          <button class="portfolio-filter active" type="button" data-filter="all">전체</button>
+          <button class="portfolio-filter" type="button" data-filter="web">홈페이지</button>
+          <button class="portfolio-filter" type="button" data-filter="wedding">웨딩</button>
+          <button class="portfolio-filter" type="button" data-filter="drone">드론</button>
         </div>
         <div class="portfolio-grid">
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/regional_brand_landing.png" alt="지역 브랜드 홍보 홈페이지 예시">
-            <div><strong>지역 브랜드 홍보형</strong><span>첫 화면에서 브랜드 메시지와 상담 CTA를 선명하게 구성</span></div>
+            <div class="portfolio-body">
+              <strong>지역 브랜드 홍보형</strong>
+              <span>첫 화면에서 브랜드 메시지와 상담 CTA를 선명하게 구성</span>
+              <div class="portfolio-meta"><span>홈페이지</span><span>문의 CTA</span></div>
+              <a href="#choose" data-portfolio-industry="카페·식당·매장" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
+            </div>
           </article>
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/ai_service_landing.png" alt="AI 서비스 랜딩페이지 예시">
-            <div><strong>AI 서비스 랜딩형</strong><span>서비스 설명, 기능, 신청 버튼을 빠르게 이해하도록 정리</span></div>
+            <div class="portfolio-body">
+              <strong>AI 서비스 랜딩형</strong>
+              <span>서비스 설명, 기능, 신청 버튼을 빠르게 이해하도록 정리</span>
+              <div class="portfolio-meta"><span>홈페이지</span><span>AI 상담</span></div>
+              <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="AI 활용 컨설팅">이 스타일로 상담하기</a>
+            </div>
           </article>
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/vibecoding_3.png" alt="시네마틱 크림 스타일 홈페이지 예시">
-            <div><strong>미니멀 시네마틱형</strong><span>고급스러운 톤과 서비스 설명을 균형 있게 구성</span></div>
+            <div class="portfolio-body">
+              <strong>강사·클래스 모집형</strong>
+              <span>강사 소개, 커리큘럼, 신청 흐름을 한 화면에서 이해하도록 구성</span>
+              <div class="portfolio-meta"><span>홈페이지</span><span>신청 유도</span></div>
+              <a href="#choose" data-portfolio-industry="강사·교육·클래스" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
+            </div>
           </article>
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/videoroastery.png" alt="Video Roastery 홈페이지 예시">
-            <div><strong>브랜드 스튜디오형</strong><span>서비스 철학과 상담 CTA를 중심으로 설계</span></div>
+            <div class="portfolio-body">
+              <strong>브랜드 스튜디오형</strong>
+              <span>서비스 철학, 작업물, 상담 버튼을 자연스럽게 이어주는 구성</span>
+              <div class="portfolio-meta"><span>브랜딩</span><span>영상 홍보</span></div>
+              <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="매장 홍보 AI 숏폼">이 스타일로 상담하기</a>
+            </div>
           </article>
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/pawshare_landing.png" alt="서비스 랜딩페이지 예시">
-            <div><strong>서비스 런칭형</strong><span>가치 제안, 기능, 참여 행동을 단계적으로 정리</span></div>
+            <div class="portfolio-body">
+              <strong>서비스 런칭형</strong>
+              <span>가치 제안, 기능, 참여 행동을 단계적으로 정리</span>
+              <div class="portfolio-meta"><span>런칭 페이지</span><span>서비스 소개</span></div>
+              <a href="#choose" data-portfolio-industry="공방·브랜드·제품" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
+            </div>
           </article>
-          <article class="portfolio-card">
+          <article class="portfolio-card" data-kind="web">
             <img src="./assets/vr_canada.png" alt="해외 타깃 랜딩페이지 예시">
-            <div><strong>글로벌 소개형</strong><span>외국어 타깃 설명과 신뢰 구조를 함께 구성</span></div>
+            <div class="portfolio-body">
+              <strong>글로벌 소개형</strong>
+              <span>외국어 타깃 설명과 신뢰 구조를 함께 구성</span>
+              <div class="portfolio-meta"><span>다국어 소개</span><span>신뢰 설계</span></div>
+              <a href="#choose" data-portfolio-industry="프리랜서·포트폴리오" data-portfolio-feature="홈페이지/랜딩페이지 제작">이 스타일로 상담하기</a>
+            </div>
+          </article>
+          <article class="portfolio-card" data-kind="wedding">
+            <img src="./assets/portfolio_wedding_ring_detail.jpg" alt="웨딩 반지 디테일 촬영 컷">
+            <div class="portfolio-body">
+              <strong>웨딩 디테일 영상 컷</strong>
+              <span>반지, 손, 부케처럼 얼굴 노출 없이 분위기를 보여주는 디테일 구성</span>
+              <div class="portfolio-meta"><span>웨딩 촬영</span><span>프라이버시</span></div>
+              <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
+            </div>
+          </article>
+          <article class="portfolio-card" data-kind="wedding">
+            <img src="./assets/portfolio_wedding_flower_detail.jpg" alt="웨딩 플라워 디테일 촬영 컷">
+            <div class="portfolio-body">
+              <strong>웨딩 무드 숏폼 컷</strong>
+              <span>드레스와 소품 중심으로 감성적인 하이라이트 장면 구성</span>
+              <div class="portfolio-meta"><span>웨딩 영상</span><span>숏폼</span></div>
+              <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="웨딩스냅·영상 촬영">이 스타일로 상담하기</a>
+            </div>
+          </article>
+          <article class="portfolio-card" data-kind="drone">
+            <img src="./assets/portfolio_drone_coastal_aerial.jpg" alt="공간 전경 항공촬영 컷">
+            <div class="portfolio-body">
+              <strong>공간 전경 항공촬영</strong>
+              <span>건물·마을·주변 환경을 한눈에 보여주는 홍보용 전경 컷</span>
+              <div class="portfolio-meta"><span>드론 촬영</span><span>시설 홍보</span></div>
+              <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
+            </div>
+          </article>
+          <article class="portfolio-card" data-kind="drone">
+            <img src="./assets/portfolio_drone_village_aerial.jpg" alt="시설과 관광지 홍보 항공촬영 컷">
+            <div class="portfolio-body">
+              <strong>시설·관광지 홍보 컷</strong>
+              <span>숙소, 시설, 관광지 소개에 쓸 수 있는 넓은 항공 구도</span>
+              <div class="portfolio-meta"><span>드론 촬영</span><span>홍보 이미지</span></div>
+              <a href="#choose" data-portfolio-industry="웨딩·촬영·드론" data-portfolio-feature="드론 항공촬영">이 스타일로 상담하기</a>
+            </div>
           </article>
         </div>
       </div>
@@ -1357,6 +1489,40 @@
       }
       copyStatus.textContent = "";
       updateSummary();
+    });
+
+    document.querySelectorAll(".portfolio-filter").forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll(".portfolio-filter").forEach(item => {
+          item.classList.toggle("active", item === button);
+        });
+        document.querySelectorAll(".portfolio-card").forEach(card => {
+          card.hidden = filter !== "all" && card.dataset.kind !== filter;
+        });
+      });
+    });
+
+    document.querySelectorAll("[data-portfolio-industry]").forEach(link => {
+      link.addEventListener("click", () => {
+        const industry = link.dataset.portfolioIndustry;
+        const feature = link.dataset.portfolioFeature;
+        const industryButton = Array.from(document.querySelectorAll('[data-group="industry"] .choice'))
+          .find(item => item.dataset.value === industry);
+        if (industryButton) {
+          document.querySelectorAll('[data-group="industry"] .choice').forEach(item => item.classList.remove("active"));
+          industryButton.classList.add("active");
+          state.industry = industry;
+        }
+        const featureButton = Array.from(document.querySelectorAll(".feature-chip"))
+          .find(item => item.dataset.value === feature);
+        if (featureButton && !featureButton.classList.contains("active")) {
+          featureButton.classList.add("active");
+          state.features = Array.from(document.querySelectorAll(".feature-chip.active")).map(item => item.dataset.value);
+        }
+        copyStatus.textContent = "";
+        updateSummary();
+      });
     });
 
     document.getElementById("copySummary").addEventListener("click", async () => {
