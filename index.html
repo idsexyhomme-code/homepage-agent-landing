@@ -1143,13 +1143,13 @@
           <p class="lead">처음에는 대표 샘플 6장만 보여드립니다. 관심 있는 탭을 누르면 해당 서비스 포트폴리오 6장만 따로 보여드려 뒤섞이지 않게 비교할 수 있습니다.</p>
         </div>
         <div class="portfolio-toolbar" aria-label="포트폴리오 필터">
-          <button class="portfolio-filter active" type="button" data-filter="all">대표 6개</button>
-          <button class="portfolio-filter" type="button" data-filter="web">홈페이지 6</button>
-          <button class="portfolio-filter" type="button" data-filter="automation">자동화 6</button>
-          <button class="portfolio-filter" type="button" data-filter="video">AI영상 6</button>
-          <button class="portfolio-filter" type="button" data-filter="content">콘텐츠 6</button>
-          <button class="portfolio-filter" type="button" data-filter="wedding">웨딩 6</button>
-          <button class="portfolio-filter" type="button" data-filter="drone">드론 6</button>
+          <button class="portfolio-filter active" type="button" data-filter="all">대표</button>
+          <button class="portfolio-filter" type="button" data-filter="web">홈페이지</button>
+          <button class="portfolio-filter" type="button" data-filter="automation">자동화</button>
+          <button class="portfolio-filter" type="button" data-filter="video">AI영상</button>
+          <button class="portfolio-filter" type="button" data-filter="content">콘텐츠</button>
+          <button class="portfolio-filter" type="button" data-filter="wedding">웨딩</button>
+          <button class="portfolio-filter" type="button" data-filter="drone">드론</button>
         </div>
         <p class="portfolio-hint" id="portfolioHint">대표 샘플 6장만 먼저 보여드립니다. 탭을 누르면 서비스별 6장 전체를 볼 수 있습니다.</p>
         <div class="portfolio-grid">
@@ -1743,6 +1743,19 @@
       wedding: "인물 노출 부담을 낮춘 웨딩 영상·스냅 예시 6장입니다.",
       drone: "시설, 숙소, 행사, 자연 공간에 쓸 수 있는 드론 촬영 예시 6장입니다."
     };
+    const portfolioCtaText = {
+      web: "홈페이지 상담하기",
+      automation: "자동화 구축 상담하기",
+      video: "AI 영상 상담하기",
+      content: "콘텐츠 제작 상담하기",
+      wedding: "웨딩 촬영 상담하기",
+      drone: "드론 촬영 상담하기"
+    };
+
+    document.querySelectorAll(".portfolio-card").forEach(card => {
+      const link = card.querySelector("a");
+      if (link) link.textContent = portfolioCtaText[card.dataset.kind] || "상담하기";
+    });
 
     function applyPortfolioFilter(filter) {
       const activeButton = document.querySelector(`.portfolio-filter[data-filter="${filter}"]`)
