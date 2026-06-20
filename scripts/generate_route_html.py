@@ -11,8 +11,8 @@ FONT = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 PAGES = [
     {
         "slug": "",
-        "title": "실제 사례로 보는 홈페이지·영상·촬영 상담 | Video Roastery",
-        "description": "홈페이지, AI 숏폼, 홍보영상, 촬영, 문의 자동화까지 실제 포트폴리오와 작업 범위를 먼저 확인하는 상담 페이지입니다.",
+        "title": "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery",
+        "description": "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.",
         "service": "포트폴리오 기반 제작 상담",
         "image": "logo.png",
         "og": "og_main.jpg",

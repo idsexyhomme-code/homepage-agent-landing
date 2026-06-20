@@ -206,6 +206,15 @@ const serviceOrder = [
 ];
 const displayRoutes = serviceOrder.map((slug) => routeBySlug[slug]).filter(Boolean);
 const basePath = detectBasePath();
+const mainNavItems = [
+  ["소개", "studio"],
+  ["서비스", "services"],
+  ["포트폴리오", "portfolio-hub"],
+  ["견적문의", "main-inquiry-form"],
+  ["회사소개서", "company"],
+  ["SNS", "channels"],
+  ["커뮤니티", "community"]
+];
 
 function detectBasePath() {
   const projectPath = "/homepage-agent-landing";
@@ -214,6 +223,10 @@ function detectBasePath() {
 
 function routeHref(slug = "") {
   return `${basePath}/${slug ? `${slug}/` : ""}` || "/";
+}
+
+function sectionHref(id) {
+  return `${routeHref()}#${id}`;
 }
 
 function currentSlug() {
@@ -229,10 +242,9 @@ function asset(name) {
 }
 
 function nav(activeSlug) {
-  const items = [
-    `<a href="${routeHref()}" class="${activeSlug === "main" ? "active" : ""}">전체</a>`,
-    ...displayRoutes.map((route) => `<a href="${routeHref(route.slug)}" class="${activeSlug === route.slug ? "active" : ""}">${route.nav}</a>`)
-  ].join("");
+  const items = mainNavItems
+    .map(([label, id]) => `<a href="${sectionHref(id)}">${label}</a>`)
+    .join("");
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
     <header class="topbar">
@@ -290,10 +302,11 @@ function mainPage() {
   const main = {
     layout: "editorial",
     badge: "Video Roastery",
-    kicker: "영상·홈페이지·촬영 제작 상담",
-    intro: "작업물 보고,<br>맞으면 바로 문의하세요.",
-    title: "촬영부터 홈페이지까지,<br>실제 사례로 확인하고 상담하세요.",
-    lead: "드론·웨딩·기업영상·AI숏폼·홈페이지·문의자동화를 서비스별 사례로 나눠 보여드립니다. 필요한 제작만 골라 1분 문의로 범위를 확인하세요.",
+    kicker: "V I D E O   R O A S T E R Y   S T U D I O",
+    intro: "작업물을 먼저 보여주고,<br>브랜드에 필요한 제작을 정리합니다.",
+    prefix: "저희는,",
+    title: "홈페이지와 영상을,<br>기획하고, 제작하고, 연결합니다.",
+    lead: "드론·웨딩·기업영상·AI숏폼·카드뉴스·문의자동화까지 실제 사례를 기준으로 상담합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "1분 견적 문의",
@@ -358,6 +371,70 @@ function mainPage() {
         </div>
         <div class="route-grid">
           ${displayRoutes.map(routeCard).join("")}
+        </div>
+      </section>
+      <section class="section tight" id="portfolio-hub">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">포트폴리오</p>
+            <h2>광고 전에 먼저 보여줄 수 있는 작업물</h2>
+          </div>
+          <p class="section-lead">당근, SNS, 검색 광고에서 들어온 사람이 바로 확인할 수 있도록 실제 작업 이미지를 서비스별로 분리해 둡니다.</p>
+        </div>
+        <div class="portfolio-preview">
+          ${displayRoutes.slice(0, 6).map((route) => `
+            <a class="preview-tile" href="${routeHref(route.slug)}">
+              <img src="${asset(route.heroImage)}" alt="${route.nav} 포트폴리오" />
+              <span>${route.nav}</span>
+            </a>
+          `).join("")}
+        </div>
+      </section>
+      <section class="section tight" id="company">
+        <div class="brand-system">
+          <div>
+            <p class="section-kicker">회사소개서</p>
+            <h2>처음 보는 사람도 믿고 문의할 수 있게 정리합니다</h2>
+            <p>브랜드 소개, 제작 범위, 포트폴리오, 진행 방식, 문의 방법을 한 흐름으로 묶어 광고 랜딩과 회사소개서에 같이 쓸 수 있게 구성합니다.</p>
+          </div>
+          <div class="system-list">
+            <span>브랜드 소개</span>
+            <span>서비스 범위</span>
+            <span>작업 사례</span>
+            <span>문의 동선</span>
+          </div>
+        </div>
+      </section>
+      <section class="section tight" id="channels">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">SNS 연결</p>
+            <h2>광고와 SNS에서 들어온 흐름을 문의까지 연결합니다</h2>
+          </div>
+          <p class="section-lead">인스타그램, 유튜브, 블로그, 당근 광고에서 들어온 사람이 같은 대문을 보고 필요한 제작 페이지로 이동하도록 설계합니다.</p>
+        </div>
+        <div class="channel-grid">
+          ${[
+            ["Instagram", "릴스·카드뉴스·포트폴리오 하이라이트"],
+            ["YouTube", "기업영상·드론·웨딩 영상 포트폴리오"],
+            ["Blog", "제작 과정, 견적 전 체크리스트, 사례 설명"],
+            ["Daangn", "지역 촬영 광고와 서비스별 랜딩 연결"]
+          ].map(([title, body]) => `
+            <div class="channel-card">
+              <b>${title}</b>
+              <span>${body}</span>
+            </div>
+          `).join("")}
+        </div>
+      </section>
+      <section class="section tight" id="community">
+        <div class="brand-system community-system">
+          <div>
+            <p class="section-kicker">커뮤니티</p>
+            <h2>후기, 제작 노트, 질문 답변을 쌓아 신뢰를 만듭니다</h2>
+            <p>광고 클릭 후 바로 구매하지 않는 사람을 위해 진행 사례, 자주 묻는 질문, 제작 전 준비 자료를 차근차근 쌓을 수 있는 구조를 열어둡니다.</p>
+          </div>
+          <a class="btn secondary" href="#main-inquiry-form">견적문의로 이동</a>
         </div>
       </section>
       <section class="section tight" id="contact">
@@ -617,8 +694,8 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
-  const pageTitle = route ? `${route.nav} | Video Roastery` : "실제 사례로 보는 홈페이지·영상·촬영 상담 | Video Roastery";
-  const pageDesc = route ? route.lead : "홈페이지, AI 숏폼, 홍보영상, 촬영, 문의 자동화까지 실제 포트폴리오와 작업 범위를 먼저 확인하는 상담 페이지입니다.";
+  const pageTitle = route ? `${route.nav} | Video Roastery` : "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery";
+  const pageDesc = route ? route.lead : "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.";
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
