@@ -297,7 +297,7 @@ function mainPage() {
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "1분 견적 문의",
-    primaryHref: "#contact",
+    primaryHref: "#main-inquiry-form",
     secondaryCta: "작업 사례 보기",
     secondaryHref: "#services",
     trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
