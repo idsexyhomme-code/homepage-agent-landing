@@ -13,8 +13,8 @@ const routes = [
       ["portfolio_automation_portfolio.jpg", "공간과 서비스를 보여주는 상세 화면"],
       ["portfolio_automation_examples.jpg", "방문자가 머무는 실제 화면"],
       ["portfolio_automation_main.jpg", "포트폴리오로 신뢰를 주는 화면"],
-      ["portfolio_automation_scope.jpg", "문의 전 제작 범위 정리"],
-      ["portfolio_automation_task_flow.jpg", "문의 흐름 자동화 예시"]
+      ["portfolio_covers/web_03.jpg", "브랜드형 웹 화면"],
+      ["portfolio_covers/web_05.jpg", "서비스형 랜딩 화면"]
     ],
     proof: [
       ["첫 화면 설계", "방문자가 첫 화면만 보고도 무엇을 파는지 알게 만듭니다."],
@@ -216,6 +216,104 @@ const routeCardImages = {
   wedding: "card_wedding.jpg",
   content: "portfolio_content_product.jpg",
   consulting: "card_consulting_photo.jpg"
+};
+const routeDetails = {
+  homepage: {
+    kicker: "WEB LANDING",
+    title: "첫 화면에서 업종, 작업물, 문의 동선이 바로 보이게",
+    lead: "광고나 검색으로 들어온 사람이 길게 설명을 읽기 전에 무엇을 제작하는지, 어떤 사례가 있는지, 어디로 문의하면 되는지 한 화면 흐름으로 판단하게 만듭니다.",
+    windows: [
+      ["01", "첫 화면", "브랜드명과 제작 범위를 한 문장으로 정리"],
+      ["02", "시안 선택", "업종별 화면 예시와 포트폴리오를 먼저 노출"],
+      ["03", "문의 연결", "상담폼, 메일, 필요한 자료 안내를 같은 흐름에 배치"]
+    ],
+    checkpoints: ["모바일 첫 화면", "대표 이미지", "포트폴리오 순서", "상담폼 연결"],
+    related: ["inquiry-agent", "content", "ai-shortform"]
+  },
+  "inquiry-agent": {
+    kicker: "SYSTEM",
+    title: "문의가 들어온 뒤 놓치는 정보를 줄이는 구조",
+    lead: "고객 문의를 폼, 메일, 시트로 모으고 제작자가 바로 확인해야 할 항목과 답장 초안을 빠르게 정리하는 업무 흐름을 잡습니다.",
+    windows: [
+      ["01", "문의 접수", "고객 요청, 예산, 일정, 참고 링크를 한 번에 수집"],
+      ["02", "자동 정리", "확인해야 할 항목과 누락된 자료를 먼저 분류"],
+      ["03", "답장 초안", "반복 안내 문구와 다음 단계를 빠르게 준비"]
+    ],
+    checkpoints: ["문의폼 문항", "메일 제목", "시트 저장", "답장 템플릿"],
+    related: ["homepage", "content", "consulting"]
+  },
+  "ai-shortform": {
+    kicker: "AI SHORTFORM",
+    title: "제품 사진을 광고용 짧은 영상 흐름으로 바꾸는 페이지",
+    lead: "촬영이 없어도 제품 이미지와 콘셉트를 바탕으로 첫 3초, 제품 노출, 메시지 흐름이 보이는 숏폼 방향을 제안합니다.",
+    windows: [
+      ["01", "제품 이미지", "실제 사진과 패키지 이미지를 먼저 확인"],
+      ["02", "광고 톤", "고급형, 정보형, 빠른 테스트형 중 방향 선택"],
+      ["03", "활용 채널", "릴스, 쇼츠, 틱톡, 당근 광고용 소재로 분리"]
+    ],
+    checkpoints: ["제품 사진", "핵심 문구", "사용 채널", "참고 영상"],
+    related: ["brand-film", "content", "homepage"]
+  },
+  "brand-film": {
+    kicker: "BRAND FILM",
+    title: "회사 소개를 장면과 메시지로 이해시키는 구성",
+    lead: "기업 소개, 기관 홍보, 서비스 설명을 단순 문장 나열이 아니라 보는 사람이 이해하는 순서의 장면 흐름으로 정리합니다.",
+    windows: [
+      ["01", "핵심 메시지", "한 문장으로 기억될 소개 문구를 먼저 정리"],
+      ["02", "장면 구성", "공간, 사람, 제품, 서비스 장면의 순서를 설계"],
+      ["03", "활용처", "제안서, 채용, 입점, SNS용 버전으로 나눔"]
+    ],
+    checkpoints: ["회사 소개 자료", "참고 영상", "사용 목적", "노출 채널"],
+    related: ["ai-shortform", "content", "homepage"]
+  },
+  drone: {
+    kicker: "DRONE",
+    title: "공간의 크기와 분위기가 바로 보이는 항공 컷 중심",
+    lead: "숙소, 시설, 관광지, 농장처럼 현장감이 중요한 공간을 낮 컷, 야간 외관, 동선 설명 컷으로 나눠 보여줍니다.",
+    windows: [
+      ["01", "대표 컷", "공간 규모와 첫 인상을 보여주는 와이드 컷"],
+      ["02", "설명 컷", "진입 동선, 주변 환경, 시설 배치를 보여주는 컷"],
+      ["03", "활용 컷", "홈페이지, 광고, 카드뉴스, 숏폼용으로 재구성"]
+    ],
+    checkpoints: ["촬영 장소", "허가 필요 여부", "낮·야간 여부", "활용 목적"],
+    related: ["homepage", "brand-film", "content"]
+  },
+  wedding: {
+    kicker: "WEDDING",
+    title: "인물보다 분위기와 디테일을 먼저 보여주는 웨딩 기록",
+    lead: "공개 포트폴리오에서는 얼굴 노출 부담을 줄이고 반지, 부케, 드레스 라인, 공간 무드처럼 상담에 도움이 되는 컷을 중심으로 보여줍니다.",
+    windows: [
+      ["01", "디테일", "반지, 부케, 손, 드레스처럼 부담 없는 컷"],
+      ["02", "무드", "공간 조명과 움직임이 보이는 장면"],
+      ["03", "활용", "스냅, 하이라이트 영상, SNS용 컷으로 분리"]
+    ],
+    checkpoints: ["촬영 일정", "장소", "얼굴 공개 범위", "원하는 톤"],
+    related: ["drone", "content", "homepage"]
+  },
+  content: {
+    kicker: "CONTENT",
+    title: "카드뉴스와 릴스를 홍보 흐름 안에서 정리",
+    lead: "콘텐츠가 따로 놀지 않도록 카드뉴스, 릴스, 제품 이미지, 안내 문구를 광고와 상담 페이지에서 함께 쓰이는 형태로 구성합니다.",
+    windows: [
+      ["01", "메시지", "한 콘텐츠에서 전달할 핵심 문장 정리"],
+      ["02", "이미지", "제품, 공간, 화면 캡처 등 실제 자료 선별"],
+      ["03", "운영", "인스타, 유튜브, 홈페이지에 재활용할 구조"]
+    ],
+    checkpoints: ["브랜드 톤", "사진 자료", "업로드 채널", "게시 주기"],
+    related: ["ai-shortform", "brand-film", "homepage"]
+  },
+  consulting: {
+    kicker: "AI OPS",
+    title: "도구 설명보다 반복 업무를 줄이는 실행 흐름",
+    lead: "AI 도구 자체를 팔기보다 지금 반복되는 업무를 보고 폼, 시트, 메일, 문서, 알림을 작게 연결해 바로 쓰는 구조를 만듭니다.",
+    windows: [
+      ["01", "업무 확인", "매일 반복되는 입력, 정리, 답장 업무를 찾음"],
+      ["02", "작게 연결", "시트, 폼, 메일, AI 도구를 필요한 만큼만 연결"],
+      ["03", "운영 기준", "혼자서도 유지할 수 있는 문서와 템플릿 정리"]
+    ],
+    checkpoints: ["반복 업무", "쓰는 도구", "저장 위치", "알림 방식"],
+    related: ["inquiry-agent", "homepage", "content"]
+  }
 };
 const basePath = detectBasePath();
 const mainNavItems = [
@@ -430,13 +528,112 @@ function routeCard(route) {
   `;
 }
 
+function detailNavigation(route) {
+  return `
+    <div class="detail-jump" aria-label="${route.nav} 페이지 구성">
+      <div class="detail-jump-inner">
+        <strong>${route.nav} 세부 구성</strong>
+        <nav>
+          <a href="#overview">구성</a>
+          <a href="#portfolio">작업 이미지</a>
+          <a href="#scope">진행 기준</a>
+          <a href="#contact">문의</a>
+        </nav>
+      </div>
+    </div>
+  `;
+}
+
+function detailOverview(route, detail) {
+  return `
+    <section class="detail-overview" id="overview">
+      <div class="detail-shell">
+        <div class="detail-copy">
+          <p class="section-kicker">${detail.kicker}</p>
+          <h2>${detail.title}</h2>
+          <p>${detail.lead}</p>
+        </div>
+        <div class="detail-window-grid" aria-label="${route.nav} 세부 창 구성">
+          ${detail.windows.map(([num, title, body]) => `
+            <article class="detail-window">
+              <span>${num}</span>
+              <h3>${title}</h3>
+              <p>${body}</p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function detailScope(route, detail) {
+  return `
+    <section class="section detail-scope" id="scope">
+      <div class="scope-layout">
+        <div>
+          <p class="section-kicker">Project Check</p>
+          <h2>진행 전에 확인할 것</h2>
+        </div>
+        <div class="scope-checks" aria-label="상담 전 확인 항목">
+          ${detail.checkpoints.map((item) => `<span>${item}</span>`).join("")}
+        </div>
+      </div>
+      <div class="proof-grid">
+        ${route.proof.map(([title, body], index) => `
+          <article class="proof-item">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <h3>${title}</h3>
+            <p>${body}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function relatedServices(route, detail) {
+  const related = (detail.related || [])
+    .map((slug) => routeBySlug[slug])
+    .filter((item) => item && item.slug !== route.slug);
+  if (!related.length) return "";
+  return `
+    <section class="section tight" id="related">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Related</p>
+          <h2>함께 볼 수 있는 제작</h2>
+        </div>
+      </div>
+      <div class="related-strip">
+        ${related.map((item) => `
+          <a class="related-card" href="${routeHref(item.slug)}">
+            <img src="${asset(routeCardImages[item.slug] || item.heroImage)}" alt="${item.nav} 관련 작업" />
+            <span>${routeLabels[item.slug]?.[1] || item.nav}</span>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   const formHref = buildTallyHref(route);
+  const detail = routeDetails[route.slug] || {
+    kicker: route.nav.toUpperCase(),
+    title: route.title,
+    lead: route.lead,
+    windows: route.proof.map(([title, body], index) => [String(index + 1).padStart(2, "0"), title, body]),
+    checkpoints: route.proof.map(([title]) => title),
+    related: displayRoutes.filter((item) => item.slug !== route.slug).slice(0, 3).map((item) => item.slug)
+  };
   return `
     ${nav(route.slug)}
     ${hero(route)}
+    ${detailNavigation(route)}
     <main id="main">
+      ${detailOverview(route, detail)}
       <section class="section" id="portfolio">
         <div class="section-head">
           <div>
@@ -453,6 +650,8 @@ function detailPage(route) {
           `).join("")}
         </div>
       </section>
+      ${detailScope(route, detail)}
+      ${relatedServices(route, detail)}
       <section class="section tight" id="contact">
         <div class="cta-band">
           <video class="cta-video" autoplay muted loop playsinline preload="metadata">
