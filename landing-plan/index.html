@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜딩 구조 점검 | Video Roastery</title>
+    <meta name="description" content="Video Roastery 대표 홈페이지와 광고용 전용 랜딩 8개 구조를 한 화면에서 확인합니다." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="../assets/symbol.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body {
+        background: #fbfaf5;
+      }
+
+      .plan-main {
+        padding: 116px 6vw 80px;
+      }
+
+      .plan-hero {
+        max-width: 1180px;
+        margin: 0 auto 42px;
+      }
+
+      .plan-hero h1 {
+        max-width: 920px;
+        margin: 16px 0;
+        color: #10151b;
+        font-size: clamp(42px, 7vw, 86px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .plan-hero p {
+        max-width: 780px;
+        color: #5c6770;
+        font-size: 20px;
+        line-height: 1.7;
+      }
+
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        max-width: 1380px;
+        margin: 0 auto;
+      }
+
+      .plan-card {
+        overflow: hidden;
+        border: 1px solid #dbe3e5;
+        border-radius: 18px;
+        background: #fffdf8;
+        box-shadow: 0 18px 50px rgba(16, 21, 27, 0.08);
+      }
+
+      .plan-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .plan-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .plan-card > a {
+        display: block;
+      }
+
+      .plan-card-body {
+        padding: 28px;
+      }
+
+      .plan-card-body h2 {
+        margin: 0 0 10px;
+        color: #10151b;
+        font-size: 28px;
+        letter-spacing: 0;
+      }
+
+      .plan-card-body p {
+        margin: 0;
+        color: #5c6770;
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      .route-table {
+        max-width: 1180px;
+        margin: 48px auto 0;
+        overflow: hidden;
+        border: 1px solid #dbe3e5;
+        border-radius: 18px;
+        background: #fffdf8;
+      }
+
+      .route-row {
+        display: grid;
+        grid-template-columns: 190px 1fr 1fr;
+        gap: 20px;
+        padding: 22px 28px;
+        border-bottom: 1px solid #e9eef0;
+      }
+
+      .route-row:last-child {
+        border-bottom: 0;
+      }
+
+      .route-row strong {
+        color: #10151b;
+      }
+
+      .route-row a {
+        color: #0f7f62;
+        font-weight: 800;
+        word-break: break-all;
+      }
+
+      .route-row span {
+        color: #5c6770;
+        word-break: break-all;
+      }
+
+      @media (max-width: 860px) {
+        .plan-main {
+          padding: 94px 18px 56px;
+        }
+
+        .plan-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .route-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="../">
+        <img src="../assets/symbol.png" alt="Video Roastery" />
+        <span>Video Roastery</span>
+      </a>
+      <nav class="nav" aria-label="점검 메뉴">
+        <a href="../">전체 홈</a>
+        <a href="../homepage/">홈페이지</a>
+        <a href="../drone/">드론</a>
+        <a href="../ai-shortform/">AI숏폼</a>
+        <a href="../brand-film/">기업영상</a>
+        <a href="../inquiry-agent/">문의자동화</a>
+      </nav>
+    </header>
+    <main class="plan-main">
+      <section class="plan-hero">
+        <span class="route-pill">광고 랜딩 설계 점검</span>
+        <h1>대표 홈페이지 1개와 서비스별 랜딩 8개로 나눠 광고합니다</h1>
+        <p>전체 홈페이지는 신뢰 확인용 허브로 두고, 당근 광고는 관심사에 맞는 전용 URL로 직접 보냅니다. 홈페이지 제작 광고는 /homepage/, 드론 광고는 /drone/처럼 분리해서 클릭 이후의 상담 흐름을 더 선명하게 만듭니다.</p>
+      </section>
+
+      <section class="plan-grid" aria-label="랜딩 구조 시각화">
+        <article class="plan-card wide">
+          <a href="../assets/route_plan_system.png" target="_blank" rel="noopener">
+            <img src="../assets/route_plan_system.png" alt="대표 홈 1개와 광고 랜딩 8개 구조 보드" />
+          </a>
+          <div class="plan-card-body">
+            <h2>도메인 하나에서 8개 전용 랜딩으로 분기</h2>
+            <p>메인은 전체 서비스를 보여주고, 광고는 서비스별 페이지로 바로 연결합니다.</p>
+          </div>
+        </article>
+        <article class="plan-card">
+          <a href="../assets/route_plan_mockups.png" target="_blank" rel="noopener">
+            <img src="../assets/route_plan_mockups.png" alt="각 전용 랜딩 구성 목업" />
+          </a>
+          <div class="plan-card-body">
+            <h2>각 랜딩은 같은 골격으로 관리</h2>
+            <p>첫 화면, 포트폴리오, 범위 정리, 문의 전환 순서로 통일합니다.</p>
+          </div>
+        </article>
+        <article class="plan-card">
+          <a href="../assets/route_plan_actual.png" target="_blank" rel="noopener">
+            <img src="../assets/route_plan_actual.png" alt="실제 랜딩 페이지 미리보기" />
+          </a>
+          <div class="plan-card-body">
+            <h2>실제 페이지 캡처 기반 미리보기</h2>
+            <p>PC에서 각 서비스 페이지가 어떻게 보이는지 한 번에 점검합니다.</p>
+          </div>
+        </article>
+        <article class="plan-card wide">
+          <a href="../assets/route_plan_mobile.png" target="_blank" rel="noopener">
+            <img src="../assets/route_plan_mobile.png" alt="모바일 광고 클릭 후 첫 화면 미리보기" />
+          </a>
+          <div class="plan-card-body">
+            <h2>모바일 첫 화면 점검</h2>
+            <p>당근 유입처럼 모바일 비중이 높은 광고에서 첫 화면이 잘리지 않는지 확인합니다.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="route-table" aria-label="광고 연결 URL">
+        <div class="route-row">
+          <strong>전체 홈페이지</strong>
+          <a href="../">현재 테스트 URL</a>
+          <span>videoroastery.com/</span>
+        </div>
+        <div class="route-row">
+          <strong>홈페이지 제작</strong>
+          <a href="../homepage/">현재 테스트 URL</a>
+          <span>videoroastery.com/homepage/</span>
+        </div>
+        <div class="route-row">
+          <strong>드론 촬영</strong>
+          <a href="../drone/">현재 테스트 URL</a>
+          <span>videoroastery.com/drone/</span>
+        </div>
+        <div class="route-row">
+          <strong>AI 숏폼</strong>
+          <a href="../ai-shortform/">현재 테스트 URL</a>
+          <span>videoroastery.com/ai-shortform/</span>
+        </div>
+        <div class="route-row">
+          <strong>기업 홍보영상</strong>
+          <a href="../brand-film/">현재 테스트 URL</a>
+          <span>videoroastery.com/brand-film/</span>
+        </div>
+        <div class="route-row">
+          <strong>문의 자동화</strong>
+          <a href="../inquiry-agent/">현재 테스트 URL</a>
+          <span>videoroastery.com/inquiry-agent/</span>
+        </div>
+        <div class="route-row">
+          <strong>콘텐츠 제작</strong>
+          <a href="../content/">현재 테스트 URL</a>
+          <span>videoroastery.com/content/</span>
+        </div>
+        <div class="route-row">
+          <strong>웨딩</strong>
+          <a href="../wedding/">현재 테스트 URL</a>
+          <span>videoroastery.com/wedding/</span>
+        </div>
+        <div class="route-row">
+          <strong>AI 컨설팅</strong>
+          <a href="../consulting/">현재 테스트 URL</a>
+          <span>videoroastery.com/consulting/</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
