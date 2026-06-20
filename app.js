@@ -3,18 +3,18 @@ const routes = [
     slug: "homepage",
     nav: "홈페이지",
     badge: "videoroastery.com/homepage",
-    title: "홈페이지 제작부터 문의 흐름까지 한 번에",
-    lead: "첫 방문자가 업종을 이해하고, 시안 확인과 상담 요청까지 자연스럽게 이어지도록 화면을 설계합니다.",
+    title: "홈페이지 제작과 문의 연결을 한 번에",
+    lead: "첫 화면, 포트폴리오, 문의 버튼, 상담 메일까지 고객이 이해하고 연락하는 흐름으로 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
     cta: "홈페이지 제작 상담받기",
     thumbnails: [
-      ["portfolio_automation_homepage_flow.jpg", "첫 화면에서 서비스와 상담 버튼이 바로 보이는 구조"],
-      ["portfolio_automation_portfolio.jpg", "제작 사례가 문의로 이어지도록 배치"],
-      ["portfolio_automation_scope.jpg", "상담 전에 제작 범위가 정리되는 화면"],
-      ["portfolio_automation_main.jpg", "홈페이지와 자동화 메시지를 한 흐름으로 구성"],
-      ["portfolio_automation_examples.jpg", "자동화 예시를 고객이 이해하기 쉽게 제시"],
-      ["danggeun_ad_homepage_ai_1080.jpg", "첫 화면 분위기와 상담 동선을 함께 정리"]
+      ["portfolio_automation_homepage_flow.jpg", "업종이 바로 보이는 첫 화면"],
+      ["portfolio_automation_portfolio.jpg", "공간과 서비스를 보여주는 상세 화면"],
+      ["portfolio_automation_examples.jpg", "방문자가 머무는 실제 화면"],
+      ["portfolio_automation_main.jpg", "포트폴리오로 신뢰를 주는 화면"],
+      ["portfolio_automation_scope.jpg", "문의 전 제작 범위 정리"],
+      ["portfolio_automation_task_flow.jpg", "문의 흐름 자동화 예시"]
     ],
     proof: [
       ["첫 화면 설계", "누가 봐도 어떤 서비스를 파는지 바로 알게 만듭니다."],
@@ -26,8 +26,8 @@ const routes = [
     slug: "inquiry-agent",
     nav: "문의자동화",
     badge: "videoroastery.com/inquiry-agent",
-    title: "놓치는 문의 없이, 먼저 정리되는 상담 흐름",
-    lead: "폼, 메일, 카카오, 시트, 알림을 엮어 고객 요청이 들어오면 필요한 정보와 답장 초안이 먼저 정리되게 만듭니다.",
+    title: "문의가 들어오면 필요한 정보부터 정리합니다",
+    lead: "홈페이지, 폼, 메일, 카카오 문의를 한 곳에 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
     cta: "문의 흐름 진단받기",
@@ -49,8 +49,8 @@ const routes = [
     slug: "ai-shortform",
     nav: "AI숏폼",
     badge: "videoroastery.com/ai-shortform",
-    title: "제품 사진에서 바로 광고 숏폼으로",
-    lead: "촬영이 어려운 제품도 사진, 콘셉트, 문구를 바탕으로 쇼츠·릴스·틱톡용 세로 광고 영상으로 구성합니다.",
+    title: "제품 사진을 숏폼 광고 소재로 바꿉니다",
+    lead: "제품 사진과 콘셉트만 있어도 릴스, 쇼츠, 틱톡에 맞는 짧은 광고 영상 흐름으로 구성합니다.",
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "portfolio_video_product_reels_ad.jpg",
     cta: "AI 숏폼 상담받기",
@@ -72,8 +72,8 @@ const routes = [
     slug: "brand-film",
     nav: "기업영상",
     badge: "videoroastery.com/brand-film",
-    title: "복잡한 회사 소개도 장면 흐름으로 설득되게",
-    lead: "기업 소개, 브랜드 메시지, ESG, 서비스 설명을 영상 구조로 정리해 첫 제안서처럼 보이게 만듭니다.",
+    title: "회사 소개를 짧고 선명한 영상 흐름으로",
+    lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 정리해 제안서처럼 이해되게 만듭니다.",
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
     cta: "기업 영상 상담받기",
@@ -95,8 +95,8 @@ const routes = [
     slug: "drone",
     nav: "드론",
     badge: "videoroastery.com/drone",
-    title: "공간의 규모가 보이는 항공 촬영",
-    lead: "숙소, 시설, 관광지, 농장, 외관까지 목적에 맞는 와이드 컷과 야간 외관 컷을 함께 제안합니다.",
+    title: "공간의 크기와 동선이 보이는 항공 촬영",
+    lead: "숙소, 시설, 관광지, 농장, 야간 외관까지 목적에 맞는 와이드 컷과 설명용 항공 컷을 제안합니다.",
     heroVideo: "drone_hero_web.mp4",
     heroImage: "portfolio_drone_night_exterior.jpg",
     cta: "드론 촬영 상담받기",
@@ -141,8 +141,8 @@ const routes = [
     slug: "content",
     nav: "콘텐츠",
     badge: "videoroastery.com/content",
-    title: "카드뉴스·릴스·상세 이미지를 한 흐름으로",
-    lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 따로 만들지 않고 한 번에 재활용되도록 구성합니다.",
+    title: "카드뉴스와 릴스 소재를 한 번에 정리합니다",
+    lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 따로 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
     cta: "콘텐츠 제작 상담받기",
@@ -164,8 +164,8 @@ const routes = [
     slug: "consulting",
     nav: "컨설팅",
     badge: "videoroastery.com/consulting",
-    title: "AI 도구를 우리 업무에 붙이는 실전 상담",
-    lead: "무슨 툴을 써야 하는지보다, 지금 반복되는 업무를 어떻게 줄일지부터 진단하고 작은 자동화로 시작합니다.",
+    title: "AI 도구를 실제 업무에 붙이는 상담",
+    lead: "지금 반복되는 업무를 먼저 보고, 시트, 폼, 메일, 노션, AI 도구를 작게 연결해 바로 쓰는 방식으로 시작합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
     cta: "AI 활용 상담받기",
@@ -262,8 +262,8 @@ function hero(route) {
 function mainPage() {
   const main = {
     badge: "Video Roastery",
-    title: "문의가 들어오는 가게로 세팅합니다",
-    lead: "홈페이지, AI 숏폼, 홍보영상, 문의 자동화까지. 사장님의 온라인 영업 흐름을 고객이 이해하고 문의하게 만드는 구조로 정리합니다.",
+    title: "문의가 들어오는 온라인 영업 흐름을 만듭니다",
+    lead: "홈페이지, AI 숏폼, 홍보영상, 촬영, 문의 자동화까지. 고객이 보고 이해하고 연락하는 흐름으로 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "무료 진단 받기",
@@ -302,9 +302,9 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">서비스 구성</p>
-            <h2>필요한 제작을 목적별로 확인하세요</h2>
+            <h2>내 상황에 맞는 제작 페이지를 확인하세요</h2>
           </div>
-          <p class="section-lead">홈페이지, 문의 자동화, 영상, 촬영, 콘텐츠 제작을 목적별로 나누어 사례와 상담 흐름을 바로 확인할 수 있습니다.</p>
+          <p class="section-lead">각 서비스는 따로 광고해도 어색하지 않도록 별도 랜딩처럼 구성하고, 전체 홈페이지에서는 한 번에 비교할 수 있게 묶었습니다.</p>
         </div>
         <div class="landing-preview-grid">
           ${overviewCard({ slug: "", nav: "전체", title: "제작 상담 허브", lead: "모든 서비스의 입구", og: "og_main.jpg" }, true)}
@@ -315,9 +315,9 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">상담 메뉴</p>
-            <h2>지금 필요한 제작을 바로 선택하세요</h2>
+            <h2>업종과 목적에 맞는 제작 흐름을 선택하세요</h2>
           </div>
-          <p class="section-lead">어떤 제작이 필요한지 애매해도 괜찮습니다. 가까운 항목을 고르면 상담에서 범위와 우선순위를 함께 정리합니다.</p>
+          <p class="section-lead">홈페이지, 영상, 촬영, 콘텐츠, 자동화 중 어디서 문의가 막히는지에 맞춰 먼저 볼 페이지를 고르면 됩니다.</p>
         </div>
         <div class="route-grid">
           ${displayRoutes.map(routeCard).join("")}
@@ -381,7 +381,7 @@ function detailPage(route) {
             <p class="section-kicker">포트폴리오 미리보기</p>
             <h2>먼저 결과물부터 확인하세요</h2>
           </div>
-          <p class="section-lead">서비스별로 6개씩 묶어 통일감 있게 보여주고, 서로 다른 카테고리 이미지는 섞지 않습니다.</p>
+          <p class="section-lead">서비스별 실제 컷만 모아 보여주고, 서로 다른 카테고리 이미지는 섞지 않습니다.</p>
         </div>
         <div class="portfolio-grid">
           ${route.thumbnails.map(([image, caption]) => `
