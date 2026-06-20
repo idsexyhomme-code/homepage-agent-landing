@@ -310,6 +310,7 @@ function mainPage() {
       ["portfolio_video_industrial_brand.jpg", "기업영상"]
     ]
   };
+  const mainFormHref = buildTallyHref({ slug: "main", nav: "전체 제작 상담" });
   return `
     ${nav("main")}
     ${hero(main)}
@@ -363,8 +364,22 @@ function mainPage() {
         <div class="cta-band">
           <h2>바로 맡기지 않아도 됩니다. 가능 여부부터 확인하세요</h2>
           <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 어떤 제작이 먼저 필요한지 간단히 정리해 드립니다.</p>
+          <p class="cta-note">1분 입력 · 상담폼 우선 접수 · 접수 내용 확인 후 회신</p>
+          <div class="contact-list" aria-label="상담 시 필요한 내용">
+            <span>필요한 제작</span>
+            <span>보유 자료</span>
+            <span>희망 일정</span>
+          </div>
+          <div class="contact-actions">
+            <a class="btn primary" href="#main-inquiry-form">문의폼 바로 작성</a>
+            <a class="btn secondary" href="#services">서비스별 사례 보기</a>
+          </div>
           <div class="route-strip">
             ${displayRoutes.map((route) => `<a href="${routeHref(route.slug)}">${route.nav}</a>`).join("")}
+          </div>
+          <p class="privacy-note">입력 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
+          <div class="form-embed" id="main-inquiry-form">
+            <iframe src="${mainFormHref}" title="전체 제작 상담 문의폼" loading="lazy"></iframe>
           </div>
         </div>
       </section>
