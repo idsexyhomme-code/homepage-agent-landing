@@ -98,10 +98,10 @@ const routes = [
     title: "공간의 크기와 동선이 보이는 항공 촬영",
     lead: "숙소, 시설, 관광지, 농장, 야간 외관까지 목적에 맞는 와이드 컷과 설명용 항공 컷을 제안합니다.",
     heroVideo: "drone_hero_web.mp4",
-    heroImage: "portfolio_drone_night_exterior.jpg",
+    heroImage: "portfolio_drone_night_exterior_clean.jpg",
     cta: "드론 촬영 상담받기",
     thumbnails: [
-      ["portfolio_drone_night_exterior.jpg", "야간 외관 촬영"],
+      ["portfolio_drone_night_exterior_clean.jpg", "야간 외관 촬영"],
       ["portfolio_drone_coastal_overview.jpg", "해안 와이드 컷"],
       ["portfolio_drone_resort_facility.jpg", "숙소·시설 항공 컷"],
       ["portfolio_drone_facility_route.jpg", "시설 동선 설명 컷"],
