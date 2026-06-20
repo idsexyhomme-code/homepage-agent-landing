@@ -102,11 +102,11 @@ const routes = [
     cta: "드론 촬영 상담받기",
     thumbnails: [
       ["portfolio_drone_night_exterior_clean.jpg", "야간 외관 촬영"],
-      ["portfolio_drone_coastal_overview.jpg", "해안 와이드 컷"],
+      ["portfolio_drone_coastal_overview_clean.jpg", "해안 와이드 컷"],
       ["portfolio_drone_resort_facility.jpg", "숙소·시설 항공 컷"],
-      ["portfolio_drone_facility_route.jpg", "시설 동선 설명 컷"],
+      ["portfolio_drone_facility_route_clean.jpg", "시설 동선 설명 컷"],
       ["portfolio_drone_village_overview.jpg", "마을·관광지 전경"],
-      ["portfolio_drone_grid_supplement.jpg", "목적별 컷 구성"]
+      ["portfolio_drone_topdown_garden.jpg", "정원·시설 탑뷰 컷"]
     ],
     proof: [
       ["목적별 컷", "숙소, 농장, 관광지, 시설마다 필요한 구도가 다릅니다."],
@@ -183,14 +183,6 @@ const routes = [
       ["운영 문서", "혼자서도 이어갈 수 있도록 기준과 템플릿을 남깁니다."]
     ]
   }
-];
-
-const studioFacts = [
-  ["운영", "Video Roastery"],
-  ["촬영 지역", "제주 중심, 온라인 제작은 전국 상담"],
-  ["상담 방식", "작업 범위와 보유 자료부터 확인"],
-  ["문의 접수", "상담폼 우선, 메일 백업 접수"],
-  ["포트폴리오", "실제 작업물과 제작 화면 중심으로 구성"]
 ];
 
 const routeBySlug = Object.fromEntries(routes.map((route) => [route.slug, route]));
@@ -419,30 +411,16 @@ function routeCard(route) {
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   const formHref = buildTallyHref(route);
-  const faqs = faqItems(route);
   return `
     ${nav(route.slug)}
     ${hero(route)}
     <main id="main">
-      <section class="section trust-section">
-        <div class="trust-box">
-          <div>
-            <p class="section-kicker">먼저 확인하세요</p>
-            <h2>${route.nav} 전용 상담 페이지입니다</h2>
-            <p>이 페이지에서는 ${route.nav}에 맞는 사례와 작업 범위만 보여드립니다. 다른 서비스가 필요하면 상단 메뉴에서 따로 확인할 수 있습니다.</p>
-          </div>
-          <dl class="fact-list compact">
-            ${studioFacts.map(([key, value]) => `<div><dt>${key}</dt><dd>${value}</dd></div>`).join("")}
-          </dl>
-        </div>
-      </section>
       <section class="section" id="portfolio">
         <div class="section-head">
           <div>
-            <p class="section-kicker">포트폴리오 미리보기</p>
-            <h2>말보다 작업물부터 확인하세요</h2>
+            <p class="section-kicker">Portfolio</p>
+            <h2>${route.nav} 작업 이미지</h2>
           </div>
-          <p class="section-lead">사례 이미지를 먼저 보고 우리 업종에 맞는 톤인지 판단할 수 있게 구성했습니다.</p>
         </div>
         <div class="portfolio-grid">
           ${route.thumbnails.map(([image, caption]) => `
@@ -453,70 +431,10 @@ function detailPage(route) {
           `).join("")}
         </div>
       </section>
-      <section class="section tight">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">작업 기준</p>
-            <h2>작업 전에 범위부터 정합니다</h2>
-          </div>
-          <p class="section-lead">어떤 결과물이 필요한지, 지금 가진 자료로 가능한지, 촬영이 필요한지부터 나눕니다.</p>
-        </div>
-        <div class="proof-row">
-          ${route.proof.map(([title, body]) => `
-            <div class="proof-item">
-              <b>${title}</b>
-              <span>${body}</span>
-            </div>
-          `).join("")}
-        </div>
-      </section>
-      <section class="section tight">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">상담 흐름</p>
-            <h2>문의 후 이렇게 확인합니다</h2>
-          </div>
-          <p class="section-lead">처음부터 계약을 요구하지 않습니다. 필요한 자료와 작업 가능 여부를 먼저 확인합니다.</p>
-        </div>
-        <div class="flow">
-          ${[
-            ["목적 확인", "무엇을 팔고, 어디서 문의가 막히는지 먼저 확인합니다."],
-            ["자료 확인", "사진, 영상, 링크, 문구처럼 지금 가진 자료를 살핍니다."],
-            ["구성 제안", "필요한 페이지, 영상, 촬영, 자동화 범위를 나눠 제안합니다."],
-            ["상담 연결", "상담 폼이나 메일로 바로 이어지게 정리합니다."]
-          ].map(([title, body], index) => `
-            <div class="flow-step">
-              <span class="num">${String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>${title}</h3>
-                <p>${body}</p>
-              </div>
-            </div>
-          `).join("")}
-        </div>
-      </section>
-      <section class="section tight">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">자주 묻는 질문</p>
-            <h2>처음 문의 전에 많이 확인하는 것</h2>
-          </div>
-          <p class="section-lead">자료가 부족하거나 제작 범위가 애매해도 상담에서 먼저 정리할 수 있게 구성했습니다.</p>
-        </div>
-        <div class="faq-list">
-          ${faqs.map(([question, answer]) => `
-            <details class="faq-item">
-              <summary>${question}</summary>
-              <p>${answer}</p>
-            </details>
-          `).join("")}
-        </div>
-      </section>
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>${route.nav} 작업 가능 여부 확인하기</h2>
-          <p>상담은 길게 쓰지 않아도 됩니다. 원하는 결과물, 가지고 있는 자료, 희망 일정만 먼저 보내주시면 가능한 범위부터 답변드립니다.</p>
-          <p class="cta-note">1분 입력 · 상담폼 우선 접수 · 접수 내용 확인 후 회신</p>
+          <h2>${route.nav} 문의하기</h2>
+          <p class="cta-note">원하는 결과물과 보유 자료만 먼저 보내주세요.</p>
           <div class="contact-list" aria-label="상담 시 필요한 내용">
             <span>원하는 결과물</span>
             <span>보유 자료</span>
@@ -536,23 +454,6 @@ function detailPage(route) {
     ${sticky(route)}
     ${footer()}
   `;
-}
-
-function faqItems(route) {
-  return [
-    [
-      "자료가 부족해도 상담할 수 있나요?",
-      `${route.nav}에 필요한 사진, 링크, 문구, 참고 사례가 부족해도 현재 가진 자료를 기준으로 먼저 제작 방향과 우선순위를 정리합니다.`
-    ],
-    [
-      "처음 문의할 때 무엇을 보내면 좋나요?",
-      "원하는 결과물, 현재 가지고 있는 자료, 희망 일정, 참고 링크나 업종 정보만 보내주시면 됩니다."
-    ],
-    [
-      "제작 범위가 애매하면 어떻게 하나요?",
-      "상담에서 꼭 필요한 결과물과 나중에 붙일 수 있는 항목을 나누고, 먼저 진행할 순서를 잡아드립니다."
-    ]
-  ];
 }
 
 function sticky(route) {
