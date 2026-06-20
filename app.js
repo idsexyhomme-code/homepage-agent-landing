@@ -360,6 +360,20 @@ function mainPage() {
             <span>상담 후 필요한 결과물과 자료를 먼저 확인합니다.</span>
           </div>
         </div>
+        <div class="operation-table" aria-label="확장 예정 운영 구조">
+          ${[
+            ["견적문의", "상담폼과 메일 백업을 중심으로 필요한 제작 범위와 보유 자료를 먼저 받습니다."],
+            ["SNS 연결", "인스타그램, 유튜브, 블로그, 당근 광고 유입을 같은 대문과 서비스별 랜딩으로 연결합니다."],
+            ["회사소개서", "브랜드 소개, 서비스 범위, 포트폴리오, 진행 방식을 광고 랜딩과 소개 자료에 같이 씁니다."],
+            ["커뮤니티", "후기, 제작 노트, FAQ, 준비 자료를 쌓아 광고 클릭 후 신뢰를 보강합니다."]
+          ].map(([title, body], index) => `
+            <div>
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <b>${title}</b>
+              <p>${body}</p>
+            </div>
+          `).join("")}
+        </div>
       </section>
       <section class="section" id="services">
         <div class="section-head">
@@ -461,6 +475,13 @@ function mainPage() {
         </div>
       </section>
     </main>
+    ${sticky({
+      nav: "견적 문의",
+      badge: "Video Roastery",
+      stickyTarget: "#main-inquiry-form",
+      stickyLabel: "견적문의",
+      stickyBody: "서비스 선택 후 상담폼 작성"
+    })}
     ${footer()}
   `;
 }
@@ -619,14 +640,16 @@ function faqItems(route) {
 }
 
 function sticky(route) {
-  const formHref = buildTallyHref(route);
+  const target = route.stickyTarget || "#inquiry-form";
+  const label = route.stickyLabel || "문의폼 열기";
+  const body = route.stickyBody || route.badge;
   return `
     <aside class="sticky">
       <div>
         <b>${route.nav} 상담</b>
-        <span>${route.badge}</span>
+        <span>${body}</span>
       </div>
-      <a class="btn primary" href="#inquiry-form">문의폼 열기</a>
+      <a class="btn primary" href="${target}">${label}</a>
     </aside>
   `;
 }
@@ -711,11 +734,12 @@ function render() {
 
 function setupStickyCta() {
   const sticky = document.querySelector(".sticky");
-  if (!sticky) return;
+  const topbar = document.querySelector(".topbar");
   const contact = document.querySelector("#contact");
   const update = () => {
     const contactVisible = contact && contact.getBoundingClientRect().top < window.innerHeight - 80;
-    sticky.classList.toggle("is-visible", window.scrollY > 260 && !contactVisible);
+    if (sticky) sticky.classList.toggle("is-visible", window.scrollY > 260 && !contactVisible);
+    if (topbar) topbar.classList.toggle("is-scrolled", window.scrollY > 80);
   };
   update();
   window.removeEventListener("scroll", window.__vrStickyUpdate);
