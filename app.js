@@ -3,8 +3,8 @@ const routes = [
     slug: "homepage",
     nav: "홈페이지",
     badge: "videoroastery.com/homepage",
-    title: "홈페이지 제작과 문의 연결을 한 번에",
-    lead: "첫 화면, 포트폴리오, 문의 버튼, 상담 메일까지 고객이 이해하고 연락하는 흐름으로 정리합니다.",
+    title: "홈페이지 제작부터 문의 연결까지",
+    lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 상담 폼까지 자연스럽게 이어지도록 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
     cta: "홈페이지 제작 상담받기",
@@ -17,20 +17,20 @@ const routes = [
       ["portfolio_automation_task_flow.jpg", "문의 흐름 자동화 예시"]
     ],
     proof: [
-      ["첫 화면 설계", "누가 봐도 어떤 서비스를 파는지 바로 알게 만듭니다."],
-      ["상담 동선", "시안 보기, 제작 범위 정리, 문의 버튼이 끊기지 않게 이어집니다."],
-      ["포트폴리오 연결", "기존 작업물을 서비스별 증거로 재배치합니다."]
+      ["첫 화면 설계", "방문자가 첫 화면만 보고도 무엇을 파는지 알게 만듭니다."],
+      ["상담 동선", "시안 보기, 제작 범위 확인, 상담 폼이 끊기지 않게 이어집니다."],
+      ["포트폴리오 연결", "기존 작업물을 서비스별 신뢰 자료로 재배치합니다."]
     ]
   },
   {
     slug: "inquiry-agent",
     nav: "문의자동화",
     badge: "videoroastery.com/inquiry-agent",
-    title: "문의가 들어오면 필요한 정보부터 정리합니다",
-    lead: "홈페이지, 폼, 메일, 카카오 문의를 한 곳에 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
+    title: "문의가 오면 답변할 내용부터 정리합니다",
+    lead: "홈페이지, 폼, 메일, 카카오 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
-    cta: "문의 흐름 진단받기",
+    cta: "문의 자동화 상담받기",
     thumbnails: [
       ["portfolio_automation_examples.jpg", "문의 자동 정리 예시"],
       ["portfolio_automation_task_flow.jpg", "문의 수집부터 답장 초안까지"],
@@ -72,8 +72,8 @@ const routes = [
     slug: "brand-film",
     nav: "기업영상",
     badge: "videoroastery.com/brand-film",
-    title: "회사 소개를 짧고 선명한 영상 흐름으로",
-    lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 정리해 제안서처럼 이해되게 만듭니다.",
+    title: "회사 소개를 영상으로 선명하게 정리합니다",
+    lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 잡아 제안서처럼 이해되게 만듭니다.",
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
     cta: "기업 영상 상담받기",
@@ -86,7 +86,7 @@ const routes = [
       ["portfolio_content_review.jpg", "콘텐츠 검수 흐름"]
     ],
     proof: [
-      ["메시지 정리", "회사 소개를 단순 나열이 아니라 장면 흐름으로 바꿉니다."],
+      ["메시지 정리", "회사 소개를 단순 나열이 아니라 영상 흐름으로 바꿉니다."],
       ["제안서 활용", "영업, 투자, 채용, 입점 제안에 같이 쓸 수 있게 만듭니다."],
       ["검수 기준", "톤, 문구, 화면 순서를 먼저 잡고 제작합니다."]
     ]
@@ -119,7 +119,7 @@ const routes = [
     nav: "웨딩",
     badge: "videoroastery.com/wedding",
     title: "웨딩 기록은 자연스럽게, 공개 부담은 낮게",
-    lead: "스냅과 영상의 분위기를 먼저 확인하고, 얼굴 노출이 부담스러운 컷은 디테일과 장면감 중심으로 제안합니다.",
+    lead: "스냅과 영상의 분위기를 먼저 확인하고, 얼굴 노출이 부담스러운 컷은 디테일과 분위기 중심으로 제안합니다.",
     heroVideo: "wedding_hero.mp4",
     heroImage: "portfolio_wedding_studio_mood.jpg",
     cta: "웨딩 촬영 상담받기",
@@ -133,7 +133,7 @@ const routes = [
     ],
     proof: [
       ["초상권 배려", "공개용 포트폴리오는 얼굴 노출 부담을 낮춥니다."],
-      ["장면감", "사람보다 분위기, 움직임, 공간을 중심으로 보여줍니다."],
+      ["디테일", "사람보다 분위기, 움직임, 공간을 중심으로 보여줍니다."],
       ["영상 활용", "본식 전후 하이라이트와 SNS용 컷으로 나눌 수 있습니다."]
     ]
   },
@@ -141,8 +141,8 @@ const routes = [
     slug: "content",
     nav: "콘텐츠",
     badge: "videoroastery.com/content",
-    title: "카드뉴스와 릴스 소재를 한 번에 정리합니다",
-    lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 따로 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
+    title: "카드뉴스와 릴스를 상담까지 이어지게 만듭니다",
+    lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
     cta: "콘텐츠 제작 상담받기",
@@ -168,7 +168,7 @@ const routes = [
     lead: "지금 반복되는 업무를 먼저 보고, 시트, 폼, 메일, 노션, AI 도구를 작게 연결해 바로 쓰는 방식으로 시작합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
-    cta: "AI 활용 상담받기",
+    cta: "AI 업무 상담받기",
     thumbnails: [
       ["ai_service_landing.png", "AI 서비스 랜딩 구조"],
       ["portfolio_automation_examples.jpg", "자동화 적용 예시"],
@@ -262,13 +262,13 @@ function hero(route) {
 function mainPage() {
   const main = {
     badge: "Video Roastery",
-    title: "문의가 들어오는 온라인 영업 흐름을 만듭니다",
-    lead: "홈페이지, AI 숏폼, 홍보영상, 촬영, 문의 자동화까지. 고객이 보고 이해하고 연락하는 흐름으로 정리합니다.",
+    title: "문의가 오는 홈페이지·영상·자동화를 만듭니다",
+    lead: "광고를 눌렀을 때 바로 이해되는 첫 화면, 실제 포트폴리오, 상담 폼까지 이어 붙입니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
-    cta: "무료 진단 받기",
+    cta: "무료로 상담받기",
     primaryHref: "#contact",
-    secondaryCta: "내 업종에 맞는 패키지 보기",
+    secondaryCta: "서비스 둘러보기",
     secondaryHref: "#services"
   };
   return `
@@ -279,9 +279,9 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">브랜드 약속</p>
-            <h2>고객이 이해하고 문의하게 만드는 디지털 제작소</h2>
+            <h2>홈페이지부터 영상·촬영·문의 자동화까지 연결하는 제작팀</h2>
           </div>
-          <p class="section-lead">좋은 가게와 좋은 서비스가 홍보를 몰라 조용히 묻히지 않도록, 첫인상부터 상담 연결까지 한 흐름으로 정리합니다.</p>
+          <p class="section-lead">좋은 가게와 좋은 서비스가 홍보를 몰라 묻히지 않도록, 고객이 처음 보는 화면부터 상담으로 넘어가는 길을 만듭니다.</p>
         </div>
         <div class="proof-row">
           <div class="proof-item">
@@ -301,23 +301,10 @@ function mainPage() {
       <section class="section" id="services">
         <div class="section-head">
           <div>
-            <p class="section-kicker">서비스 구성</p>
-            <h2>내 상황에 맞는 제작 페이지를 확인하세요</h2>
+            <p class="section-kicker">서비스 선택</p>
+            <h2>먼저 필요한 제작을 고르세요</h2>
           </div>
-          <p class="section-lead">각 서비스는 따로 광고해도 어색하지 않도록 별도 랜딩처럼 구성하고, 전체 홈페이지에서는 한 번에 비교할 수 있게 묶었습니다.</p>
-        </div>
-        <div class="landing-preview-grid">
-          ${overviewCard({ slug: "", nav: "전체", title: "제작 상담 허브", lead: "모든 서비스의 입구", og: "og_main.jpg" }, true)}
-          ${displayRoutes.map((route) => overviewCard(route)).join("")}
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">상담 메뉴</p>
-            <h2>업종과 목적에 맞는 제작 흐름을 선택하세요</h2>
-          </div>
-          <p class="section-lead">홈페이지, 영상, 촬영, 콘텐츠, 자동화 중 어디서 문의가 막히는지에 맞춰 먼저 볼 페이지를 고르면 됩니다.</p>
+          <p class="section-lead">홈페이지, 영상, 촬영, 콘텐츠, 자동화 중 지금 광고와 문의가 막힌 지점부터 따로 볼 수 있습니다.</p>
         </div>
         <div class="route-grid">
           ${displayRoutes.map(routeCard).join("")}
@@ -325,8 +312,8 @@ function mainPage() {
       </section>
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>내 가게에 필요한 온라인 영업 흐름을 먼저 진단합니다</h2>
-          <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 홈페이지·영상·콘텐츠·문의 자동화 중 무엇부터 세팅할지 정리해 드립니다.</p>
+          <h2>어떤 제작부터 해야 할지 먼저 정리해드립니다</h2>
+          <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 홈페이지·영상·콘텐츠·문의 자동화 중 먼저 필요한 순서를 잡아드립니다.</p>
           <div class="route-strip">
             ${displayRoutes.map((route) => `<a href="${routeHref(route.slug)}">${route.nav}</a>`).join("")}
           </div>
@@ -351,22 +338,6 @@ function routeCard(route) {
   `;
 }
 
-function ogImageName(route) {
-  return `og_${route.slug.replace(/-/g, "_")}.jpg`;
-}
-
-function overviewCard(route, isMain = false) {
-  const href = isMain ? routeHref() : routeHref(route.slug);
-  const path = isMain ? "videoroastery.com" : `videoroastery.com/${route.slug}`;
-  return `
-    <a class="landing-preview-card ${isMain ? "main-preview" : ""}" href="${href}">
-      <img src="${asset(route.og || ogImageName(route))}" alt="${route.nav} 페이지 시안" />
-      <span>${path}</span>
-      <b>${route.nav}</b>
-    </a>
-  `;
-}
-
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   const formHref = buildTallyHref(route);
@@ -381,7 +352,7 @@ function detailPage(route) {
             <p class="section-kicker">포트폴리오 미리보기</p>
             <h2>먼저 결과물부터 확인하세요</h2>
           </div>
-          <p class="section-lead">서비스별 실제 컷만 모아 보여주고, 서로 다른 카테고리 이미지는 섞지 않습니다.</p>
+          <p class="section-lead">설명보다 먼저 신뢰를 만들 수 있도록, 서비스별 실제 컷만 추려 보여줍니다.</p>
         </div>
         <div class="portfolio-grid">
           ${route.thumbnails.map(([image, caption]) => `
@@ -395,10 +366,10 @@ function detailPage(route) {
       <section class="section tight">
         <div class="section-head">
           <div>
-            <p class="section-kicker">불안을 줄이는 장치</p>
-            <h2>상담 전에 확인할 수 있는 것</h2>
+            <p class="section-kicker">확인 포인트</p>
+            <h2>상담 전에 판단할 수 있게</h2>
           </div>
-          <p class="section-lead">긴 설명보다 실제 사례, 제작 범위, 상담 흐름을 빠르게 확인하도록 구성합니다.</p>
+          <p class="section-lead">받게 될 결과물과 준비할 자료가 흐릿하지 않도록 실제 사례와 기준을 먼저 보여줍니다.</p>
         </div>
         <div class="proof-row">
           ${route.proof.map(([title, body]) => `
@@ -412,17 +383,17 @@ function detailPage(route) {
       <section class="section tight">
         <div class="section-head">
           <div>
-            <p class="section-kicker">상담 진행 방식</p>
-            <h2>처음 상담이 진행되는 순서</h2>
+            <p class="section-kicker">상담 흐름</p>
+            <h2>처음 문의 후 이렇게 정리합니다</h2>
           </div>
-          <p class="section-lead">제작 목적과 현재 자료에 맞춰 필요한 결과물, 범위, 진행 순서를 차례대로 정리합니다.</p>
+          <p class="section-lead">긴 기획서가 없어도 현재 자료와 목표를 기준으로 제작 범위를 빠르게 나눕니다.</p>
         </div>
         <div class="flow">
           ${[
-            ["문제 인식", "지금 필요한 제작 상황을 한 문장으로 바로 짚습니다."],
-            ["결과 제시", "어떤 결과물을 받을 수 있는지 예시 이미지로 보여줍니다."],
-            ["제작 범위", "상담 전에 필요한 자료와 진행 범위를 정리합니다."],
-            ["문의 연결", "메일과 상담 폼으로 필요한 내용을 바로 보낼 수 있습니다."]
+            ["목적 확인", "무엇을 팔고, 어디서 문의가 막히는지 먼저 확인합니다."],
+            ["자료 확인", "사진, 영상, 링크, 문구처럼 지금 가진 자료를 살핍니다."],
+            ["구성 제안", "필요한 페이지, 영상, 촬영, 자동화 범위를 나눠 제안합니다."],
+            ["상담 연결", "상담 폼이나 메일로 바로 이어지게 정리합니다."]
           ].map(([title, body], index) => `
             <div class="flow-step">
               <span class="num">${String(index + 1).padStart(2, "0")}</span>
@@ -461,8 +432,8 @@ function detailPage(route) {
             <span>희망 일정</span>
           </div>
           <div class="contact-actions">
-            <a class="btn primary" href="${inquiryHref}">상담 메일 작성</a>
-            <a class="btn secondary" href="${formHref}" target="_blank" rel="noopener">상담 폼 열기</a>
+            <a class="btn primary" href="${formHref}">상담 폼 작성하기</a>
+            <a class="btn secondary" href="${inquiryHref}">메일로 문의하기</a>
           </div>
         </div>
       </section>
@@ -490,13 +461,14 @@ function faqItems(route) {
 }
 
 function sticky(route) {
+  const formHref = buildTallyHref(route);
   return `
     <aside class="sticky">
       <div>
         <b>${route.nav} 상담</b>
         <span>${route.badge}</span>
       </div>
-      <a class="btn primary" href="#contact">견적 문의</a>
+      <a class="btn primary" href="${formHref}">무료 상담받기</a>
     </aside>
   `;
 }
@@ -558,8 +530,8 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
-  const pageTitle = route ? `${route.nav} | Video Roastery` : "문의가 들어오는 가게로 세팅합니다 | Video Roastery";
-  const pageDesc = route ? route.lead : "홈페이지, AI 숏폼, 홍보영상, 문의 자동화까지 사장님의 온라인 영업 흐름을 고객이 이해하고 문의하게 만드는 구조로 정리합니다.";
+  const pageTitle = route ? `${route.nav} | Video Roastery` : "문의가 오는 홈페이지·영상·자동화 | Video Roastery";
+  const pageDesc = route ? route.lead : "홈페이지, AI 숏폼, 홍보영상, 촬영, 문의 자동화까지 고객이 보고 바로 상담할 수 있는 흐름으로 정리합니다.";
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
