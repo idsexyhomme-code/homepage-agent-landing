@@ -210,10 +210,7 @@ const mainNavItems = [
   ["소개", "studio"],
   ["서비스", "services"],
   ["포트폴리오", "portfolio-hub"],
-  ["견적문의", "main-inquiry-form"],
-  ["회사소개서", "company"],
-  ["SNS", "channels"],
-  ["커뮤니티", "community"]
+  ["견적문의", "main-inquiry-form"]
 ];
 
 function detectBasePath() {
@@ -331,47 +328,16 @@ function mainPage() {
       <section class="section" id="studio">
         <div class="section-head">
           <div>
-            <p class="section-kicker">업체 확인</p>
-            <h2>실제 작업 상담을 위해 정리한 포트폴리오 허브입니다</h2>
-          </div>
-          <p class="section-lead">Video Roastery는 홈페이지, 영상, 촬영, 콘텐츠를 실제 작업물 기준으로 보여주고 상담 후 필요한 범위만 정리합니다.</p>
-        </div>
-        <div class="studio-card">
-          <div>
-            <p class="studio-label">운영 방식</p>
-            <h3>먼저 보고, 맞으면 상담합니다</h3>
-            <p>가격표나 결제를 앞세우기보다 실제 사례와 제작 가능 범위를 먼저 확인합니다. 필요한 서비스가 다르면 해당 카테고리 페이지만 따로 보고 문의할 수 있습니다.</p>
-          </div>
-          <dl class="fact-list">
-            ${studioFacts.map(([key, value]) => `<div><dt>${key}</dt><dd>${value}</dd></div>`).join("")}
-          </dl>
-        </div>
-        <div class="proof-row">
-          <div class="proof-item">
-            <b>실제 사례 먼저</b>
-            <span>홍보 문구보다 작업 이미지와 화면을 먼저 보여줍니다.</span>
-          </div>
-          <div class="proof-item">
-            <b>서비스별 분리</b>
-            <span>웨딩, 드론, 홈페이지, 영상이 섞여 보이지 않도록 분리합니다.</span>
-          </div>
-          <div class="proof-item">
-            <b>상담 후 범위 확정</b>
-            <span>상담 후 필요한 결과물과 자료를 먼저 확인합니다.</span>
+            <p class="section-kicker">Portfolio First</p>
+            <h2>작업물 중심으로 먼저 보여드립니다</h2>
           </div>
         </div>
-        <div class="operation-table" aria-label="확장 예정 운영 구조">
-          ${[
-            ["견적문의", "상담폼과 메일 백업을 중심으로 필요한 제작 범위와 보유 자료를 먼저 받습니다."],
-            ["SNS 연결", "인스타그램, 유튜브, 블로그, 당근 광고 유입을 같은 대문과 서비스별 랜딩으로 연결합니다."],
-            ["회사소개서", "브랜드 소개, 서비스 범위, 포트폴리오, 진행 방식을 광고 랜딩과 소개 자료에 같이 씁니다."],
-            ["커뮤니티", "후기, 제작 노트, FAQ, 준비 자료를 쌓아 광고 클릭 후 신뢰를 보강합니다."]
-          ].map(([title, body], index) => `
-            <div>
-              <span>${String(index + 1).padStart(2, "0")}</span>
-              <b>${title}</b>
-              <p>${body}</p>
-            </div>
+        <div class="portfolio-preview studio-preview">
+          ${displayRoutes.slice(0, 4).map((route) => `
+            <a class="preview-tile" href="${routeHref(route.slug)}">
+              <img src="${asset(route.heroImage)}" alt="${route.nav} 대표 작업물" />
+              <span>${route.nav}</span>
+            </a>
           `).join("")}
         </div>
       </section>
@@ -379,9 +345,8 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">서비스 선택</p>
-            <h2>필요한 서비스 사례를 따로 보세요</h2>
+            <h2>서비스별 작업 사례</h2>
           </div>
-          <p class="section-lead">홈페이지, 드론, 영상, 웨딩, 콘텐츠를 섞어 보여주지 않습니다. 필요한 제작만 열어보고 맞으면 작업 가능 여부를 확인하세요.</p>
         </div>
         <div class="route-grid">
           ${displayRoutes.map(routeCard).join("")}
@@ -391,9 +356,8 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">포트폴리오</p>
-            <h2>광고 전에 먼저 보여줄 수 있는 작업물</h2>
+            <h2>작업 이미지 모아보기</h2>
           </div>
-          <p class="section-lead">당근, SNS, 검색 광고에서 들어온 사람이 바로 확인할 수 있도록 실제 작업 이미지를 서비스별로 분리해 둡니다.</p>
         </div>
         <div class="portfolio-preview">
           ${displayRoutes.slice(0, 6).map((route) => `
@@ -402,53 +366,6 @@ function mainPage() {
               <span>${route.nav}</span>
             </a>
           `).join("")}
-        </div>
-      </section>
-      <section class="section tight" id="company">
-        <div class="brand-system">
-          <div>
-            <p class="section-kicker">회사소개서</p>
-            <h2>처음 보는 사람도 믿고 문의할 수 있게 정리합니다</h2>
-            <p>브랜드 소개, 제작 범위, 포트폴리오, 진행 방식, 문의 방법을 한 흐름으로 묶어 광고 랜딩과 회사소개서에 같이 쓸 수 있게 구성합니다.</p>
-          </div>
-          <div class="system-list">
-            <span>브랜드 소개</span>
-            <span>서비스 범위</span>
-            <span>작업 사례</span>
-            <span>문의 동선</span>
-          </div>
-        </div>
-      </section>
-      <section class="section tight" id="channels">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">SNS 연결</p>
-            <h2>광고와 SNS에서 들어온 흐름을 문의까지 연결합니다</h2>
-          </div>
-          <p class="section-lead">인스타그램, 유튜브, 블로그, 당근 광고에서 들어온 사람이 같은 대문을 보고 필요한 제작 페이지로 이동하도록 설계합니다.</p>
-        </div>
-        <div class="channel-grid">
-          ${[
-            ["Instagram", "릴스·카드뉴스·포트폴리오 하이라이트"],
-            ["YouTube", "기업영상·드론·웨딩 영상 포트폴리오"],
-            ["Blog", "제작 과정, 견적 전 체크리스트, 사례 설명"],
-            ["Daangn", "지역 촬영 광고와 서비스별 랜딩 연결"]
-          ].map(([title, body]) => `
-            <div class="channel-card">
-              <b>${title}</b>
-              <span>${body}</span>
-            </div>
-          `).join("")}
-        </div>
-      </section>
-      <section class="section tight" id="community">
-        <div class="brand-system community-system">
-          <div>
-            <p class="section-kicker">커뮤니티</p>
-            <h2>후기, 제작 노트, 질문 답변을 쌓아 신뢰를 만듭니다</h2>
-            <p>광고 클릭 후 바로 구매하지 않는 사람을 위해 진행 사례, 자주 묻는 질문, 제작 전 준비 자료를 차근차근 쌓을 수 있는 구조를 열어둡니다.</p>
-          </div>
-          <a class="btn secondary" href="#main-inquiry-form">견적문의로 이동</a>
         </div>
       </section>
       <section class="section tight" id="contact">
@@ -493,7 +410,6 @@ function routeCard(route) {
       <div class="service-card-body">
         <span class="path">/${route.slug}</span>
         <h3>${route.title}</h3>
-        <p>${route.lead}</p>
         <strong>사례 확인하기</strong>
       </div>
     </a>
