@@ -250,15 +250,30 @@ function hero(route) {
   const secondaryHref = route.secondaryHref || "#portfolio";
   const secondaryCta = route.secondaryCta || "사례 먼저 보기";
   const trustItems = route.trustItems || ["실제 작업물 중심", "서비스별 별도 상담", "작업 가능 범위 먼저 확인"];
+  const isEditorial = route.layout === "editorial";
   return `
-    <section class="hero">
+    <section class="hero${isEditorial ? " editorial" : ""}">
       <video autoplay muted loop playsinline preload="metadata" poster="${asset(route.heroImage)}">
         <source src="${asset(route.heroVideo)}" type="video/mp4" />
       </video>
+      ${isEditorial ? `
+        <div class="hero-showcase" aria-label="대표 작업 사례">
+          ${(route.showcase || []).map(([image, label]) => `
+            <figure>
+              <img src="${asset(image)}" alt="${label} 작업 사례" />
+              <figcaption>${label}</figcaption>
+            </figure>
+          `).join("")}
+        </div>
+      ` : ""}
       <div class="hero-inner">
-        <span class="route-pill">${route.badge}</span>
+        ${isEditorial ? `
+          <p class="hero-kicker">${route.kicker}</p>
+          <p class="hero-intro">${route.intro}</p>
+          ${route.prefix ? `<p class="hero-prefix">${route.prefix}</p>` : ""}
+        ` : `<span class="route-pill">${route.badge}</span>`}
         <h1>${route.title}</h1>
-        <p>${route.lead}</p>
+        <p class="hero-lead">${route.lead}</p>
         <div class="hero-actions">
           <a class="btn primary" href="${primaryHref}">${route.cta}</a>
           <a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>
@@ -273,16 +288,27 @@ function hero(route) {
 
 function mainPage() {
   const main = {
+    layout: "editorial",
     badge: "Video Roastery",
-    title: "홈페이지·영상·촬영, 실제 사례부터 보여드립니다",
-    lead: "처음 들어와도 바로 판단할 수 있도록 서비스별 포트폴리오, 작업 범위, 상담 방식을 먼저 정리했습니다.",
+    kicker: "영상·홈페이지·촬영 제작 상담",
+    intro: "작업물 보고,<br>맞으면 바로 문의하세요.",
+    title: "촬영부터 홈페이지까지,<br>실제 사례로 확인하고 상담하세요.",
+    lead: "드론·웨딩·기업영상·AI숏폼·홈페이지·문의자동화를 서비스별 사례로 나눠 보여드립니다. 필요한 제작만 골라 1분 문의로 범위를 확인하세요.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
-    cta: "서비스별 사례 보기",
-    primaryHref: "#services",
-    secondaryCta: "업체 정보 확인",
-    secondaryHref: "#studio",
-    trustItems: ["실제 포트폴리오 중심", "범위 확인 후 진행", "제주 촬영·전국 온라인 제작"]
+    cta: "1분 견적 문의",
+    primaryHref: "#contact",
+    secondaryCta: "작업 사례 보기",
+    secondaryHref: "#services",
+    trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
+    showcase: [
+      ["portfolio_automation_homepage_flow.jpg", "홈페이지"],
+      ["portfolio_drone_night_exterior_clean.jpg", "드론"],
+      ["portfolio_video_product_reels_ad.jpg", "AI숏폼"],
+      ["portfolio_wedding_studio_mood.jpg", "웨딩"],
+      ["portfolio_content_reels_page.jpg", "콘텐츠"],
+      ["portfolio_video_industrial_brand.jpg", "기업영상"]
+    ]
   };
   return `
     ${nav("main")}
