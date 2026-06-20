@@ -238,6 +238,9 @@ function nav(activeSlug) {
 }
 
 function hero(route) {
+  const primaryHref = route.primaryHref || "#contact";
+  const secondaryHref = route.secondaryHref || "#portfolio";
+  const secondaryCta = route.secondaryCta || "사례 먼저 보기";
   return `
     <section class="hero">
       <video autoplay muted loop playsinline preload="metadata" poster="${asset(route.heroImage)}">
@@ -248,8 +251,8 @@ function hero(route) {
         <h1>${route.title}</h1>
         <p>${route.lead}</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#contact">${route.cta}</a>
-          <a class="btn secondary" href="#portfolio">사례 먼저 보기</a>
+          <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+          <a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>
         </div>
       </div>
     </section>
@@ -258,18 +261,44 @@ function hero(route) {
 
 function mainPage() {
   const main = {
-    badge: "videoroastery.com",
-    title: "홈페이지부터 영상·촬영·자동화까지 한 도메인에서 상담",
-    lead: "업종과 목적에 맞는 전용 페이지로 바로 들어가 사례를 확인하고, 제작 범위와 상담 흐름을 한 번에 정리합니다.",
+    badge: "Video Roastery",
+    title: "문의가 들어오는 가게로 세팅합니다",
+    lead: "홈페이지, AI 숏폼, 홍보영상, 문의 자동화까지. 사장님의 온라인 영업 흐름을 고객이 이해하고 문의하게 만드는 구조로 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
-    cta: "서비스별 상담 보기"
+    cta: "무료 진단 받기",
+    primaryHref: "#contact",
+    secondaryCta: "내 업종에 맞는 패키지 보기",
+    secondaryHref: "#services"
   };
   return `
     ${nav("main")}
     ${hero(main)}
     <main id="main">
       <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">브랜드 약속</p>
+            <h2>고객이 이해하고 문의하게 만드는 디지털 제작소</h2>
+          </div>
+          <p class="section-lead">좋은 가게와 좋은 서비스가 홍보를 몰라 조용히 묻히지 않도록, 첫인상부터 상담 연결까지 한 흐름으로 정리합니다.</p>
+        </div>
+        <div class="proof-row">
+          <div class="proof-item">
+            <b>보이게</b>
+            <span>업종, 서비스, 분위기가 첫 화면에서 바로 보이게 만듭니다.</span>
+          </div>
+          <div class="proof-item">
+            <b>이해되게</b>
+            <span>고객이 무엇을 받을 수 있는지 사례와 문장으로 쉽게 이해하게 합니다.</span>
+          </div>
+          <div class="proof-item">
+            <b>문의하게</b>
+            <span>상담 버튼, 문의폼, 답장 흐름까지 이어지는 구조로 연결합니다.</span>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="services">
         <div class="section-head">
           <div>
             <p class="section-kicker">서비스 구성</p>
@@ -294,10 +323,10 @@ function mainPage() {
           ${displayRoutes.map(routeCard).join("")}
         </div>
       </section>
-      <section class="section tight">
+      <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>상담은 단순하게 시작합니다</h2>
-          <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 제작 범위와 진행 순서를 먼저 정리해 드립니다.</p>
+          <h2>내 가게에 필요한 온라인 영업 흐름을 먼저 진단합니다</h2>
+          <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 홈페이지·영상·콘텐츠·문의 자동화 중 무엇부터 세팅할지 정리해 드립니다.</p>
           <div class="route-strip">
             ${displayRoutes.map((route) => `<a href="${routeHref(route.slug)}">${route.nav}</a>`).join("")}
           </div>
@@ -529,8 +558,8 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
-  const pageTitle = route ? `${route.nav} | Video Roastery` : "Video Roastery | 제작 상담 허브";
-  const pageDesc = route ? route.lead : "홈페이지, 문의 자동화, AI 영상, 드론, 웨딩, 콘텐츠 제작을 목적별 상담 페이지로 연결합니다.";
+  const pageTitle = route ? `${route.nav} | Video Roastery` : "문의가 들어오는 가게로 세팅합니다 | Video Roastery";
+  const pageDesc = route ? route.lead : "홈페이지, AI 숏폼, 홍보영상, 문의 자동화까지 사장님의 온라인 영업 흐름을 고객이 이해하고 문의하게 만드는 구조로 정리합니다.";
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
