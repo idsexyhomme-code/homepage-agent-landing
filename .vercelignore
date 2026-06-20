@@ -1,0 +1,12 @@
+README.md
+ad_routing_plan.md
+tracking_plan.md
+deployment_checklist.md
+ad_url_matrix.csv
+landing_route_map.png
+landing_page_structure.png
+preview_*.png
+visual_*.png
+scripts/
+.DS_Store
+*.log

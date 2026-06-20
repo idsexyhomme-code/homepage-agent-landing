@@ -1,0 +1,25 @@
+{
+  "name": "Video Roastery",
+  "short_name": "Video Roastery",
+  "description": "홈페이지, 문의 자동화, AI 영상, 드론, 웨딩, 콘텐츠 제작 상담",
+  "lang": "ko-KR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf5",
+  "theme_color": "#0f7f62",
+  "icons": [
+    {
+      "src": "/assets/symbol.png",
+      "sizes": "428x428",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/profile_symbol.png",
+      "sizes": "428x428",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
