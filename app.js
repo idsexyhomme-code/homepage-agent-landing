@@ -197,6 +197,26 @@ const serviceOrder = [
   "consulting"
 ];
 const displayRoutes = serviceOrder.map((slug) => routeBySlug[slug]).filter(Boolean);
+const routeLabels = {
+  homepage: ["WEB", "홈페이지 제작"],
+  drone: ["DRONE", "드론 항공촬영"],
+  "ai-shortform": ["AI FILM", "AI 숏폼 광고"],
+  "brand-film": ["BRAND", "기업 홍보영상"],
+  "inquiry-agent": ["SYSTEM", "문의 자동정리"],
+  wedding: ["WEDDING", "웨딩 스냅·영상"],
+  content: ["CONTENT", "카드뉴스·릴스"],
+  consulting: ["AI OPS", "AI 활용 상담"]
+};
+const routeCardImages = {
+  homepage: "card_homepage.jpg",
+  drone: "card_drone.jpg",
+  "ai-shortform": "card_ai_shortform_photo.jpg",
+  "brand-film": "card_brand_film_photo.jpg",
+  "inquiry-agent": "card_inquiry_agent_photo.jpg",
+  wedding: "card_wedding.jpg",
+  content: "portfolio_content_product.jpg",
+  consulting: "card_consulting_photo.jpg"
+};
 const basePath = detectBasePath();
 const mainNavItems = [
   ["소개", "studio"],
@@ -275,13 +295,19 @@ function hero(route) {
         ` : `<span class="route-pill">${route.badge}</span>`}
         <h1>${route.title}</h1>
         <p class="hero-lead">${route.lead}</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="${primaryHref}">${route.cta}</a>
-          <a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>
-        </div>
-        <div class="hero-trust" aria-label="신뢰 확인 정보">
-          ${trustItems.map((item) => `<span>${item}</span>`).join("")}
-        </div>
+        ${isEditorial ? `
+          <div class="hero-actions editorial-actions">
+            <a class="btn secondary" href="${primaryHref}">${route.cta}</a>
+          </div>
+        ` : `
+          <div class="hero-actions">
+            <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+            <a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>
+          </div>
+          <div class="hero-trust" aria-label="신뢰 확인 정보">
+            ${trustItems.map((item) => `<span>${item}</span>`).join("")}
+          </div>
+        `}
       </div>
     </section>
   `;
@@ -292,24 +318,24 @@ function mainPage() {
     layout: "editorial",
     badge: "Video Roastery",
     kicker: "V I D E O   R O A S T E R Y   S T U D I O",
-    intro: "작업물을 먼저 보여주고,<br>브랜드에 필요한 제작을 정리합니다.",
+    intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
-    title: "홈페이지와 영상을,<br>기획하고, 제작하고, 연결합니다.",
-    lead: "드론·웨딩·기업영상·AI숏폼·카드뉴스·문의자동화까지 실제 사례를 기준으로 상담합니다.",
+    title: "온라인에 필요한 제작을,<br>기획하고, 실행하고, 관리합니다.",
+    lead: "홈페이지·영상·드론·SNS 콘텐츠를 실제 작업물 기준으로 상담합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
-    cta: "1분 견적 문의",
+    cta: "견적 문의",
     primaryHref: "#main-inquiry-form",
     secondaryCta: "작업 사례 보기",
     secondaryHref: "#services",
     trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
     showcase: [
-      ["portfolio_automation_homepage_flow.jpg", "홈페이지"],
-      ["portfolio_drone_night_exterior_clean.jpg", "드론"],
-      ["portfolio_video_product_reels_ad.jpg", "AI숏폼"],
-      ["portfolio_wedding_studio_mood.jpg", "웨딩"],
-      ["portfolio_content_reels_page.jpg", "콘텐츠"],
-      ["portfolio_video_industrial_brand.jpg", "기업영상"]
+      ["portfolio_drone_night_exterior_clean.jpg", "야간 외관"],
+      ["portfolio_video_esg_brand.jpg", "항공 풍경"],
+      ["portfolio_drone_resort_facility.jpg", "공간 촬영"],
+      ["portfolio_video_product_reels_ad.jpg", "제품 영상"],
+      ["portfolio_content_product.jpg", "제품 콘텐츠"],
+      ["portfolio_wedding_ring_detail.jpg", "웨딩 디테일"]
     ]
   };
   const mainFormHref = buildTallyHref({ slug: "main", nav: "전체 제작 상담" });
@@ -320,8 +346,8 @@ function mainPage() {
       <section class="section" id="studio">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Portfolio First</p>
-            <h2>작업물 중심으로 먼저 보여드립니다</h2>
+            <p class="section-kicker">Selected Work</p>
+            <h2>먼저 보는 작업 이미지</h2>
           </div>
         </div>
         <div class="portfolio-preview studio-preview">
@@ -336,8 +362,8 @@ function mainPage() {
       <section class="section" id="services">
         <div class="section-head">
           <div>
-            <p class="section-kicker">서비스 선택</p>
-            <h2>서비스별 작업 사례</h2>
+            <p class="section-kicker">Services</p>
+            <h2>제작 분야별 포트폴리오</h2>
           </div>
         </div>
         <div class="route-grid">
@@ -362,20 +388,14 @@ function mainPage() {
       </section>
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>바로 맡기지 않아도 됩니다. 가능 여부부터 확인하세요</h2>
-          <p>원하는 결과물, 현재 가지고 있는 자료, 희망 일정만 알려주시면 어떤 제작이 먼저 필요한지 간단히 정리해 드립니다.</p>
-          <p class="cta-note">1분 입력 · 상담폼 우선 접수 · 접수 내용 확인 후 회신</p>
-          <div class="contact-list" aria-label="상담 시 필요한 내용">
-            <span>필요한 제작</span>
-            <span>보유 자료</span>
-            <span>희망 일정</span>
-          </div>
+          <video class="cta-video" autoplay muted loop playsinline preload="metadata">
+            <source src="${asset("live_hero.mp4")}" type="video/mp4" />
+          </video>
+          <h2>자료만 보내주세요. 가능 범위부터 보겠습니다.</h2>
+          <p class="cta-note">상담폼 접수 후 제작 범위와 다음 단계를 회신합니다.</p>
           <div class="contact-actions">
             <a class="btn primary" href="#main-inquiry-form">문의폼 바로 작성</a>
             <a class="btn secondary" href="#services">서비스별 사례 보기</a>
-          </div>
-          <div class="route-strip">
-            ${displayRoutes.map((route) => `<a href="${routeHref(route.slug)}">${route.nav}</a>`).join("")}
           </div>
           <p class="privacy-note">입력 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
           <div class="form-embed" id="main-inquiry-form">
@@ -396,13 +416,15 @@ function mainPage() {
 }
 
 function routeCard(route) {
+  const [eyebrow, title] = routeLabels[route.slug] || [route.slug.toUpperCase(), route.nav];
+  const cardImage = routeCardImages[route.slug] || route.heroImage;
   return `
     <a class="service-card" href="${routeHref(route.slug)}">
-      <img src="${asset(route.heroImage)}" alt="${route.nav} 대표 이미지" />
+      <img src="${asset(cardImage)}" alt="${route.nav} 대표 이미지" />
       <div class="service-card-body">
-        <span class="path">/${route.slug}</span>
-        <h3>${route.title}</h3>
-        <strong>사례 확인하기</strong>
+        <span class="path">${eyebrow}</span>
+        <h3>${title}</h3>
+        <strong>사례 보기</strong>
       </div>
     </a>
   `;
@@ -433,13 +455,11 @@ function detailPage(route) {
       </section>
       <section class="section tight" id="contact">
         <div class="cta-band">
+          <video class="cta-video" autoplay muted loop playsinline preload="metadata">
+            <source src="${asset(route.heroVideo)}" type="video/mp4" />
+          </video>
           <h2>${route.nav} 문의하기</h2>
           <p class="cta-note">원하는 결과물과 보유 자료만 먼저 보내주세요.</p>
-          <div class="contact-list" aria-label="상담 시 필요한 내용">
-            <span>원하는 결과물</span>
-            <span>보유 자료</span>
-            <span>희망 일정</span>
-          </div>
           <div class="contact-actions">
             <a class="btn primary" href="#inquiry-form">문의폼 열기</a>
             <a class="btn secondary" href="${inquiryHref}">메일 백업 문의</a>

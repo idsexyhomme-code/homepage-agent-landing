@@ -237,6 +237,10 @@ button:focus-visible {
   margin-top: 34px;
 }
 
+.editorial-actions {
+  margin-top: 72px;
+}
+
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
@@ -386,7 +390,7 @@ button:focus-visible {
 
 .hero.editorial .hero-intro {
   max-width: 440px;
-  margin-top: 44px;
+  margin-top: 48px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 20px;
   line-height: 1.6;
@@ -416,7 +420,7 @@ button:focus-visible {
 
 .hero.editorial .hero-lead {
   max-width: 600px;
-  margin-top: 22px;
+  margin-top: 24px;
   color: rgba(255, 255, 255, 0.88);
   font-size: 16px;
   line-height: 1.76;
@@ -427,8 +431,11 @@ button:focus-visible {
 
 .hero.editorial .btn.secondary {
   color: var(--white);
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.42);
+  min-width: 124px;
+  min-height: 46px;
+  border-radius: 0;
+  background: rgba(5, 9, 12, 0.18);
+  border-color: rgba(255, 255, 255, 0.62);
 }
 
 .hero.editorial .hero-trust span {
@@ -461,7 +468,7 @@ button:focus-visible {
 .section {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 84px 0;
+  padding: 76px 0;
   scroll-margin-top: 112px;
 }
 
@@ -493,50 +500,78 @@ button:focus-visible {
 .route-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 10px;
 }
 
 .service-card {
-  display: grid;
-  min-height: 292px;
+  position: relative;
+  display: block;
+  min-height: 344px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--white);
-  box-shadow: 0 10px 30px rgba(16, 21, 27, 0.06);
+  border: 0;
+  border-radius: 2px;
+  background: var(--ink);
+  box-shadow: none;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 9, 12, 0.02), rgba(5, 9, 12, 0.74)),
+    linear-gradient(90deg, rgba(5, 9, 12, 0.62), rgba(5, 9, 12, 0.08));
+  transition: opacity 180ms ease;
 }
 
 .service-card img {
   width: 100%;
-  height: 172px;
+  height: 100%;
+  min-height: 344px;
   object-fit: cover;
   display: block;
   background: var(--cream);
+  filter: saturate(0.94) contrast(1.02);
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.05);
 }
 
 .service-card-body {
+  position: absolute;
+  inset: auto 18px 18px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 18px;
+  gap: 10px;
+  padding: 0;
 }
 
 .path {
-  color: var(--green-dark);
-  font-size: 0.86rem;
-  font-weight: 900;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.76rem;
+  font-weight: 840;
+  font-variation-settings: "wght" 840;
+  letter-spacing: 0;
 }
 
 .service-card h3 {
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.24;
+  color: var(--white);
+  font-size: 1.55rem;
+  line-height: 1.15;
+  font-weight: 900;
+  font-variation-settings: "wght" 900;
 }
 
 .service-card strong {
   margin-top: auto;
-  color: var(--green-dark);
+  color: rgba(255, 255, 255, 0.88);
   font-weight: 900;
+  font-size: 0.92rem;
 }
 
 .portfolio-preview {
@@ -554,7 +589,7 @@ button:focus-visible {
   display: block;
   min-height: 220px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 2px;
   background: var(--ink);
 }
 
@@ -599,8 +634,8 @@ button:focus-visible {
 .shot {
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 0;
+  border-radius: 2px;
   background: var(--white);
 }
 
@@ -618,12 +653,34 @@ button:focus-visible {
 }
 
 .cta-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 42px;
   border-radius: 8px;
   color: var(--white);
+  background: #071210;
+}
+
+.cta-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background:
-    linear-gradient(135deg, rgba(15, 127, 98, 0.98), rgba(19, 34, 56, 0.98)),
-    var(--green-dark);
+    linear-gradient(90deg, rgba(5, 9, 12, 0.9), rgba(5, 9, 12, 0.7)),
+    radial-gradient(circle at 80% 22%, rgba(15, 127, 98, 0.34), transparent 32%);
+}
+
+.cta-video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(0.74) contrast(1.14) brightness(0.76);
 }
 
 .cta-band h2 {
@@ -639,7 +696,7 @@ button:focus-visible {
 }
 
 .cta-band .cta-note {
-  margin-top: -12px;
+  margin-top: 0;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 900;
 }
