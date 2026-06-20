@@ -186,21 +186,29 @@ const routes = [
 ];
 
 const routeBySlug = Object.fromEntries(routes.map((route) => [route.slug, route]));
-const serviceOrder = [
+const coreServiceSlugs = [
   "homepage",
-  "drone",
   "ai-shortform",
-  "brand-film",
-  "inquiry-agent",
-  "wedding",
+  "drone",
   "content",
-  "consulting"
+  "inquiry-agent"
+];
+const supportServiceSlugs = [
+  "brand-film",
+  "consulting",
+  "wedding"
+];
+const serviceOrder = [
+  ...coreServiceSlugs,
+  ...supportServiceSlugs
 ];
 const displayRoutes = serviceOrder.map((slug) => routeBySlug[slug]).filter(Boolean);
+const coreRoutes = coreServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
+const supportRoutes = supportServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
 const routeLabels = {
   homepage: ["WEB", "홈페이지 제작"],
   drone: ["DRONE", "드론 항공촬영"],
-  "ai-shortform": ["AI FILM", "AI 숏폼 광고"],
+  "ai-shortform": ["AI FILM", "AI 영상·숏폼"],
   "brand-film": ["BRAND", "기업 홍보영상"],
   "inquiry-agent": ["SYSTEM", "문의 자동정리"],
   wedding: ["WEDDING", "웨딩 스냅·영상"],
@@ -216,6 +224,116 @@ const routeCardImages = {
   wedding: "card_wedding.jpg",
   content: "portfolio_content_product.jpg",
   consulting: "card_consulting_photo.jpg"
+};
+const portfolioWallItems = [
+  ["portfolio_automation_homepage_flow.jpg", "web", "WEB", "상담형 첫 화면", "homepage", "large"],
+  ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
+  ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
+  ["portfolio_video_product_reels_ad.jpg", "ai", "AI FILM", "제품 숏폼 광고", "ai-shortform", "wide"],
+  ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
+  ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
+  ["portfolio_automation_portfolio.jpg", "web", "WEB", "포트폴리오 연결 화면", "homepage"],
+  ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
+  ["portfolio_web_product_drop.png", "web", "WEB", "제품 브랜드 페이지", "homepage"],
+  ["portfolio_web_video_dark.png", "web", "WEB", "다크 톤 영상 페이지", "homepage"],
+  ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
+  ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
+  ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
+  ["portfolio_covers/web_02.jpg", "web", "WEB", "기업형 메인 화면", "homepage"],
+  ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
+  ["portfolio_covers/web_04.jpg", "web", "WEB", "영상 서비스 화면", "homepage"],
+  ["portfolio_covers/web_05.jpg", "web", "WEB", "신청형 랜딩 화면", "homepage"],
+  ["portfolio_covers/web_06.jpg", "web", "WEB", "클래스형 화면", "homepage"],
+  ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
+  ["regional_brand_landing.png", "web", "WEB", "지역 브랜드 랜딩", "homepage"],
+  ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
+  ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
+  ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "기업 홍보영상", "brand-film"],
+  ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "산업 브랜드필름", "brand-film"],
+  ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
+  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "영상 포트폴리오 컷", "ai-shortform"],
+  ["portfolio_covers/video_02.jpg", "ai", "AI FILM", "브랜드필름 컷", "brand-film"],
+  ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "메시지 영상 컷", "brand-film"],
+  ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
+  ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
+  ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
+  ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
+  ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
+  ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
+  ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
+  ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "정원 탑뷰 컷", "drone"],
+  ["portfolio_drone_real_01.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
+  ["portfolio_drone_real_02.jpg", "drone", "DRONE", "건물 항공 컷", "drone"],
+  ["portfolio_drone_real_03.jpg", "drone", "DRONE", "야간 풀빌라 컷", "drone"],
+  ["portfolio_drone_real_04.jpg", "drone", "DRONE", "야간 조명 컷", "drone"],
+  ["portfolio_drone_real_05.jpg", "drone", "DRONE", "시설 전경 컷", "drone"],
+  ["portfolio_drone_real_06.jpg", "drone", "DRONE", "숙소 항공 컷", "drone"],
+  ["portfolio_drone_real_07.jpg", "drone", "DRONE", "주택 외관 컷", "drone"],
+  ["portfolio_drone_real_08.jpg", "drone", "DRONE", "공사 현장 컷", "drone"],
+  ["portfolio_drone_real_09.jpg", "drone", "DRONE", "노을 야간 컷", "drone"],
+  ["portfolio_drone_real_10.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
+  ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
+  ["portfolio_covers/drone_02.jpg", "drone", "DRONE", "시설 항공 컷", "drone"],
+  ["portfolio_covers/drone_03.jpg", "drone", "DRONE", "마을 항공 컷", "drone"],
+  ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
+  ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
+  ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "영상 썸네일 컷", "drone"],
+  ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
+  ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
+  ["portfolio_content_context.jpg", "content", "CONTENT", "레퍼런스 정리 화면", "content"],
+  ["portfolio_content_request_form.jpg", "content", "CONTENT", "요청서 화면", "content"],
+  ["portfolio_content_review.jpg", "content", "CONTENT", "검수 흐름 화면", "content"],
+  ["portfolio_covers/content_01.jpg", "content", "CONTENT", "제품 상세 컷", "content"],
+  ["portfolio_covers/content_02.jpg", "content", "CONTENT", "제품 과정 컷", "content"],
+  ["portfolio_covers/content_03.jpg", "content", "CONTENT", "카드뉴스 컷", "content"],
+  ["portfolio_covers/content_04.jpg", "content", "CONTENT", "숏폼 소재 컷", "content"],
+  ["portfolio_covers/content_05.jpg", "content", "CONTENT", "콘텐츠 보드 컷", "content"],
+  ["portfolio_covers/content_06.jpg", "content", "CONTENT", "운영 화면 컷", "content"],
+  ["portfolio_automation_main.jpg", "system", "SYSTEM", "자동화 대표 화면", "inquiry-agent"],
+  ["portfolio_automation_task_flow.jpg", "system", "SYSTEM", "문의 흐름 화면", "inquiry-agent"],
+  ["portfolio_automation_scope.jpg", "system", "SYSTEM", "진행 범위 화면", "inquiry-agent"],
+  ["route_plan_actual.png", "system", "SYSTEM", "실제 화면 설계", "inquiry-agent"],
+  ["route_plan_mobile.png", "system", "SYSTEM", "모바일 동선 설계", "inquiry-agent"],
+  ["route_plan_mockups.png", "system", "SYSTEM", "시안 비교 화면", "inquiry-agent"],
+  ["route_plan_system.png", "system", "SYSTEM", "문의 시스템 설계", "inquiry-agent"],
+  ["portfolio_covers/automation_01.jpg", "system", "SYSTEM", "자동화 화면 컷", "inquiry-agent"],
+  ["portfolio_covers/automation_02.jpg", "system", "SYSTEM", "문의 정리 컷", "inquiry-agent"],
+  ["portfolio_covers/automation_03.jpg", "system", "SYSTEM", "답장 초안 컷", "inquiry-agent"],
+  ["portfolio_covers/automation_04.jpg", "system", "SYSTEM", "연결 흐름 컷", "inquiry-agent"],
+  ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "inquiry-agent"],
+  ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "inquiry-agent"],
+  ["portfolio_wedding_ring_detail.jpg", "wedding", "WEDDING", "반지 디테일", "wedding"],
+  ["portfolio_wedding_bouquet_lens.jpg", "wedding", "WEDDING", "부케 디테일", "wedding"],
+  ["portfolio_wedding_flower_detail.jpg", "wedding", "WEDDING", "꽃 디테일", "wedding"],
+  ["portfolio_wedding_studio_mood.jpg", "wedding", "WEDDING", "실내 무드 컷", "wedding"],
+  ["portfolio_wedding_beach_privacy.jpg", "wedding", "WEDDING", "해변 무드 컷", "wedding"],
+  ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"]
+].map(([image, category, label, title, slug, size = ""]) => ({
+  image,
+  category,
+  label,
+  title,
+  slug,
+  size
+}));
+const portfolioFilters = [
+  ["all", "전체"],
+  ["web", "홈페이지"],
+  ["ai", "AI영상"],
+  ["drone", "드론"],
+  ["content", "콘텐츠"],
+  ["system", "자동화"],
+  ["wedding", "웨딩"]
+];
+const portfolioRouteCategories = {
+  homepage: ["web", "system", "content"],
+  "inquiry-agent": ["system", "web"],
+  "ai-shortform": ["ai", "content"],
+  "brand-film": ["ai", "content"],
+  drone: ["drone"],
+  wedding: ["wedding"],
+  content: ["content", "ai"],
+  consulting: ["system", "web"]
 };
 const routeDetails = {
   homepage: {
@@ -429,14 +547,15 @@ function mainPage() {
     trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
     showcase: [
       ["portfolio_drone_night_exterior_clean.jpg", "야간 외관"],
-      ["portfolio_video_esg_brand.jpg", "항공 풍경"],
+      ["portfolio_web_regional_brand.png", "브랜드 화면"],
       ["portfolio_drone_resort_facility.jpg", "공간 촬영"],
       ["portfolio_video_product_reels_ad.jpg", "제품 영상"],
       ["portfolio_content_product.jpg", "제품 콘텐츠"],
-      ["portfolio_wedding_ring_detail.jpg", "웨딩 디테일"]
+      ["portfolio_automation_homepage_flow.jpg", "상담형 홈페이지"]
     ]
   };
   const mainFormHref = buildTallyHref({ slug: "main", nav: "전체 제작 상담" });
+  const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 18);
   return `
     ${nav("main")}
     ${hero(main)}
@@ -445,41 +564,36 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">Selected Work</p>
-            <h2>먼저 보는 작업 이미지</h2>
+            <h2>작업 이미지부터 보여드립니다</h2>
           </div>
         </div>
-        <div class="portfolio-preview studio-preview">
-          ${displayRoutes.slice(0, 4).map((route) => `
-            <a class="preview-tile" href="${routeHref(route.slug)}">
-              <img src="${asset(route.heroImage)}" alt="${route.nav} 대표 작업물" />
-              <span>${route.nav}</span>
-            </a>
-          `).join("")}
+        ${portfolioWall(openingPortfolio, "featured-wall")}
+      </section>
+      <section class="section tight" id="portfolio-hub">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Portfolio Wall</p>
+            <h2>분야별 작업 이미지</h2>
+          </div>
         </div>
+        ${portfolioFilterNav()}
+        ${portfolioWall(portfolioWallItems, "full-wall")}
       </section>
       <section class="section" id="services">
         <div class="section-head">
           <div>
             <p class="section-kicker">Services</p>
-            <h2>제작 분야별 포트폴리오</h2>
+            <h2>필요한 제작만 선택</h2>
           </div>
         </div>
-        <div class="route-grid">
-          ${displayRoutes.map(routeCard).join("")}
+        <div class="route-grid core-grid">
+          ${coreRoutes.map(routeCard).join("")}
         </div>
-      </section>
-      <section class="section tight" id="portfolio-hub">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">포트폴리오</p>
-            <h2>작업 이미지 모아보기</h2>
-          </div>
-        </div>
-        <div class="portfolio-preview">
-          ${displayRoutes.slice(0, 6).map((route) => `
-            <a class="preview-tile" href="${routeHref(route.slug)}">
-              <img src="${asset(route.heroImage)}" alt="${route.nav} 포트폴리오" />
-              <span>${route.nav}</span>
+        <div class="support-grid" aria-label="추가 상담 가능 분야">
+          ${supportRoutes.map((route) => `
+            <a class="support-card" href="${routeHref(route.slug)}">
+              <img src="${asset(routeCardImages[route.slug] || route.heroImage)}" alt="${route.nav} 추가 사례" />
+              <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
             </a>
           `).join("")}
         </div>
@@ -528,6 +642,54 @@ function routeCard(route) {
   `;
 }
 
+function portfolioFilterNav() {
+  return `
+    <div class="portfolio-filters" aria-label="포트폴리오 분야 필터">
+      ${portfolioFilters.map(([filter, label], index) => `
+        <button type="button" data-filter="${filter}" aria-pressed="${index === 0 ? "true" : "false"}">${label}</button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function portfolioItemsForRoute(route) {
+  const categories = portfolioRouteCategories[route.slug] || [];
+  const items = portfolioWallItems.filter((item) => categories.includes(item.category));
+  const primary = items.filter((item) => item.slug === route.slug);
+  const secondary = items.filter((item) => item.slug !== route.slug);
+  const combined = [...primary, ...secondary];
+  return combined.length ? combined : route.thumbnails.map(([image, caption]) => ({
+    image,
+    category: route.slug,
+    label: route.nav.toUpperCase(),
+    title: caption,
+    slug: route.slug
+  }));
+}
+
+function portfolioWall(items, className = "") {
+  const wallClass = ["portfolio-wall", className].filter(Boolean).join(" ");
+  return `
+    <div class="${wallClass}">
+      ${items.map(portfolioCard).join("")}
+    </div>
+  `;
+}
+
+function portfolioCard(item) {
+  const href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
+  const sizeClass = item.size ? ` is-${item.size}` : "";
+  return `
+    <a class="portfolio-item${sizeClass}" href="${href}" data-category="${item.category}">
+      <img src="${asset(item.image)}" alt="${item.title}" loading="lazy" />
+      <span class="portfolio-meta">
+        <small>${item.label}</small>
+        <strong>${item.title}</strong>
+      </span>
+    </a>
+  `;
+}
+
 function detailNavigation(route) {
   return `
     <div class="detail-jump" aria-label="${route.nav} 페이지 구성">
@@ -545,6 +707,7 @@ function detailNavigation(route) {
 }
 
 function detailOverview(route, detail) {
+  const overviewImages = portfolioItemsForRoute(route).slice(0, 3);
   return `
     <section class="detail-overview" id="overview">
       <div class="detail-shell">
@@ -554,13 +717,17 @@ function detailOverview(route, detail) {
           <p>${detail.lead}</p>
         </div>
         <div class="detail-window-grid" aria-label="${route.nav} 세부 창 구성">
-          ${detail.windows.map(([num, title, body]) => `
+          ${detail.windows.map(([num, title, body], index) => {
+            const visual = overviewImages[index];
+            return `
             <article class="detail-window">
+              ${visual ? `<img class="detail-window-visual" src="${asset(visual.image)}" alt="${visual.title}" loading="lazy" />` : ""}
               <span>${num}</span>
               <h3>${title}</h3>
               <p>${body}</p>
             </article>
-          `).join("")}
+          `;
+          }).join("")}
         </div>
       </div>
     </section>
@@ -620,6 +787,7 @@ function relatedServices(route, detail) {
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   const formHref = buildTallyHref(route);
+  const routePortfolioItems = portfolioItemsForRoute(route).slice(0, route.slug === "homepage" ? 24 : 18);
   const detail = routeDetails[route.slug] || {
     kicker: route.nav.toUpperCase(),
     title: route.title,
@@ -641,14 +809,7 @@ function detailPage(route) {
             <h2>${route.nav} 작업 이미지</h2>
           </div>
         </div>
-        <div class="portfolio-grid">
-          ${route.thumbnails.map(([image, caption]) => `
-            <figure class="shot">
-              <img src="${asset(image)}" alt="${caption}" />
-              <figcaption>${caption}</figcaption>
-            </figure>
-          `).join("")}
-        </div>
+        ${portfolioWall(routePortfolioItems, "detail-wall")}
       </section>
       ${detailScope(route, detail)}
       ${relatedServices(route, detail)}
@@ -766,6 +927,7 @@ function render() {
   }
   document.querySelector("#app").innerHTML = route ? detailPage(route) : mainPage();
   setupStickyCta();
+  setupPortfolioFilters();
 }
 
 function setupStickyCta() {
@@ -781,6 +943,23 @@ function setupStickyCta() {
   window.removeEventListener("scroll", window.__vrStickyUpdate);
   window.__vrStickyUpdate = update;
   window.addEventListener("scroll", update, { passive: true });
+}
+
+function setupPortfolioFilters() {
+  const hub = document.querySelector("#portfolio-hub");
+  const filters = hub ? hub.querySelectorAll("[data-filter]") : [];
+  const items = hub ? hub.querySelectorAll(".portfolio-item[data-category]") : [];
+  if (!filters.length || !items.length) return;
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      const active = button.dataset.filter;
+      filters.forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
+      items.forEach((item) => {
+        const isVisible = active === "all" || item.dataset.category === active;
+        item.classList.toggle("is-hidden", !isVisible);
+      });
+    });
+  });
 }
 
 render();
