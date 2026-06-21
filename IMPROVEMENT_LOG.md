@@ -26,3 +26,21 @@
 - 리스크: 낮음. 모든 화면에서 기존보다 작아지지 않음(바닥값 고정), 모바일은 기존 미디어쿼리 유지. 빌드 검증 통과(괄호 균형 OK, 깨진 이미지 0).
 - 비고: 자동배포 감시기가 켜져 있어 08:03 커밋(ba22e6e)으로 라이브 자동 반영됨(원래 '아침 검토'였으나 감시기가 즉시 배포).
 - 다음에 시각 검토 가능할 때 시도할 적극 개선(보류): 히어로 영상 위 대비 강화, 포트폴리오 타일 호버 모션, 섹션 진입 애니메이션, 서비스 카드 그리드 리듬.
+
+---
+
+## 2026-06-22 08:06 KST — 패스 #2 (예약 야간 실행)
+- 참고 레퍼런스:
+  - School of Motion — "10 Websites with Great Animation in 2026" (https://www.schoolofmotion.com/blog/10-websites-with-great-animation-in-2026): 스크롤에 따라 작업물이 점진적으로 드러나는 reveal로 시선·내러티브를 유도.
+  - Prismic — "CSS Scroll Effects: 50 Interactive Animations" (https://prismic.io/blog/css-scroll-effects): 가벼운 CSS 트랜지션 기반 스크롤 효과 패턴.
+  - Webflow — "15 microinteraction examples" (https://webflow.com/blog/microinteractions): 버튼/썸네일 호버 피드백이 신뢰감·완성도를 높인다는 점.
+- 이번 패스 방향: 패스 #1에서 '보류'로 적어둔 모션/인터랙션 폴리시 3건을 안전하게 착수(타이포는 이미 처리됨).
+- 바꾼 것:
+  1. (style.css) `.btn` 호버/액티브 마이크로인터랙션 추가 — primary는 green-dark + 그림자 + translateY(-1px), secondary는 배경/보더 강화. 기존엔 버튼 호버 상태가 전혀 없었음.
+  2. (style.css) `.portfolio-item` 호버 시 4px lift + 큰 그림자, 캡션 strong 살짝 상승. 기존 이미지 scale 호버는 유지.
+  3. (style.css + app.js) 섹션 진입 스크롤 reveal — `#app .section, .detail-overview`에 JS가 `vr-reveal` 부여 후 IntersectionObserver로 `.is-in` 토글(opacity+translateY 28px→0). 
+  4. (style.css) `@media (prefers-reduced-motion: reduce)` 블록 신설 — reveal/호버/스무스스크롤 모두 무력화(접근성). 사이트 최초의 reduced-motion 대응.
+- 안전장치: reveal은 JS가 클래스를 부여하므로 JS 미실행 시 콘텐츠는 그대로 보임. IntersectionObserver 미지원/reduced-motion이면 즉시 전체 표시. 추가로 1.5초 후 무조건 전체 reveal하는 타임아웃 안전망 포함(절대 숨겨진 채 남지 않음).
+- 검증: `node --check app.js` 통과, CSS 중괄호 264/264 균형, app.js 이미지/영상 참조 96개 전부 존재(깨짐 0).
+- 리스크: 낮음. 레이아웃·카피·데이터 변경 없음, 순수 모션/인터랙션 레이어. 되돌리기: `git checkout -- style.css app.js`.
+- 다음 패스 후보(보류): 히어로 영상 위 카피 대비 강화, 서비스 카드 그리드 리듬(높이·비중 변주), reveal 스태거(자식 요소 순차 등장), CTA 밴드 진입 모션.
