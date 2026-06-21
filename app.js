@@ -533,6 +533,7 @@ function hero(route) {
 function mainPage() {
   const main = {
     layout: "editorial",
+    heroRich: true,
     badge: "Video Roastery",
     kicker: "V I D E O   R O A S T E R Y   S T U D I O",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
