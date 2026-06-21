@@ -238,7 +238,7 @@ button:focus-visible {
 }
 
 .editorial-actions {
-  margin-top: 72px;
+  margin-top: 36px;
 }
 
 .hero-trust {
@@ -287,7 +287,7 @@ button:focus-visible {
   margin-right: auto;
   padding-top: 0;
   padding-bottom: 56px;
-  transform: translateY(360px);
+  transform: translateY(210px);
 }
 
 .hero-watermark {
