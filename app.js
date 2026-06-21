@@ -435,7 +435,7 @@ const routeDetails = {
 };
 const basePath = detectBasePath();
 const mainNavItems = [
-  ["소개", "studio"],
+  ["작업", "studio"],
   ["서비스", "services"],
   ["포트폴리오", "portfolio-hub"],
   ["견적문의", "main-inquiry-form"]
@@ -536,7 +536,7 @@ function mainPage() {
     kicker: "V I D E O   R O A S T E R Y   S T U D I O",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
-    title: "온라인에 필요한 제작을,<br>기획하고, 실행하고, 관리합니다.",
+    title: "온라인에 필요한 제작을<br>기획하고, 실행하고, 관리합니다.",
     lead: "홈페이지·영상·드론·SNS 콘텐츠를 실제 작업물 기준으로 상담합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
