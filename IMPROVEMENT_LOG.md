@@ -46,3 +46,15 @@
 - ⚠️ 비고(중요): 자동배포 감시기(`자동배포_켜기.command`)가 켜져 있어 파일 저장 직후 자동 커밋·푸시됨 → origin/main에 이미 반영(라이브). 관련 커밋: 02393fc, e56595c, a33cb57 (Auto-deploy 2026-06-22 08:06~08:07). 나(예약작업)는 commit/push/배포 스크립트를 실행하지 않았으며, 사용자 측 감시기가 즉시 배포함(패스 #1과 동일 현상). '아침 검토 후 배포'를 원하면 감시기를 끄세요.
 - 되돌리기: 이 변경만 취소하려면 해당 커밋들을 `git revert` 하거나, 직전 기준선으로 `git reset --hard ba22e6e` 후 강제 푸시. (워킹트리만 되돌리는 `git checkout -- .`는 이미 커밋·푸시되어 효과 없음.)
 - 다음 패스 후보(보류): 히어로 영상 위 카피 대비 강화, 서비스 카드 그리드 리듬(높이·비중 변주), reveal 스태거(자식 요소 순차 등장), CTA 밴드 진입 모션.
+
+---
+
+## 2026-06-22 08:3X — 패스 #3 (라이브 확인 기반, 수동)
+- 발견한 버그: 메인/서비스 히어로가 editorial 레이아웃에서 CTA가 안 보였음. 원인 = `.hero.editorial .hero-inner { transform: translateY(360px) }` + `.editorial-actions { margin-top:72px }` 때문에 CTA 버튼이 히어로(`overflow:hidden`) 영역 밖으로 밀려 잘림. (사이트 오픈 이래 메인 CTA가 사실상 안 보이던 상태)
+- 바꾼 것:
+  1. (app.js) editorial 히어로 CTA를 `btn secondary`(반투명) → `btn primary`(green)로 승격. 메인 히어로엔 `heroRich` 플래그 추가해 보조 CTA(작업 사례 보기) + 신뢰 배지(제주 현장 촬영/전국 상담/범위 확인)까지 노출.
+  2. (style.css) `.hero.editorial .hero-inner` translateY 360px→210px, `.editorial-actions` margin-top 72px→36px 로 조정해 CTA가 첫 화면 안에 들어오게.
+- 결과(라이브 확인): 히어로에 green "견적 문의" + "작업 사례 보기" + 신뢰 배지 3종 정상 노출 확인.
+- 검증: node --check app.js 통과, CSS 264/264 균형, 이미지 참조 깨짐 0.
+- 리스크: 낮음. 서비스 페이지 히어로들도 동일하게 CTA가 prominent해짐(개선). 되돌리기: git reset --hard 12934dd 이전 시점.
+- 다음 후보: 서비스 카드 그리드 리듬/호버, CTA 밴드(문의 섹션) 임팩트, 모바일 390px 히어로 CTA 노출 점검, reveal 스태거.
