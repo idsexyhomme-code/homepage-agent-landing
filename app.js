@@ -512,8 +512,10 @@ function hero(route) {
         <p class="hero-lead">${route.lead}</p>
         ${isEditorial ? `
           <div class="hero-actions editorial-actions">
-            <a class="btn secondary" href="${primaryHref}">${route.cta}</a>
+            <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+            ${route.heroRich ? `<a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>` : ""}
           </div>
+          ${route.heroRich ? `<div class="hero-trust" aria-label="신뢰 확인 정보">${trustItems.map((item) => `<span>${item}</span>`).join("")}</div>` : ""}
         ` : `
           <div class="hero-actions">
             <a class="btn primary" href="${primaryHref}">${route.cta}</a>
