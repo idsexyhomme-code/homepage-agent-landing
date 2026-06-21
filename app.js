@@ -927,6 +927,29 @@ function render() {
   document.querySelector("#app").innerHTML = route ? detailPage(route) : mainPage();
   setupStickyCta();
   setupPortfolioFilters();
+  setupScrollReveal();
+}
+
+function setupScrollReveal() {
+  const targets = document.querySelectorAll("#app .section, #app .detail-overview");
+  if (!targets.length) return;
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) {
+    targets.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+  targets.forEach((el) => el.classList.add("vr-reveal"));
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  targets.forEach((el) => observer.observe(el));
+  // Safety net: ensure nothing stays hidden even if the observer never fires.
+  window.setTimeout(() => targets.forEach((el) => el.classList.add("is-in")), 1500);
 }
 
 function setupStickyCta() {

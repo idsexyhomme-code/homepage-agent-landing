@@ -1786,3 +1786,45 @@ footer a {
     min-height: 40px;
   }
 }
+
+/* Scroll-reveal entrance (JS-driven; safe fallback reveals all) */
+.vr-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.vr-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vr-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn,
+  .portfolio-item,
+  .portfolio-meta strong,
+  .service-card img,
+  .portfolio-item img,
+  .related-card img,
+  .preview-tile img {
+    transition: none !important;
+  }
+
+  .btn:hover,
+  .portfolio-item:hover,
+  .service-card:hover img,
+  .portfolio-item:hover img {
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
