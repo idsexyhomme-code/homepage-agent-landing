@@ -555,9 +555,6 @@ function mainPage() {
       </section>
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <video class="cta-video" autoplay muted loop playsinline preload="metadata">
-            <source src="${asset("live_hero.mp4")}" type="video/mp4" />
-          </video>
           <h2>자료만 보내주세요. 가능 범위부터 보겠습니다.</h2>
           <p class="cta-note">아래 버튼으로 메일 주시면 제작 범위와 다음 단계를 회신합니다.</p>
           <div class="contact-actions">
@@ -757,9 +754,6 @@ function detailPage(route) {
       ${relatedServices(route, detail)}
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <video class="cta-video" autoplay muted loop playsinline preload="metadata">
-            <source src="${asset(route.heroVideo)}" type="video/mp4" />
-          </video>
           <h2>${route.nav} 문의하기</h2>
           <p class="cta-note">원하는 결과물과 보유 자료만 적어 메일로 보내주세요.</p>
           <div class="contact-actions">
