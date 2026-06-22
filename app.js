@@ -8,14 +8,6 @@ const routes = [
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
     cta: "홈페이지 제작 상담받기",
-    thumbnails: [
-      ["portfolio_automation_homepage_flow.jpg", "업종이 바로 보이는 첫 화면"],
-      ["portfolio_automation_portfolio.jpg", "공간과 서비스를 보여주는 상세 화면"],
-      ["portfolio_automation_examples.jpg", "방문자가 머무는 실제 화면"],
-      ["portfolio_automation_main.jpg", "포트폴리오로 신뢰를 주는 화면"],
-      ["portfolio_covers/web_03.jpg", "브랜드형 웹 화면"],
-      ["portfolio_covers/web_05.jpg", "서비스형 랜딩 화면"]
-    ],
     proof: [
       ["첫 화면 설계", "방문자가 첫 화면만 보고도 무엇을 파는지 알게 만듭니다."],
       ["상담 동선", "시안 보기, 제작 범위 확인, 상담 폼이 끊기지 않게 이어집니다."],
@@ -31,14 +23,6 @@ const routes = [
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
     cta: "문의 자동화 상담받기",
-    thumbnails: [
-      ["portfolio_automation_examples.jpg", "문의 자동 정리 예시"],
-      ["portfolio_automation_task_flow.jpg", "문의 수집부터 답장 초안까지"],
-      ["portfolio_automation_scope.jpg", "제작 전 체크 항목 정리"],
-      ["portfolio_automation_main.jpg", "반복 문의를 줄이는 자동화 흐름"],
-      ["portfolio_automation_homepage_flow.jpg", "홈페이지 문의와 자동화 연결"],
-      ["ai_service_landing.png", "AI 도구를 실제 업무 흐름에 붙이는 화면"]
-    ],
     proof: [
       ["문의 누락 방지", "고객이 남긴 요청을 한 곳에 모읍니다."],
       ["답장 초안", "반복되는 안내 문구를 빠르게 준비합니다."],
@@ -54,14 +38,6 @@ const routes = [
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "portfolio_video_product_reels_ad.jpg",
     cta: "AI 숏폼 상담받기",
-    thumbnails: [
-      ["portfolio_video_product_reels_ad.jpg", "제품 릴스 광고"],
-      ["portfolio_video_product_style.jpg", "제품 무드와 톤 설계"],
-      ["portfolio_video_shortform_main.jpg", "세로 숏폼 대표 화면"],
-      ["portfolio_content_product.jpg", "제품 상세 이미지와 영상 소재 연결"],
-      ["portfolio_content_reels_page.jpg", "릴스 소재를 카드형 포트폴리오로 정리"],
-      ["portfolio_content_ai_video.jpg", "AI 영상 작업 흐름 소개"]
-    ],
     proof: [
       ["촬영 부담 감소", "제품 사진만 있어도 홍보용 숏폼 소재를 만들 수 있습니다."],
       ["숏폼 문법", "첫 3초, 제품 노출, 메시지 흐름을 짧은 영상에 맞게 잡습니다."],
@@ -77,14 +53,6 @@ const routes = [
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
     cta: "기업 영상 상담받기",
-    thumbnails: [
-      ["portfolio_video_corporate_main.jpg", "기업 홍보영상 대표 화면"],
-      ["portfolio_video_industrial_brand.jpg", "산업·도시 브랜드필름"],
-      ["portfolio_video_esg_brand.jpg", "ESG 메시지 영상"],
-      ["portfolio_content_context.jpg", "참고 링크와 요청사항 정리"],
-      ["portfolio_content_request_form.jpg", "제작 요청 폼 구조"],
-      ["portfolio_content_review.jpg", "콘텐츠 검수 흐름"]
-    ],
     proof: [
       ["메시지 정리", "회사 소개를 단순 나열이 아니라 영상 흐름으로 바꿉니다."],
       ["제안서 활용", "영업, 투자, 채용, 입점 제안에 같이 쓸 수 있게 만듭니다."],
@@ -100,14 +68,6 @@ const routes = [
     heroVideo: "drone_hero_web.mp4",
     heroImage: "portfolio_drone_night_exterior_clean.jpg",
     cta: "드론 촬영 상담받기",
-    thumbnails: [
-      ["portfolio_drone_night_exterior_clean.jpg", "야간 외관 촬영"],
-      ["portfolio_drone_coastal_overview_clean.jpg", "해안 와이드 컷"],
-      ["portfolio_drone_resort_facility.jpg", "숙소·시설 항공 컷"],
-      ["portfolio_drone_facility_route_clean.jpg", "시설 동선 설명 컷"],
-      ["portfolio_drone_village_overview.jpg", "마을·관광지 전경"],
-      ["portfolio_drone_topdown_garden.jpg", "정원·시설 탑뷰 컷"]
-    ],
     proof: [
       ["목적별 컷", "숙소, 농장, 관광지, 시설마다 필요한 구도가 다릅니다."],
       ["야간 외관", "낮 컷만으로 부족한 공간 분위기를 보완합니다."],
@@ -123,14 +83,6 @@ const routes = [
     heroVideo: "wedding_hero.mp4",
     heroImage: "portfolio_wedding_studio_mood.jpg",
     cta: "웨딩 촬영 상담받기",
-    thumbnails: [
-      ["portfolio_wedding_ring_detail.jpg", "반지·손 디테일"],
-      ["portfolio_wedding_bouquet_lens.jpg", "부케와 소품 컷"],
-      ["portfolio_wedding_studio_mood.jpg", "실내 스튜디오 무드"],
-      ["portfolio_wedding_flower_detail.jpg", "꽃과 디테일"],
-      ["portfolio_wedding_beach_privacy.jpg", "해변 무드 컷"],
-      ["portfolio_wedding_detail_sixcut.jpg", "디테일 중심 구성"]
-    ],
     proof: [
       ["초상권 배려", "공개용 포트폴리오는 얼굴 노출 부담을 낮춥니다."],
       ["디테일", "사람보다 분위기, 움직임, 공간을 중심으로 보여줍니다."],
@@ -146,14 +98,6 @@ const routes = [
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
     cta: "콘텐츠 제작 상담받기",
-    thumbnails: [
-      ["portfolio_content_reels_page.jpg", "릴스 포트폴리오 페이지"],
-      ["portfolio_content_ai_video.jpg", "AI 영상 카드 구성"],
-      ["portfolio_content_context.jpg", "레퍼런스와 톤 정리"],
-      ["portfolio_content_request_form.jpg", "요청서 템플릿"],
-      ["portfolio_content_product.jpg", "제품 카드뉴스 소재"],
-      ["portfolio_content_review.jpg", "검수와 수정 흐름"]
-    ],
     proof: [
       ["소재 재활용", "한 번 만든 메시지를 홈페이지, SNS, 광고에 함께 씁니다."],
       ["운영 속도", "매번 새로 생각하지 않도록 템플릿을 잡습니다."],
@@ -169,14 +113,6 @@ const routes = [
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
     cta: "AI 업무 상담받기",
-    thumbnails: [
-      ["ai_service_landing.png", "AI 서비스 랜딩 구조"],
-      ["portfolio_automation_examples.jpg", "자동화 적용 예시"],
-      ["portfolio_automation_task_flow.jpg", "업무 흐름 정리"],
-      ["portfolio_content_request_form.jpg", "요청서와 운영 기준"],
-      ["portfolio_content_context.jpg", "레퍼런스 정리"],
-      ["portfolio_automation_scope.jpg", "실행 범위 체크"]
-    ],
     proof: [
       ["작게 시작", "큰 시스템보다 바로 줄일 수 있는 반복 업무부터 봅니다."],
       ["도구 연결", "노션, 시트, 폼, 메일, AI 도구를 실제 방식에 맞춥니다."],
@@ -226,6 +162,7 @@ const routeCardImages = {
   consulting: "card_consulting_photo.jpg"
 };
 const portfolioWallItems = [
+  // WEB → homepage 서비스 페이지
   ["portfolio_automation_homepage_flow.jpg", "web", "WEB", "상담형 첫 화면", "homepage", "large"],
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
@@ -246,6 +183,9 @@ const portfolioWallItems = [
   ["portfolio_covers/web_06.jpg", "web", "WEB", "클래스형 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
   ["regional_brand_landing.png", "web", "WEB", "지역 브랜드 랜딩", "homepage"],
+  ["portfolio_web_shortform_b.png", "web", "WEB", "숏폼 랜딩 화면 B", "homepage"],
+  ["portfolio_web_shortform_c.png", "web", "WEB", "숏폼 랜딩 화면 C", "homepage"],
+  // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "기업 홍보영상", "brand-film"],
@@ -257,13 +197,13 @@ const portfolioWallItems = [
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
   ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
   ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
+  // DRONE → drone (실제 촬영본 real_01~10 신규 투입)
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
   ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
   ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
   ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
   ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "정원 탑뷰 컷", "drone"],
   ["portfolio_drone_night_aerial.jpg", "drone", "DRONE", "야간 도심 항공 컷", "drone"],
-  ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 라이트업 컷", "drone"],
   ["portfolio_drone_facility_route.jpg", "drone", "DRONE", "시설 진입 항공 컷", "drone"],
   ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
   ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "건물 외관 컷", "drone"],
@@ -277,6 +217,17 @@ const portfolioWallItems = [
   ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
   ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
   ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "영상 썸네일 컷", "drone"],
+  ["portfolio_drone_real_01.jpg", "drone", "DRONE", "실촬영 항공 컷 01", "drone"],
+  ["portfolio_drone_real_02.jpg", "drone", "DRONE", "실촬영 항공 컷 02", "drone"],
+  ["portfolio_drone_real_03.jpg", "drone", "DRONE", "실촬영 항공 컷 03", "drone"],
+  ["portfolio_drone_real_04.jpg", "drone", "DRONE", "실촬영 항공 컷 04", "drone"],
+  ["portfolio_drone_real_05.jpg", "drone", "DRONE", "실촬영 항공 컷 05", "drone"],
+  ["portfolio_drone_real_06.jpg", "drone", "DRONE", "실촬영 항공 컷 06", "drone"],
+  ["portfolio_drone_real_07.jpg", "drone", "DRONE", "실촬영 항공 컷 07", "drone"],
+  ["portfolio_drone_real_08.jpg", "drone", "DRONE", "실촬영 항공 컷 08", "drone"],
+  ["portfolio_drone_real_09.jpg", "drone", "DRONE", "실촬영 항공 컷 09", "drone"],
+  ["portfolio_drone_real_10.jpg", "drone", "DRONE", "실촬영 항공 컷 10", "drone"],
+  // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
   ["portfolio_content_context.jpg", "content", "CONTENT", "레퍼런스 정리 화면", "content"],
@@ -288,25 +239,35 @@ const portfolioWallItems = [
   ["portfolio_covers/content_04.jpg", "content", "CONTENT", "숏폼 소재 컷", "content"],
   ["portfolio_covers/content_05.jpg", "content", "CONTENT", "콘텐츠 보드 컷", "content"],
   ["portfolio_covers/content_06.jpg", "content", "CONTENT", "운영 화면 컷", "content"],
+  // SYSTEM → inquiry-agent (문의 자동화)
   ["portfolio_automation_main.jpg", "system", "SYSTEM", "자동화 대표 화면", "inquiry-agent"],
   ["portfolio_automation_task_flow.jpg", "system", "SYSTEM", "문의 흐름 화면", "inquiry-agent"],
   ["portfolio_automation_scope.jpg", "system", "SYSTEM", "진행 범위 화면", "inquiry-agent"],
-  ["route_plan_actual.png", "system", "SYSTEM", "실제 화면 설계", "inquiry-agent"],
-  ["route_plan_mobile.png", "system", "SYSTEM", "모바일 동선 설계", "inquiry-agent"],
-  ["route_plan_mockups.png", "system", "SYSTEM", "시안 비교 화면", "inquiry-agent"],
-  ["route_plan_system.png", "system", "SYSTEM", "문의 시스템 설계", "inquiry-agent"],
   ["portfolio_covers/automation_01.jpg", "system", "SYSTEM", "자동화 화면 컷", "inquiry-agent"],
   ["portfolio_covers/automation_02.jpg", "system", "SYSTEM", "문의 정리 컷", "inquiry-agent"],
   ["portfolio_covers/automation_03.jpg", "system", "SYSTEM", "답장 초안 컷", "inquiry-agent"],
   ["portfolio_covers/automation_04.jpg", "system", "SYSTEM", "연결 흐름 컷", "inquiry-agent"],
-  ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "inquiry-agent"],
-  ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "inquiry-agent"],
+  // SYSTEM → consulting (AI 활용 상담, 전용 배정)
+  ["route_plan_actual.png", "system", "SYSTEM", "실제 화면 설계", "consulting"],
+  ["route_plan_mobile.png", "system", "SYSTEM", "모바일 동선 설계", "consulting"],
+  ["route_plan_mockups.png", "system", "SYSTEM", "시안 비교 화면", "consulting"],
+  ["route_plan_system.png", "system", "SYSTEM", "문의 시스템 설계", "consulting"],
+  ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "consulting"],
+  ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "consulting"],
+  // WEDDING → wedding (covers + 드론 웨딩 신규 투입)
   ["portfolio_wedding_ring_detail.jpg", "wedding", "WEDDING", "반지 디테일", "wedding"],
   ["portfolio_wedding_bouquet_lens.jpg", "wedding", "WEDDING", "부케 디테일", "wedding"],
   ["portfolio_wedding_flower_detail.jpg", "wedding", "WEDDING", "꽃 디테일", "wedding"],
   ["portfolio_wedding_studio_mood.jpg", "wedding", "WEDDING", "실내 무드 컷", "wedding"],
   ["portfolio_wedding_beach_privacy.jpg", "wedding", "WEDDING", "해변 무드 컷", "wedding"],
-  ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"]
+  ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"],
+  ["portfolio_drone_wedding_wide.jpg", "wedding", "WEDDING", "웨딩 항공 와이드", "wedding"],
+  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 01", "wedding"],
+  ["portfolio_covers/wedding_02.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 02", "wedding"],
+  ["portfolio_covers/wedding_03.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 03", "wedding"],
+  ["portfolio_covers/wedding_04.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 04", "wedding"],
+  ["portfolio_covers/wedding_05.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 05", "wedding"],
+  ["portfolio_covers/wedding_06.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 06", "wedding"]
 ].map(([image, category, label, title, slug, size = ""]) => ({
   image,
   category,
@@ -324,16 +285,6 @@ const portfolioFilters = [
   ["system", "자동화"],
   ["wedding", "웨딩"]
 ];
-const portfolioRouteCategories = {
-  homepage: ["web", "system", "content"],
-  "inquiry-agent": ["system", "web"],
-  "ai-shortform": ["ai", "content"],
-  "brand-film": ["ai", "content"],
-  drone: ["drone"],
-  wedding: ["wedding"],
-  content: ["content", "ai"],
-  consulting: ["system", "web"]
-};
 const routeDetails = {
   homepage: {
     kicker: "WEB LANDING",
@@ -558,6 +509,8 @@ function mainPage() {
   };
   const mainFormHref = buildTallyHref({ slug: "main", nav: "전체 제작 상담" });
   const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 18);
+  // 아래 전체 월에서는 위 featured 18장을 빼서 메인 페이지 내 중복 제거
+  const fullWallItems = portfolioWallItems.filter((item) => !openingPortfolio.includes(item));
   return `
     ${nav("main")}
     ${hero(main)}
@@ -579,7 +532,7 @@ function mainPage() {
           </div>
         </div>
         ${portfolioFilterNav()}
-        ${portfolioWall(portfolioWallItems, "full-wall")}
+        ${portfolioWall(fullWallItems, "full-wall")}
       </section>
       <section class="section" id="services">
         <div class="section-head">
@@ -655,18 +608,8 @@ function portfolioFilterNav() {
 }
 
 function portfolioItemsForRoute(route) {
-  const categories = portfolioRouteCategories[route.slug] || [];
-  const items = portfolioWallItems.filter((item) => categories.includes(item.category));
-  const primary = items.filter((item) => item.slug === route.slug);
-  const secondary = items.filter((item) => item.slug !== route.slug);
-  const combined = [...primary, ...secondary];
-  return combined.length ? combined : route.thumbnails.map(([image, caption]) => ({
-    image,
-    category: route.slug,
-    label: route.nav.toUpperCase(),
-    title: caption,
-    slug: route.slug
-  }));
+  // 각 작업 이미지는 자신에게 배정된 한 페이지(slug)에서만 노출 → 페이지 간 중복 0
+  return portfolioWallItems.filter((item) => item.slug === route.slug);
 }
 
 function portfolioWall(items, className = "") {
@@ -789,7 +732,8 @@ function relatedServices(route, detail) {
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   const formHref = buildTallyHref(route);
-  const routePortfolioItems = portfolioItemsForRoute(route).slice(0, route.slug === "homepage" ? 24 : 18);
+  // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
+  const routePortfolioItems = portfolioItemsForRoute(route).slice(3, route.slug === "homepage" ? 27 : 21);
   const detail = routeDetails[route.slug] || {
     kicker: route.nav.toUpperCase(),
     title: route.title,
