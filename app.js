@@ -388,7 +388,7 @@ const mainNavItems = [
   ["작업", "studio"],
   ["서비스", "services"],
   ["포트폴리오", "portfolio-hub"],
-  ["견적문의", "main-inquiry-form"]
+  ["견적문의", "contact"]
 ];
 
 function detectBasePath() {
@@ -494,7 +494,7 @@ function mainPage() {
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "견적 문의",
-    primaryHref: "#main-inquiry-form",
+    primaryHref: "#contact",
     secondaryCta: "작업 사례 보기",
     secondaryHref: "#services",
     trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
@@ -507,7 +507,7 @@ function mainPage() {
       ["portfolio_automation_homepage_flow.jpg", "상담형 홈페이지"]
     ]
   };
-  const mainFormHref = buildTallyHref({ slug: "main", nav: "전체 제작 상담" });
+  const mainInquiryHref = mailtoHref({ slug: "main", nav: "전체 제작 상담" });
   const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 18);
   // 아래 전체 월에서는 위 featured 18장을 빼서 메인 페이지 내 중복 제거
   const fullWallItems = portfolioWallItems.filter((item) => !openingPortfolio.includes(item));
@@ -559,24 +559,21 @@ function mainPage() {
             <source src="${asset("live_hero.mp4")}" type="video/mp4" />
           </video>
           <h2>자료만 보내주세요. 가능 범위부터 보겠습니다.</h2>
-          <p class="cta-note">상담폼 접수 후 제작 범위와 다음 단계를 회신합니다.</p>
+          <p class="cta-note">아래 버튼으로 메일 주시면 제작 범위와 다음 단계를 회신합니다.</p>
           <div class="contact-actions">
-            <a class="btn primary" href="#main-inquiry-form">문의폼 바로 작성</a>
+            <a class="btn primary" href="${mainInquiryHref}">메일로 문의하기</a>
             <a class="btn secondary" href="#services">서비스별 사례 보기</a>
           </div>
-          <p class="privacy-note">입력 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
-          <div class="form-embed" id="main-inquiry-form">
-            <iframe src="${mainFormHref}" title="전체 제작 상담 문의폼" loading="lazy"></iframe>
-          </div>
+          <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
       </section>
     </main>
     ${sticky({
       nav: "견적 문의",
       badge: "Video Roastery",
-      stickyTarget: "#main-inquiry-form",
-      stickyLabel: "견적문의",
-      stickyBody: "서비스 선택 후 상담폼 작성"
+      stickyTarget: mainInquiryHref,
+      stickyLabel: "메일 문의",
+      stickyBody: "버튼 누르면 메일이 열립니다"
     })}
     ${footer()}
   `;
@@ -731,7 +728,6 @@ function relatedServices(route, detail) {
 
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
-  const formHref = buildTallyHref(route);
   // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
   const routePortfolioItems = portfolioItemsForRoute(route).slice(3, route.slug === "homepage" ? 27 : 21);
   const detail = routeDetails[route.slug] || {
@@ -765,15 +761,12 @@ function detailPage(route) {
             <source src="${asset(route.heroVideo)}" type="video/mp4" />
           </video>
           <h2>${route.nav} 문의하기</h2>
-          <p class="cta-note">원하는 결과물과 보유 자료만 먼저 보내주세요.</p>
+          <p class="cta-note">원하는 결과물과 보유 자료만 적어 메일로 보내주세요.</p>
           <div class="contact-actions">
-            <a class="btn primary" href="#inquiry-form">문의폼 열기</a>
-            <a class="btn secondary" href="${inquiryHref}">메일 백업 문의</a>
+            <a class="btn primary" href="${inquiryHref}">메일로 문의하기</a>
+            <a class="btn secondary" href="#portfolio">작업 이미지 다시 보기</a>
           </div>
-          <p class="privacy-note">입력 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
-          <div class="form-embed" id="inquiry-form">
-            <iframe src="${formHref}" title="${route.nav} 상담 문의폼" loading="lazy"></iframe>
-          </div>
+          <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
       </section>
     </main>
@@ -783,8 +776,8 @@ function detailPage(route) {
 }
 
 function sticky(route) {
-  const target = route.stickyTarget || "#inquiry-form";
-  const label = route.stickyLabel || "문의폼 열기";
+  const target = route.stickyTarget || mailtoHref(route);
+  const label = route.stickyLabel || "메일 문의";
   const body = route.stickyBody || route.badge;
   return `
     <aside class="sticky">
@@ -813,19 +806,6 @@ function mailtoHref(route) {
     tracking ? `유입 경로: ${tracking}` : ""
   ].join("\n");
   return `mailto:kiwee1223@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function buildTallyHref(route) {
-  const params = new URLSearchParams();
-  params.set("service", route.slug);
-  params.set("source", "videoroastery");
-  params.set("hideTitle", "1");
-  params.set("transparentBackground", "1");
-  params.set("dynamicHeight", "1");
-  for (const [key, value] of trackingEntries()) {
-    params.set(key, value);
-  }
-  return `https://tally.so/embed/68MXGO?${params.toString()}`;
 }
 
 function trackingEntries() {
