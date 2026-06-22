@@ -6,6 +6,7 @@ mail_recipient_gmail_preview.png
 portfolio_fix_*_preview.png
 public_*_*.png
 .DS_Store
+.vercel
 _writetest_
 index.html.bak_test
 *.bak_test
