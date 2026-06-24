@@ -584,12 +584,51 @@ function portfolioWall(items, className = "") {
   `;
 }
 
+// 포트폴리오 칸 → 실제 영상/라이브사이트 연결.
+// portfolioMedia[image] 에 항목별 실제 링크(영상 파일명 또는 https URL)를 넣으면 그게 우선.
+// 없으면 slug 기준 대표 영상으로 폴백 → 모든 칸이 '누르면 볼 수 있게'.
+const slugVideo = {
+  homepage: "live_hero.mp4",
+  "inquiry-agent": "live_hero.mp4",
+  "ai-shortform": "ai_shortform_hero_web.mp4",
+  "brand-film": "brand_film_hero_web.mp4",
+  drone: "drone_hero_web.mp4",
+  wedding: "wedding_hero.mp4",
+  content: "content_hero.mp4",
+  consulting: "live_hero.mp4"
+};
+// 항목별 실제 연결(가장 정확). key=이미지 경로, value=영상 파일명(assets 내) 또는 외부 URL(http로 시작).
+const portfolioMedia = {};
+
+// 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
+function portfolioLink(item) {
+  const explicit = portfolioMedia[item.image];
+  if (explicit) {
+    return /^https?:\/\//.test(explicit)
+      ? { type: "site", href: explicit }
+      : { type: "video", src: asset(explicit) };
+  }
+  const fallback = slugVideo[item.slug];
+  return fallback ? { type: "video", src: asset(fallback) } : null;
+}
+
 function portfolioCard(item) {
   const href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
   const sizeClass = item.size ? ` is-${item.size}` : "";
+  const link = portfolioLink(item);
+  let linkAttr = "";
+  let badge = "";
+  if (link && link.type === "video") {
+    linkAttr = ` data-video="${link.src}"`;
+    badge = `<span class="portfolio-play" aria-hidden="true"></span>`;
+  } else if (link && link.type === "site") {
+    linkAttr = ` data-site="${link.href}"`;
+    badge = `<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span>`;
+  }
   return `
-    <a class="portfolio-item${sizeClass}" href="${href}" data-category="${item.category}">
+    <a class="portfolio-item${sizeClass}" href="${href}" data-category="${item.category}"${linkAttr}>
       <img src="${asset(item.image)}" alt="${item.title}" loading="lazy" />
+      ${badge}
       <span class="portfolio-meta">
         <small>${item.label}</small>
         <strong>${item.title}</strong>
@@ -817,7 +856,59 @@ function render() {
   document.querySelector("#app").innerHTML = route ? detailPage(route) : mainPage();
   setupStickyCta();
   setupPortfolioFilters();
+  setupPortfolioLightbox();
   setupScrollReveal();
+}
+
+// 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 / 라이브 사이트 새 탭 열기
+function setupPortfolioLightbox() {
+  const tiles = document.querySelectorAll(".portfolio-item[data-video], .portfolio-item[data-site]");
+  if (!tiles.length) return;
+  let box = document.querySelector("#vr-lightbox");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "vr-lightbox";
+    box.className = "vr-lightbox";
+    box.innerHTML = `
+      <button class="vr-lightbox-close" type="button" aria-label="닫기">✕</button>
+      <div class="vr-lightbox-stage"><video controls playsinline preload="none"></video></div>`;
+    document.body.appendChild(box);
+    const close = () => {
+      box.classList.remove("is-open");
+      const v = box.querySelector("video");
+      v.pause();
+      v.removeAttribute("src");
+      v.load();
+    };
+    box.addEventListener("click", (e) => {
+      if (e.target === box || e.target.closest(".vr-lightbox-close")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && box.classList.contains("is-open")) close();
+    });
+    box.__close = close;
+  }
+  tiles.forEach((tile) => {
+    if (tile.__wired) return;
+    tile.__wired = true;
+    tile.addEventListener("click", (e) => {
+      const site = tile.dataset.site;
+      const video = tile.dataset.video;
+      if (site) {
+        e.preventDefault();
+        window.open(site, "_blank", "noopener");
+        return;
+      }
+      if (video) {
+        e.preventDefault();
+        const v = box.querySelector("video");
+        v.src = video;
+        box.classList.add("is-open");
+        const p = v.play();
+        if (p && p.catch) p.catch(() => {});
+      }
+    });
+  });
 }
 
 function setupScrollReveal() {

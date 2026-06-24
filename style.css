@@ -1833,3 +1833,108 @@ footer a {
     scroll-behavior: auto;
   }
 }
+
+/* ===== 포트폴리오 → 실제 영상/사이트 연결 (클릭 재생 라이트박스) ===== */
+.portfolio-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  transform: translate(-50%, -50%) scale(0.92);
+  border-radius: 50%;
+  background: rgba(12, 16, 19, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 220ms ease, transform 220ms ease, background 220ms ease;
+  pointer-events: none;
+}
+.portfolio-play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent #fff;
+}
+.portfolio-item:hover .portfolio-play,
+.portfolio-item:focus-visible .portfolio-play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(15, 127, 98, 0.78);
+}
+.portfolio-open {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0c1013;
+  background: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+}
+.portfolio-item:hover .portfolio-open,
+.portfolio-item:focus-visible .portfolio-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vr-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 56px);
+  background: rgba(6, 9, 12, 0.86);
+  backdrop-filter: blur(6px);
+}
+.vr-lightbox.is-open {
+  display: flex;
+  animation: vrFade 200ms ease both;
+}
+@keyframes vrFade { from { opacity: 0; } to { opacity: 1; } }
+.vr-lightbox-stage {
+  width: min(1100px, 100%);
+  max-height: 86vh;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  background: #000;
+}
+.vr-lightbox-stage video {
+  display: block;
+  width: 100%;
+  max-height: 86vh;
+  background: #000;
+}
+.vr-lightbox-close {
+  position: absolute;
+  top: clamp(14px, 3vw, 28px);
+  right: clamp(14px, 3vw, 28px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+.vr-lightbox-close:hover { background: rgba(255, 255, 255, 0.24); }
+@media (prefers-reduced-motion: reduce) {
+  .vr-lightbox.is-open { animation: none; }
+  .portfolio-play, .portfolio-open { transition: none; }
+}
