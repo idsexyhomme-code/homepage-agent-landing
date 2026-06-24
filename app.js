@@ -597,16 +597,24 @@ const slugVideo = {
   content: "content_hero.mp4",
   consulting: "live_hero.mp4"
 };
-// 항목별 실제 연결(가장 정확). key=이미지 경로, value=영상 파일명(assets 내) 또는 외부 URL(http로 시작).
-const portfolioMedia = {};
+// 항목별 실제 연결(가장 정확). key=이미지 경로, value=영상 파일명(assets 내) / 영상 URL(.mp4 등) / 라이브사이트 URL.
+// 24시간 동안 한 칸씩 정성껏 채워나가는 중 — 매칭 또는 30초 재편집 영상.
+const portfolioMedia = {
+  // 01. 제품 숏폼 광고 — 건강기능식품 micro-3D 4컷 재편집(16s)
+  "portfolio_video_product_reels_ad.jpg": "portfolio_videos/product_reel_01.mp4"
+};
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
 function portfolioLink(item) {
   const explicit = portfolioMedia[item.image];
   if (explicit) {
-    return /^https?:\/\//.test(explicit)
-      ? { type: "site", href: explicit }
-      : { type: "video", src: asset(explicit) };
+    if (/^https?:\/\//.test(explicit)) {
+      // 영상 파일 URL이면 라이트박스 재생, 그 외 URL은 라이브사이트로 새 탭
+      return /\.(mp4|webm|mov|m3u8)(\?|$)/i.test(explicit)
+        ? { type: "video", src: explicit }
+        : { type: "site", href: explicit };
+    }
+    return { type: "video", src: asset(explicit) };
   }
   const fallback = slugVideo[item.slug];
   return fallback ? { type: "video", src: asset(fallback) } : null;
