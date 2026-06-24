@@ -455,19 +455,41 @@ button:focus-visible {
   transition: transform 160ms ease, box-shadow 200ms ease, background 200ms ease, border-color 200ms ease;
 }
 
+/* 메인 CTA — 아웃라인(테두리만), 초록 제거. 호버 시 채워져 위계 유지 */
 .btn.primary {
-  color: var(--white);
-  background: linear-gradient(180deg, #169472 0%, #0f7f62 55%, #0c6b52 100%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 8px 20px rgba(13, 62, 49, 0.22);
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--ink);
+  border-width: 1.5px;
   letter-spacing: -0.01em;
 }
 
 .btn.primary:hover {
-  background: linear-gradient(180deg, #149a76 0%, #0d7257 55%, #0a5d46 100%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.22) inset,
-    0 12px 28px rgba(13, 62, 49, 0.3);
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(16, 21, 27, 0.18);
   transform: translateY(-1px);
+}
+
+/* 어두운 배경(히어로/스티키)에서는 흰 아웃라인 */
+.hero .btn.primary,
+.sticky .btn.primary {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.82);
+}
+
+.hero .btn.primary:hover,
+.sticky .btn.primary:hover {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+/* 에디토리얼 히어로에선 secondary와 같은 각진 모양·크기로 한 쌍처럼 */
+.hero.editorial .btn.primary {
+  min-width: 124px;
+  min-height: 46px;
+  border-radius: 0;
 }
 
 .btn.secondary {
