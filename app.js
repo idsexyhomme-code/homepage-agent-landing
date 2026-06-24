@@ -375,9 +375,8 @@ const routeDetails = {
 };
 const basePath = detectBasePath();
 const mainNavItems = [
-  ["작업", "studio"],
-  ["서비스", "services"],
   ["포트폴리오", "portfolio-hub"],
+  ["서비스", "services"],
   ["견적문의", "contact"]
 ];
 
@@ -498,32 +497,21 @@ function mainPage() {
     ]
   };
   const mainInquiryHref = mailtoHref({ slug: "main", nav: "전체 제작 상담" });
-  // 홈은 '맛보기' — 엄선 8장만 먼저 보여주고, 전체 카탈로그는 각 서비스 상세페이지에 있음
-  const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 8);
-  // 아래 분야별 월: featured 8장을 빼고, 홈이 무겁지 않게 24장으로 캡 (난잡함 해소)
-  const fullWallItems = portfolioWallItems.filter((item) => !openingPortfolio.includes(item)).slice(0, 24);
+  // 홈은 '맛보기' — 엄선 12장 단일 쇼케이스. 두 개로 나뉘어 중복되던 포트폴리오 월을 하나로 통합.
+  // 전체 카탈로그는 각 서비스 상세페이지에 그대로 있음(손실 없음).
+  const homeWallItems = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 12);
   return `
     ${nav("main")}
     ${hero(main)}
     <main id="main">
-      <section class="section" id="studio">
+      <section class="section" id="portfolio-hub">
         <div class="section-head">
           <div>
             <p class="section-kicker">Selected Work</p>
             <h2>작업 이미지부터 보여드립니다</h2>
           </div>
         </div>
-        ${portfolioWall(openingPortfolio, "featured-wall")}
-      </section>
-      <section class="section tight" id="portfolio-hub">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">Portfolio Wall</p>
-            <h2>분야별 작업 이미지</h2>
-          </div>
-        </div>
-        ${portfolioFilterNav()}
-        ${portfolioWall(fullWallItems, "full-wall")}
+        ${portfolioWall(homeWallItems, "featured-wall")}
       </section>
       <section class="section" id="services">
         <div class="section-head">
@@ -579,16 +567,6 @@ function routeCard(route) {
         <strong>사례 보기</strong>
       </div>
     </a>
-  `;
-}
-
-function portfolioFilterNav() {
-  return `
-    <div class="portfolio-filters" aria-label="포트폴리오 분야 필터">
-      ${portfolioFilters.map(([filter, label], index) => `
-        <button type="button" data-filter="${filter}" aria-pressed="${index === 0 ? "true" : "false"}">${label}</button>
-      `).join("")}
-    </div>
   `;
 }
 
