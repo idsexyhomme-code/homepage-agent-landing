@@ -498,9 +498,10 @@ function mainPage() {
     ]
   };
   const mainInquiryHref = mailtoHref({ slug: "main", nav: "전체 제작 상담" });
-  const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 18);
-  // 아래 전체 월에서는 위 featured 18장을 빼서 메인 페이지 내 중복 제거
-  const fullWallItems = portfolioWallItems.filter((item) => !openingPortfolio.includes(item));
+  // 홈은 '맛보기' — 엄선 8장만 먼저 보여주고, 전체 카탈로그는 각 서비스 상세페이지에 있음
+  const openingPortfolio = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 8);
+  // 아래 분야별 월: featured 8장을 빼고, 홈이 무겁지 않게 24장으로 캡 (난잡함 해소)
+  const fullWallItems = portfolioWallItems.filter((item) => !openingPortfolio.includes(item)).slice(0, 24);
   return `
     ${nav("main")}
     ${hero(main)}
