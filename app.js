@@ -604,7 +604,9 @@ const portfolioMedia = {
   "portfolio_video_product_reels_ad.jpg": "portfolio_videos/product_reel_01.mp4",
   // 02. 브랜드필름 컷 — 실제 클라이언트 브랜드필름 'THE QUIET RETURN' 5컷 시네마틱 재편집(26s, 16:9)
   //     (corporate_main은 overview 정적이미지라 클릭 불가 → 클릭 타일인 video_02에 연결)
-  "portfolio_covers/video_02.jpg": "portfolio_videos/brandfilm_reel_02.mp4"
+  "portfolio_covers/video_02.jpg": "portfolio_videos/brandfilm_reel_02.mp4",
+  // 03. 마을 전경 컷 — 실제 제주 항공 드론(해안마을+리조트+농장) 3컷 재편집(24s, 16:9)
+  "portfolio_drone_village_overview.jpg": "portfolio_videos/drone_jeju_reel_03.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
