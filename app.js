@@ -615,7 +615,9 @@ const portfolioMedia = {
   // 06. 릴스 포트폴리오 — 실제 VR 콘텐츠 작업물(자매작업실 제주 수공예 모빌 릴, 오디오 포함) 웹최적화(21.6s, 세로)
   "portfolio_content_reels_page.jpg": "portfolio_videos/content_reel_06.mp4",
   // 07. 기업 홍보 컷 — 실제 VR 기업 홍보영상(주식 커뮤니티 핀테크 홍보, 오디오 포함) 웹최적화(31s, 세로)
-  "portfolio_covers/video_04.jpg": "portfolio_videos/corporate_reel_07.mp4"
+  "portfolio_covers/video_04.jpg": "portfolio_videos/corporate_reel_07.mp4",
+  // 08. 기관 외관 컷 — 실제 제주 항공(기관 건물 establishing + 시설 overview) 2컷 재편집(16s, 16:9)
+  "portfolio_drone_museum_exterior.jpg": "portfolio_videos/drone_facility_reel_08.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
