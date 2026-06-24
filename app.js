@@ -617,7 +617,9 @@ const portfolioMedia = {
   // 07. 기업 홍보 컷 — 실제 VR 기업 홍보영상(주식 커뮤니티 핀테크 홍보, 오디오 포함) 웹최적화(31s, 세로)
   "portfolio_covers/video_04.jpg": "portfolio_videos/corporate_reel_07.mp4",
   // 08. 기관 외관 컷 — 실제 제주 항공(기관 건물 establishing + 시설 overview) 2컷 재편집(16s, 16:9)
-  "portfolio_drone_museum_exterior.jpg": "portfolio_videos/drone_facility_reel_08.mp4"
+  "portfolio_drone_museum_exterior.jpg": "portfolio_videos/drone_facility_reel_08.mp4",
+  // 09. 디테일 모음 — 실제 제주 웨딩 6컷(귀걸이·드레스·해변 뒷모습, 얼굴 블러) + 꽃 디테일 재편집(15s, 16:9)
+  "portfolio_wedding_detail_sixcut.jpg": "portfolio_videos/wedding_detail_reel_09.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
