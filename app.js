@@ -197,7 +197,7 @@ const portfolioWallItems = [
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
   ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
   ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
-  // DRONE → drone (실제 촬영본 real_01~10 신규 투입)
+  // DRONE → drone
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
   ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
   ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
@@ -217,16 +217,6 @@ const portfolioWallItems = [
   ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
   ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
   ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "영상 썸네일 컷", "drone"],
-  ["portfolio_drone_real_01.jpg", "drone", "DRONE", "실촬영 항공 컷 01", "drone"],
-  ["portfolio_drone_real_02.jpg", "drone", "DRONE", "실촬영 항공 컷 02", "drone"],
-  ["portfolio_drone_real_03.jpg", "drone", "DRONE", "실촬영 항공 컷 03", "drone"],
-  ["portfolio_drone_real_04.jpg", "drone", "DRONE", "실촬영 항공 컷 04", "drone"],
-  ["portfolio_drone_real_05.jpg", "drone", "DRONE", "실촬영 항공 컷 05", "drone"],
-  ["portfolio_drone_real_06.jpg", "drone", "DRONE", "실촬영 항공 컷 06", "drone"],
-  ["portfolio_drone_real_07.jpg", "drone", "DRONE", "실촬영 항공 컷 07", "drone"],
-  ["portfolio_drone_real_08.jpg", "drone", "DRONE", "실촬영 항공 컷 08", "drone"],
-  ["portfolio_drone_real_09.jpg", "drone", "DRONE", "실촬영 항공 컷 09", "drone"],
-  ["portfolio_drone_real_10.jpg", "drone", "DRONE", "실촬영 항공 컷 10", "drone"],
   // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
