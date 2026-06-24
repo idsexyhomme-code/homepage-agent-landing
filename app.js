@@ -613,7 +613,9 @@ const portfolioMedia = {
   // 05. 웨딩 항공 와이드 — 실제 제주 웨딩 항공 하이라이트(김녕해수욕장) 웹최적화(24s, 16:9)
   "portfolio_drone_wedding_wide.jpg": "portfolio_videos/wedding_aerial_reel_05.mp4",
   // 06. 릴스 포트폴리오 — 실제 VR 콘텐츠 작업물(자매작업실 제주 수공예 모빌 릴, 오디오 포함) 웹최적화(21.6s, 세로)
-  "portfolio_content_reels_page.jpg": "portfolio_videos/content_reel_06.mp4"
+  "portfolio_content_reels_page.jpg": "portfolio_videos/content_reel_06.mp4",
+  // 07. 기업 홍보 컷 — 실제 VR 기업 홍보영상(주식 커뮤니티 핀테크 홍보, 오디오 포함) 웹최적화(31s, 세로)
+  "portfolio_covers/video_04.jpg": "portfolio_videos/corporate_reel_07.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
