@@ -609,7 +609,9 @@ const portfolioMedia = {
   "portfolio_drone_village_overview.jpg": "portfolio_videos/drone_jeju_reel_03.mp4",
   // 04. 해변 무드 컷 — 실제 제주 웨딩(드론+해변 뒷모습+스튜디오 와이드+꽃/귀걸이 디테일) 재편집(23.5s, 16:9)
   //     초상권 배려: 얼굴 드러나는 컷 제외, privacy-safe·뒷모습·와이드만 사용
-  "portfolio_wedding_beach_privacy.jpg": "portfolio_videos/wedding_jeju_reel_04.mp4"
+  "portfolio_wedding_beach_privacy.jpg": "portfolio_videos/wedding_jeju_reel_04.mp4",
+  // 05. 웨딩 항공 와이드 — 실제 제주 웨딩 항공 하이라이트(김녕해수욕장) 웹최적화(24s, 16:9)
+  "portfolio_drone_wedding_wide.jpg": "portfolio_videos/wedding_aerial_reel_05.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
