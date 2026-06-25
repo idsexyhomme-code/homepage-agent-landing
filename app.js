@@ -643,7 +643,9 @@ const portfolioMedia = {
   // 20. 시설 진입 항공 컷 — 외장하드 '라온힐조' 협재해변 리조트·해안마을 4K 항공(시설+진입로) 재편집(20s, 16:9)
   "portfolio_drone_facility_route.jpg": "portfolio_videos/resort_reel_20.mp4",
   // 21. 항공 영상 컷 — 외장하드 '수망' 가을 숲·계곡 드론 2컷(기존 해안/농장과 다른 분위기) 재편집(18s, 16:9)
-  "portfolio_covers/drone_01.jpg": "portfolio_videos/aerial_reel_21.mp4"
+  "portfolio_covers/drone_01.jpg": "portfolio_videos/aerial_reel_21.mp4",
+  // 22. 와이드 항공 컷 — 외장하드 '제주외고' 해안 establishing 4K 항공(긴 백사장 와이드) 재편집(22s, 16:9)
+  "portfolio_covers/drone_05.jpg": "portfolio_videos/wide_aerial_reel_22.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
