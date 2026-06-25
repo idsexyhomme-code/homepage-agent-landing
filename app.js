@@ -623,7 +623,9 @@ const portfolioMedia = {
   // 10. 메시지 영상 컷 — 실제 VR ESG 시네마틱 브랜드필름(바다·지속가능성·해상풍력, 오디오) 트림(28s, 세로)
   "portfolio_covers/video_03.jpg": "portfolio_videos/esg_brandfilm_reel_10.mp4",
   // 11. 제품 릴스 컷 — 실제 VR AI 제품영상(zaksim 콤부차, 나레이션 포함) 웹최적화(30s, 세로)
-  "portfolio_covers/video_05.jpg": "portfolio_videos/kombucha_reel_11.mp4"
+  "portfolio_covers/video_05.jpg": "portfolio_videos/kombucha_reel_11.mp4",
+  // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
+  "portfolio_drone_coast_cliff.jpg": "portfolio_videos/coast_reel_12.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
