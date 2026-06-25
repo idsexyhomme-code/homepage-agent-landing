@@ -631,7 +631,9 @@ const portfolioMedia = {
   // 14. 영상 포트폴리오 컷 — 실제 VR 산업·도시 시네마틱 브랜드필름(새만금, 오디오 포함) 트림(28s, 세로)
   "portfolio_covers/video_01.jpg": "portfolio_videos/industrial_reel_14.mp4",
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
-  "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4"
+  "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
+  // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
+  "portfolio_drone_facility_route_clean.jpg": "portfolio_videos/facility_route_reel_16.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
