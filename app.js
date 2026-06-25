@@ -641,7 +641,9 @@ const portfolioMedia = {
   // 19. 건물 외관 컷 — 외장하드 '국립제주교육박물관' 옥외정원 영상(건물·정원 항공, 인물無, VR 자체작) 재편집(18s, 16:9)
   "portfolio_drone_grid_supplement.jpg": "portfolio_videos/building_reel_19.mp4",
   // 20. 시설 진입 항공 컷 — 외장하드 '라온힐조' 협재해변 리조트·해안마을 4K 항공(시설+진입로) 재편집(20s, 16:9)
-  "portfolio_drone_facility_route.jpg": "portfolio_videos/resort_reel_20.mp4"
+  "portfolio_drone_facility_route.jpg": "portfolio_videos/resort_reel_20.mp4",
+  // 21. 항공 영상 컷 — 외장하드 '수망' 가을 숲·계곡 드론 2컷(기존 해안/농장과 다른 분위기) 재편집(18s, 16:9)
+  "portfolio_covers/drone_01.jpg": "portfolio_videos/aerial_reel_21.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
