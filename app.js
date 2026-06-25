@@ -633,7 +633,9 @@ const portfolioMedia = {
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
-  "portfolio_drone_facility_route_clean.jpg": "portfolio_videos/facility_route_reel_16.mp4"
+  "portfolio_drone_facility_route_clean.jpg": "portfolio_videos/facility_route_reel_16.mp4",
+  // 17. 농장 전경 컷 — 외장하드 '농약' 프로젝트 실제 제주 농장 항공(서귀포 비닐하우스 단지, 4K) 웹최적화(23s, 16:9)
+  "portfolio_drone_farm_field.jpg": "portfolio_videos/farm_field_reel_17.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
