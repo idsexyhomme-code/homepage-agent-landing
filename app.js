@@ -627,7 +627,9 @@ const portfolioMedia = {
   // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
   "portfolio_drone_coast_cliff.jpg": "portfolio_videos/coast_reel_12.mp4",
   // 13. 제품 보드 컷 — 실제 VR 제품 광고(KINETIA 보충제 보드샷) 웹최적화(30s, 16:9)
-  "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4"
+  "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
+  // 14. 영상 포트폴리오 컷 — 실제 VR 산업·도시 시네마틱 브랜드필름(새만금, 오디오 포함) 트림(28s, 세로)
+  "portfolio_covers/video_01.jpg": "portfolio_videos/industrial_reel_14.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
