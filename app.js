@@ -897,13 +897,17 @@ function setupPortfolioLightbox() {
     box.className = "vr-lightbox";
     box.innerHTML = `
       <button class="vr-lightbox-close" type="button" aria-label="닫기">✕</button>
-      <div class="vr-lightbox-stage"><video controls playsinline preload="none"></video></div>`;
+      <figure class="vr-lightbox-stage">
+        <video controls playsinline preload="none"></video>
+        <figcaption class="vr-lightbox-caption"><span class="vr-cap-label"></span><strong class="vr-cap-title"></strong></figcaption>
+      </figure>`;
     document.body.appendChild(box);
     const close = () => {
       box.classList.remove("is-open");
       const v = box.querySelector("video");
       v.pause();
       v.removeAttribute("src");
+      v.removeAttribute("poster");
       v.load();
     };
     box.addEventListener("click", (e) => {
@@ -928,6 +932,11 @@ function setupPortfolioLightbox() {
       if (video) {
         e.preventDefault();
         const v = box.querySelector("video");
+        const img = tile.querySelector("img");
+        if (img && img.src) v.setAttribute("poster", img.src);
+        else v.removeAttribute("poster");
+        box.querySelector(".vr-cap-label").textContent = tile.querySelector(".portfolio-meta small")?.textContent || "";
+        box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || "";
         v.src = video;
         box.classList.add("is-open");
         const p = v.play();
