@@ -637,7 +637,9 @@ const portfolioMedia = {
   // 17. 농장 전경 컷 — 외장하드 '농약' 프로젝트 실제 제주 농장 항공(서귀포 비닐하우스 단지, 4K) 웹최적화(23s, 16:9)
   "portfolio_drone_farm_field.jpg": "portfolio_videos/farm_field_reel_17.mp4",
   // 18. 해안 들녘 컷 — 외장하드 '농약' 제주 해안·들녘·풍력 4K 항공(해안+농지+마을이 보여 '해안 들녘'에 적합) 웹최적화(13s, 16:9)
-  "portfolio_drone_coast_field.jpg": "portfolio_videos/coast_field_reel_18.mp4"
+  "portfolio_drone_coast_field.jpg": "portfolio_videos/coast_field_reel_18.mp4",
+  // 19. 건물 외관 컷 — 외장하드 '국립제주교육박물관' 옥외정원 영상(건물·정원 항공, 인물無, VR 자체작) 재편집(18s, 16:9)
+  "portfolio_drone_grid_supplement.jpg": "portfolio_videos/building_reel_19.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
