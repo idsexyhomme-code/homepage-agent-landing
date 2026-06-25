@@ -648,8 +648,8 @@ function portfolioLink(item) {
     }
     return { type: "video", src: asset(explicit) };
   }
-  const fallback = slugVideo[item.slug];
-  return fallback ? { type: "video", src: asset(fallback) } : null;
+  // 폴백 제거: 명시적으로 연결된 칸만 영상 재생(▶배지). 미연결 칸은 같은 영상 중복 없이 상세페이지로.
+  return null;
 }
 
 function portfolioCard(item) {
