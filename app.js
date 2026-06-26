@@ -508,7 +508,25 @@ function mainPage() {
   const mainInquiryHref = mailtoHref({ slug: "main", nav: "전체 제작 상담" });
   // 홈은 '맛보기' — 엄선 12장 단일 쇼케이스. 두 개로 나뉘어 중복되던 포트폴리오 월을 하나로 통합.
   // 전체 카탈로그는 각 서비스 상세페이지에 그대로 있음(손실 없음).
-  const homeWallItems = portfolioWallItems.filter((item) => item.category !== "wedding").slice(0, 12);
+  // 랜딩 쇼케이스: 썸네일·영상이 전부 고유하고 모두 재생되는 실제 작업물 12개를 명시적으로 큐레이션
+  // (이전엔 first 12라 비슷한 웹 목업 썸네일이 중복돼 보였음 → 신뢰도 위해 고유 작업물로 교체)
+  const homeFeatured = [
+    "portfolio_video_product_reels_ad.jpg",
+    "portfolio_content_reels_page.jpg",
+    "portfolio_drone_night_exterior_clean.jpg",
+    "portfolio_covers/corp_08.jpg",
+    "portfolio_covers/corp_02.jpg",
+    "portfolio_drone_village_overview.jpg",
+    "portfolio_covers/video_02.jpg",
+    "portfolio_covers/corp_01.jpg",
+    "portfolio_drone_facility_route_clean.jpg",
+    "portfolio_covers/corp_05.jpg",
+    "portfolio_covers/video_03.jpg",
+    "portfolio_automation_homepage_flow.jpg"
+  ];
+  const homeWallItems = homeFeatured
+    .map((img) => portfolioWallItems.find((item) => item.image === img))
+    .filter(Boolean);
   return `
     ${nav("main")}
     ${hero(main)}
@@ -672,7 +690,17 @@ const portfolioMedia = {
   // 32~34. 기업영상 칸 추가(3차)
   "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 라이즈센터 RISE 포럼 스케치
   "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상(제주 오름/농장)
-  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4"   // 렛츠런파크 레클리스 기념관(세로)
+  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4",  // 렛츠런파크 레클리스 기념관(세로)
+  // ===== 홈(랜딩) 쇼케이스 칸 — 썸네일 테마에 맞는 기존 영상 연결(재생 커버리지 최대화, 영상 재사용) =====
+  "portfolio_automation_homepage_flow.jpg": "portfolio_videos/industrial_reel_14.mp4", // 상담형 첫 화면 → 브랜드 인트로
+  "portfolio_web_regional_brand.png": "portfolio_videos/coast_field_reel_18.mp4",       // 지역 브랜드형 화면 → 제주 지역 항공
+  "portfolio_drone_night_exterior_clean.jpg": "portfolio_videos/cinematic_reel_25.mp4", // 야간 외관 촬영 → 제주 석양 시네마틱 항공
+  "portfolio_automation_portfolio.jpg": "portfolio_videos/wide_aerial_reel_22.mp4",      // 포트폴리오 연결 화면 → 와이드 항공
+  "portfolio_web_beamish.png": "portfolio_videos/brandfilm_reel_02.mp4",                 // 영상 제작 랜딩 → 시네마틱 브랜드필름
+  "portfolio_web_product_drop.png": "portfolio_videos/product_board_reel_13.mp4",        // 제품 브랜드 페이지 → 제품 보드
+  "portfolio_web_video_dark.png": "portfolio_videos/esg_brandfilm_reel_10.mp4",          // 다크 톤 영상 페이지 → ESG 시네마틱
+  "portfolio_web_shortform_a.png": "portfolio_videos/kombucha_reel_11.mp4",              // 숏폼 제작 페이지 → 제품 숏폼
+  "portfolio_web_ai_ops.png": "portfolio_videos/corp_reel_27.mp4"                        // AI 업무 페이지 → IT 서비스 시연
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
