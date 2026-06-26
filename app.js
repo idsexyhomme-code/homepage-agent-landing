@@ -195,6 +195,9 @@ const portfolioWallItems = [
   ["portfolio_covers/video_02.jpg", "ai", "AI FILM", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "메시지 영상 컷", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
+  ["portfolio_covers/corp_01.jpg", "ai", "BRAND", "공익 캠페인 영상", "brand-film"],
+  ["portfolio_covers/corp_02.jpg", "ai", "BRAND", "IT 서비스 영상", "brand-film"],
+  ["portfolio_covers/corp_03.jpg", "ai", "BRAND", "비영리·행사 영상", "brand-film"],
   ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
   ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
   // DRONE → drone
@@ -651,7 +654,11 @@ const portfolioMedia = {
   // 24. 시설 항공 컷 — 외장하드 '모비' 태양광 발전시설 석양 항공(대규모 시설이 '시설 항공'에 적합) 재편집(20s, 16:9)
   "portfolio_covers/drone_02.jpg": "portfolio_videos/facility_solar_reel_24.mp4",
   // 25. 영상 썸네일 컷 — 외장하드 '모비' 제주 신창 풍차해안 석양 시네마틱 항공(시네마틱 컷이라 '영상 썸네일'에 적합) 재편집(20s, 16:9)
-  "portfolio_covers/drone_06.jpg": "portfolio_videos/cinematic_reel_25.mp4"
+  "portfolio_covers/drone_06.jpg": "portfolio_videos/cinematic_reel_25.mp4",
+  // 26~28. 기업영상 칸 신규 추가(외장하드 납품본) — brand-film 페이지에 더 보여주기
+  "portfolio_covers/corp_01.jpg": "portfolio_videos/corp_reel_26.mp4",  // 대한결핵협회 공익 캠페인(40s 홍보영상, 오디오)
+  "portfolio_covers/corp_02.jpg": "portfolio_videos/corp_reel_27.mp4",  // 마크애니 TOSS 시연(IT 서비스, 오디오)
+  "portfolio_covers/corp_03.jpg": "portfolio_videos/corp_reel_28.mp4"   // 메이크어위시(비영리·행사, 오디오)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
