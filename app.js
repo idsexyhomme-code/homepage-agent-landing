@@ -171,7 +171,6 @@ const portfolioWallItems = [
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_automation_portfolio.jpg", "web", "WEB", "포트폴리오 연결 화면", "homepage"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
-  ["portfolio_web_product_drop.png", "web", "WEB", "제품 브랜드 페이지", "homepage"],
   ["portfolio_web_video_dark_v2.png", "web", "WEB", "다크 톤 영상 페이지", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
