@@ -172,7 +172,7 @@ const portfolioWallItems = [
   ["portfolio_automation_portfolio.jpg", "web", "WEB", "포트폴리오 연결 화면", "homepage"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
   ["portfolio_web_product_drop.png", "web", "WEB", "제품 브랜드 페이지", "homepage"],
-  ["portfolio_web_video_dark.png", "web", "WEB", "다크 톤 영상 페이지", "homepage"],
+  ["portfolio_web_video_dark_v2.png", "web", "WEB", "다크 톤 영상 페이지", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
   ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
@@ -182,9 +182,9 @@ const portfolioWallItems = [
   ["portfolio_covers/web_05.jpg", "web", "WEB", "신청형 랜딩 화면", "homepage"],
   ["portfolio_covers/web_06.jpg", "web", "WEB", "클래스형 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
-  ["regional_brand_landing.png", "web", "WEB", "지역 브랜드 랜딩", "homepage"],
+  ["regional_brand_landing_v2.png", "web", "WEB", "지역 브랜드 랜딩", "homepage"],
   ["portfolio_web_shortform_b.png", "web", "WEB", "숏폼 랜딩 화면 B", "homepage"],
-  ["portfolio_web_shortform_c.png", "web", "WEB", "숏폼 랜딩 화면 C", "homepage"],
+  ["portfolio_web_shortform_c_v2.png", "web", "WEB", "숏폼 랜딩 화면 C", "homepage"],
   // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
@@ -698,7 +698,7 @@ const portfolioMedia = {
   "portfolio_automation_portfolio.jpg": "portfolio_videos/wide_aerial_reel_22.mp4",      // 포트폴리오 연결 화면 → 와이드 항공
   "portfolio_web_beamish.png": "portfolio_videos/brandfilm_reel_02.mp4",                 // 영상 제작 랜딩 → 시네마틱 브랜드필름
   "portfolio_web_product_drop.png": "portfolio_videos/product_board_reel_13.mp4",        // 제품 브랜드 페이지 → 제품 보드
-  "portfolio_web_video_dark.png": "portfolio_videos/esg_brandfilm_reel_10.mp4",          // 다크 톤 영상 페이지 → ESG 시네마틱
+  "portfolio_web_video_dark_v2.png": "portfolio_videos/esg_brandfilm_reel_10.mp4",          // 다크 톤 영상 페이지 → ESG 시네마틱
   "portfolio_web_shortform_a.png": "portfolio_videos/kombucha_reel_11.mp4",              // 숏폼 제작 페이지 → 제품 숏폼
   "portfolio_web_ai_ops.png": "portfolio_videos/corp_reel_27.mp4"                        // AI 업무 페이지 → IT 서비스 시연
 };
