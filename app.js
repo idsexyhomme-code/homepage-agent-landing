@@ -508,7 +508,7 @@ function mainPage() {
   const homeFeatured = [
     "portfolio_video_product_reels_ad.jpg",
     "portfolio_content_reels_page.jpg",
-    "portfolio_drone_night_exterior_clean.jpg",
+    "portfolio_covers/drone_01.jpg",
     "portfolio_covers/corp_08.jpg",
     "portfolio_covers/corp_02.jpg",
     "portfolio_drone_village_overview.jpg",
@@ -517,7 +517,7 @@ function mainPage() {
     "portfolio_drone_facility_route_clean.jpg",
     "portfolio_covers/corp_05.jpg",
     "portfolio_covers/video_03.jpg",
-    "portfolio_automation_homepage_flow.jpg"
+    "portfolio_covers/corp_07.jpg"
   ];
   const homeWallItems = homeFeatured
     .map((img) => portfolioWallItems.find((item) => item.image === img))
@@ -685,17 +685,7 @@ const portfolioMedia = {
   // 32~34. 기업영상 칸 추가(3차)
   "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 라이즈센터 RISE 포럼 스케치
   "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상(제주 오름/농장)
-  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4",  // 렛츠런파크 레클리스 기념관(세로)
-  // ===== 홈(랜딩) 쇼케이스 칸 — 썸네일 테마에 맞는 기존 영상 연결(재생 커버리지 최대화, 영상 재사용) =====
-  "portfolio_automation_homepage_flow.jpg": "portfolio_videos/industrial_reel_14.mp4", // 상담형 첫 화면 → 브랜드 인트로
-  "portfolio_web_regional_brand.png": "portfolio_videos/coast_field_reel_18.mp4",       // 지역 브랜드형 화면 → 제주 지역 항공
-  "portfolio_drone_night_exterior_clean.jpg": "portfolio_videos/cinematic_reel_25.mp4", // 야간 외관 촬영 → 제주 석양 시네마틱 항공
-  "portfolio_automation_portfolio.jpg": "portfolio_videos/wide_aerial_reel_22.mp4",      // 포트폴리오 연결 화면 → 와이드 항공
-  "portfolio_web_beamish.png": "portfolio_videos/brandfilm_reel_02.mp4",                 // 영상 제작 랜딩 → 시네마틱 브랜드필름
-  "portfolio_web_product_drop.png": "portfolio_videos/product_board_reel_13.mp4",        // 제품 브랜드 페이지 → 제품 보드
-  "portfolio_web_video_dark_v2.png": "portfolio_videos/esg_brandfilm_reel_10.mp4",          // 다크 톤 영상 페이지 → ESG 시네마틱
-  "portfolio_web_shortform_a.png": "portfolio_videos/kombucha_reel_11.mp4",              // 숏폼 제작 페이지 → 제품 숏폼
-  "portfolio_web_ai_ops.png": "portfolio_videos/corp_reel_27.mp4"                        // AI 업무 페이지 → IT 서비스 시연
+  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4"   // 렛츠런파크 레클리스 기념관(세로)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
