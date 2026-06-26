@@ -201,6 +201,9 @@ const portfolioWallItems = [
   ["portfolio_covers/corp_04.jpg", "ai", "BRAND", "공공기관 캠페인", "brand-film"],
   ["portfolio_covers/corp_05.jpg", "ai", "BRAND", "행사 스케치 영상", "brand-film"],
   ["portfolio_covers/corp_06.jpg", "ai", "BRAND", "기업 인터뷰 영상", "brand-film"],
+  ["portfolio_covers/corp_07.jpg", "ai", "BRAND", "포럼·네트워킹 영상", "brand-film"],
+  ["portfolio_covers/corp_08.jpg", "ai", "BRAND", "농장 브랜드 영상", "brand-film"],
+  ["portfolio_covers/corp_09.jpg", "ai", "BRAND", "기념관 홍보영상", "brand-film"],
   ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
   ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
   // DRONE → drone
@@ -665,7 +668,11 @@ const portfolioMedia = {
   // 29~31. 기업영상 칸 추가(2차)
   "portfolio_covers/corp_04.jpg": "portfolio_videos/corp_reel_29.mp4",  // 도교육청 청렴릴레이(공공기관 캠페인)
   "portfolio_covers/corp_05.jpg": "portfolio_videos/corp_reel_30.mp4",  // 라이온스클럽 행사 스케치
-  "portfolio_covers/corp_06.jpg": "portfolio_videos/corp_reel_31.mp4"   // 리치디바인 기업 인터뷰
+  "portfolio_covers/corp_06.jpg": "portfolio_videos/corp_reel_31.mp4",  // 리치디바인 기업 인터뷰
+  // 32~34. 기업영상 칸 추가(3차)
+  "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 라이즈센터 RISE 포럼 스케치
+  "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상(제주 오름/농장)
+  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4"   // 렛츠런파크 레클리스 기념관(세로)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
