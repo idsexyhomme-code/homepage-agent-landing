@@ -1991,3 +1991,66 @@ footer a {
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+
+/* ===== 컨설팅 사전 질문지 폼 (컨설팅 페이지 전용) ===== */
+.cta-band.has-form {
+  text-align: left;
+}
+.cta-band.has-form > h2,
+.cta-band.has-form > .cta-note {
+  text-align: center;
+}
+.consult-form {
+  display: grid;
+  gap: 14px;
+  max-width: 620px;
+  margin: 26px auto 0;
+  text-align: left;
+}
+.consult-field {
+  display: grid;
+  gap: 6px;
+}
+.consult-field label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.consult-field input,
+.consult-field textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.consult-field textarea {
+  resize: vertical;
+  min-height: 52px;
+}
+.consult-field input::placeholder,
+.consult-field textarea::placeholder {
+  color: #aab2b8;
+}
+.consult-field input:focus,
+.consult-field textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(16, 21, 27, 0.08);
+}
+.consult-form .btn.primary {
+  width: 100%;
+  margin-top: 6px;
+}
+.consult-hint {
+  margin: 2px 0 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+  text-align: center;
+}

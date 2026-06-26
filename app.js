@@ -787,6 +787,54 @@ function relatedServices(route, detail) {
   `;
 }
 
+// 컨설팅 페이지 전용 사전 질문지(10문항). 제출 시 작성 내용이 담긴 메일이 열림(기존 메일 문의 방식과 동일).
+const consultEmail = "kiwee1223@gmail.com";
+const consultQuestions = [
+  ["q1", "1. 현재 운영 중인 홈페이지 주소", "url", "https://"],
+  ["q2", "2. 운영 중인 SNS 주소 (인스타·블로그·유튜브 등)", "text", "@계정 또는 링크"],
+  ["q3", "3. 현재 가장 집중해서 판매하고 싶은 서비스", "text", ""],
+  ["q4", "4. 주요 고객층과 자주 들어오는 문의 내용", "textarea", ""],
+  ["q5", "5. 지금까지 진행했던 홍보·마케팅 방식", "textarea", ""],
+  ["q6", "6. 현재 마케팅에서 가장 고민되는 부분", "textarea", ""],
+  ["q7", "7. 반복적으로 시간이 많이 소요되는 업무", "textarea", ""],
+  ["q8", "8. 참고하고 싶은 경쟁업체·홈페이지가 있다면 주소", "text", ""],
+  ["q9", "9. 최근 문의량·유입 경로·광고 운영 여부 등", "textarea", ""],
+  ["q10", "10. 회사·서비스 소개자료가 있다면 (링크 남기거나 메일에 파일 첨부)", "text", "링크 또는 '메일에 첨부 예정'"]
+];
+
+function consultForm() {
+  const fields = consultQuestions.map(([name, label, type, placeholder]) => {
+    const control = type === "textarea"
+      ? `<textarea name="${name}" rows="2" placeholder="${placeholder}"></textarea>`
+      : `<input type="${type === "url" ? "url" : "text"}" name="${name}" placeholder="${placeholder}" />`;
+    return `<div class="consult-field"><label>${label}</label>${control}</div>`;
+  }).join("");
+  return `
+    <form class="consult-form" id="consult-form" aria-label="AI 활용 컨설팅 사전 질문지">
+      ${fields}
+      <button type="submit" class="btn primary">작성 내용으로 상담 메일 보내기</button>
+      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 그대로 보내주세요.</p>
+    </form>
+  `;
+}
+
+function setupConsultForm() {
+  const form = document.querySelector("#consult-form");
+  if (!form) return;
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const lines = ["안녕하세요. AI 활용 컨설팅 사전 질문지 작성해 보냅니다.", ""];
+    consultQuestions.forEach(([name, label]) => {
+      const field = form.elements[name];
+      const value = ((field && field.value) || "").trim();
+      lines.push(label, `→ ${value || "(미작성)"}`, "");
+    });
+    lines.push(`작성 페이지: ${currentPageUrl({ slug: "consulting" })}`);
+    const subject = "[Video Roastery] AI 활용 컨설팅 사전 질문지";
+    window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  });
+}
+
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
@@ -817,13 +865,18 @@ function detailPage(route) {
       ${detailScope(route, detail)}
       ${relatedServices(route, detail)}
       <section class="section tight" id="contact">
-        <div class="cta-band">
+        <div class="cta-band${route.slug === "consulting" ? " has-form" : ""}">
           <h2>${route.nav} 문의하기</h2>
+          ${route.slug === "consulting" ? `
+          <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
+          ${consultForm()}
+          ` : `
           <p class="cta-note">원하는 결과물과 보유 자료만 적어 메일로 보내주세요.</p>
           <div class="contact-actions">
             <a class="btn primary" href="${inquiryHref}">메일로 문의하기</a>
             <a class="btn secondary" href="#portfolio">작업 이미지 다시 보기</a>
           </div>
+          `}
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
       </section>
@@ -913,6 +966,7 @@ function render() {
   setupStickyCta();
   setupPortfolioFilters();
   setupPortfolioLightbox();
+  setupConsultForm();
   setupScrollReveal();
 }
 
