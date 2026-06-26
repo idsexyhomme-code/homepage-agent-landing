@@ -171,14 +171,12 @@ const portfolioWallItems = [
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_automation_portfolio.jpg", "web", "WEB", "포트폴리오 연결 화면", "homepage"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
-  ["portfolio_web_video_dark_v2.png", "web", "WEB", "다크 톤 영상 페이지", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
   ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
   ["portfolio_covers/web_06.jpg", "web", "WEB", "클래스형 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
-  ["regional_brand_landing_v2.png", "web", "WEB", "지역 브랜드 랜딩", "homepage"],
   // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
@@ -684,7 +682,15 @@ const portfolioMedia = {
   // 32~34. 기업영상 칸 추가(3차)
   "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 라이즈센터 RISE 포럼 스케치
   "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상(제주 오름/농장)
-  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4"   // 렛츠런파크 레클리스 기념관(세로)
+  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4",  // 렛츠런파크 레클리스 기념관(세로)
+  // ===== 홈페이지 포폴 칸 → 실제 라이브 사이트 연결(클릭 시 새 탭) =====
+  "portfolio_web_regional_brand.png": "https://shimmering-sunburst-27f1cd.netlify.app",      // 지역 브랜드형 → 제주 로컬 브랜드 30일 런치
+  "portfolio_web_beamish.png": "https://beamish-mooncake-b11a21.netlify.app",                // 영상 제작 랜딩 → 품질엘리베이터(당신의 영상을)
+  "portfolio_web_shortform_a.png": "https://vr-canada.netlify.app",                          // 숏폼 제작 → VR Shortform Vancouver
+  "portfolio_web_ai_ops.png": "https://upsight-blue.vercel.app",                             // AI 업무 → WorkRadar
+  "portfolio_covers/web_01.jpg": "https://pawshare-app.vercel.app",                          // 서비스 소개 → pawshare 앱
+  "portfolio_covers/web_03.jpg": "https://fascinating-duckanoo-906886.netlify.app",         // 브랜드 제품 → From a Single Drop
+  "pawshare_landing.png": "https://pawshare-landing.vercel.app"                              // 커뮤니티 → pawshare 랜딩
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
@@ -759,7 +765,13 @@ function detailOverview(route, detail) {
             const visual = overviewImages[index];
             return `
             <article class="detail-window">
-              ${visual ? `<img class="detail-window-visual" src="${asset(visual.image)}" alt="${visual.title}" loading="lazy" />` : ""}
+              ${visual ? (() => {
+                const vImg = `<img class="detail-window-visual" src="${asset(visual.image)}" alt="${visual.title}" loading="lazy" />`;
+                const vLink = portfolioLink(visual);
+                return vLink && vLink.type === "site"
+                  ? `<a class="detail-window-link" href="${vLink.href}" target="_blank" rel="noopener">${vImg}<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span></a>`
+                  : vImg;
+              })() : ""}
               <span>${num}</span>
               <h3>${title}</h3>
               <p>${body}</p>

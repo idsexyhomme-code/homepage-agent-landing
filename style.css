@@ -2054,3 +2054,22 @@ footer a {
   color: var(--muted);
   text-align: center;
 }
+
+/* 상세페이지 오버뷰 이미지 → 실제 사이트 링크 */
+.detail-window-link {
+  position: relative;
+  display: block;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.detail-window-link .portfolio-open {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.detail-window-link:hover .portfolio-open,
+.detail-window-link:focus-visible .portfolio-open {
+  opacity: 1;
+}
