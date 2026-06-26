@@ -647,7 +647,9 @@ const portfolioMedia = {
   // 22. 와이드 항공 컷 — 외장하드 '제주외고' 해안 establishing 4K 항공(긴 백사장 와이드) 재편집(22s, 16:9)
   "portfolio_covers/drone_05.jpg": "portfolio_videos/wide_aerial_reel_22.mp4",
   // 23. 농장 항공 컷 — 외장하드 '제주우유' 목초지·젖소 5K 항공(녹색 목장이 '농장 항공'에 적합) 재편집(20s, 16:9)
-  "portfolio_covers/drone_04.jpg": "portfolio_videos/farm_pasture_reel_23.mp4"
+  "portfolio_covers/drone_04.jpg": "portfolio_videos/farm_pasture_reel_23.mp4",
+  // 24. 시설 항공 컷 — 외장하드 '모비' 태양광 발전시설 석양 항공(대규모 시설이 '시설 항공'에 적합) 재편집(20s, 16:9)
+  "portfolio_covers/drone_02.jpg": "portfolio_videos/facility_solar_reel_24.mp4"
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
