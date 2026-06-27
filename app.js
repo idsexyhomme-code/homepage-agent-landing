@@ -178,12 +178,12 @@ const portfolioWallItems = [
   ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
   ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
   // AI FILM → ai-shortform / brand-film
-  ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
-  ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
+  ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "AI 세로 광고 숏폼", "ai-shortform"],
+  ["portfolio_video_product_style.jpg", "ai", "AI FILM", "AI 시설·건축 영상", "ai-shortform"],
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "기업 홍보영상", "brand-film"],
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "산업 브랜드필름", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
-  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "푸드 브랜드 영상", "ai-shortform"],
+  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "AI 제주 항공 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "BRAND", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "BRAND", "기업 홍보 컷", "brand-film"],
@@ -226,9 +226,9 @@ const portfolioWallItems = [
   ["portfolio_content_review.jpg", "content", "CONTENT", "검수 흐름 화면", "content"],
   ["portfolio_covers/content_01.jpg", "content", "CONTENT", "제품 상세 컷", "content"],
   ["portfolio_covers/content_02.jpg", "content", "CONTENT", "제품 과정 컷", "content"],
-  ["portfolio_covers/content_03.jpg", "content", "CONTENT", "카드뉴스 컷", "content"],
+  ["portfolio_covers/content_03.jpg", "content", "CONTENT", "음식 브랜드 릴스", "content"],
   ["portfolio_covers/content_04.jpg", "content", "CONTENT", "숏폼 소재 컷", "content"],
-  ["portfolio_covers/content_05.jpg", "content", "CONTENT", "콘텐츠 보드 컷", "content"],
+  ["portfolio_covers/content_05.jpg", "content", "CONTENT", "식당 홍보 릴스", "content"],
   ["portfolio_covers/content_06.jpg", "content", "CONTENT", "운영 화면 컷", "content"],
   // SYSTEM → inquiry-agent (문의 자동화)
   ["portfolio_automation_main.jpg", "system", "SYSTEM", "자동화 대표 화면", "inquiry-agent"],
@@ -659,7 +659,7 @@ const portfolioMedia = {
   // 13. NETIA 제품 광고 컷 — 실제 VR 제품 광고(NETIA 코스메틱, 창가 연출) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
   // 14. 푸드 브랜드 영상 — 외장하드 페를로(PERLO) 파스타 음식 프로모 재편집(22s, 16:9, 오디오)
-  "portfolio_covers/video_01.jpg": "portfolio_videos/food_promo_reel_35.mp4",
+  "portfolio_covers/video_01.jpg": "portfolio_videos/ai_reel_42.mp4",                          // AI 제주 항공 영상(AI 생성)
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
@@ -709,9 +709,11 @@ const portfolioMedia = {
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4",                   // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
+  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
+  "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
-  "portfolio_video_shortform_main.jpg": "portfolio_videos/shortform_reel_39.mp4",               // 세로 숏폼 화면 → 페를로 4K 세로 숏폼(세로 포맷 데모)
-  "portfolio_video_product_style.jpg": "portfolio_videos/shortform_reel_40.mp4",                // 제품 스타일 컷 → 태백산 고깃집 광고(스타일리시 구이 제품광고)
+  "portfolio_video_shortform_main.jpg": "portfolio_videos/ai_reel_44.mp4",                       // AI 세로 광고 숏폼(AI 생성)
+  "portfolio_video_product_style.jpg": "portfolio_videos/ai_reel_43.mp4",                        // AI 시설·건축 영상(AI 생성)
   "portfolio_drone_farm_terrace.jpg": "portfolio_videos/drone_reel_41.mp4"                      // 농업 방제 드론 컷 → 농약 아그로드론 옥수수밭 방제(4K)
 };
 
