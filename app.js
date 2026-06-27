@@ -699,7 +699,8 @@ const portfolioMedia = {
   "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4",                   // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
-  "portfolio_video_shortform_main.jpg": "portfolio_videos/shortform_reel_39.mp4"                // 세로 숏폼 화면 → 페를로 4K 세로 숏폼(세로 포맷 데모)
+  "portfolio_video_shortform_main.jpg": "portfolio_videos/shortform_reel_39.mp4",               // 세로 숏폼 화면 → 페를로 4K 세로 숏폼(세로 포맷 데모)
+  "portfolio_video_product_style.jpg": "portfolio_videos/shortform_reel_40.mp4"                 // 제품 스타일 컷 → 태백산 고깃집 광고(스타일리시 구이 제품광고)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
