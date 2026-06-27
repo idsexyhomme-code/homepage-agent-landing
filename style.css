@@ -2117,3 +2117,5 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 @keyframes vrspin { to { transform: rotate(360deg); } }
 .vr-lightbox-fallback { display: inline-block; margin-top: 10px; color: #fff; font-size: 0.9rem; text-decoration: underline; }
 .vr-lightbox-fallback[hidden] { display: none; }
+/* 오버뷰 사이트 배지도 항상 노출(specificity 보정) */
+.detail-window-link .portfolio-open { opacity: 1; transform: translateY(0); }
