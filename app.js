@@ -168,12 +168,12 @@ const portfolioWallItems = [
   ["portfolio_video_product_reels_ad.jpg", "ai", "AI FILM", "제품 숏폼 광고", "ai-shortform", "wide"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
-  ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
+  ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 랜딩", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 마케팅 비서", "homepage"],
-  ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
+  ["portfolio_covers/web_01.jpg", "web", "WEB", "pawshare 앱 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
-  ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
+  ["pawshare_landing.png", "web", "WEB", "pawshare 후원 랜딩", "homepage"],
   ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
   ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
   ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
@@ -185,7 +185,7 @@ const portfolioWallItems = [
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
   ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "푸드 브랜드 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "AI FILM", "브랜드필름 컷", "brand-film"],
-  ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "메시지 영상 컷", "brand-film"],
+  ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
   ["portfolio_covers/corp_01.jpg", "ai", "BRAND", "공익 캠페인 영상", "brand-film"],
   ["portfolio_covers/corp_02.jpg", "ai", "BRAND", "IT 서비스 영상", "brand-film"],
@@ -197,7 +197,7 @@ const portfolioWallItems = [
   ["portfolio_covers/corp_08.jpg", "ai", "BRAND", "농장 브랜드 영상", "brand-film"],
   ["portfolio_covers/corp_09.jpg", "ai", "BRAND", "기념관 홍보영상", "brand-film"],
   ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
-  ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "제품 보드 컷", "ai-shortform"],
+  ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "NETIA 제품 광고 컷", "ai-shortform"],
   // DRONE → drone
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
   ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
@@ -217,7 +217,7 @@ const portfolioWallItems = [
   ["portfolio_covers/drone_03.jpg", "drone", "DRONE", "마을 항공 컷", "drone"],
   ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
   ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
-  ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "영상 썸네일 컷", "drone"],
+  ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "풍차해안 석양 항공 컷", "drone"],
   // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
@@ -645,9 +645,9 @@ const portfolioMedia = {
   "portfolio_covers/video_05.jpg": "portfolio_videos/kombucha_reel_11.mp4",
   // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
   "portfolio_drone_coast_cliff.jpg": "portfolio_videos/coast_reel_12.mp4",
-  // 13. 제품 보드 컷 — 실제 VR 제품 광고(KINETIA 보충제 보드샷) 웹최적화(30s, 16:9)
+  // 13. NETIA 제품 광고 컷 — 실제 VR 제품 광고(NETIA 코스메틱, 창가 연출) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
-  // 14. 영상 포트폴리오 컷 — 실제 VR 산업·도시 시네마틱 브랜드필름(새만금, 오디오 포함) 트림(28s, 세로)
+  // 14. 푸드 브랜드 영상 — 외장하드 페를로(PERLO) 파스타 음식 프로모 재편집(22s, 16:9, 오디오)
   "portfolio_covers/video_01.jpg": "portfolio_videos/food_promo_reel_35.mp4",
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
@@ -778,9 +778,13 @@ function detailOverview(route, detail) {
               ${visual ? (() => {
                 const vImg = `<img class="detail-window-visual" src="${asset(visual.image)}" alt="${visual.title}" loading="lazy" />`;
                 const vLink = portfolioLink(visual);
-                return vLink && vLink.type === "site"
-                  ? `<a class="detail-window-link" href="${vLink.href}" target="_blank" rel="noopener">${vImg}<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span></a>`
-                  : vImg;
+                if (vLink && vLink.type === "site") {
+                  return `<a class="detail-window-link" href="${vLink.href}" target="_blank" rel="noopener">${vImg}<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span></a>`;
+                }
+                if (vLink && vLink.type === "video") {
+                  return `<button type="button" class="detail-window-link detail-window-video" data-video="${vLink.src}" aria-label="${visual.title} 영상 재생">${vImg}<span class="portfolio-play" aria-hidden="true"></span></button>`;
+                }
+                return vImg;
               })() : ""}
               <span>${num}</span>
               <h3>${title}</h3>
@@ -1038,7 +1042,8 @@ function render() {
 
 // 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 (사이트 타일은 네이티브 <a target=_blank>로 동작)
 function setupPortfolioLightbox() {
-  const tiles = document.querySelectorAll(".portfolio-item[data-video]");
+  // 포폴 타일 + 오버뷰 영상 버튼(detail-window-video) 모두 포함
+  const tiles = document.querySelectorAll("[data-video]");
   if (!tiles.length) return;
   let box = document.querySelector("#vr-lightbox");
   if (!box) {
@@ -1097,7 +1102,7 @@ function setupPortfolioLightbox() {
       if (img && img.src) v.setAttribute("poster", img.src);
       else v.removeAttribute("poster");
       box.querySelector(".vr-cap-label").textContent = tile.querySelector(".portfolio-meta small")?.textContent || "";
-      box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || "";
+      box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || (img && img.alt) || "";
       v.src = video;
       box.classList.add("is-open");
       // 모달 열리면 닫기 버튼으로 포커스 이동

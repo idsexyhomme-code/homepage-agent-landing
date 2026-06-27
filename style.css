@@ -2077,3 +2077,7 @@ footer a {
 /* 컨설팅 폼 필수 항목 표시 */
 .consult-field .req { color: #d6453d; font-weight: 700; }
 .consult-field input:required, .consult-field textarea:required { border-left: 2px solid var(--ink); }
+
+/* 오버뷰 영상 버튼(클릭 재생) */
+button.detail-window-link { display:block; width:100%; padding:0; border:0; background:none; cursor:pointer; position:relative; }
+.detail-window-video .portfolio-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
