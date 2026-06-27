@@ -2121,3 +2121,7 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 .detail-window-link .portfolio-open { opacity: 1; transform: translateY(0); }
 /* 오버뷰 사이트 배지: top 리셋(top+bottom 동시적용으로 높이 늘어나던 흰 알약 버그 수정) → 우하단 작은 배지 */
 .detail-window-link .portfolio-open { top: auto; bottom: 10px; height: auto; }
+/* 화면 예시(연결 없는) 페이지의 정적 타일 — 클릭/hover 효과 제거 */
+figure.portfolio-item.is-static { cursor: default; }
+figure.portfolio-item.is-static:hover img { transform: none; }
+figure.portfolio-item.is-static::after { display: none; }

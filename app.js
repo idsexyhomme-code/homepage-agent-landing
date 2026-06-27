@@ -530,9 +530,9 @@ function mainPage() {
         </div>
         <ul class="proof-bar" aria-label="실적 요약">
           <li><strong>40+</strong><span>실제 제작 영상</span></li>
-          <li><strong>11곳</strong><span>운영 중 라이브 사이트</span></li>
+          <li><strong>10곳</strong><span>운영 중 라이브 사이트</span></li>
           <li><strong>제주</strong><span>현장 촬영·드론</span></li>
-          <li><strong>9</strong><span>제작 분야</span></li>
+          <li><strong>8</strong><span>제작 분야</span></li>
         </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
       </section>
@@ -602,11 +602,11 @@ function portfolioItemsForRoute(route) {
     .sort((a, b) => (portfolioMedia[b.image] ? 1 : 0) - (portfolioMedia[a.image] ? 1 : 0));
 }
 
-function portfolioWall(items, className = "") {
+function portfolioWall(items, className = "", staticMode = false) {
   const wallClass = ["portfolio-wall", className].filter(Boolean).join(" ");
   return `
     <div class="${wallClass}">
-      ${items.map(portfolioCard).join("")}
+      ${items.map((item) => portfolioCard(item, staticMode)).join("")}
     </div>
   `;
 }
@@ -734,7 +734,7 @@ function portfolioLink(item) {
   return null;
 }
 
-function portfolioCard(item) {
+function portfolioCard(item, staticMode = false) {
   const link = portfolioLink(item);
   const sizeClass = item.size ? ` is-${item.size}` : "";
   let href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
@@ -750,15 +750,19 @@ function portfolioCard(item) {
     extraAttr = ` target="_blank" rel="noopener"`;
     badge = `<span class="portfolio-open">사이트 열기 ↗</span>`;
   }
-  return `
-    <a class="portfolio-item${sizeClass}" href="${href}"${extraAttr} data-category="${item.category}"${linkAttr}>
+  const inner = `
       <img src="${asset(item.image)}" alt="Video Roastery ${item.label} 제작 사례 — ${item.title}" loading="lazy" />
       ${badge}
       <span class="portfolio-meta">
         <small>${item.label}</small>
         <strong>${item.title}</strong>
-      </span>
-    </a>
+      </span>`;
+  // 연결된 영상/사이트가 없고 정적 모드(전부 화면 예시인 페이지)면 클릭 안 되는 figure로 렌더(오해 방지)
+  if (staticMode && !link) {
+    return `<figure class="portfolio-item is-static${sizeClass}" data-category="${item.category}">${inner}</figure>`;
+  }
+  return `
+    <a class="portfolio-item${sizeClass}" href="${href}"${extraAttr} data-category="${item.category}"${linkAttr}>${inner}</a>
   `;
 }
 
@@ -969,6 +973,8 @@ function detailPage(route) {
   // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
   // 앞 3장은 오버뷰가 쓰므로 그 다음부터 전부 노출(상한 제거 → 타일 조용히 잘리지 않음)
   const routePortfolioItems = portfolioItemsForRoute(route).slice(3);
+  // 이 페이지에 연결된 영상/사이트가 하나라도 있나(없으면 '화면 예시'로, 타일은 클릭 안 되는 정적 figure)
+  const routeHasMedia = portfolioItemsForRoute(route).some((item) => portfolioLink(item));
   const detail = routeDetails[route.slug] || {
     kicker: route.nav.toUpperCase(),
     title: route.title,
@@ -987,11 +993,11 @@ function detailPage(route) {
         <div class="section-head">
           <div>
             <p class="section-kicker">Portfolio</p>
-            <h2>${route.nav} 실제 사례 — 눌러서 확인</h2>
-            <p class="section-sub">▶ 영상은 바로 재생, 웹 작업은 실제 사이트로 열립니다.</p>
+            <h2>${route.nav} ${routeHasMedia ? "실제 사례 — 눌러서 확인" : "화면 예시"}</h2>
+            <p class="section-sub">${routeHasMedia ? "▶ 영상은 바로 재생, 웹 작업은 실제 사이트로 열립니다." : "실제 진행 시 제작하는 화면 구성 예시입니다."}</p>
           </div>
         </div>
-        ${portfolioWall(routePortfolioItems, "detail-wall")}
+        ${portfolioWall(routePortfolioItems, "detail-wall", !routeHasMedia)}
       </section>
       ${detailScope(route, detail)}
       ${relatedServices(route, detail)}
