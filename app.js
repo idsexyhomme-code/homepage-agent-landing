@@ -406,7 +406,7 @@ function asset(name) {
   return `${basePath}/assets/${name}`;
 }
 
-function nav(activeSlug) {
+function nav() {
   const items = mainNavItems
     .map(([label, id]) => `<a href="${sectionHref(id)}">${label}</a>`)
     .join("");
@@ -520,7 +520,7 @@ function mainPage() {
     .map((img) => portfolioWallItems.find((item) => item.image === img))
     .filter(Boolean);
   return `
-    ${nav("main")}
+    ${nav()}
     ${hero(main)}
     <main id="main">
       <section class="section" id="portfolio-hub">
@@ -714,20 +714,23 @@ function portfolioLink(item) {
 }
 
 function portfolioCard(item) {
-  const href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
-  const sizeClass = item.size ? ` is-${item.size}` : "";
   const link = portfolioLink(item);
+  const sizeClass = item.size ? ` is-${item.size}` : "";
+  let href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
   let linkAttr = "";
+  let extraAttr = "";
   let badge = "";
   if (link && link.type === "video") {
     linkAttr = ` data-video="${link.src}"`;
     badge = `<span class="portfolio-play" aria-hidden="true"></span>`;
   } else if (link && link.type === "site") {
+    href = link.href; // 실제 라이브 사이트로 직접(가운데클릭·링크복사·JS-off·스크린리더 정상)
     linkAttr = ` data-site="${link.href}"`;
-    badge = `<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span>`;
+    extraAttr = ` target="_blank" rel="noopener"`;
+    badge = `<span class="portfolio-open">사이트 열기 ↗</span>`;
   }
   return `
-    <a class="portfolio-item${sizeClass}" href="${href}" data-category="${item.category}"${linkAttr}>
+    <a class="portfolio-item${sizeClass}" href="${href}"${extraAttr} data-category="${item.category}"${linkAttr}>
       <img src="${asset(item.image)}" alt="${item.title}" loading="lazy" />
       ${badge}
       <span class="portfolio-meta">
@@ -840,13 +843,14 @@ function relatedServices(route, detail) {
 
 // 컨설팅 페이지 전용 사전 질문지(10문항). 제출 시 작성 내용이 담긴 메일이 열림(기존 메일 문의 방식과 동일).
 const consultEmail = "kiwee1223@gmail.com";
+// 5번째 값 true = 필수 항목(빈 제출 방지)
 const consultQuestions = [
-  ["q1", "1. 현재 운영 중인 홈페이지 주소", "url", "https://"],
+  ["q1", "1. 현재 운영 중인 홈페이지 주소", "url", "https://", true],
   ["q2", "2. 운영 중인 SNS 주소 (인스타·블로그·유튜브 등)", "text", "@계정 또는 링크"],
-  ["q3", "3. 현재 가장 집중해서 판매하고 싶은 서비스", "text", ""],
+  ["q3", "3. 현재 가장 집중해서 판매하고 싶은 서비스", "text", "", true],
   ["q4", "4. 주요 고객층과 자주 들어오는 문의 내용", "textarea", ""],
   ["q5", "5. 지금까지 진행했던 홍보·마케팅 방식", "textarea", ""],
-  ["q6", "6. 현재 마케팅에서 가장 고민되는 부분", "textarea", ""],
+  ["q6", "6. 현재 마케팅에서 가장 고민되는 부분", "textarea", "", true],
   ["q7", "7. 반복적으로 시간이 많이 소요되는 업무", "textarea", ""],
   ["q8", "8. 참고하고 싶은 경쟁업체·홈페이지가 있다면 주소", "text", ""],
   ["q9", "9. 최근 문의량·유입 경로·광고 운영 여부 등", "textarea", ""],
@@ -854,11 +858,13 @@ const consultQuestions = [
 ];
 
 function consultForm() {
-  const fields = consultQuestions.map(([name, label, type, placeholder]) => {
+  const fields = consultQuestions.map(([name, label, type, placeholder, required]) => {
+    const req = required ? " required" : "";
+    const star = required ? ` <span class="req" aria-hidden="true">*</span>` : "";
     const control = type === "textarea"
-      ? `<textarea name="${name}" rows="2" placeholder="${placeholder}"></textarea>`
-      : `<input type="${type === "url" ? "url" : "text"}" name="${name}" placeholder="${placeholder}" />`;
-    return `<div class="consult-field"><label>${label}</label>${control}</div>`;
+      ? `<textarea id="${name}" name="${name}" rows="2" placeholder="${placeholder}"${req}></textarea>`
+      : `<input id="${name}" type="${type === "url" ? "url" : "text"}" name="${name}" placeholder="${placeholder}"${req} />`;
+    return `<div class="consult-field"><label for="${name}">${label}${star}</label>${control}</div>`;
   }).join("");
   return `
     <form class="consult-form" id="consult-form" aria-label="AI 활용 컨설팅 사전 질문지">
@@ -889,7 +895,8 @@ function setupConsultForm() {
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
   // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
-  const routePortfolioItems = portfolioItemsForRoute(route).slice(3, route.slug === "homepage" ? 27 : 21);
+  // 앞 3장은 오버뷰가 쓰므로 그 다음부터 전부 노출(상한 제거 → 타일 조용히 잘리지 않음)
+  const routePortfolioItems = portfolioItemsForRoute(route).slice(3);
   const detail = routeDetails[route.slug] || {
     kicker: route.nav.toUpperCase(),
     title: route.title,
@@ -899,7 +906,7 @@ function detailPage(route) {
     related: displayRoutes.filter((item) => item.slug !== route.slug).slice(0, 3).map((item) => item.slug)
   };
   return `
-    ${nav(route.slug)}
+    ${nav()}
     ${hero(route)}
     ${detailNavigation(route)}
     <main id="main">
@@ -985,7 +992,7 @@ function currentPageUrl(route) {
   if (window.location.origin.startsWith("http")) {
     return window.location.href;
   }
-  return `https://videoroastery.com/${route.slug}/`;
+  return route.slug === "main" ? "https://videoroastery.com/" : `https://videoroastery.com/${route.slug}/`;
 }
 
 function footer() {
@@ -1004,32 +1011,40 @@ function render() {
   const route = routeBySlug[slug];
   const pageTitle = route ? `${route.nav} | Video Roastery` : "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery";
   const pageDesc = route ? route.lead : "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.";
+  const pageUrl = route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/";
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
     ['meta[property="og:title"]', pageTitle],
-    ['meta[property="og:description"]', pageDesc]
+    ['meta[property="og:description"]', pageDesc],
+    ['meta[property="og:url"]', pageUrl],
+    ['meta[name="twitter:title"]', pageTitle],
+    ['meta[name="twitter:description"]', pageDesc]
   ]) {
     const el = document.querySelector(selector);
     if (el) el.setAttribute("content", value);
   }
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute("href", pageUrl);
   document.querySelector("#app").innerHTML = route ? detailPage(route) : mainPage();
   setupStickyCta();
-  setupPortfolioFilters();
   setupPortfolioLightbox();
   setupConsultForm();
   setupScrollReveal();
 }
 
-// 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 / 라이브 사이트 새 탭 열기
+// 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 (사이트 타일은 네이티브 <a target=_blank>로 동작)
 function setupPortfolioLightbox() {
-  const tiles = document.querySelectorAll(".portfolio-item[data-video], .portfolio-item[data-site]");
+  const tiles = document.querySelectorAll(".portfolio-item[data-video]");
   if (!tiles.length) return;
   let box = document.querySelector("#vr-lightbox");
   if (!box) {
     box = document.createElement("div");
     box.id = "vr-lightbox";
     box.className = "vr-lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "영상 미리보기");
     box.innerHTML = `
       <button class="vr-lightbox-close" type="button" aria-label="닫기">✕</button>
       <figure class="vr-lightbox-stage">
@@ -1044,12 +1059,25 @@ function setupPortfolioLightbox() {
       v.removeAttribute("src");
       v.removeAttribute("poster");
       v.load();
+      // 포커스를 열었던 타일로 복원
+      if (box.__trigger && box.__trigger.focus) box.__trigger.focus();
+      box.__trigger = null;
     };
     box.addEventListener("click", (e) => {
       if (e.target === box || e.target.closest(".vr-lightbox-close")) close();
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && box.classList.contains("is-open")) close();
+      if (!box.classList.contains("is-open")) return;
+      if (e.key === "Escape") { close(); return; }
+      // 포커스 트랩: 모달 안에서만 Tab 순환
+      if (e.key === "Tab") {
+        const focusable = box.querySelectorAll('button, video, [href], [tabindex]:not([tabindex="-1"])');
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
     box.__close = close;
   }
@@ -1057,26 +1085,22 @@ function setupPortfolioLightbox() {
     if (tile.__wired) return;
     tile.__wired = true;
     tile.addEventListener("click", (e) => {
-      const site = tile.dataset.site;
       const video = tile.dataset.video;
-      if (site) {
-        e.preventDefault();
-        window.open(site, "_blank", "noopener");
-        return;
-      }
-      if (video) {
-        e.preventDefault();
-        const v = box.querySelector("video");
-        const img = tile.querySelector("img");
-        if (img && img.src) v.setAttribute("poster", img.src);
-        else v.removeAttribute("poster");
-        box.querySelector(".vr-cap-label").textContent = tile.querySelector(".portfolio-meta small")?.textContent || "";
-        box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || "";
-        v.src = video;
-        box.classList.add("is-open");
-        const p = v.play();
-        if (p && p.catch) p.catch(() => {});
-      }
+      if (!video) return;
+      e.preventDefault();
+      box.__trigger = tile;
+      const v = box.querySelector("video");
+      const img = tile.querySelector("img");
+      if (img && img.src) v.setAttribute("poster", img.src);
+      else v.removeAttribute("poster");
+      box.querySelector(".vr-cap-label").textContent = tile.querySelector(".portfolio-meta small")?.textContent || "";
+      box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || "";
+      v.src = video;
+      box.classList.add("is-open");
+      // 모달 열리면 닫기 버튼으로 포커스 이동
+      box.querySelector(".vr-lightbox-close").focus();
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
     });
   });
 }
