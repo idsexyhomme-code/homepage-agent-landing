@@ -163,20 +163,21 @@ const routeCardImages = {
 };
 const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
-  ["portfolio_automation_homepage_flow.jpg", "web", "WEB", "상담형 첫 화면", "homepage", "large"],
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
   ["portfolio_video_product_reels_ad.jpg", "ai", "AI FILM", "제품 숏폼 광고", "ai-shortform", "wide"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
-  ["portfolio_automation_portfolio.jpg", "web", "WEB", "포트폴리오 연결 화면", "homepage"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
   ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
-  ["portfolio_covers/web_06.jpg", "web", "WEB", "클래스형 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
+  ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
+  ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
+  ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
+  ["portfolio_covers/site_marketing.jpg", "web", "WEB", "AI 마케팅 비서", "homepage"],
   // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
@@ -690,7 +691,12 @@ const portfolioMedia = {
   "portfolio_web_ai_ops.png": "https://upsight-blue.vercel.app",                             // AI 업무 → WorkRadar
   "portfolio_covers/web_01.jpg": "https://pawshare-app.vercel.app",                          // 서비스 소개 → pawshare 앱
   "portfolio_covers/web_03.jpg": "https://fascinating-duckanoo-906886.netlify.app",         // 브랜드 제품 → From a Single Drop
-  "pawshare_landing.png": "https://pawshare-landing.vercel.app"                              // 커뮤니티 → pawshare 랜딩
+  "pawshare_landing.png": "https://pawshare-landing.vercel.app",                             // 커뮤니티 → pawshare 랜딩
+  // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
+  "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.netlify.app",                // 아티스트 음악 페이지
+  "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
+  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
+  "portfolio_covers/site_marketing.jpg": "https://tourmaline-dodol-4f6381.netlify.app"        // AI 마케팅 비서
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
