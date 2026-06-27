@@ -170,14 +170,13 @@ const portfolioWallItems = [
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 제작 랜딩", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
-  ["portfolio_web_ai_ops.png", "web", "WEB", "AI 업무 페이지", "homepage"],
+  ["portfolio_web_ai_ops.png", "web", "WEB", "AI 마케팅 비서", "homepage"],
   ["portfolio_covers/web_01.jpg", "web", "WEB", "서비스 소개 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "커뮤니티 서비스 화면", "homepage"],
   ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
   ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
   ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
-  ["portfolio_covers/site_marketing.jpg", "web", "WEB", "AI 마케팅 비서", "homepage"],
   // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "세로 숏폼 화면", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "제품 스타일 컷", "ai-shortform"],
@@ -688,15 +687,14 @@ const portfolioMedia = {
   "portfolio_web_regional_brand.png": "https://shimmering-sunburst-27f1cd.netlify.app",      // 지역 브랜드형 → 제주 로컬 브랜드 30일 런치
   "portfolio_web_beamish.png": "https://beamish-mooncake-b11a21.netlify.app",                // 영상 제작 랜딩 → 품질엘리베이터(당신의 영상을)
   "portfolio_web_shortform_a.png": "https://vr-canada.netlify.app",                          // 숏폼 제작 → VR Shortform Vancouver
-  "portfolio_web_ai_ops.png": "https://upsight-blue.vercel.app",                             // AI 업무 → WorkRadar
+  "portfolio_web_ai_ops.png": "https://tourmaline-dodol-4f6381.netlify.app",                  // AI 업무 → 품질엘리베이터(오늘 뭐 올리지)
   "portfolio_covers/web_01.jpg": "https://pawshare-app.vercel.app",                          // 서비스 소개 → pawshare 앱
   "portfolio_covers/web_03.jpg": "https://fascinating-duckanoo-906886.netlify.app",         // 브랜드 제품 → From a Single Drop
   "pawshare_landing.png": "https://pawshare-landing.vercel.app",                             // 커뮤니티 → pawshare 랜딩
   // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
   "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.netlify.app",                // 아티스트 음악 페이지
   "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
-  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
-  "portfolio_covers/site_marketing.jpg": "https://tourmaline-dodol-4f6381.netlify.app"        // AI 마케팅 비서
+  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app"                     // 피트니스 운동 앱
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
