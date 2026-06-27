@@ -694,7 +694,9 @@ const portfolioMedia = {
   // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
   "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.netlify.app",                // 아티스트 음악 페이지
   "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
-  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app"                     // 피트니스 운동 앱
+  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
+  // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
+  "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4"                    // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
