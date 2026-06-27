@@ -527,9 +527,16 @@ function mainPage() {
         <div class="section-head">
           <div>
             <p class="section-kicker">Selected Work</p>
-            <h2>작업 이미지부터 보여드립니다</h2>
+            <h2>실제 사례 — 눌러서 영상·라이브 사이트로 확인하세요</h2>
+            <p class="section-sub">이미지가 아니라 실제 납품한 영상과 운영 중인 웹사이트로 바로 연결됩니다.</p>
           </div>
         </div>
+        <ul class="proof-bar" aria-label="실적 요약">
+          <li><strong>40+</strong><span>실제 제작 영상</span></li>
+          <li><strong>11곳</strong><span>운영 중 라이브 사이트</span></li>
+          <li><strong>제주</strong><span>현장 촬영·드론</span></li>
+          <li><strong>9</strong><span>제작 분야</span></li>
+        </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
       </section>
       <section class="section" id="services">
@@ -551,14 +558,15 @@ function mainPage() {
           `).join("")}
         </div>
       </section>
+      ${faqSection(main)}
       <section class="section tight" id="contact">
         <div class="cta-band">
           <h2>자료만 보내주세요. 가능 범위부터 보겠습니다.</h2>
-          <p class="cta-note">아래 버튼으로 메일 주시면 제작 범위와 다음 단계를 회신합니다.</p>
-          <div class="contact-actions">
-            <a class="btn primary" href="${mainInquiryHref}">메일로 문의하기</a>
-            <a class="btn secondary" href="#services">서비스별 사례 보기</a>
+          <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정·다음 단계를 회신합니다.</p>
+          <div class="contact-actions single">
+            <a class="btn primary" href="${mainInquiryHref}">내 프로젝트 상담받기</a>
           </div>
+          <a class="cta-textlink" href="#services">먼저 서비스별 사례 둘러보기 →</a>
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
       </section>
@@ -591,7 +599,10 @@ function routeCard(route) {
 
 function portfolioItemsForRoute(route) {
   // 각 작업 이미지는 자신에게 배정된 한 페이지(slug)에서만 노출 → 페이지 간 중복 0
-  return portfolioWallItems.filter((item) => item.slug === route.slug);
+  // 영상/사이트가 연결된 칸을 앞으로 정렬 → 상단 오버뷰 3칸이 항상 재생/클릭되는 사례가 되도록
+  return portfolioWallItems
+    .filter((item) => item.slug === route.slug)
+    .sort((a, b) => (portfolioMedia[b.image] ? 1 : 0) - (portfolioMedia[a.image] ? 1 : 0));
 }
 
 function portfolioWall(items, className = "") {
@@ -738,7 +749,7 @@ function portfolioCard(item) {
   }
   return `
     <a class="portfolio-item${sizeClass}" href="${href}"${extraAttr} data-category="${item.category}"${linkAttr}>
-      <img src="${asset(item.image)}" alt="${item.title}" loading="lazy" />
+      <img src="${asset(item.image)}" alt="Video Roastery ${item.label} 제작 사례 — ${item.title}" loading="lazy" />
       ${badge}
       <span class="portfolio-meta">
         <small>${item.label}</small>
@@ -881,7 +892,8 @@ function consultForm() {
     <form class="consult-form" id="consult-form" aria-label="AI 활용 컨설팅 사전 질문지">
       ${fields}
       <button type="submit" class="btn primary">작성 내용으로 상담 메일 보내기</button>
-      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 그대로 보내주세요.</p>
+      <button type="button" class="btn secondary consult-copy">메일이 안 열리면 내용 복사하기</button>
+      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 메일 앱이 없으면 ‘내용 복사하기’ 후 <b>${consultEmail}</b> 으로 보내주세요(카카오톡·문자도 가능).</p>
     </form>
   `;
 }
@@ -889,8 +901,7 @@ function consultForm() {
 function setupConsultForm() {
   const form = document.querySelector("#consult-form");
   if (!form) return;
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  const buildBody = () => {
     const lines = ["안녕하세요. AI 활용 컨설팅 사전 질문지 작성해 보냅니다.", ""];
     consultQuestions.forEach(([name, label]) => {
       const field = form.elements[name];
@@ -898,9 +909,56 @@ function setupConsultForm() {
       lines.push(label, `→ ${value || "(미작성)"}`, "");
     });
     lines.push(`작성 페이지: ${currentPageUrl({ slug: "consulting" })}`);
-    const subject = "[Video Roastery] AI 활용 컨설팅 사전 질문지";
-    window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    return lines.join("\n");
+  };
+  const subject = "[Video Roastery] AI 활용 컨설팅 사전 질문지";
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBody())}`;
   });
+  // 메일 앱이 없는 환경 폴백: 작성 내용 클립보드 복사
+  const copyBtn = form.querySelector(".consult-copy");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      const text = `받는 사람: ${consultEmail}\n제목: ${subject}\n\n${buildBody()}`;
+      const done = () => { copyBtn.textContent = "복사됨 ✓ — 메일·카톡·문자로 붙여넣어 보내주세요"; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => { window.prompt("아래 내용을 복사해 보내주세요:", text); });
+      } else {
+        window.prompt("아래 내용을 복사해 보내주세요:", text);
+      }
+    });
+  }
+}
+
+// 자주 묻는 질문(전 서비스 공통) — 예산/기간/리스크 답을 먼저 줘 문의 망설임을 줄임
+const faqItems = [
+  ["제작 기간은 얼마나 걸리나요?", "분량과 범위에 따라 보통 1~4주입니다. 보유 자료를 확인한 뒤 정확한 일정을 먼저 안내드립니다."],
+  ["비용은 어떻게 책정되나요?", "결과물 종류·분량·촬영 여부에 따라 달라집니다. 자료를 보고 필요한 범위만 잡아 견적을 드리며, 불필요한 항목은 빼고 시작합니다."],
+  ["수정은 가능한가요?", "합의된 범위 안에서 수정이 포함됩니다. 톤·문구·구성을 먼저 확정하고 제작해 큰 수정이 생기지 않도록 진행합니다."],
+  ["어떻게 시작하나요?", "원하는 결과물, 보유 자료, 희망 일정만 적어 보내주시면 작업 가능 범위와 다음 단계를 회신드립니다. 계약 전 상담은 부담 없습니다."],
+  ["제주 외 지역도 가능한가요?", "홈페이지·영상·콘텐츠 제작은 전국 온라인으로 진행합니다. 현장 촬영·드론은 일정과 지역을 협의해 진행합니다."]
+];
+
+function faqSection(route) {
+  return `
+    <section class="section faq-section" id="faq" aria-label="${(route && route.nav) || "제작"} 자주 묻는 질문">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">FAQ</p>
+          <h2>시작 전에 자주 묻는 것</h2>
+        </div>
+      </div>
+      <div class="faq-list">
+        ${faqItems.map(([q, a]) => `
+          <details class="faq-item">
+            <summary>${q}</summary>
+            <p>${a}</p>
+          </details>
+        `).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function detailPage(route) {
@@ -926,13 +984,15 @@ function detailPage(route) {
         <div class="section-head">
           <div>
             <p class="section-kicker">Portfolio</p>
-            <h2>${route.nav} 작업 이미지</h2>
+            <h2>${route.nav} 실제 사례 — 눌러서 확인</h2>
+            <p class="section-sub">▶ 영상은 바로 재생, 웹 작업은 실제 사이트로 열립니다.</p>
           </div>
         </div>
         ${portfolioWall(routePortfolioItems, "detail-wall")}
       </section>
       ${detailScope(route, detail)}
       ${relatedServices(route, detail)}
+      ${faqSection(route)}
       <section class="section tight" id="contact">
         <div class="cta-band${route.slug === "consulting" ? " has-form" : ""}">
           <h2>${route.nav} 문의하기</h2>
@@ -940,11 +1000,11 @@ function detailPage(route) {
           <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
           ${consultForm()}
           ` : `
-          <p class="cta-note">원하는 결과물과 보유 자료만 적어 메일로 보내주세요.</p>
-          <div class="contact-actions">
-            <a class="btn primary" href="${inquiryHref}">메일로 문의하기</a>
-            <a class="btn secondary" href="#portfolio">작업 이미지 다시 보기</a>
+          <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정을 회신합니다.</p>
+          <div class="contact-actions single">
+            <a class="btn primary" href="${inquiryHref}">${route.nav} 상담받기</a>
           </div>
+          <a class="cta-textlink" href="#portfolio">사례 다시 보기 →</a>
           `}
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
@@ -1042,6 +1102,17 @@ function render() {
   setupPortfolioLightbox();
   setupConsultForm();
   setupScrollReveal();
+  setupHeroMotion();
+}
+
+// 모션 최소화 선호 시 히어로 배경영상 자동재생 중지(접근성·배터리)
+function setupHeroMotion() {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) return;
+  document.querySelectorAll(".hero video").forEach((v) => {
+    v.removeAttribute("autoplay");
+    if (v.pause) v.pause();
+  });
 }
 
 // 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 (사이트 타일은 네이티브 <a target=_blank>로 동작)
@@ -1061,9 +1132,18 @@ function setupPortfolioLightbox() {
       <button class="vr-lightbox-close" type="button" aria-label="닫기">✕</button>
       <figure class="vr-lightbox-stage">
         <video controls playsinline preload="none"></video>
+        <span class="vr-lightbox-spinner" aria-hidden="true"></span>
         <figcaption class="vr-lightbox-caption"><span class="vr-cap-label"></span><strong class="vr-cap-title"></strong></figcaption>
+        <a class="vr-lightbox-fallback" target="_blank" rel="noopener" hidden>영상이 바로 안 열리면 새 창에서 보기 ↗</a>
       </figure>`;
     document.body.appendChild(box);
+    const vEl = box.querySelector("video");
+    const spinner = box.querySelector(".vr-lightbox-spinner");
+    const fallback = box.querySelector(".vr-lightbox-fallback");
+    vEl.addEventListener("waiting", () => box.classList.add("is-loading"));
+    vEl.addEventListener("playing", () => box.classList.remove("is-loading"));
+    vEl.addEventListener("canplay", () => box.classList.remove("is-loading"));
+    vEl.addEventListener("error", () => { box.classList.remove("is-loading"); fallback.hidden = false; });
     const close = () => {
       box.classList.remove("is-open");
       const v = box.querySelector("video");
@@ -1107,8 +1187,11 @@ function setupPortfolioLightbox() {
       else v.removeAttribute("poster");
       box.querySelector(".vr-cap-label").textContent = tile.querySelector(".portfolio-meta small")?.textContent || "";
       box.querySelector(".vr-cap-title").textContent = tile.querySelector(".portfolio-meta strong")?.textContent || (img && img.alt) || "";
+      // 로딩/에러 폴백 상태 초기화 + 새 창 폴백 링크 설정
+      const fb = box.querySelector(".vr-lightbox-fallback");
+      if (fb) { fb.hidden = true; fb.href = video; }
+      box.classList.add("is-open", "is-loading");
       v.src = video;
-      box.classList.add("is-open");
       // 모달 열리면 닫기 버튼으로 포커스 이동
       box.querySelector(".vr-lightbox-close").focus();
       const p = v.play();

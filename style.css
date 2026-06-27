@@ -2081,3 +2081,39 @@ footer a {
 /* 오버뷰 영상 버튼(클릭 재생) */
 button.detail-window-link { display:block; width:100%; padding:0; border:0; background:none; cursor:pointer; position:relative; }
 .detail-window-video .portfolio-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); }
+
+/* ===== 코덱스 개선 반영(전환·신뢰·접근성) ===== */
+/* 섹션 부제 + 실적 proof bar */
+.section-sub { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+.proof-bar { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 30px; margin: 16px 0 24px; padding: 0; }
+.proof-bar li { display: flex; flex-direction: column; }
+.proof-bar strong { font-size: 1.55rem; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+.proof-bar span { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+
+/* 영상/사이트 배지 항상 보이게(모바일엔 hover 없음) */
+.portfolio-play { opacity: 0.82; transform: translate(-50%, -50%) scale(0.96); }
+.portfolio-open { opacity: 1; transform: translateY(0); }
+
+/* sticky 문의 CTA 데스크탑에서도 노출(스크롤 후) */
+.sticky { display: flex; }
+
+/* 문의 블록: 주 CTA 하나 + 조용한 텍스트 링크 */
+.contact-actions.single { justify-content: center; }
+.cta-textlink { display: inline-block; margin-top: 12px; color: var(--muted); font-size: 0.9rem; text-decoration: underline; }
+.cta-textlink:hover { color: var(--ink); }
+
+/* FAQ(아코디언) */
+.faq-list { display: grid; gap: 10px; max-width: 760px; }
+.faq-item { border: 1px solid var(--line); border-radius: 10px; background: var(--white); padding: 0 16px; }
+.faq-item summary { cursor: pointer; padding: 15px 2px; font-weight: 700; color: var(--ink); list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; font-size: 1.2rem; line-height: 1; }
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item p { margin: 0 2px 16px; color: var(--muted); line-height: 1.65; }
+
+/* 라이트박스 로딩 스피너 + 새 창 폴백 */
+.vr-lightbox-spinner { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border: 3px solid rgba(255,255,255,0.25); border-top-color: #fff; border-radius: 50%; opacity: 0; pointer-events: none; z-index: 4; }
+.vr-lightbox.is-loading .vr-lightbox-spinner { opacity: 1; animation: vrspin 0.8s linear infinite; }
+@keyframes vrspin { to { transform: rotate(360deg); } }
+.vr-lightbox-fallback { display: inline-block; margin-top: 10px; color: #fff; font-size: 0.9rem; text-decoration: underline; }
+.vr-lightbox-fallback[hidden] { display: none; }
