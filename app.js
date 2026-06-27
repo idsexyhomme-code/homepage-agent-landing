@@ -209,7 +209,7 @@ const portfolioWallItems = [
   ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
   ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "건물 외관 컷", "drone"],
   ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
-  ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "밭·농지 항공 컷", "drone"],
+  ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
   ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 들녘 컷", "drone"],
   ["portfolio_drone_coast_cliff.jpg", "drone", "DRONE", "해안 절경 컷", "drone"],
   ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
@@ -700,7 +700,8 @@ const portfolioMedia = {
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
   "portfolio_video_shortform_main.jpg": "portfolio_videos/shortform_reel_39.mp4",               // 세로 숏폼 화면 → 페를로 4K 세로 숏폼(세로 포맷 데모)
-  "portfolio_video_product_style.jpg": "portfolio_videos/shortform_reel_40.mp4"                 // 제품 스타일 컷 → 태백산 고깃집 광고(스타일리시 구이 제품광고)
+  "portfolio_video_product_style.jpg": "portfolio_videos/shortform_reel_40.mp4",                // 제품 스타일 컷 → 태백산 고깃집 광고(스타일리시 구이 제품광고)
+  "portfolio_drone_farm_terrace.jpg": "portfolio_videos/drone_reel_41.mp4"                      // 농업 방제 드론 컷 → 농약 아그로드론 옥수수밭 방제(4K)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
