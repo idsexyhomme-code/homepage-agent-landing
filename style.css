@@ -2125,3 +2125,5 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 figure.portfolio-item.is-static { cursor: default; }
 figure.portfolio-item.is-static:hover img { transform: none; }
 figure.portfolio-item.is-static::after { display: none; }
+/* 정적 타일은 카드 hover 들림/그림자도 제거(클릭 가능처럼 보이지 않게) */
+figure.portfolio-item.is-static:hover { transform: none; box-shadow: none; }
