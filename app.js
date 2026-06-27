@@ -696,7 +696,8 @@ const portfolioMedia = {
   "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
-  "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4"                    // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
+  "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4",                   // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
+  "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4"                    // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
