@@ -184,6 +184,8 @@ const portfolioWallItems = [
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "산업 브랜드필름", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
   ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "AI 제주 항공 영상", "ai-shortform"],
+  ["portfolio_covers/ai_01.jpg", "ai", "AI FILM", "AI 라이프스타일 영상", "ai-shortform"],
+  ["portfolio_covers/ai_02.jpg", "ai", "AI FILM", "AI 아트 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "BRAND", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "BRAND", "기업 홍보 컷", "brand-film"],
@@ -711,6 +713,8 @@ const portfolioMedia = {
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
+  "portfolio_covers/ai_01.jpg": "portfolio_videos/ai_reel_45.mp4",                            // AI 라이프스타일 영상(AI 생성)
+  "portfolio_covers/ai_02.jpg": "portfolio_videos/ai_reel_46.mp4",                            // AI 아트 영상(AI 생성, 일광의 화로)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
   "portfolio_video_shortform_main.jpg": "portfolio_videos/ai_reel_44.mp4",                       // AI 세로 광고 숏폼(AI 생성)
   "portfolio_video_product_style.jpg": "portfolio_videos/ai_reel_43.mp4",                        // AI 시설·건축 영상(AI 생성)
