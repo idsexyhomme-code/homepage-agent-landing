@@ -183,7 +183,7 @@ const portfolioWallItems = [
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "기업 홍보영상", "brand-film"],
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "산업 브랜드필름", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
-  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "영상 포트폴리오 컷", "ai-shortform"],
+  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "푸드 브랜드 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "AI FILM", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "메시지 영상 컷", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "기업 홍보 컷", "brand-film"],
@@ -648,7 +648,7 @@ const portfolioMedia = {
   // 13. 제품 보드 컷 — 실제 VR 제품 광고(KINETIA 보충제 보드샷) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
   // 14. 영상 포트폴리오 컷 — 실제 VR 산업·도시 시네마틱 브랜드필름(새만금, 오디오 포함) 트림(28s, 세로)
-  "portfolio_covers/video_01.jpg": "portfolio_videos/industrial_reel_14.mp4",
+  "portfolio_covers/video_01.jpg": "portfolio_videos/food_promo_reel_35.mp4",
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
