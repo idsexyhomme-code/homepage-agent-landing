@@ -165,7 +165,7 @@ const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
-  ["portfolio_video_product_reels_ad.jpg", "ai", "AI FILM", "제품 숏폼 광고", "ai-shortform", "wide"],
+  ["portfolio_video_product_reels_ad.jpg", "content", "CONTENT", "제품 숏폼 광고", "content", "wide"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 랜딩", "homepage"],
@@ -198,8 +198,8 @@ const portfolioWallItems = [
   ["portfolio_covers/corp_07.jpg", "ai", "BRAND", "포럼·네트워킹 영상", "brand-film"],
   ["portfolio_covers/corp_08.jpg", "ai", "BRAND", "농장 브랜드 영상", "brand-film"],
   ["portfolio_covers/corp_09.jpg", "ai", "BRAND", "기념관 홍보영상", "brand-film"],
-  ["portfolio_covers/video_05.jpg", "ai", "AI FILM", "제품 릴스 컷", "ai-shortform"],
-  ["portfolio_covers/video_06.jpg", "ai", "AI FILM", "NETIA 제품 광고 컷", "ai-shortform"],
+  ["portfolio_covers/video_05.jpg", "content", "CONTENT", "제품 릴스 컷", "content"],
+  ["portfolio_covers/video_06.jpg", "content", "CONTENT", "NETIA 제품 광고 컷", "content"],
   // DRONE → drone
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
   ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
