@@ -1061,7 +1061,8 @@ function trackingSummary() {
 
 function currentPageUrl(route) {
   if (window.location.origin.startsWith("http")) {
-    return window.location.href;
+    // 추적 파라미터(utm·fbclid 등) 제거 → 메일에 깔끔한 주소만(유입 경로는 별도 줄에 요약)
+    return `${window.location.origin}${window.location.pathname}`;
   }
   return route.slug === "main" ? "https://videoroastery.com/" : `https://videoroastery.com/${route.slug}/`;
 }
