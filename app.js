@@ -255,12 +255,7 @@ const portfolioWallItems = [
   ["portfolio_wedding_beach_privacy.jpg", "wedding", "WEDDING", "해변 무드 컷", "wedding"],
   ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"],
   ["portfolio_drone_wedding_wide.jpg", "wedding", "WEDDING", "웨딩 항공 와이드", "wedding"],
-  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 01", "wedding"],
-  ["portfolio_covers/wedding_02.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 02", "wedding"],
-  ["portfolio_covers/wedding_03.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 03", "wedding"],
-  ["portfolio_covers/wedding_04.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 04", "wedding"],
-  ["portfolio_covers/wedding_05.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 05", "wedding"],
-  ["portfolio_covers/wedding_06.jpg", "wedding", "WEDDING", "웨딩 스냅 컷 06", "wedding"]
+  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "제주 웨딩 스냅", "wedding"],
 ].map(([image, category, label, title, slug, size = ""]) => ({
   image,
   category,
@@ -715,6 +710,8 @@ const portfolioMedia = {
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
   "portfolio_covers/ai_01.jpg": "portfolio_videos/ai_reel_45.mp4",                            // AI 라이프스타일 영상(AI 생성)
   "portfolio_covers/ai_02.jpg": "portfolio_videos/ai_reel_46.mp4",                            // AI 아트 영상(AI 생성, 일광의 화로)
+  "portfolio_wedding_studio_mood.jpg": "portfolio_videos/wedding_reel_42.mp4",                 // 실내 무드 컷 → 웨딩 무드(드레스·스튜디오·꽃·귀걸이, 초상권안전)
+  "portfolio_covers/wedding_01.jpg": "portfolio_videos/wedding_reel_43.mp4",                   // 제주 웨딩 스냅 → 해변·드론(초상권안전)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
   "portfolio_video_shortform_main.jpg": "portfolio_videos/ai_reel_44.mp4",                       // AI 세로 광고 숏폼(AI 생성)
   "portfolio_video_product_style.jpg": "portfolio_videos/ai_reel_43.mp4",                        // AI 시설·건축 영상(AI 생성)
