@@ -180,12 +180,15 @@ const portfolioWallItems = [
   // AI FILM → ai-shortform / brand-film
   ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "AI 세로 광고 숏폼", "ai-shortform"],
   ["portfolio_video_product_style.jpg", "ai", "AI FILM", "AI 시설·건축 영상", "ai-shortform"],
-  ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "기업 홍보영상", "brand-film"],
-  ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "산업 브랜드필름", "brand-film"],
+  ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "감귤 브랜드 영상", "brand-film"],
+  ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "감귤 건강식품 영상", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
   ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "AI 제주 항공 영상", "ai-shortform"],
   ["portfolio_covers/ai_01.jpg", "ai", "AI FILM", "AI 라이프스타일 영상", "ai-shortform"],
   ["portfolio_covers/ai_02.jpg", "ai", "AI FILM", "AI 아트 영상", "ai-shortform"],
+  ["portfolio_covers/ai_03.jpg", "ai", "AI FILM", "AI 제품 광고 숏폼", "ai-shortform"],
+  ["portfolio_covers/ai_04.jpg", "ai", "AI FILM", "AI 세로 제품 릴스", "ai-shortform"],
+  ["portfolio_covers/ai_05.jpg", "ai", "AI FILM", "AI 농업 항공 컷", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "BRAND", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "BRAND", "기업 홍보 컷", "brand-film"],
@@ -711,6 +714,9 @@ const portfolioMedia = {
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
   "portfolio_covers/ai_01.jpg": "portfolio_videos/ai_reel_45.mp4",                            // AI 라이프스타일 영상(AI 생성)
   "portfolio_covers/ai_02.jpg": "portfolio_videos/ai_reel_46.mp4",                            // AI 아트 영상(AI 생성, 일광의 화로)
+  "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
+  "portfolio_covers/ai_04.jpg": "portfolio_videos/ai_reel_48.mp4",                            // AI 세로 제품 릴스(알파레몬샷)
+  "portfolio_covers/ai_05.jpg": "portfolio_videos/ai_reel_49.mp4",                            // AI 농업 항공 컷(agriculture aerial)
   "portfolio_wedding_studio_mood.jpg": "portfolio_videos/wedding_reel_42.mp4",                 // 실내 무드 컷 → 웨딩 무드(드레스·스튜디오·꽃·귀걸이, 초상권안전)
   "portfolio_covers/wedding_01.jpg": "portfolio_videos/wedding_reel_43.mp4",                   // 제주 웨딩 스냅 → 해변·드론(초상권안전)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
