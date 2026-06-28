@@ -476,7 +476,7 @@ function mainPage() {
     layout: "editorial",
     heroRich: true,
     badge: "Video Roastery",
-    kicker: "V I D E O   R O A S T E R Y   S T U D I O",
+    kicker: "Video Roastery Studio",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
     title: "홈페이지·영상·콘텐츠를<br>문의로 이어지게 만듭니다.",
