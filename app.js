@@ -19,7 +19,7 @@ const routes = [
     nav: "문의자동화",
     badge: "videoroastery.com/inquiry-agent",
     title: "문의가 오면 답변할 내용부터 정리합니다",
-    lead: "홈페이지, 폼, 메일, 카카오 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
+    lead: "홈페이지, 폼, 메일, 메신저 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
     cta: "문의 자동정리 흐름 상담받기",
@@ -1038,6 +1038,7 @@ function detailPage(route) {
           <h2>${route.nav} 문의하기</h2>
           ${route.slug === "consulting" ? `
           <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
+          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
           ${consultForm()}
           ` : `
           <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정을 회신합니다.</p>
