@@ -2127,3 +2127,29 @@ figure.portfolio-item.is-static:hover img { transform: none; }
 figure.portfolio-item.is-static::after { display: none; }
 /* 정적 타일은 카드 hover 들림/그림자도 제거(클릭 가능처럼 보이지 않게) */
 figure.portfolio-item.is-static:hover { transform: none; box-shadow: none; }
+/* 전환 개선: 메일 폴백·신뢰 stat·빠른 상담 박스 */
+.contact-fallback {
+  margin: 14px auto 0;
+  max-width: 520px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.66);
+}
+.contact-fallback b { color: rgba(255, 255, 255, 0.92); font-weight: 700; }
+.contact-trust {
+  margin: 0 auto 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #97e8d1;
+}
+.consult-quick {
+  margin: 0 0 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(151, 232, 209, 0.34);
+  border-radius: 12px;
+  background: rgba(151, 232, 209, 0.07);
+}
+.consult-quick p { margin: 0 0 12px; font-size: 0.92rem; line-height: 1.6; color: rgba(255, 255, 255, 0.84); }
+.consult-quick p b { color: #97e8d1; }
+.consult-quick-btn { width: 100%; }

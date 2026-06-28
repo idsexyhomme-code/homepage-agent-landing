@@ -7,7 +7,7 @@ const routes = [
     lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 상담 폼까지 자연스럽게 이어지도록 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
-    cta: "홈페이지 제작 상담받기",
+    cta: "홈페이지 첫 화면 진단·견적 받기",
     proof: [
       ["첫 화면 설계", "방문자가 첫 화면만 보고도 무엇을 파는지 알게 만듭니다."],
       ["상담 동선", "시안 보기, 제작 범위 확인, 상담 폼이 끊기지 않게 이어집니다."],
@@ -22,7 +22,7 @@ const routes = [
     lead: "홈페이지, 폼, 메일, 카카오 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
-    cta: "문의 자동화 상담받기",
+    cta: "문의 자동정리 흐름 상담받기",
     proof: [
       ["문의 누락 방지", "고객이 남긴 요청을 한 곳에 모읍니다."],
       ["답장 초안", "반복되는 안내 문구를 빠르게 준비합니다."],
@@ -37,7 +37,7 @@ const routes = [
     lead: "제품 사진과 콘셉트만 있어도 릴스, 쇼츠, 틱톡에 맞는 짧은 광고 영상 흐름으로 구성합니다.",
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "portfolio_video_product_reels_ad.jpg",
-    cta: "AI 숏폼 상담받기",
+    cta: "제품 사진으로 숏폼 견적 받기",
     proof: [
       ["촬영 부담 감소", "제품 사진만 있어도 홍보용 숏폼 소재를 만들 수 있습니다."],
       ["숏폼 문법", "첫 3초, 제품 노출, 메시지 흐름을 짧은 영상에 맞게 잡습니다."],
@@ -52,7 +52,7 @@ const routes = [
     lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 잡아 제안서처럼 이해되게 만듭니다.",
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
-    cta: "기업 영상 상담받기",
+    cta: "기업 홍보영상 구성 상담받기",
     proof: [
       ["메시지 정리", "회사 소개를 단순 나열이 아니라 영상 흐름으로 바꿉니다."],
       ["제안서 활용", "영업, 투자, 채용, 입점 제안에 같이 쓸 수 있게 만듭니다."],
@@ -67,7 +67,7 @@ const routes = [
     lead: "숙소, 시설, 관광지, 농장, 야간 외관까지 목적에 맞는 와이드 컷과 설명용 항공 컷을 제안합니다.",
     heroVideo: "drone_hero_web.mp4",
     heroImage: "portfolio_drone_night_exterior_clean.jpg",
-    cta: "드론 촬영 상담받기",
+    cta: "드론 촬영 가능 일정·견적 묻기",
     proof: [
       ["목적별 컷", "숙소, 농장, 관광지, 시설마다 필요한 구도가 다릅니다."],
       ["야간 외관", "낮 컷만으로 부족한 공간 분위기를 보완합니다."],
@@ -82,7 +82,7 @@ const routes = [
     lead: "스냅과 영상의 분위기를 먼저 확인하고, 얼굴 노출이 부담스러운 컷은 디테일과 분위기 중심으로 제안합니다.",
     heroVideo: "wedding_hero.mp4",
     heroImage: "portfolio_wedding_studio_mood.jpg",
-    cta: "웨딩 촬영 상담받기",
+    cta: "웨딩 촬영 일정 상담받기",
     proof: [
       ["초상권 배려", "공개용 포트폴리오는 얼굴 노출 부담을 낮춥니다."],
       ["디테일", "사람보다 분위기, 움직임, 공간을 중심으로 보여줍니다."],
@@ -97,7 +97,7 @@ const routes = [
     lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
-    cta: "콘텐츠 제작 상담받기",
+    cta: "카드뉴스·릴스 운영 상담받기",
     proof: [
       ["소재 재활용", "한 번 만든 메시지를 홈페이지, SNS, 광고에 함께 씁니다."],
       ["운영 속도", "매번 새로 생각하지 않도록 템플릿을 잡습니다."],
@@ -108,11 +108,11 @@ const routes = [
     slug: "consulting",
     nav: "컨설팅",
     badge: "videoroastery.com/consulting",
-    title: "AI 도구를 실제 업무에 붙이는 상담",
-    lead: "지금 반복되는 업무를 먼저 보고, 시트, 폼, 메일, 노션, AI 도구를 작게 연결해 바로 쓰는 방식으로 시작합니다.",
+    title: "제작 상담을 빠르게 시작하는 사전 질문지",
+    lead: "홈페이지·영상·드론·콘텐츠 중 필요한 제작을 적어주시면 가능 범위와 다음 단계를 회신합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
-    cta: "AI 업무 상담받기",
+    cta: "10분 사전진단 보내기",
     proof: [
       ["작게 시작", "큰 시스템보다 바로 줄일 수 있는 반복 업무부터 봅니다."],
       ["도구 연결", "노션, 시트, 폼, 메일, AI 도구를 실제 방식에 맞춥니다."],
@@ -476,8 +476,8 @@ function mainPage() {
     kicker: "V I D E O   R O A S T E R Y   S T U D I O",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
-    title: "온라인에 필요한 제작을<br>기획하고, 실행하고, 관리합니다.",
-    lead: "홈페이지·영상·드론·SNS 콘텐츠를 실제 작업물 기준으로 상담합니다.",
+    title: "홈페이지·영상·콘텐츠를<br>문의로 이어지게 만듭니다.",
+    lead: "제주 촬영부터 전국 온라인 제작까지, 보유 자료를 보고 필요한 제작 범위와 견적 방향을 먼저 안내합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "견적 문의",
@@ -563,6 +563,7 @@ function mainPage() {
           <div class="contact-actions single">
             <a class="btn primary" href="${mainInquiryHref}">내 프로젝트 상담받기</a>
           </div>
+          <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>원하는 결과물 · 보유 자료 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
           <a class="cta-textlink" href="#services">먼저 서비스별 사례 둘러보기 →</a>
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
@@ -874,7 +875,7 @@ function relatedServices(route, detail) {
 const consultEmail = "kiwee1223@gmail.com";
 // 5번째 값 true = 필수 항목(빈 제출 방지)
 const consultQuestions = [
-  ["q1", "1. 현재 운영 중인 홈페이지 주소", "url", "https://", true],
+  ["q1", "1. 현재 운영 중인 홈페이지/SNS 주소 (없으면 비워두세요)", "url", "https://"],
   ["q2", "2. 운영 중인 SNS 주소 (인스타·블로그·유튜브 등)", "text", "@계정 또는 링크"],
   ["q3", "3. 현재 가장 집중해서 판매하고 싶은 서비스", "text", "", true],
   ["q4", "4. 주요 고객층과 자주 들어오는 문의 내용", "textarea", ""],
@@ -896,11 +897,15 @@ function consultForm() {
     return `<div class="consult-field"><label for="${name}">${label}${star}</label>${control}</div>`;
   }).join("");
   return `
-    <form class="consult-form" id="consult-form" aria-label="AI 활용 컨설팅 사전 질문지">
+    <div class="consult-quick">
+      <p><b>바쁘시면 3가지만 보내주세요</b> — 업종 · 지금 가장 큰 고민 · 희망 일정. 아래 자세한 질문지는 선택입니다.</p>
+      <button type="button" class="btn secondary consult-quick-btn">3가지만으로 먼저 상담 메일 보내기</button>
+    </div>
+    <form class="consult-form" id="consult-form" aria-label="제작 상담 사전 질문지">
       ${fields}
       <button type="submit" class="btn primary">작성 내용으로 상담 메일 보내기</button>
       <button type="button" class="btn secondary consult-copy">메일이 안 열리면 내용 복사하기</button>
-      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 메일 앱이 없으면 ‘내용 복사하기’ 후 <b>${consultEmail}</b> 으로 보내주세요(카카오톡·문자도 가능).</p>
+      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 메일 앱이 없으면 ‘내용 복사하기’ 후 <b>${consultEmail}</b> 으로 보내주세요.</p>
     </form>
   `;
 }
@@ -928,7 +933,7 @@ function setupConsultForm() {
   if (copyBtn) {
     copyBtn.addEventListener("click", () => {
       const text = `받는 사람: ${consultEmail}\n제목: ${subject}\n\n${buildBody()}`;
-      const done = () => { copyBtn.textContent = "복사됨 ✓ — 메일·카톡·문자로 붙여넣어 보내주세요"; };
+      const done = () => { copyBtn.textContent = "복사됨 ✓ — 메일에 붙여넣어 보내주세요"; };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(done).catch(() => { window.prompt("아래 내용을 복사해 보내주세요:", text); });
       } else {
@@ -936,16 +941,42 @@ function setupConsultForm() {
       }
     });
   }
+  // 빠른 상담(3문항) — 짧은 본문으로 바로 메일
+  const quickBtn = document.querySelector(".consult-quick-btn");
+  if (quickBtn) {
+    quickBtn.addEventListener("click", () => {
+      const body = [
+        "안녕하세요. 빠른 상담 문의드립니다.",
+        "",
+        "1. 업종 / 서비스:",
+        "2. 지금 가장 큰 고민:",
+        "3. 희망 일정:",
+        "",
+        `작성 페이지: ${currentPageUrl({ slug: "consulting" })}`
+      ].join("\n");
+      window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent("[Video Roastery] 빠른 상담 문의")}&body=${encodeURIComponent(body)}`;
+    });
+  }
 }
 
 // 자주 묻는 질문(전 서비스 공통) — 예산/기간/리스크 답을 먼저 줘 문의 망설임을 줄임
 const faqItems = [
   ["제작 기간은 얼마나 걸리나요?", "분량과 범위에 따라 보통 1~4주입니다. 보유 자료를 확인한 뒤 정확한 일정을 먼저 안내드립니다."],
-  ["비용은 어떻게 책정되나요?", "결과물 종류·분량·촬영 여부에 따라 달라집니다. 자료를 보고 필요한 범위만 잡아 견적을 드리며, 불필요한 항목은 빼고 시작합니다."],
+  ["비용은 어떻게 책정되나요?", "간단 제작 / 표준 제작 / 촬영 포함 제작 3단계로 먼저 안내합니다. 정확한 금액은 보유 자료와 범위를 보고 산정하며, 예산 범위를 알려주시면 가능한 구성과 제외할 항목을 함께 회신합니다."],
   ["수정은 가능한가요?", "합의된 범위 안에서 수정이 포함됩니다. 톤·문구·구성을 먼저 확정하고 제작해 큰 수정이 생기지 않도록 진행합니다."],
   ["어떻게 시작하나요?", "원하는 결과물, 보유 자료, 희망 일정만 적어 보내주시면 작업 가능 범위와 다음 단계를 회신드립니다. 계약 전 상담은 부담 없습니다."],
   ["제주 외 지역도 가능한가요?", "홈페이지·영상·콘텐츠 제작은 전국 온라인으로 진행합니다. 현장 촬영·드론은 일정과 지역을 협의해 진행합니다."]
 ];
+
+// 서비스별 추가 FAQ — 각 페이지의 핵심 구매 불안을 직접 해소
+const routeFaqExtra = {
+  homepage: [["제작 후 수정과 관리도 가능한가요?", "런칭 후에도 문구·이미지 수정과 간단한 운영 관리를 이어서 도와드립니다. 관리 범위는 상담 때 함께 정합니다."]],
+  "ai-shortform": [["촬영 없이 보유 자료만으로도 가능한가요?", "네. 제품 사진·기존 영상·콘셉트만 있어도 숏폼 광고 소재로 구성합니다. 추가 촬영이 필요하면 따로 안내드립니다."]],
+  "brand-film": [["촬영 없이 보유 자료만으로도 가능한가요?", "네. 기존 영상·사진·로고 자료로도 구성 가능하며, 현장 촬영이 필요하면 일정을 협의합니다."]],
+  drone: [["드론 촬영 허가·안전은 어떻게 처리하나요?", "비행 가능 구역과 허가 여부를 사전에 확인하고 안전 규정에 맞춰 촬영합니다. 지역·일정은 상담 때 함께 점검합니다."]],
+  wedding: [["얼굴 노출이 부담스러운데 괜찮나요?", "디테일·실루엣·뒷모습 중심의 무드 편집으로 진행할 수 있습니다. 공개 범위를 먼저 협의합니다."]],
+  content: [["꾸준한 콘텐츠 운영도 도와주나요?", "단건 제작뿐 아니라 카드뉴스·릴스 정기 운영 구성도 상담 가능합니다."]]
+};
 
 function faqSection(route) {
   return `
@@ -957,7 +988,7 @@ function faqSection(route) {
         </div>
       </div>
       <div class="faq-list">
-        ${faqItems.map(([q, a]) => `
+        ${faqItems.concat((route && routeFaqExtra[route.slug]) || []).map(([q, a]) => `
           <details class="faq-item">
             <summary>${q}</summary>
             <p>${a}</p>
@@ -1010,10 +1041,12 @@ function detailPage(route) {
           ${consultForm()}
           ` : `
           <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정을 회신합니다.</p>
+          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
           <div class="contact-actions single">
-            <a class="btn primary" href="${inquiryHref}">${route.nav} 상담받기</a>
+            <a class="btn primary" href="${inquiryHref}">${route.cta}</a>
           </div>
-          <a class="cta-textlink" href="#portfolio">사례 다시 보기 →</a>
+          <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>업종 · 원하는 결과물 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
+          <a class="cta-textlink" href="#portfolio">사례를 확인하셨다면 지금 보유 자료만 보내주세요 →</a>
           `}
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
@@ -1026,8 +1059,8 @@ function detailPage(route) {
 
 function sticky(route) {
   const target = route.stickyTarget || mailtoHref(route);
-  const label = route.stickyLabel || "메일 문의";
-  const body = route.stickyBody || route.badge;
+  const label = route.stickyLabel || "상담 메일 작성";
+  const body = route.stickyBody || "보유 자료만 보내도 됩니다 · 가능 범위 먼저 회신";
   return `
     <aside class="sticky">
       <div>
@@ -1046,10 +1079,13 @@ function mailtoHref(route) {
   const body = [
     `안녕하세요. ${route.nav} 상담 문의드립니다.`,
     "",
-    "1. 원하는 결과물:",
-    "2. 현재 가지고 있는 자료:",
-    "3. 희망 일정:",
-    "4. 참고 링크 또는 업종:",
+    "1. 업종 / 서비스:",
+    "2. 원하는 결과물:",
+    "3. 목표 (문의 증가 / 예약 / 홍보 / 판매):",
+    "4. 보유 자료:",
+    "5. 희망 일정:",
+    "6. 예산 범위:",
+    "7. 참고 링크:",
     "",
     `확인한 페이지: ${currentUrl}`,
     tracking ? `유입 경로: ${tracking}` : ""
