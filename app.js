@@ -178,17 +178,17 @@ const portfolioWallItems = [
   ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
   ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
   // AI FILM → ai-shortform / brand-film
-  ["portfolio_video_shortform_main.jpg", "ai", "AI FILM", "AI 세로 광고 숏폼", "ai-shortform"],
-  ["portfolio_video_product_style.jpg", "ai", "AI FILM", "AI 시설·건축 영상", "ai-shortform"],
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "감귤 브랜드 영상", "brand-film"],
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "감귤 건강식품 영상", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
-  ["portfolio_covers/video_01.jpg", "ai", "AI FILM", "AI 제주 항공 영상", "ai-shortform"],
-  ["portfolio_covers/ai_01.jpg", "ai", "AI FILM", "AI 라이프스타일 영상", "ai-shortform"],
   ["portfolio_covers/ai_02.jpg", "ai", "AI FILM", "AI 아트 영상", "ai-shortform"],
   ["portfolio_covers/ai_03.jpg", "ai", "AI FILM", "AI 제품 광고 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_04.jpg", "ai", "AI FILM", "AI 세로 제품 릴스", "ai-shortform"],
-  ["portfolio_covers/ai_05.jpg", "ai", "AI FILM", "AI 농업 항공 컷", "ai-shortform"],
+  ["portfolio_covers/ai_gen_01.jpg", "ai", "AI FILM", "AI 생성 뷰티 광고", "ai-shortform"],
+  ["portfolio_covers/ai_gen_02.jpg", "ai", "AI FILM", "AI 생성 음료 숏폼", "ai-shortform"],
+  ["portfolio_covers/ai_gen_03.jpg", "ai", "AI FILM", "AI 생성 향수 영상", "ai-shortform"],
+  ["portfolio_covers/ai_gen_04.jpg", "ai", "AI FILM", "AI 생성 카페 광고", "ai-shortform"],
+  ["portfolio_covers/ai_gen_05.jpg", "ai", "AI FILM", "AI 생성 패션 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "BRAND", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "BRAND", "기업 홍보 컷", "brand-film"],
@@ -660,7 +660,6 @@ const portfolioMedia = {
   // 13. NETIA 제품 광고 컷 — 실제 VR 제품 광고(NETIA 코스메틱, 창가 연출) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
   // 14. 푸드 브랜드 영상 — 외장하드 페를로(PERLO) 파스타 음식 프로모 재편집(22s, 16:9, 오디오)
-  "portfolio_covers/video_01.jpg": "portfolio_videos/ai_reel_42.mp4",                          // AI 제주 항공 영상(AI 생성)
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
@@ -712,16 +711,17 @@ const portfolioMedia = {
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
-  "portfolio_covers/ai_01.jpg": "portfolio_videos/ai_reel_45.mp4",                            // AI 라이프스타일 영상(AI 생성)
   "portfolio_covers/ai_02.jpg": "portfolio_videos/ai_reel_46.mp4",                            // AI 아트 영상(AI 생성, 일광의 화로)
+  "portfolio_covers/ai_gen_01.jpg": "portfolio_videos/ai_gen_01.mp4",                           // AI 생성 뷰티 광고(higgsfield)
+  "portfolio_covers/ai_gen_02.jpg": "portfolio_videos/ai_gen_02.mp4",                           // AI 생성 음료 숏폼(higgsfield)
+  "portfolio_covers/ai_gen_03.jpg": "portfolio_videos/ai_gen_03.mp4",                           // AI 생성 향수 영상(higgsfield)
+  "portfolio_covers/ai_gen_04.jpg": "portfolio_videos/ai_gen_04.mp4",                           // AI 생성 카페 광고(higgsfield)
+  "portfolio_covers/ai_gen_05.jpg": "portfolio_videos/ai_gen_05.mp4",                           // AI 생성 패션 영상(higgsfield)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
   "portfolio_covers/ai_04.jpg": "portfolio_videos/ai_reel_48.mp4",                            // AI 세로 제품 릴스(알파레몬샷)
-  "portfolio_covers/ai_05.jpg": "portfolio_videos/ai_reel_49.mp4",                            // AI 농업 항공 컷(agriculture aerial)
   "portfolio_wedding_studio_mood.jpg": "portfolio_videos/wedding_reel_42.mp4",                 // 실내 무드 컷 → 웨딩 무드(드레스·스튜디오·꽃·귀걸이, 초상권안전)
   "portfolio_covers/wedding_01.jpg": "portfolio_videos/wedding_reel_43.mp4",                   // 제주 웨딩 스냅 → 해변·드론(초상권안전)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
-  "portfolio_video_shortform_main.jpg": "portfolio_videos/ai_reel_44.mp4",                       // AI 세로 광고 숏폼(AI 생성)
-  "portfolio_video_product_style.jpg": "portfolio_videos/ai_reel_43.mp4",                        // AI 시설·건축 영상(AI 생성)
   "portfolio_drone_farm_terrace.jpg": "portfolio_videos/drone_reel_41.mp4"                      // 농업 방제 드론 컷 → 농약 아그로드론 옥수수밭 방제(4K)
 };
 
