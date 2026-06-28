@@ -244,10 +244,10 @@ const portfolioWallItems = [
   ["portfolio_covers/automation_03.jpg", "system", "SYSTEM", "답장 초안 컷", "inquiry-agent"],
   ["portfolio_covers/automation_04.jpg", "system", "SYSTEM", "연결 흐름 컷", "inquiry-agent"],
   // SYSTEM → consulting (AI 활용 상담, 전용 배정)
-  ["route_plan_actual.png", "system", "SYSTEM", "실제 화면 설계", "consulting"],
-  ["route_plan_mobile.png", "system", "SYSTEM", "모바일 동선 설계", "consulting"],
-  ["route_plan_mockups.png", "system", "SYSTEM", "시안 비교 화면", "consulting"],
-  ["route_plan_system.png", "system", "SYSTEM", "문의 시스템 설계", "consulting"],
+  ["route_plan_actual.jpg", "system", "SYSTEM", "실제 화면 설계", "consulting"],
+  ["route_plan_mobile.jpg", "system", "SYSTEM", "모바일 동선 설계", "consulting"],
+  ["route_plan_mockups.jpg", "system", "SYSTEM", "시안 비교 화면", "consulting"],
+  ["route_plan_system.jpg", "system", "SYSTEM", "문의 시스템 설계", "consulting"],
   ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "consulting"],
   ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "consulting"],
   // WEDDING → wedding (covers + 드론 웨딩 신규 투입)
