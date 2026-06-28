@@ -20,6 +20,51 @@
   --white: #fffdf8;
   --shadow: 0 18px 48px rgba(16, 21, 27, 0.14);
   --font-main: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Spacing scale (8pt 기반) ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 120px;
+
+  /* ── Radius scale ── */
+  --radius-xs: 2px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* ── Type scale (clamp 반응형) ── */
+  --fs-display: clamp(3rem, 5.4vw, 4.4rem);
+  --fs-h1: clamp(2.4rem, 3.4vw, 3.4rem);
+  --fs-h2: clamp(2rem, 2.6vw, 2.6rem);
+  --fs-h3: clamp(1.3rem, 1.6vw, 1.55rem);
+  --fs-lead: clamp(1.05rem, 1.3vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9rem;
+  --fs-xs: 0.78rem;
+
+  /* ── Shadow elevation ── */
+  --shadow-sm: 0 4px 14px rgba(16, 21, 27, 0.08);
+  --shadow-md: 0 14px 36px rgba(16, 21, 27, 0.12);
+  --shadow-lg: 0 24px 60px rgba(16, 21, 27, 0.18);
+  --shadow-overlay: 0 30px 90px rgba(0, 0, 0, 0.5);
+
+  /* ── Tracking ── */
+  --tracking-wide: 0.18em;
+  --tracking-tight: -0.02em;
+
+  /* ── Layout ── */
+  --container: 1120px;
+  --gutter: var(--space-5);
 }
 
 * {
@@ -65,7 +110,7 @@ button:focus-visible {
   left: 12px;
   z-index: 100;
   padding: 10px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: var(--white);
   background: var(--green);
   font-weight: 900;
@@ -118,7 +163,7 @@ button:focus-visible {
 .brand img {
   width: 58px;
   height: 58px;
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   display: block;
 }
 
@@ -148,20 +193,6 @@ button:focus-visible {
   background: transparent;
 }
 
-.nav a.active {
-  background: transparent;
-  color: var(--white);
-}
-
-.nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -20px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.72);
-}
 
 .hero {
   position: relative;
@@ -204,7 +235,7 @@ button:focus-visible {
   align-items: center;
   min-height: 34px;
   padding: 0 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.24);
   color: rgba(255, 255, 255, 0.9);
@@ -254,7 +285,7 @@ button:focus-visible {
   min-height: 34px;
   padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: rgba(255, 255, 255, 0.86);
   background: rgba(255, 255, 255, 0.1);
   font-size: 0.88rem;
@@ -286,8 +317,8 @@ button:focus-visible {
   margin-left: max(40px, 6.6vw);
   margin-right: auto;
   padding-top: 0;
-  padding-bottom: 56px;
-  transform: translateY(210px);
+  padding-bottom: var(--space-9);
+  transform: translateY(186px);
 }
 
 .hero-watermark {
@@ -309,7 +340,7 @@ button:focus-visible {
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   background: rgba(0, 0, 0, 0.38);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
   transform: rotate(13deg);
@@ -378,51 +409,56 @@ button:focus-visible {
   padding: 0;
   border: 0;
   border-radius: 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.72);
   background: transparent;
-  font-size: 14px;
+  font-size: var(--fs-xs);
   line-height: 1;
   font-weight: 760;
   font-variation-settings: "wght" 760;
-  white-space: pre;
+  letter-spacing: 0.12em;
+  word-spacing: 1em;
+  white-space: nowrap;
+  text-transform: uppercase;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
 }
 
 .hero.editorial .hero-intro {
-  max-width: 440px;
-  margin-top: 48px;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 20px;
-  line-height: 1.6;
+  max-width: 460px;
+  margin-top: var(--space-7);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--fs-lead);
+  line-height: 1.55;
   font-weight: 680;
   font-variation-settings: "wght" 680;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.74);
 }
 
 .hero-prefix {
-  margin-top: 38px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 22px;
+  margin-top: var(--space-7);
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--fs-sm);
   font-weight: 720;
   font-variation-settings: "wght" 720;
+  letter-spacing: 0.02em;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.76);
 }
 
 .hero.editorial h1 {
-  max-width: 640px;
-  margin-top: 14px;
-  font-size: 42px;
-  line-height: 1.26;
-  font-weight: 840;
-  font-variation-settings: "wght" 840;
+  max-width: 720px;
+  margin-top: var(--space-4);
+  font-size: var(--fs-display);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight);
+  font-weight: 880;
+  font-variation-settings: "wght" 880;
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.78);
 }
 
 .hero.editorial .hero-lead {
   max-width: 600px;
-  margin-top: 24px;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 16px;
+  margin-top: var(--space-5);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--fs-body);
   line-height: 1.76;
   font-weight: 520;
   font-variation-settings: "wght" 520;
@@ -450,7 +486,7 @@ button:focus-visible {
   min-height: 50px;
   padding: 0 20px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-weight: 900;
   transition: transform 160ms ease, box-shadow 200ms ease, background 200ms ease, border-color 200ms ease;
 }
@@ -509,22 +545,22 @@ button:focus-visible {
 }
 
 .section {
-  width: min(1120px, calc(100% - 40px));
+  width: min(var(--container), calc(100% - 2 * var(--gutter)));
   margin: 0 auto;
-  padding: clamp(76px, 8vw, 112px) 0;
+  padding: clamp(56px, 6vw, 88px) 0;
   scroll-margin-top: 112px;
 }
 
 .section.tight {
-  padding-top: 52px;
+  padding-top: var(--space-7);
 }
 
 .section-head {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 .section-kicker {
@@ -536,8 +572,9 @@ button:focus-visible {
 
 .section h2 {
   margin: 0;
-  font-size: clamp(2.1rem, 2.6vw, 2.6rem);
+  font-size: var(--fs-h2);
   line-height: 1.2;
+  letter-spacing: var(--tracking-tight);
 }
 
 .detail-jump {
@@ -576,7 +613,7 @@ button:focus-visible {
   min-height: 34px;
   padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.88rem;
   font-weight: 800;
@@ -594,10 +631,11 @@ button:focus-visible {
 .detail-shell {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
-  gap: 46px;
-  width: min(1120px, calc(100% - 40px));
+  align-items: center;
+  gap: var(--space-8);
+  width: min(var(--container), calc(100% - 2 * var(--gutter)));
   margin: 0 auto;
-  padding: 82px 0;
+  padding: var(--space-10) 0;
 }
 
 .detail-copy .section-kicker {
@@ -606,8 +644,9 @@ button:focus-visible {
 
 .detail-copy h2 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: var(--fs-h2);
   line-height: 1.18;
+  letter-spacing: var(--tracking-tight);
   font-weight: 880;
   font-variation-settings: "wght" 880;
 }
@@ -640,7 +679,7 @@ button:focus-visible {
   aspect-ratio: 4 / 3;
   margin: 0 0 18px;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: rgba(255, 255, 255, 0.08);
   filter: saturate(0.9) contrast(1.04);
 }
@@ -683,7 +722,7 @@ button:focus-visible {
   min-height: 344px;
   overflow: hidden;
   border: 0;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: var(--ink);
   box-shadow: none;
 }
@@ -709,7 +748,8 @@ button:focus-visible {
   transition: transform 260ms ease, filter 260ms ease;
 }
 
-.service-card:hover img {
+.service-card:hover img,
+.service-card:focus-visible img {
   transform: scale(1.04);
   filter: saturate(1) contrast(1.05);
 }
@@ -760,7 +800,7 @@ button:focus-visible {
   display: block;
   min-height: 180px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   color: var(--white);
   background: var(--ink);
 }
@@ -792,37 +832,11 @@ button:focus-visible {
   line-height: 1.25;
 }
 
-.portfolio-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: -10px 0 22px;
-}
-
-.portfolio-filters button {
-  min-height: 40px;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.72);
-  font-family: var(--font-main);
-  font-size: 0.92rem;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.portfolio-filters button[aria-pressed="true"] {
-  color: var(--white);
-  border-color: var(--green-dark);
-  background: var(--green-dark);
-}
-
 .portfolio-wall {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-flow: dense;
-  gap: 10px;
+  gap: var(--space-3);
 }
 
 .portfolio-item {
@@ -830,16 +844,17 @@ button:focus-visible {
   display: block;
   min-height: 252px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   color: var(--white);
   background: var(--ink);
   isolation: isolate;
   transition: transform 240ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 240ms ease;
 }
 
-.portfolio-item:hover {
+.portfolio-item:hover,
+.portfolio-item:focus-visible {
   transform: translateY(-4px);
-  box-shadow: 0 20px 44px rgba(5, 9, 12, 0.32);
+  box-shadow: var(--shadow-lg);
 }
 
 .portfolio-meta strong {
@@ -848,10 +863,6 @@ button:focus-visible {
 
 .portfolio-item:hover .portfolio-meta strong {
   transform: translateY(-2px);
-}
-
-.portfolio-item.is-hidden {
-  display: none;
 }
 
 .portfolio-item.is-large {
@@ -890,7 +901,8 @@ button:focus-visible {
   transition: transform 260ms ease, filter 260ms ease;
 }
 
-.portfolio-item:hover img {
+.portfolio-item:hover img,
+.portfolio-item:focus-visible img {
   transform: scale(1.035);
   filter: saturate(1) contrast(1.06);
 }
@@ -909,7 +921,7 @@ button:focus-visible {
   width: fit-content;
   padding: 5px 9px;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: rgba(255, 255, 255, 0.82);
   background: rgba(5, 9, 12, 0.28);
   font-size: 0.72rem;
@@ -926,15 +938,19 @@ button:focus-visible {
 }
 
 .featured-wall {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: row;
+  gap: var(--space-3);
 }
 
-.featured-wall .portfolio-item {
-  min-height: 212px;
-}
-
-.featured-wall .portfolio-item.is-large {
-  min-height: 434px;
+/* 홈 쇼케이스는 균일 타일로 — 12개가 4열×3행을 깔끔히 채움 */
+.featured-wall .portfolio-item,
+.featured-wall .portfolio-item.is-large,
+.featured-wall .portfolio-item.is-wide {
+  grid-column: span 1;
+  grid-row: span 1;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
 }
 
 .full-wall .portfolio-item:nth-child(9n + 4),
@@ -965,7 +981,7 @@ button:focus-visible {
   display: block;
   min-height: 220px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: var(--ink);
 }
 
@@ -1012,7 +1028,7 @@ button:focus-visible {
   margin: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: var(--white);
 }
 
@@ -1074,7 +1090,7 @@ button:focus-visible {
   min-height: 40px;
   padding: 0 14px;
   border: 1px solid rgba(15, 127, 98, 0.2);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--green-dark);
   background: rgba(15, 127, 98, 0.06);
   font-weight: 880;
@@ -1128,7 +1144,7 @@ button:focus-visible {
   display: block;
   min-height: 210px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   color: var(--white);
   background: var(--ink);
 }
@@ -1149,7 +1165,8 @@ button:focus-visible {
   transition: transform 220ms ease;
 }
 
-.related-card:hover img {
+.related-card:hover img,
+.related-card:focus-visible img {
   transform: scale(1.04);
 }
 
@@ -1167,7 +1184,7 @@ button:focus-visible {
 .cta-band {
   position: relative;
   padding: clamp(48px, 7vw, 88px) clamp(28px, 5vw, 64px);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   color: var(--ink);
   background: var(--white);
@@ -1216,7 +1233,7 @@ footer a {
   overflow: hidden;
   margin-top: 26px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--white);
   scroll-margin-top: 112px;
 }
@@ -1241,7 +1258,7 @@ footer a {
   min-height: 36px;
   padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: rgba(255, 255, 255, 0.88);
   background: rgba(255, 255, 255, 0.08);
   font-weight: 800;
@@ -1278,7 +1295,7 @@ footer a {
   min-height: 46px;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: rgba(255, 255, 255, 0.86);
   background: rgba(255, 255, 255, 0.08);
   font-weight: 800;
@@ -1295,7 +1312,7 @@ footer a {
   justify-content: space-between;
   gap: 14px;
   padding: 14px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: var(--white);
   background: rgba(19, 34, 56, 0.96);
   box-shadow: var(--shadow);
@@ -1356,7 +1373,7 @@ footer a {
   margin: 56px auto;
   padding: 34px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--white);
   box-shadow: var(--shadow);
 }
@@ -1364,7 +1381,7 @@ footer a {
 .noscript-fallback img {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 
 .noscript-fallback h1 {
@@ -1461,10 +1478,6 @@ footer a {
     justify-content: flex-start;
     gap: 24px;
     width: 100%;
-  }
-
-  .nav a.active::after {
-    bottom: -10px;
   }
 
   .hero {
@@ -1649,7 +1662,9 @@ footer a {
   }
 
   .hero-kicker {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    word-spacing: 0.5em;
   }
 
   .hero.editorial .hero-intro {
@@ -1749,16 +1764,6 @@ footer a {
     min-height: 224px;
   }
 
-  .portfolio-filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 4px;
-  }
-
-  .portfolio-filters button {
-    flex: 0 0 auto;
-  }
-
   .shot img {
     aspect-ratio: 4 / 3;
   }
@@ -1784,8 +1789,14 @@ footer a {
     min-height: auto;
   }
 
+  /* 모바일: 카드 이미지가 세로로 과하게 길어지지 않게 비율 고정 */
+  .service-card img {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
   .cta-band {
-    padding: 28px;
+    padding: var(--space-6);
   }
 
   .form-embed iframe {
@@ -1895,7 +1906,7 @@ footer a {
   right: 12px;
   z-index: 3;
   padding: 6px 11px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.78rem;
   font-weight: 800;
   color: #0c1013;
@@ -1930,9 +1941,9 @@ footer a {
 .vr-lightbox-stage {
   width: min(1100px, 100%);
   max-height: 86vh;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-overlay);
   background: #000;
 }
 .vr-lightbox-stage video {
@@ -2022,7 +2033,7 @@ footer a {
   width: 100%;
   padding: 11px 13px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--white);
   color: var(--ink);
   font-family: inherit;
@@ -2090,9 +2101,12 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 .proof-bar strong { font-size: 1.55rem; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
 .proof-bar span { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
 
-/* 영상/사이트 배지 항상 보이게(모바일엔 hover 없음) */
-.portfolio-play { opacity: 0.82; transform: translate(-50%, -50%) scale(0.96); }
-.portfolio-open { opacity: 1; transform: translateY(0); }
+/* 배지: hover 가능 기기는 hover/focus로만(원본 동작 유지). 터치 기기에선 hover가 없으니 상시 노출 */
+@media (hover: none) {
+  .portfolio-play { opacity: 0.82; transform: translate(-50%, -50%) scale(0.96); }
+  .portfolio-open { opacity: 1; transform: translateY(0); }
+  .detail-window-link .portfolio-open { opacity: 1; transform: translateY(0); }
+}
 
 /* sticky 문의 CTA 데스크탑에서도 노출(스크롤 후) */
 .sticky { display: flex; }
@@ -2102,14 +2116,16 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 .cta-textlink { display: inline-block; margin-top: 12px; color: var(--muted); font-size: 0.9rem; text-decoration: underline; }
 .cta-textlink:hover { color: var(--ink); }
 
-/* FAQ(아코디언) */
-.faq-list { display: grid; gap: 10px; max-width: 760px; }
-.faq-item { border: 1px solid var(--line); border-radius: 10px; background: var(--white); padding: 0 16px; }
-.faq-item summary { cursor: pointer; padding: 15px 2px; font-weight: 700; color: var(--ink); list-style: none; }
+/* FAQ(아코디언) — 데스크톱 2열로 펼쳐 우측 여백 균형 */
+.faq-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); align-content: start; }
+.faq-item { border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); padding: 0 var(--space-5); transition: border-color 180ms ease, box-shadow 180ms ease; }
+.faq-item[open] { border-color: rgba(15, 127, 98, 0.4); box-shadow: var(--shadow-sm); }
+.faq-item summary { cursor: pointer; padding: var(--space-4) var(--space-1); font-weight: 700; color: var(--ink); list-style: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; font-size: 1.2rem; line-height: 1; }
+.faq-item summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; font-size: 1.2rem; line-height: 1; transition: transform 180ms ease; }
 .faq-item[open] summary::after { content: "\2212"; }
-.faq-item p { margin: 0 2px 16px; color: var(--muted); line-height: 1.65; }
+.faq-item p { margin: 0 var(--space-1) var(--space-4); color: var(--muted); line-height: 1.65; }
+@media (max-width: 720px) { .faq-list { grid-template-columns: 1fr; } }
 
 /* 라이트박스 로딩 스피너 + 새 창 폴백 */
 .vr-lightbox-spinner { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border: 3px solid rgba(255,255,255,0.25); border-top-color: #fff; border-radius: 50%; opacity: 0; pointer-events: none; z-index: 4; }
@@ -2117,9 +2133,8 @@ button.detail-window-link { display:block; width:100%; padding:0; border:0; back
 @keyframes vrspin { to { transform: rotate(360deg); } }
 .vr-lightbox-fallback { display: inline-block; margin-top: 10px; color: #fff; font-size: 0.9rem; text-decoration: underline; }
 .vr-lightbox-fallback[hidden] { display: none; }
-/* 오버뷰 사이트 배지도 항상 노출(specificity 보정) */
-.detail-window-link .portfolio-open { opacity: 1; transform: translateY(0); }
-/* 오버뷰 사이트 배지: top 리셋(top+bottom 동시적용으로 높이 늘어나던 흰 알약 버그 수정) → 우하단 작은 배지 */
+/* 오버뷰 사이트 배지 위치: top 리셋(top+bottom 동시적용으로 높이 늘어나던 흰 알약 버그 수정) → 우하단 작은 배지
+   (상시 노출은 위 @media (hover:none) 블록에서만 처리 — hover 기기는 hover/focus로 노출) */
 .detail-window-link .portfolio-open { top: auto; bottom: 10px; height: auto; }
 /* 화면 예시(연결 없는) 페이지의 정적 타일 — 클릭/hover 효과 제거 */
 figure.portfolio-item.is-static { cursor: default; }
@@ -2147,7 +2162,7 @@ figure.portfolio-item.is-static:hover { transform: none; box-shadow: none; }
   margin: 0 0 18px;
   padding: 16px 18px;
   border: 1px solid rgba(20, 125, 101, 0.30);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: rgba(20, 125, 101, 0.06);
   text-align: left;
 }

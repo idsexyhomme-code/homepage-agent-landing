@@ -267,15 +267,6 @@ const portfolioWallItems = [
   slug,
   size
 }));
-const portfolioFilters = [
-  ["all", "전체"],
-  ["web", "홈페이지"],
-  ["ai", "AI영상"],
-  ["drone", "드론"],
-  ["content", "콘텐츠"],
-  ["system", "자동화"],
-  ["wedding", "웨딩"]
-];
 const routeDetails = {
   homepage: {
     kicker: "WEB LANDING",
@@ -476,7 +467,7 @@ function mainPage() {
     layout: "editorial",
     heroRich: true,
     badge: "Video Roastery",
-    kicker: "V I D E O   R O A S T E R Y   S T U D I O",
+    kicker: "Video Roastery Studio",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
     title: "홈페이지·영상·콘텐츠를<br>문의로 이어지게 만듭니다.",
@@ -1288,23 +1279,6 @@ function setupStickyCta() {
   window.removeEventListener("scroll", window.__vrStickyUpdate);
   window.__vrStickyUpdate = update;
   window.addEventListener("scroll", update, { passive: true });
-}
-
-function setupPortfolioFilters() {
-  const hub = document.querySelector("#portfolio-hub");
-  const filters = hub ? hub.querySelectorAll("[data-filter]") : [];
-  const items = hub ? hub.querySelectorAll(".portfolio-item[data-category]") : [];
-  if (!filters.length || !items.length) return;
-  filters.forEach((button) => {
-    button.addEventListener("click", () => {
-      const active = button.dataset.filter;
-      filters.forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
-      items.forEach((item) => {
-        const isVisible = active === "all" || item.dataset.category === active;
-        item.classList.toggle("is-hidden", !isVisible);
-      });
-    });
-  });
 }
 
 render();
