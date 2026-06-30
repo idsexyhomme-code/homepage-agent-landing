@@ -206,7 +206,7 @@ const portfolioWallItems = [
   ["portfolio_covers/video_06.jpg", "content", "CONTENT", "NETIA 제품 광고 컷", "content"],
   // DRONE → drone
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
-  ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "숙소 시설 컷", "drone"],
+  ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "ICC 컨벤션센터 항공 컷", "drone"],
   ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
   ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
   ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "정원 탑뷰 컷", "drone"],
