@@ -215,7 +215,7 @@ const portfolioWallItems = [
   ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "건물 외관 컷", "drone"],
   ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
   ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
-  ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 들녘 컷", "drone"],
+  ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 포구 항공 컷", "drone"],
   ["portfolio_drone_coast_cliff.jpg", "drone", "DRONE", "해안 절경 컷", "drone"],
   ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
   ["portfolio_covers/drone_02.jpg", "drone", "DRONE", "태양광 시설 항공 컷", "drone"],
