@@ -212,7 +212,7 @@ const portfolioWallItems = [
   ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "정원 탑뷰 컷", "drone"],
   ["portfolio_drone_facility_route.jpg", "drone", "DRONE", "해안 시설 항공 컷", "drone"],
   ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
-  ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "건물 외관 컷", "drone"],
+  ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "박물관 항공 컷", "drone"],
   ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
   ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
   ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 포구 항공 컷", "drone"],
