@@ -36,7 +36,7 @@ const routes = [
     title: "제품 사진을 숏폼 광고 소재로 바꿉니다",
     lead: "제품 사진과 콘셉트만 있어도 릴스, 쇼츠, 틱톡에 맞는 짧은 광고 영상 흐름으로 구성합니다.",
     heroVideo: "ai_shortform_hero_web.mp4",
-    heroImage: "portfolio_video_product_reels_ad.jpg",
+    heroImage: "card_ai_shortform_photo.jpg",
     cta: "제품 사진으로 숏폼 견적 받기",
     proof: [
       ["촬영 부담 감소", "제품 사진만 있어도 홍보용 숏폼 소재를 만들 수 있습니다."],
@@ -165,7 +165,6 @@ const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
-  ["portfolio_video_product_reels_ad.jpg", "content", "CONTENT", "제품 숏폼 광고", "content", "wide"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 랜딩", "homepage"],
@@ -204,24 +203,25 @@ const portfolioWallItems = [
   ["portfolio_covers/corp_09.jpg", "ai", "BRAND", "기념관 홍보영상", "brand-film"],
   ["portfolio_covers/video_05.jpg", "content", "CONTENT", "제품 릴스 컷", "content"],
   ["portfolio_covers/video_06.jpg", "content", "CONTENT", "NETIA 제품 광고 컷", "content"],
-  // DRONE → drone
+  // DRONE → drone (정적컷은 월 후순위로 정렬됨 → 앞에 둬도 무방)
   ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
   ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "ICC 컨벤션센터 항공 컷", "drone"],
-  ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
-  ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
-  ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "해안 공원 항공 컷", "drone"],
-  ["portfolio_drone_facility_route.jpg", "drone", "DRONE", "해안 시설 항공 컷", "drone"],
-  ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
-  ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "박물관 항공 컷", "drone"],
-  ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
-  ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
-  ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 포구 항공 컷", "drone"],
-  ["portfolio_drone_coast_cliff.jpg", "drone", "DRONE", "해안 절경 컷", "drone"],
-  ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
-  ["portfolio_covers/drone_02.jpg", "drone", "DRONE", "태양광 시설 항공 컷", "drone"],
-  ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
-  ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
+  // 영상 연결 — 앞 3개가 상세 오버뷰(대표/설명/활용 컷) → 강한 컷 우선
   ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "풍차해안 석양 항공 컷", "drone"],
+  ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
+  ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
+  ["portfolio_covers/drone_02.jpg", "drone", "DRONE", "태양광 시설 항공 컷", "drone"],
+  ["portfolio_drone_coast_cliff.jpg", "drone", "DRONE", "해안 절경 컷", "drone"],
+  ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 포구 항공 컷", "drone"],
+  ["portfolio_drone_facility_route.jpg", "drone", "DRONE", "해안 시설 항공 컷", "drone"],
+  ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
+  ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "박물관 항공 컷", "drone"],
+  ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
+  ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
+  ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
+  ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
+  ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "해안 공원 항공 컷", "drone"],
+  ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
   // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
@@ -482,7 +482,7 @@ function mainPage() {
       ["portfolio_drone_night_exterior_clean.jpg", "야간 외관"],
       ["portfolio_web_regional_brand.png", "브랜드 화면"],
       ["portfolio_drone_resort_facility.jpg", "공간 촬영"],
-      ["portfolio_video_product_reels_ad.jpg", "제품 영상"],
+      ["portfolio_content_reels_page.jpg", "릴스 영상"],
       ["portfolio_content_product.jpg", "제품 콘텐츠"],
       ["portfolio_automation_homepage_flow.jpg", "상담형 홈페이지"]
     ]
@@ -493,18 +493,18 @@ function mainPage() {
   // 랜딩 쇼케이스: 썸네일·영상이 전부 고유하고 모두 재생되는 실제 작업물 12개를 명시적으로 큐레이션
   // (이전엔 first 12라 비슷한 웹 목업 썸네일이 중복돼 보였음 → 신뢰도 위해 고유 작업물로 교체)
   const homeFeatured = [
-    "portfolio_video_product_reels_ad.jpg",
-    "portfolio_content_reels_page.jpg",
-    "portfolio_covers/drone_01.jpg",
-    "portfolio_covers/corp_08.jpg",
-    "portfolio_covers/corp_02.jpg",
-    "portfolio_drone_village_overview.jpg",
-    "portfolio_covers/video_02.jpg",
-    "portfolio_covers/corp_01.jpg",
-    "portfolio_drone_facility_route_clean.jpg",
-    "portfolio_covers/corp_05.jpg",
-    "portfolio_covers/video_03.jpg",
-    "portfolio_covers/corp_07.jpg"
+    "portfolio_covers/drone_06.jpg",          // 풍차해안 석양 항공(시그니처 드론)
+    "portfolio_covers/ai_nadaum.jpg",         // LG U+ 나다움(AI 브랜드 캠페인)
+    "portfolio_covers/content_04.jpg",        // 벨롱벨롱 디저트카페 릴스
+    "portfolio_covers/video_03.jpg",          // ESG 바다 메시지(돌고래 브랜드필름)
+    "portfolio_covers/ai_saemangeum.jpg",     // 새만금 시네마틱
+    "portfolio_covers/corp_08.jpg",           // 모루농장 브랜드영상
+    "portfolio_drone_village_overview.jpg",   // 제주 마을 전경 항공
+    "portfolio_covers/ai_kombucha.jpg",       // 작심랩 콤부차 DTC
+    "portfolio_covers/corp_07.jpg",           // 지역상생 RISE 포럼
+    "portfolio_covers/drone_02.jpg",          // 태양광 시설 석양 항공
+    "portfolio_covers/corp_02.jpg",           // 마크애니 TOSS(IT 서비스)
+    "portfolio_covers/ai_game_ua.jpg"         // 블라이트워 게임 UA
   ];
   const homeWallItems = homeFeatured
     .map((img) => portfolioWallItems.find((item) => item.image === img))
@@ -622,7 +622,6 @@ const slugVideo = {
 // 24시간 동안 한 칸씩 정성껏 채워나가는 중 — 매칭 또는 30초 재편집 영상.
 const portfolioMedia = {
   // 01. 제품 숏폼 광고 — 건강기능식품 micro-3D 4컷 재편집(16s)
-  "portfolio_video_product_reels_ad.jpg": "portfolio_videos/product_reel_01.mp4",
   // 02. 브랜드필름 컷 — 실제 클라이언트 브랜드필름 'THE QUIET RETURN' 5컷 시네마틱 재편집(26s, 16:9)
   //     (corporate_main은 overview 정적이미지라 클릭 불가 → 클릭 타일인 video_02에 연결)
   "portfolio_covers/video_02.jpg": "portfolio_videos/brandfilm_reel_02.mp4",
