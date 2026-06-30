@@ -182,18 +182,14 @@ const portfolioWallItems = [
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "감귤 건강식품 영상", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
   ["portfolio_covers/ai_03.jpg", "ai", "AI FILM", "AI 제품 광고 숏폼", "ai-shortform"],
-  ["portfolio_covers/ai_gen_01.jpg", "ai", "AI FILM", "AI 생성 뷰티 광고", "ai-shortform"],
-  ["portfolio_covers/ai_game_ua.jpg", "ai", "AI FILM", "AI 게임 광고 영상", "ai-shortform"],
-  ["portfolio_covers/ai_nadaum.jpg", "ai", "AI FILM", "AI 브랜드 캠페인", "ai-shortform"],
-  ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
-  ["portfolio_covers/ai_esg_wind.jpg", "ai", "AI FILM", "AI ESG 캠페인", "ai-shortform"],
   ["portfolio_covers/ai_kombucha.jpg", "ai", "AI FILM", "AI 콤부차 제품 릴스", "ai-shortform"],
+  ["portfolio_covers/ai_nadaum.jpg", "ai", "AI FILM", "AI 브랜드 캠페인", "ai-shortform"],
+  ["portfolio_covers/ai_esg_wind.jpg", "ai", "AI FILM", "AI ESG 캠페인", "ai-shortform"],
+  ["portfolio_covers/ai_game_ua.jpg", "ai", "AI FILM", "AI 게임 광고 영상", "ai-shortform"],
+  ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
+  ["portfolio_covers/ai_esg_future.jpg", "ai", "AI FILM", "AI ESG 메시지 영상", "ai-shortform"],
   ["portfolio_covers/ai_soil.jpg", "ai", "AI VISUAL", "AI 에너지 브랜드 비주얼", "ai-shortform"],
   ["portfolio_covers/ai_aesop.jpg", "ai", "AI VISUAL", "AI 핸드크림 제품 비주얼", "ai-shortform"],
-  ["portfolio_covers/ai_gen_02.jpg", "ai", "AI FILM", "AI 생성 음료 숏폼", "ai-shortform"],
-  ["portfolio_covers/ai_gen_03.jpg", "ai", "AI FILM", "AI 생성 향수 영상", "ai-shortform"],
-  ["portfolio_covers/ai_gen_04.jpg", "ai", "AI FILM", "AI 생성 카페 광고", "ai-shortform"],
-  ["portfolio_covers/ai_gen_05.jpg", "ai", "AI FILM", "AI 생성 패션 영상", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
   ["portfolio_covers/video_03.jpg", "ai", "BRAND", "ESG 바다 메시지 영상", "brand-film"],
   ["portfolio_covers/video_04.jpg", "ai", "BRAND", "기업 홍보 컷", "brand-film"],
@@ -707,12 +703,8 @@ const portfolioMedia = {
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
-  "portfolio_covers/ai_gen_01.jpg": "portfolio_videos/ai_gen_01.mp4",                           // AI 생성 뷰티 광고(higgsfield)
-  "portfolio_covers/ai_gen_02.jpg": "portfolio_videos/ai_gen_02.mp4",                           // AI 생성 음료 숏폼(higgsfield)
-  "portfolio_covers/ai_gen_03.jpg": "portfolio_videos/ai_gen_03.mp4",                           // AI 생성 향수 영상(higgsfield)
-  "portfolio_covers/ai_gen_04.jpg": "portfolio_videos/ai_gen_04.mp4",                           // AI 생성 카페 광고(higgsfield)
-  "portfolio_covers/ai_gen_05.jpg": "portfolio_videos/ai_gen_05.mp4",                           // AI 생성 패션 영상(higgsfield)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
+  "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
   "portfolio_covers/ai_kombucha.jpg": "portfolio_videos/ai_kombucha_reel.mp4",                // AI 콤부차 제품 릴스(작심랩 콤부차 DTC, 클린본)
   "portfolio_covers/ai_game_ua.jpg": "portfolio_videos/ai_game_ua_reel.mp4",                  // AI 게임 광고(블라이트워 게임 UA, 히든몬스터)
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
