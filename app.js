@@ -171,7 +171,6 @@ const portfolioWallItems = [
   ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 랜딩", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 마케팅 비서", "homepage"],
-  ["portfolio_covers/web_01.jpg", "web", "WEB", "pawshare 앱 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
   ["pawshare_landing.png", "web", "WEB", "pawshare 후원 랜딩", "homepage"],
   ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
@@ -690,7 +689,6 @@ const portfolioMedia = {
   "portfolio_web_beamish.png": "https://beamish-mooncake-b11a21.netlify.app",                // 영상 제작 랜딩 → 품질엘리베이터(당신의 영상을)
   "portfolio_web_shortform_a.png": "https://vr-canada.netlify.app",                          // 숏폼 제작 → VR Shortform Vancouver
   "portfolio_web_ai_ops.png": "https://tourmaline-dodol-4f6381.netlify.app",                  // AI 업무 → 품질엘리베이터(오늘 뭐 올리지)
-  "portfolio_covers/web_01.jpg": "https://pawshare-app.vercel.app",                          // 서비스 소개 → pawshare 앱
   "portfolio_covers/web_03.jpg": "https://fascinating-duckanoo-906886.netlify.app",         // 브랜드 제품 → From a Single Drop
   "pawshare_landing.png": "https://pawshare-landing.vercel.app",                             // 커뮤니티 → pawshare 랜딩
   // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
