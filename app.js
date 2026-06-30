@@ -181,9 +181,12 @@ const portfolioWallItems = [
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "감귤 브랜드 영상", "brand-film"],
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "감귤 건강식품 영상", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
-  ["portfolio_covers/ai_02.jpg", "ai", "AI FILM", "AI 아트 영상", "ai-shortform"],
   ["portfolio_covers/ai_03.jpg", "ai", "AI FILM", "AI 제품 광고 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_04.jpg", "ai", "AI FILM", "AI 세로 제품 릴스", "ai-shortform"],
+  ["portfolio_covers/ai_game_ua.jpg", "ai", "AI FILM", "AI 게임 광고 영상", "ai-shortform"],
+  ["portfolio_covers/ai_nadaum.jpg", "ai", "AI FILM", "AI 브랜드 캠페인", "ai-shortform"],
+  ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
+  ["portfolio_covers/ai_esg_wind.jpg", "ai", "AI FILM", "AI ESG 캠페인", "ai-shortform"],
   ["portfolio_covers/ai_gen_01.jpg", "ai", "AI FILM", "AI 생성 뷰티 광고", "ai-shortform"],
   ["portfolio_covers/ai_gen_02.jpg", "ai", "AI FILM", "AI 생성 음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_gen_03.jpg", "ai", "AI FILM", "AI 생성 향수 영상", "ai-shortform"],
@@ -702,7 +705,6 @@ const portfolioMedia = {
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
-  "portfolio_covers/ai_02.jpg": "portfolio_videos/ai_reel_46.mp4",                            // AI 아트 영상(AI 생성, 일광의 화로)
   "portfolio_covers/ai_gen_01.jpg": "portfolio_videos/ai_gen_01.mp4",                           // AI 생성 뷰티 광고(higgsfield)
   "portfolio_covers/ai_gen_02.jpg": "portfolio_videos/ai_gen_02.mp4",                           // AI 생성 음료 숏폼(higgsfield)
   "portfolio_covers/ai_gen_03.jpg": "portfolio_videos/ai_gen_03.mp4",                           // AI 생성 향수 영상(higgsfield)
@@ -710,6 +712,10 @@ const portfolioMedia = {
   "portfolio_covers/ai_gen_05.jpg": "portfolio_videos/ai_gen_05.mp4",                           // AI 생성 패션 영상(higgsfield)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
   "portfolio_covers/ai_04.jpg": "portfolio_videos/ai_reel_48.mp4",                            // AI 세로 제품 릴스(알파레몬샷)
+  "portfolio_covers/ai_game_ua.jpg": "portfolio_videos/ai_game_ua_reel.mp4",                  // AI 게임 광고(블라이트워 게임 UA, 히든몬스터)
+  "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
+  "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
+  "portfolio_covers/ai_esg_wind.jpg": "portfolio_videos/ai_esg_wind_reel.mp4",                // AI ESG 캠페인(그린로하스 ESG 공모전, PlasticToWind)
   "portfolio_wedding_studio_mood.jpg": "portfolio_videos/wedding_reel_42.mp4",                 // 실내 무드 컷 → 웨딩 무드(드레스·스튜디오·꽃·귀걸이, 초상권안전)
   "portfolio_covers/wedding_01.jpg": "portfolio_videos/wedding_reel_43.mp4",                   // 제주 웨딩 스냅 → 해변·드론(초상권안전)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
