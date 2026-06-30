@@ -1808,20 +1808,32 @@ footer a {
     left: 12px;
     right: 12px;
     bottom: 8px;
+    gap: 8px;
     padding: 10px 12px;
+  }
+
+  .sticky > div {
+    min-width: 0;
+    flex: 1;
   }
 
   .sticky b {
     font-size: 0.92rem;
+    white-space: nowrap;
   }
 
   .sticky span {
     font-size: 0.76rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .sticky .btn {
     min-width: 104px;
     min-height: 40px;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 }
 
