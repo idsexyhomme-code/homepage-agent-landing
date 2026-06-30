@@ -187,7 +187,7 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_nadaum.jpg", "ai", "AI FILM", "AI 브랜드 캠페인", "ai-shortform"],
   ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
   ["portfolio_covers/ai_esg_wind.jpg", "ai", "AI FILM", "AI ESG 캠페인", "ai-shortform"],
-  ["portfolio_covers/ai_04.jpg", "ai", "AI FILM", "AI 세로 제품 릴스", "ai-shortform"],
+  ["portfolio_covers/ai_kombucha.jpg", "ai", "AI FILM", "AI 콤부차 제품 릴스", "ai-shortform"],
   ["portfolio_covers/ai_gen_02.jpg", "ai", "AI FILM", "AI 생성 음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_gen_03.jpg", "ai", "AI FILM", "AI 생성 향수 영상", "ai-shortform"],
   ["portfolio_covers/ai_gen_04.jpg", "ai", "AI FILM", "AI 생성 카페 광고", "ai-shortform"],
@@ -711,7 +711,7 @@ const portfolioMedia = {
   "portfolio_covers/ai_gen_04.jpg": "portfolio_videos/ai_gen_04.mp4",                           // AI 생성 카페 광고(higgsfield)
   "portfolio_covers/ai_gen_05.jpg": "portfolio_videos/ai_gen_05.mp4",                           // AI 생성 패션 영상(higgsfield)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
-  "portfolio_covers/ai_04.jpg": "portfolio_videos/ai_reel_48.mp4",                            // AI 세로 제품 릴스(알파레몬샷)
+  "portfolio_covers/ai_kombucha.jpg": "portfolio_videos/ai_kombucha_reel.mp4",                // AI 콤부차 제품 릴스(작심랩 콤부차 DTC, 클린본)
   "portfolio_covers/ai_game_ua.jpg": "portfolio_videos/ai_game_ua_reel.mp4",                  // AI 게임 광고(블라이트워 게임 UA, 히든몬스터)
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
