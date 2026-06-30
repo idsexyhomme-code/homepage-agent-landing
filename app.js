@@ -188,6 +188,8 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
   ["portfolio_covers/ai_esg_wind.jpg", "ai", "AI FILM", "AI ESG 캠페인", "ai-shortform"],
   ["portfolio_covers/ai_kombucha.jpg", "ai", "AI FILM", "AI 콤부차 제품 릴스", "ai-shortform"],
+  ["portfolio_covers/ai_soil.jpg", "ai", "AI VISUAL", "AI 에너지 브랜드 비주얼", "ai-shortform"],
+  ["portfolio_covers/ai_aesop.jpg", "ai", "AI VISUAL", "AI 핸드크림 제품 비주얼", "ai-shortform"],
   ["portfolio_covers/ai_gen_02.jpg", "ai", "AI FILM", "AI 생성 음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_gen_03.jpg", "ai", "AI FILM", "AI 생성 향수 영상", "ai-shortform"],
   ["portfolio_covers/ai_gen_04.jpg", "ai", "AI FILM", "AI 생성 카페 광고", "ai-shortform"],
