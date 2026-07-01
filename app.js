@@ -186,6 +186,14 @@ const pricingGroups = [
   ]}
 ];
 
+// 후기 — 크몽 실거래 리뷰 발췌(AI 숏폼 서비스 ★4.5/7건 등). 원문 그대로, 이름은 크몽 공개 표기 기준 업종·유형으로 표기
+const testimonials = [
+  { quote: "너무 세심하게 작업 잘해주시고 퀄도 좋습니다.", who: "재구매 고객", svc: "AI 숏폼" },
+  { quote: "빠른 응대에 디테일한 요구까지 들어주시고 퀄리티 대박입니다.", who: "뷰티·미용 기업 · 재구매", svc: "AI 숏폼" },
+  { quote: "알아서 깔끔하게 잘해주세요. 작업 감사합니다.", who: "기업 고객", svc: "AI 숏폼" },
+  { quote: "수고하셨습니다. 재구매중입니다.", who: "학원·교육 기업", svc: "AI 숏폼" }
+];
+
 // 케이스스터디 — 실제 납품 프로젝트 (과제→접근→결과, 성과 수치는 확보 시 추가)
 const caseStudies = [
   {
@@ -621,6 +629,18 @@ function mainPage() {
           ${["실제 제작 영상 40+","운영 중 라이브 사이트 10곳","8개 제작 분야","제주 현장 촬영·드론 운용","4K 항공촬영","대기업·기관 협업","공공기관·공익 캠페인","글로벌 비영리 재단 협업","ESG·공모전 영상 제작","AI 영상·숏폼 제작","브랜드필름·기업 홍보영상","제품 광고 숏폼","웨딩 영상·스냅","카드뉴스·릴스 콘텐츠","홈페이지 기획·개발","문의 자동화·AI Ops","초상권 범위 협의 편집","전국 온라인 제작 상담"].map((b) => `<li>${b}</li>`).join("")}
         </ul>
         <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품 프로젝트 및 AI 브랜드 필름 작업 기준으로 표기했습니다.</p>
+      </section>
+      <section class="section tight" id="testimonials">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Reviews</p>
+            <h2>실제 크몽 거래 후기</h2>
+            <p class="section-sub">상담 전에 실거래 리뷰로 먼저 확인하세요. 크몽 AI 숏폼 서비스 ★4.5(7건) 등 실거래 리뷰에서 발췌했습니다.</p>
+          </div>
+        </div>
+        <ul class="testimonial-grid" aria-label="고객 후기">
+          ${testimonials.map((t) => `<li class="testimonial"><p class="stars" aria-label="별점 5점">★★★★★</p><blockquote>&ldquo;${t.quote}&rdquo;</blockquote><cite>${t.who} · ${t.svc}</cite></li>`).join("")}
+        </ul>
       </section>
       <section class="section" id="services">
         <div class="section-head">
