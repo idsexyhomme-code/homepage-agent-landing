@@ -999,7 +999,7 @@ function relatedServices(route, detail) {
 // 컨설팅 페이지 전용 사전 질문지(10문항). 제출 시 작성 내용이 담긴 메일이 열림(기존 메일 문의 방식과 동일).
 const consultEmail = "kiwee1223@gmail.com";
 // 카카오 채널 상담 URL — 채널 주소 넣으면 견적폼 옆 '카톡 문의' 버튼이 자동 노출됨 (예: https://pf.kakao.com/_xxxx/chat)
-const kakaoUrl = "";
+const kakaoUrl = "https://open.kakao.com/o/sqp6y8Bi";
 // 5번째 값 true = 필수 항목(빈 제출 방지)
 const consultQuestions = [
   ["q1", "1. 현재 운영 중인 홈페이지/SNS 주소 (없으면 비워두세요)", "url", "https://"],
