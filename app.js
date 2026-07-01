@@ -664,11 +664,9 @@ function mainPage() {
       ${faqSection(main)}
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>자료만 보내주세요. 가능 범위부터 보겠습니다.</h2>
-          <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정·다음 단계를 회신합니다.</p>
-          <div class="contact-actions single">
-            <a class="btn primary" href="${mainInquiryHref}">내 프로젝트 상담받기</a>
-          </div>
+          <h2>자료만 보내주세요. 맞춤 견적서로 회신합니다.</h2>
+          <p class="cta-note">아래에 필요한 제작·보유 자료·희망 일정만 적어주시면, 범위를 확인해 견적서와 다음 단계를 회신합니다.</p>
+          ${quoteForm()}
           <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>원하는 결과물 · 보유 자료 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
           <a class="cta-textlink" href="#services">먼저 서비스별 사례 둘러보기 →</a>
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
@@ -1065,6 +1063,66 @@ function setupConsultForm() {
   }
 }
 
+// 견적 요청 폼 — 자료·범위 받아 맞춤 견적서 발송 흐름(금액 미노출)
+const quoteQuestions = [
+  ["qn_name", "이름 / 업체명", "text", "김민지 / 제주 ○○카페", true],
+  ["qn_contact", "연락처 (전화 또는 이메일)", "text", "010-0000-0000 또는 email@example.com", true],
+  ["qn_service", "필요한 제작", "text", "AI 숏폼 / 드론 / 기업영상 / 홈페이지 등", true],
+  ["qn_assets", "보유 자료", "text", "제품 사진 있음 / 기존 영상 있음 / 자료 없음"],
+  ["qn_plan", "희망 일정 · 예산대", "text", "예: 8월 초 납품 / 예산 100만원대·미정"],
+  ["qn_message", "문의 내용", "textarea", "예: 제품 사진으로 릴스 4편 제작 가능할까요?", true]
+];
+
+function quoteForm() {
+  const fields = quoteQuestions.map(([name, label, type, placeholder, required]) => {
+    const req = required ? " required" : "";
+    const star = required ? ` <span class="req" aria-hidden="true">*</span>` : "";
+    const control = type === "textarea"
+      ? `<textarea id="${name}" name="${name}" rows="2" placeholder="${placeholder}"${req}></textarea>`
+      : `<input id="${name}" type="text" name="${name}" placeholder="${placeholder}"${req} />`;
+    return `<div class="consult-field"><label for="${name}">${label}${star}</label>${control}</div>`;
+  }).join("");
+  return `
+    <form class="consult-form quote-form" id="quote-form" aria-label="제작 견적 요청">
+      ${fields}
+      <button type="submit" class="btn primary">견적 요청 보내기</button>
+      <button type="button" class="btn secondary quote-copy">메일이 안 열리면 내용 복사하기</button>
+      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 보유 자료(사진·영상)는 메일에 첨부하거나 링크로 보내주세요. 확인 후 맞춤 견적서로 회신드립니다.</p>
+    </form>
+  `;
+}
+
+function setupQuoteForm() {
+  const form = document.querySelector("#quote-form");
+  if (!form) return;
+  const buildBody = () => {
+    const lines = ["안녕하세요. 제작 견적 요청드립니다.", ""];
+    quoteQuestions.forEach(([name, label]) => {
+      const field = form.elements[name];
+      const value = ((field && field.value) || "").trim();
+      lines.push(label, `→ ${value || "(미작성)"}`, "");
+    });
+    return lines.join("\n");
+  };
+  const subject = "[Video Roastery] 제작 견적 요청";
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBody())}`;
+  });
+  const copyBtn = form.querySelector(".quote-copy");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      const text = `받는 사람: ${consultEmail}\n제목: ${subject}\n\n${buildBody()}`;
+      const done = () => { copyBtn.textContent = "복사됨 ✓ — 메일에 붙여넣어 보내주세요"; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => { window.prompt("아래 내용을 복사해 보내주세요:", text); });
+      } else {
+        window.prompt("아래 내용을 복사해 보내주세요:", text);
+      }
+    });
+  }
+}
+
 // 자주 묻는 질문(전 서비스 공통) — 예산/기간/리스크 답을 먼저 줘 문의 망설임을 줄임
 const faqItems = [
   ["제작 기간은 얼마나 걸리나요?", "분량과 범위에 따라 보통 1~4주입니다. 보유 자료를 확인한 뒤 정확한 일정을 먼저 안내드립니다."],
@@ -1254,6 +1312,7 @@ function render() {
   setupStickyCta();
   setupPortfolioLightbox();
   setupConsultForm();
+  setupQuoteForm();
   setupScrollReveal();
   setupHeroMotion();
 }
