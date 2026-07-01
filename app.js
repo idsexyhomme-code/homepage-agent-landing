@@ -191,7 +191,6 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_lemondiet.jpg", "ai", "AI FILM", "AI 다이어트 보충제 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_soil.jpg", "ai", "AI VISUAL", "AI 에너지 브랜드 비주얼", "ai-shortform"],
   ["portfolio_covers/ai_aesop.jpg", "ai", "AI VISUAL", "AI 핸드크림 제품 비주얼", "ai-shortform"],
-  ["portfolio_covers/video_02.jpg", "ai", "AI FILM", "AI 시네마틱 브랜드필름", "ai-shortform"],
   ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "AI ESG 바다 메시지", "ai-shortform"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "AI 기업 홍보 컷", "ai-shortform"],
   ["portfolio_covers/corp_01.jpg", "ai", "BRAND", "공익 캠페인 영상", "brand-film"],
@@ -649,9 +648,6 @@ const slugVideo = {
 // 24시간 동안 한 칸씩 정성껏 채워나가는 중 — 매칭 또는 30초 재편집 영상.
 const portfolioMedia = {
   // 01. 제품 숏폼 광고 — 건강기능식품 micro-3D 4컷 재편집(16s)
-  // 02. 브랜드필름 컷 — 실제 클라이언트 브랜드필름 'THE QUIET RETURN' 5컷 시네마틱 재편집(26s, 16:9)
-  //     (corporate_main은 overview 정적이미지라 클릭 불가 → 클릭 타일인 video_02에 연결)
-  "portfolio_covers/video_02.jpg": "portfolio_videos/brandfilm_reel_02.mp4",
   // 03. 마을 전경 컷 — 실제 제주 항공 드론(해안마을+리조트+농장) 3컷 재편집(24s, 16:9)
   "portfolio_drone_village_overview.jpg": "portfolio_videos/drone_jeju_reel_03.mp4",
   // 04. 해변 무드 컷 — 실제 제주 웨딩(드론+해변 뒷모습+스튜디오 와이드+꽃/귀걸이 디테일) 재편집(23.5s, 16:9)
