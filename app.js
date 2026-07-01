@@ -540,7 +540,14 @@ function mainPage() {
         <ul class="client-strip" aria-label="함께한 클라이언트">
           ${["LG U+","대한결핵협회","마크애니","Make-A-Wish","제주특별자치도교육청","국제라이온스클럽","라이즈센터 RISE","한국마사회 렛츠런파크","리치디바인","모루농장","토버스 SUMBI","삼대국수회관","벨롱벨롱","페를로","작심랩","산지로","pawshare"].map((c) => `<li>${c}</li>`).join("")}
         </ul>
-        <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품한 프로젝트 기준으로 표기했습니다.</p>
+        <p class="client-sub-label">AI 브랜드 필름 · 캠페인</p>
+        <ul class="client-strip ai-brands" aria-label="AI 브랜드 작업">
+          ${["KINETIA","그린로하스","블라이트워","새만금","MOTONICA","AURELIA LUNA","S-OIL 에너지"].map((c) => `<li>${c}</li>`).join("")}
+        </ul>
+        <ul class="trust-badges" aria-label="제작 신뢰 지표">
+          ${["실제 납품 40+ 프로젝트","운영 중 라이브 사이트 10곳","제주 현장 촬영·드론 운용","AI 영상·숏폼 제작","홈페이지 기획·개발"].map((b) => `<li>${b}</li>`).join("")}
+        </ul>
+        <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품 프로젝트 및 AI 브랜드 필름 작업 기준으로 표기했습니다.</p>
       </section>
       <section class="section" id="services">
         <div class="section-head">
