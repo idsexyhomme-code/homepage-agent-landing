@@ -187,6 +187,7 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_game_ua.jpg", "ai", "AI FILM", "AI 게임 광고 영상", "ai-shortform"],
   ["portfolio_covers/ai_saemangeum.jpg", "ai", "AI FILM", "AI 재생에너지 영상", "ai-shortform"],
   ["portfolio_covers/ai_esg_future.jpg", "ai", "AI FILM", "AI ESG 메시지 영상", "ai-shortform"],
+  ["portfolio_covers/ai_superwater.jpg", "ai", "AI FILM", "AI 건강음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_soil.jpg", "ai", "AI VISUAL", "AI 에너지 브랜드 비주얼", "ai-shortform"],
   ["portfolio_covers/ai_aesop.jpg", "ai", "AI VISUAL", "AI 핸드크림 제품 비주얼", "ai-shortform"],
   ["portfolio_covers/video_02.jpg", "ai", "BRAND", "브랜드필름 컷", "brand-film"],
@@ -727,6 +728,7 @@ const portfolioMedia = {
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
   "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
+  "portfolio_covers/ai_superwater.jpg": "portfolio_videos/ai_superwater_reel.mp4",            // AI 건강음료 숏폼(작심랩 슈퍼워터 키네틱, 크몽 납품)
   "portfolio_covers/ai_kombucha.jpg": "portfolio_videos/ai_kombucha_reel.mp4",                // AI 콤부차 제품 릴스(작심랩 콤부차 DTC, 클린본)
   "portfolio_covers/ai_game_ua.jpg": "portfolio_videos/ai_game_ua_reel.mp4",                  // AI 게임 광고(블라이트워 게임 UA, 히든몬스터)
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
