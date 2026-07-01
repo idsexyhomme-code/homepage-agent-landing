@@ -185,6 +185,28 @@ const pricingGroups = [
     { tier: "홈+영상 패키지", inc: "상담형 홈페이지 + 대표 영상/AI 숏폼 · 문의폼·카카오 연결" }
   ]}
 ];
+
+// 케이스스터디 — 실제 납품 프로젝트 (과제→접근→결과, 성과 수치는 확보 시 추가)
+const caseStudies = [
+  {
+    client: "작심랩", tag: "AI 숏폼 · DTC", cover: "portfolio_covers/ai_kombucha.jpg", slug: "ai-shortform",
+    task: "콤부차·슈퍼워터 건강음료를 촬영 없이 광고 숏폼으로.",
+    approach: "제품 사진·콘셉트만으로 '첫 3초 후킹 → 제품 노출 → 구매 유도' 흐름을 AI 숏폼으로 구성. 콤부차 DTC와 슈퍼워터를 각각 별도 소재로 제작.",
+    result: "AI 콤부차 제품 릴스 · AI 건강음료 숏폼 납품(크몽). 채널별 리사이즈로 릴스·쇼츠 동시 활용."
+  },
+  {
+    client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum.jpg", slug: "ai-shortform",
+    task: "'유쓰쇼츠 나다움' 브랜드 메시지를 짧은 영상 흐름으로.",
+    approach: "AI 숏폼·브랜드 캠페인 형식으로 메시지를 세로 영상에 맞춰 구성. '나다움' 컨셉을 감성 컷으로 연결.",
+    result: "LG U+ 유쓰쇼츠 나다움 AI 브랜드 캠페인 영상 납품."
+  },
+  {
+    client: "대한결핵협회", tag: "공익 캠페인 · 기업영상", cover: "portfolio_covers/corp_01.jpg", slug: "brand-film",
+    task: "공익 캠페인 메시지를 홍보영상으로.",
+    approach: "브랜드필름·기업영상 형식으로 캠페인 메시지를 40초 홍보영상에 담아 구성, 오디오 포함본으로 제작.",
+    result: "40초 공익 캠페인 홍보영상(오디오 포함) 납품."
+  }
+];
 const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
@@ -553,6 +575,27 @@ function mainPage() {
           <li><strong>8</strong><span>제작 분야</span></li>
         </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
+      </section>
+      <section class="section" id="cases">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Case Studies</p>
+            <h2>과제 → 접근 → 결과로 보는 실제 작업</h2>
+            <p class="section-sub">썸네일이 아니라 어떤 문제를 어떻게 풀었는지로 확인하세요.</p>
+          </div>
+        </div>
+        <div class="case-grid">
+          ${caseStudies.map((c) => `
+            <article class="case-card">
+              <a class="case-media" href="${routeHref(c.slug)}"><img src="${asset(c.cover)}" alt="${c.client} ${c.tag} 사례" loading="lazy" /></a>
+              <div class="case-body">
+                <div class="case-head"><strong>${c.client}</strong><span>${c.tag}</span></div>
+                <p class="case-row"><b>과제</b> ${c.task}</p>
+                <p class="case-row"><b>접근</b> ${c.approach}</p>
+                <p class="case-row"><b>결과</b> ${c.result}</p>
+              </div>
+            </article>`).join("")}
+        </div>
       </section>
       <section class="section tight" id="clients">
         <div class="section-head">
