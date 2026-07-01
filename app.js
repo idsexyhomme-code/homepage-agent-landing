@@ -562,7 +562,7 @@ function mainPage() {
         <div class="support-grid" aria-label="추가 상담 가능 분야">
           ${supportRoutes.map((route) => `
             <a class="support-card" href="${routeHref(route.slug)}">
-              <img src="${asset(routeCardImages[route.slug] || route.heroImage)}" alt="${route.nav} 추가 사례" />
+              <img src="${asset(routeCardImages[route.slug] || route.heroImage)}" alt="${route.nav} 추가 사례" loading="lazy" />
               <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
             </a>
           `).join("")}
@@ -598,7 +598,7 @@ function routeCard(route) {
   const cardImage = routeCardImages[route.slug] || route.heroImage;
   return `
     <a class="service-card" href="${routeHref(route.slug)}">
-      <img src="${asset(cardImage)}" alt="${route.nav} 대표 이미지" />
+      <img src="${asset(cardImage)}" alt="${route.nav} 대표 이미지" loading="lazy" />
       <div class="service-card-body">
         <span class="path">${eyebrow}</span>
         <h3>${title}</h3>
@@ -876,7 +876,7 @@ function relatedServices(route, detail) {
       <div class="related-strip">
         ${related.map((item) => `
           <a class="related-card" href="${routeHref(item.slug)}">
-            <img src="${asset(routeCardImages[item.slug] || item.heroImage)}" alt="${item.nav} 관련 작업" />
+            <img src="${asset(routeCardImages[item.slug] || item.heroImage)}" alt="${item.nav} 관련 작업" loading="lazy" />
             <span>${routeLabels[item.slug]?.[1] || item.nav}</span>
           </a>
         `).join("")}
