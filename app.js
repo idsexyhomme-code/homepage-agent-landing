@@ -529,6 +529,19 @@ function mainPage() {
         </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
       </section>
+      <section class="section tight" id="clients">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Clients & Partners</p>
+            <h2>함께한 브랜드·기관</h2>
+            <p class="section-sub">실제 촬영·영상·웹 제작으로 함께한 곳들입니다.</p>
+          </div>
+        </div>
+        <ul class="client-strip" aria-label="함께한 클라이언트">
+          ${["LG U+","대한결핵협회","마크애니","Make-A-Wish","제주특별자치도교육청","국제라이온스클럽","라이즈센터 RISE","한국마사회 렛츠런파크","리치디바인","모루농장","토버스 SUMBI","삼대국수회관","벨롱벨롱","페를로","작심랩","산지로","pawshare"].map((c) => `<li>${c}</li>`).join("")}
+        </ul>
+        <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품한 프로젝트 기준으로 표기했습니다.</p>
+      </section>
       <section class="section" id="services">
         <div class="section-head">
           <div>
