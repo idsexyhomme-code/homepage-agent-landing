@@ -666,6 +666,7 @@ function mainPage() {
         <div class="cta-band">
           <h2>자료만 보내주세요. 맞춤 견적서로 회신합니다.</h2>
           <p class="cta-note">아래에 필요한 제작·보유 자료·희망 일정만 적어주시면, 범위를 확인해 견적서와 다음 단계를 회신합니다.</p>
+          ${kakaoUrl ? `<div class="contact-quickline"><a class="btn kakao-btn" href="${kakaoUrl}" target="_blank" rel="noopener">💬 카카오톡으로 빠르게 문의</a><span>또는 아래 폼으로 자료와 함께 견적 요청</span></div>` : ""}
           ${quoteForm()}
           <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>원하는 결과물 · 보유 자료 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
           <a class="cta-textlink" href="#services">먼저 서비스별 사례 둘러보기 →</a>
@@ -977,6 +978,8 @@ function relatedServices(route, detail) {
 
 // 컨설팅 페이지 전용 사전 질문지(10문항). 제출 시 작성 내용이 담긴 메일이 열림(기존 메일 문의 방식과 동일).
 const consultEmail = "kiwee1223@gmail.com";
+// 카카오 채널 상담 URL — 채널 주소 넣으면 견적폼 옆 '카톡 문의' 버튼이 자동 노출됨 (예: https://pf.kakao.com/_xxxx/chat)
+const kakaoUrl = "";
 // 5번째 값 true = 필수 항목(빈 제출 방지)
 const consultQuestions = [
   ["q1", "1. 현재 운영 중인 홈페이지/SNS 주소 (없으면 비워두세요)", "url", "https://"],

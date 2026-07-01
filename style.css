@@ -2313,3 +2313,9 @@ figure.portfolio-item.is-static:hover { transform: none; box-shadow: none; }
 .case-row { margin: 0; font-size: 0.85rem; line-height: 1.55; color: rgba(19,34,56,0.72); }
 .case-row b { display: inline-block; min-width: 34px; color: var(--ink); font-weight: 700; margin-right: 4px; }
 @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+
+/* Kakao quick-inquiry button (contact) */
+.contact-quickline { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 16px; }
+.contact-quickline span { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+.kakao-btn { background: #FEE500; color: #191600; border: 0; font-weight: 700; }
+.kakao-btn:hover { background: #ffd900; color: #191600; }
