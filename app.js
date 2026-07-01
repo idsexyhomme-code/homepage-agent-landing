@@ -161,6 +161,30 @@ const routeCardImages = {
   content: "portfolio_content_product.jpg",
   consulting: "card_consulting_photo.jpg"
 };
+
+// 가격/패키지 — 시작가(부가세 별도), 최종 견적은 상담 후 확정 [오너 승인 필요]
+const pricingGroups = [
+  { name: "AI 숏폼", slug: "ai-shortform", tiers: [
+    { tier: "테스트 1건", price: "35만원~", inc: "제품 사진 기반 숏폼 1편 · 세로 릴스/쇼츠 · 기본 문구 · 1회 수정" },
+    { tier: "월간 소재팩", price: "월 99만원~", inc: "월 4편 · 소재 변형 · 첫 3초 후킹 문구 · 2회 수정" },
+    { tier: "광고 확장팩", price: "월 180만원~", inc: "월 8편 · 콘셉트 2~3방향 · 썸네일/카피 변형 · 성과 소재 분리" }
+  ]},
+  { name: "기업영상", slug: "brand-film", tiers: [
+    { tier: "메시지형", price: "180만원~", inc: "기존 자료 기반 소개영상 · 자막/음악 · 1회 수정" },
+    { tier: "촬영형", price: "280만원~", inc: "기획 구성안 · 현장 촬영 1회 · 인터뷰/공간/제품 컷 · 2회 수정" },
+    { tier: "캠페인형", price: "350만원~", inc: "공익·기관·브랜드 캠페인 · 촬영+편집+오디오 · 버전 분리 협의" }
+  ]},
+  { name: "드론 촬영", slug: "drone", tiers: [
+    { tier: "드론 애드온", price: "35만원~", inc: "기존 제작에 항공 컷 3~5개 추가 · 비행 가능 사전 확인" },
+    { tier: "단독 촬영", price: "70만원~", inc: "제주 현장 드론 · 와이드/동선 컷 · 기본 색보정" },
+    { tier: "시설·관광지", price: "120만원~", inc: "숙소/시설/농장/관광지 · 낮·야간/복수 동선 협의" }
+  ]},
+  { name: "홈페이지", slug: "homepage", tiers: [
+    { tier: "영상만 제작", price: "50만원~", inc: "홈페이지용 대표 영상/숏폼 · 삽입 파일 납품 · 기본 썸네일" },
+    { tier: "상담형 홈페이지", price: "150만원~", inc: "첫 화면 문구 · 포트폴리오/서비스/문의 동선 · 모바일 랜딩" },
+    { tier: "홈+영상 패키지", price: "230만원~", inc: "상담형 홈페이지 + 대표 영상/AI 숏폼 · 문의폼·카카오 연결" }
+  ]}
+];
 const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
@@ -573,6 +597,26 @@ function mainPage() {
             </a>
           `).join("")}
         </div>
+      </section>
+      <section class="section" id="pricing">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Pricing</p>
+            <h2>시작가·패키지 먼저 보고 상담하세요</h2>
+            <p class="section-sub">보유 자료와 제작 범위에 따라 조정됩니다. 아래는 시작가(부가세 별도) 기준이며, 최종 견적은 상담 후 확정합니다.</p>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          ${pricingGroups.map((g) => `
+            <div class="price-card">
+              <h3>${g.name}</h3>
+              <ul>
+                ${g.tiers.map((t) => `<li><span class="tier">${t.tier}</span><span class="price">${t.price}</span><span class="inc">${t.inc}</span></li>`).join("")}
+              </ul>
+              <a class="price-link" href="${routeHref(g.slug)}">${g.name} 사례·상담 →</a>
+            </div>`).join("")}
+        </div>
+        <p class="client-note">* 시작가 기준 · 부가세 별도 · 수정 횟수·납품 파일·러닝타임은 패키지별 상담 시 확정</p>
       </section>
       ${faqSection(main)}
       <section class="section tight" id="contact">
