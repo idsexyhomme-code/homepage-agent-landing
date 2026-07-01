@@ -537,6 +537,11 @@ function mainPage() {
             <p class="section-sub">실제 촬영·영상·웹 제작으로 함께한 곳들입니다.</p>
           </div>
         </div>
+        <ul class="client-logos" aria-label="대표 협력 로고">
+          <li><img src="${asset("logos/lg_uplus.png")}" alt="LG U+" loading="lazy" /></li>
+          <li><img src="${asset("logos/make_a_wish.png")}" alt="Make-A-Wish" loading="lazy" /></li>
+          <li><img src="${asset("logos/lions.png")}" alt="국제라이온스클럽" loading="lazy" /></li>
+        </ul>
         <ul class="client-strip" aria-label="함께한 클라이언트">
           ${["LG U+","대한결핵협회","마크애니","Make-A-Wish","제주특별자치도교육청","국제라이온스클럽","라이즈센터 RISE","한국마사회 렛츠런파크","리치디바인","모루농장","토버스 SUMBI","삼대국수회관","벨롱벨롱","페를로","작심랩","산지로","pawshare"].map((c) => `<li>${c}</li>`).join("")}
         </ul>
