@@ -700,7 +700,6 @@ function mainPage() {
         ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
         ["portfolio_covers/ai_05.webp", "AI 영상"],
         ["portfolio_covers/content_05.webp", "콘텐츠·릴스"],
-        ["portfolio_covers/wedding_indoor.webp", "웨딩"],
         ["hero_loops/loop_06.webp", "웨딩 항공", "hero_loops/loop_06.mp4"],
         ["portfolio_covers/corp_07.webp", "기업 영상"],
         ["portfolio_covers/video_06.webp", "브랜드필름"],
@@ -709,8 +708,7 @@ function mainPage() {
         ["portfolio_covers/drone_01.webp", "드론·항공"],
         ["portfolio_covers/content_06.webp", "콘텐츠·릴스"],
         ["portfolio_covers/wedding_04.webp", "웨딩"],
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"],
-        ["portfolio_covers/wedding_06.webp", "웨딩"]
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ]
     ],
     badge: "Video Roastery",

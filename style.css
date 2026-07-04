@@ -531,6 +531,10 @@ picture {
     padding-top: calc(144px + env(safe-area-inset-top));
     padding-bottom: calc(104px + env(safe-area-inset-bottom));
   }
+  /* 모바일은 배경이 이미 검고 CTA·eyebrow가 검은 밴드 위라, 데스크탑용 어둠 오버레이(전체 veil +
+     우하단 비네트)가 오히려 "반투명 검은 덩어리"로 보임 → 모바일에서만 제거해 타일을 선명하게. */
+  .hero.hero-wall::before,
+  .hero.hero-wall::after { display: none; }
   .hero-wall__rows { gap: 10px; }
   .hw-row { height: clamp(126px, 20svh, 170px); }
   .hw-tile { border-radius: 8px; }
