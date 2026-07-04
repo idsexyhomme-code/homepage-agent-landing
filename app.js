@@ -681,21 +681,21 @@ function mainPage() {
       [
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["portfolio_covers/wedding_01.webp", "웨딩"],
-        ["portfolio_covers/corp_08.webp", "항공·팜"],
+        ["portfolio_covers/drone_02.webp", "시설 항공"],
         ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
+        ["portfolio_covers/corp_08.webp", "항공·팜"],
         ["portfolio_covers/content_05.webp", "제품 컷"],
-        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
-        ["portfolio_covers/wedding_02.webp", "웨딩"]
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ],
       [
-        ["portfolio_covers/drone_02.webp", "시설 항공"],
         ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"],
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
         ["portfolio_covers/corp_03.webp", "기업 영상"],
+        ["portfolio_covers/wedding_01.webp", "웨딩"],
+        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
+        ["portfolio_covers/wedding_03.webp", "웨딩"],
         ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
-        ["portfolio_covers/wedding_03.webp", "웨딩"]
+        ["portfolio_covers/wedding_02.webp", "웨딩"]
       ]
     ],
     badge: "Video Roastery",
