@@ -136,7 +136,7 @@ button:focus-visible {
   justify-items: center;
   align-items: center;
   min-height: 206px;
-  padding: 26px 44px 18px;
+  padding: calc(26px + env(safe-area-inset-top)) 44px 18px;
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
   background: linear-gradient(180deg, rgba(5, 9, 12, 0.72), rgba(5, 9, 12, 0.16));
@@ -536,7 +536,7 @@ picture {
   .hero.hero-wall::before,
   .hero.hero-wall::after { display: none; }
   .hero-wall__rows { gap: 10px; }
-  .hw-row { height: clamp(126px, 20svh, 170px); }
+  .hw-row { height: clamp(126px, 20vh, 170px); height: clamp(126px, 20svh, 170px); }
   .hw-tile { border-radius: 8px; }
   .hero-wall__eyebrow {
     top: auto;
@@ -1648,7 +1648,7 @@ footer a {
 footer {
   display: grid;
   gap: 8px;
-  padding: 34px 20px 110px;
+  padding: 34px 20px calc(110px + env(safe-area-inset-bottom));
   color: rgba(255, 255, 255, 0.74);
   text-align: center;
   background: var(--ink);
@@ -2125,7 +2125,7 @@ footer a {
     display: flex;
     left: 12px;
     right: 12px;
-    bottom: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom));
     gap: 8px;
     padding: 10px 12px;
   }
@@ -2149,7 +2149,7 @@ footer a {
 
   .sticky .btn {
     min-width: 104px;
-    min-height: 40px;
+    min-height: 44px;
     flex-shrink: 0;
     white-space: nowrap;
   }
@@ -2760,3 +2760,15 @@ figure.portfolio-item.is-static:hover { transform: none; box-shadow: none; }
 
 /* 상세 포폴: 대표작 피처 타일(홈 featured-wall과 동일 위계) */
 @media (min-width: 640px) { .detail-wall .portfolio-item.is-large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; } }
+
+/* 모바일 터치 타깃 최소 44px — 주요 텍스트 링크 (Codex 모바일 리뷰 반영) */
+@media (max-width: 640px) {
+  .nav a,
+  .hero-wall__more,
+  .case-m-more,
+  .price-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
