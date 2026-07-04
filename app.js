@@ -4,13 +4,13 @@ const routes = [
     nav: "홈페이지",
     badge: "videoroastery.com/homepage",
     title: "홈페이지 제작부터 문의 연결까지",
-    lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 상담 폼까지 자연스럽게 이어지도록 정리합니다.",
+    lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 문의 양식까지 자연스럽게 이어지도록 정리합니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
     cta: "홈페이지 첫 화면 진단·견적 받기",
     proof: [
       ["첫 화면 설계", "방문자가 첫 화면만 보고도 무엇을 파는지 알게 만듭니다."],
-      ["상담 동선", "시안 보기, 제작 범위 확인, 상담 폼이 끊기지 않게 이어집니다."],
+      ["상담 동선", "화면 예시 보기, 제작 범위 확인, 문의 양식이 끊기지 않게 이어집니다."],
       ["포트폴리오 연결", "기존 작업물을 서비스별 신뢰 자료로 재배치합니다."]
     ]
   },
@@ -34,13 +34,13 @@ const routes = [
     nav: "AI숏폼",
     badge: "videoroastery.com/ai-shortform",
     title: "제품 사진을 숏폼 광고 소재로 바꿉니다",
-    lead: "제품 사진과 콘셉트만 있어도 릴스, 쇼츠, 틱톡에 맞는 짧은 광고 영상 흐름으로 구성합니다.",
+    lead: "제품 사진과 콘셉트만 있어도, 첫 3초에 시선을 잡는 릴스·쇼츠·틱톡 광고 영상으로 구성합니다.",
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "card_ai_shortform_photo.jpg",
     cta: "제품 사진으로 숏폼 견적 받기",
     proof: [
       ["촬영 부담 감소", "제품 사진만 있어도 홍보용 숏폼 소재를 만들 수 있습니다."],
-      ["숏폼 문법", "첫 3초, 제품 노출, 메시지 흐름을 짧은 영상에 맞게 잡습니다."],
+      ["첫 3초 후킹", "처음 3초에 시선을 끌고, 제품과 메시지가 자연스럽게 이어지게 만듭니다."],
       ["소재 확장", "여러 방향의 영상 소재를 빠르게 바꿔볼 수 있게 설계합니다."]
     ]
   },
@@ -56,7 +56,7 @@ const routes = [
     proof: [
       ["메시지 정리", "회사 소개를 단순 나열이 아니라 영상 흐름으로 바꿉니다."],
       ["제안서 활용", "영업, 투자, 채용, 입점 제안에 같이 쓸 수 있게 만듭니다."],
-      ["검수 기준", "톤, 문구, 화면 순서를 먼저 잡고 제작합니다."]
+      ["확인 기준", "톤, 문구, 화면 순서를 먼저 맞춘 뒤 제작합니다."]
     ]
   },
   {
@@ -181,38 +181,29 @@ const pricingGroups = [
   ]},
   { name: "홈페이지", slug: "homepage", tiers: [
     { tier: "영상만 제작", inc: "홈페이지용 대표 영상/숏폼 · 삽입 파일 납품 · 기본 썸네일" },
-    { tier: "상담형 홈페이지", inc: "첫 화면 문구 · 포트폴리오/서비스/문의 동선 · 모바일 랜딩" },
+    { tier: "상담형 홈페이지", inc: "첫 화면 문구 · 포트폴리오/서비스/문의 동선 · 모바일 최적화" },
     { tier: "홈+영상 패키지", inc: "상담형 홈페이지 + 대표 영상/AI 숏폼 · 문의폼·카카오 연결" }
   ]}
 ];
 
 // 후기 — 크몽 실거래 리뷰 발췌(AI 숏폼 서비스 ★4.5/7건 등). 원문 그대로, 이름은 크몽 공개 표기 기준 업종·유형으로 표기
 const testimonials = [
-  { quote: "너무 세심하게 작업 잘해주시고 퀄도 좋습니다.", who: "재구매 고객", svc: "AI 숏폼" },
-  { quote: "빠른 응대에 디테일한 요구까지 들어주시고 퀄리티 대박입니다.", who: "뷰티·미용 기업 · 재구매", svc: "AI 숏폼" },
+  { quote: "너무 세심하게 작업 잘해주시고 퀄도 좋습니다.", who: "재구매 고객", svc: "AI 숏폼", repeat: true },
+  { quote: "빠른 응대에 디테일한 요구까지 들어주시고 퀄리티 대박입니다.", who: "뷰티·미용 기업", svc: "AI 숏폼", repeat: true },
   { quote: "알아서 깔끔하게 잘해주세요. 작업 감사합니다.", who: "기업 고객", svc: "AI 숏폼" },
-  { quote: "수고하셨습니다. 재구매중입니다.", who: "학원·교육 기업", svc: "AI 숏폼" }
+  { quote: "수고하셨습니다. 재구매중입니다.", who: "학원·교육 기업", svc: "AI 숏폼", repeat: true }
 ];
 
-// 케이스스터디 — 실제 납품 프로젝트 (과제→접근→결과, 성과 수치는 확보 시 추가)
+// 케이스스터디 — 실제 납품 프로젝트 (자연스러운 서술형)
 const caseStudies = [
   {
-    client: "작심랩", tag: "AI 숏폼 · DTC", cover: "portfolio_covers/ai_kombucha.jpg", slug: "ai-shortform",
-    task: "콤부차·슈퍼워터 건강음료를 촬영 없이 광고 숏폼으로.",
-    approach: "제품 사진·콘셉트만으로 '첫 3초 후킹 → 제품 노출 → 구매 유도' 흐름을 AI 숏폼으로 구성. 콤부차 DTC와 슈퍼워터를 각각 별도 소재로 제작.",
-    result: "AI 콤부차 제품 릴스 · AI 건강음료 숏폼 납품(크몽). 채널별 리사이즈로 릴스·쇼츠 동시 활용."
+    client: "작심랩", tag: "AI 숏폼 · 제품광고", cover: "portfolio_covers/ai_kombucha.jpg", slug: "ai-shortform", hook: "촬영 없이, 제품 사진만으로 만든 광고 숏폼"
   },
   {
-    client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum.jpg", slug: "ai-shortform",
-    task: "'유쓰쇼츠 나다움' 브랜드 메시지를 짧은 영상 흐름으로.",
-    approach: "AI 숏폼·브랜드 캠페인 형식으로 메시지를 세로 영상에 맞춰 구성. '나다움' 컨셉을 감성 컷으로 연결.",
-    result: "LG U+ 유쓰쇼츠 나다움 AI 브랜드 캠페인 영상 납품."
+    client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum.jpg", slug: "ai-shortform", hook: "브랜드 무드까지 담은 AI 세로 캠페인"
   },
   {
-    client: "대한결핵협회", tag: "공익 캠페인 · 기업영상", cover: "portfolio_covers/corp_01.jpg", slug: "brand-film",
-    task: "공익 캠페인 메시지를 홍보영상으로.",
-    approach: "브랜드필름·기업영상 형식으로 캠페인 메시지를 40초 홍보영상에 담아 구성, 오디오 포함본으로 제작.",
-    result: "40초 공익 캠페인 홍보영상(오디오 포함) 납품."
+    client: "대한결핵협회", tag: "공익 캠페인 · 기업영상", cover: "portfolio_covers/corp_01.jpg", slug: "brand-film", hook: "공익 메시지를 40초 홍보영상으로"
   }
 ];
 const portfolioWallItems = [
@@ -221,12 +212,12 @@ const portfolioWallItems = [
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
-  ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 랜딩", "homepage"],
+  ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 페이지", "homepage"],
   ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
   ["portfolio_web_ai_ops.png", "web", "WEB", "AI 마케팅 비서", "homepage"],
   ["portfolio_covers/web_01.jpg", "web", "WEB", "pawshare 앱 화면", "homepage"],
   ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
-  ["pawshare_landing.png", "web", "WEB", "pawshare 후원 랜딩", "homepage"],
+  ["pawshare_landing.png", "web", "WEB", "pawshare 후원 페이지", "homepage"],
   ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
   ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
   ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
@@ -280,7 +271,7 @@ const portfolioWallItems = [
   // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
-  ["portfolio_content_context.jpg", "content", "CONTENT", "레퍼런스 정리 화면", "content"],
+  ["portfolio_content_context.jpg", "content", "CONTENT", "참고 자료 정리 화면", "content"],
   ["portfolio_content_request_form.jpg", "content", "CONTENT", "요청서 화면", "content"],
   ["portfolio_content_review.jpg", "content", "CONTENT", "검수 흐름 화면", "content"],
   ["portfolio_covers/content_01.jpg", "content", "CONTENT", "제품 상세 컷", "content"],
@@ -300,7 +291,7 @@ const portfolioWallItems = [
   // SYSTEM → consulting (AI 활용 상담, 전용 배정)
   ["route_plan_actual.jpg", "system", "SYSTEM", "실제 화면 설계", "consulting"],
   ["route_plan_mobile.jpg", "system", "SYSTEM", "모바일 동선 설계", "consulting"],
-  ["route_plan_mockups.jpg", "system", "SYSTEM", "시안 비교 화면", "consulting"],
+  ["route_plan_mockups.jpg", "system", "SYSTEM", "화면 예시 비교", "consulting"],
   ["route_plan_system.jpg", "system", "SYSTEM", "문의 시스템 설계", "consulting"],
   ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "consulting"],
   ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "consulting"],
@@ -323,21 +314,21 @@ const portfolioWallItems = [
 }));
 const routeDetails = {
   homepage: {
-    kicker: "WEB LANDING",
-    title: "첫 화면에서 업종, 작업물, 문의 동선이 바로 보이게",
-    lead: "광고나 검색으로 들어온 사람이 길게 설명을 읽기 전에 무엇을 제작하는지, 어떤 사례가 있는지, 어디로 문의하면 되는지 한 화면 흐름으로 판단하게 만듭니다.",
+    kicker: "Website",
+    title: "처음부터 믿고 문의하게",
+    lead: "무엇을 하는 곳인지, 어떤 작업을 해왔는지, 어떻게 문의하면 되는지 첫 화면에서 분명하게 전합니다. 방문자는 오래 헤매지 않고 신뢰할 이유를 먼저 만납니다.",
     windows: [
       ["01", "첫 화면", "브랜드명과 제작 범위를 한 문장으로 정리"],
-      ["02", "시안 선택", "업종별 화면 예시와 포트폴리오를 먼저 노출"],
-      ["03", "문의 연결", "상담폼, 메일, 필요한 자료 안내를 같은 흐름에 배치"]
+      ["02", "화면 예시 보기", "업종별 화면 예시와 포트폴리오를 먼저 보여드립니다."],
+      ["03", "문의 연결", "문의 양식, 메일, 필요한 자료 안내를 같은 흐름에 배치"]
     ],
-    checkpoints: ["모바일 첫 화면", "대표 이미지", "포트폴리오 순서", "상담폼 연결"],
+    checkpoints: ["모바일 첫 화면", "대표 이미지", "포트폴리오 순서", "문의 양식 연결"],
     related: ["inquiry-agent", "content", "ai-shortform"]
   },
   "inquiry-agent": {
-    kicker: "SYSTEM",
-    title: "문의가 들어온 뒤 놓치는 정보를 줄이는 구조",
-    lead: "고객 문의를 폼, 메일, 시트로 모으고 제작자가 바로 확인해야 할 항목과 답장 초안을 빠르게 정리하는 업무 흐름을 잡습니다.",
+    kicker: "Inquiry System",
+    title: "문의, 하나도 놓치지 않게",
+    lead: "폼·메일·메신저로 흩어진 문의를 한곳에 모아, 먼저 확인할 것과 답장 초안까지 바로 준비되게 합니다.",
     windows: [
       ["01", "문의 접수", "고객 요청, 예산, 일정, 참고 링크를 한 번에 수집"],
       ["02", "자동 정리", "확인해야 할 항목과 누락된 자료를 먼저 분류"],
@@ -347,32 +338,32 @@ const routeDetails = {
     related: ["homepage", "content", "consulting"]
   },
   "ai-shortform": {
-    kicker: "AI SHORTFORM",
-    title: "제품 사진을 광고용 짧은 영상 흐름으로 바꾸는 페이지",
-    lead: "촬영이 없어도 제품 이미지와 콘셉트를 바탕으로 첫 3초, 제품 노출, 메시지 흐름이 보이는 숏폼 방향을 제안합니다.",
+    kicker: "AI Shortform",
+    title: "제품 사진만으로, 광고가 되는 숏폼",
+    lead: "촬영 없이 제품 이미지와 콘셉트만으로, 첫 3초에 시선을 잡고 구매까지 이어지는 숏폼을 만듭니다.",
     windows: [
       ["01", "제품 이미지", "실제 사진과 패키지 이미지를 먼저 확인"],
-      ["02", "광고 톤", "고급형, 정보형, 빠른 테스트형 중 방향 선택"],
-      ["03", "활용 채널", "릴스, 쇼츠, 틱톡, 당근 광고용 소재로 분리"]
+      ["02", "톤앤매너", "차분한 고급 톤, 설명 중심, 빠른 비교용 중 원하는 방향을 고릅니다."],
+      ["03", "업로드 채널", "릴스, 쇼츠, 틱톡, 당근 광고에 맞게 길이와 화면을 나눕니다."]
     ],
     checkpoints: ["제품 사진", "핵심 문구", "사용 채널", "참고 영상"],
     related: ["brand-film", "content", "homepage"]
   },
   "brand-film": {
-    kicker: "BRAND FILM",
-    title: "회사 소개를 장면과 메시지로 이해시키는 구성",
-    lead: "기업 소개, 기관 홍보, 서비스 설명을 단순 문장 나열이 아니라 보는 사람이 이해하는 순서의 장면 흐름으로 정리합니다.",
+    kicker: "Brand Film",
+    title: "회사 소개가 한 번에 이해되는 영상",
+    lead: "기업·기관·서비스 소개를 보는 사람이 이해하는 순서로 풀어, 한 번 보면 무엇을 하는 곳인지 또렷이 남게 합니다.",
     windows: [
       ["01", "핵심 메시지", "한 문장으로 기억될 소개 문구를 먼저 정리"],
       ["02", "장면 구성", "공간, 사람, 제품, 서비스 장면의 순서를 설계"],
-      ["03", "활용처", "제안서, 채용, 입점, SNS용 버전으로 나눔"]
+      ["03", "쓸 곳", "영업 제안, 채용, 입점 제안, SNS 게시용으로 필요한 버전을 나눕니다."]
     ],
     checkpoints: ["회사 소개 자료", "참고 영상", "사용 목적", "노출 채널"],
     related: ["ai-shortform", "content", "homepage"]
   },
   drone: {
-    kicker: "DRONE",
-    title: "공간의 크기와 분위기가 바로 보이는 항공 컷 중심",
+    kicker: "Aerial Video",
+    title: "공간의 크기와 분위기가 한눈에",
     lead: "숙소, 시설, 관광지, 농장처럼 현장감이 중요한 공간을 낮 컷, 야간 외관, 동선 설명 컷으로 나눠 보여줍니다.",
     windows: [
       ["01", "대표 컷", "공간 규모와 첫 인상을 보여주는 와이드 컷"],
@@ -383,7 +374,7 @@ const routeDetails = {
     related: ["homepage", "brand-film", "content"]
   },
   wedding: {
-    kicker: "WEDDING",
+    kicker: "Wedding Film",
     title: "인물보다 분위기와 디테일을 먼저 보여주는 웨딩 기록",
     lead: "공개 포트폴리오에서는 얼굴 노출 부담을 줄이고 반지, 부케, 드레스 라인, 공간 무드처럼 상담에 도움이 되는 컷을 중심으로 보여줍니다.",
     windows: [
@@ -395,8 +386,8 @@ const routeDetails = {
     related: ["drone", "content", "homepage"]
   },
   content: {
-    kicker: "CONTENT",
-    title: "카드뉴스와 릴스를 홍보 흐름 안에서 정리",
+    kicker: "Content",
+    title: "광고와 상담에 바로 쓰이는 콘텐츠",
     lead: "콘텐츠가 따로 놀지 않도록 카드뉴스, 릴스, 제품 이미지, 안내 문구를 광고와 상담 페이지에서 함께 쓰이는 형태로 구성합니다.",
     windows: [
       ["01", "메시지", "한 콘텐츠에서 전달할 핵심 문장 정리"],
@@ -407,13 +398,13 @@ const routeDetails = {
     related: ["ai-shortform", "brand-film", "homepage"]
   },
   consulting: {
-    kicker: "AI OPS",
-    title: "도구 설명보다 반복 업무를 줄이는 실행 흐름",
-    lead: "AI 도구 자체를 팔기보다 지금 반복되는 업무를 보고 폼, 시트, 메일, 문서, 알림을 작게 연결해 바로 쓰는 구조를 만듭니다.",
+    kicker: "AI Ops",
+    title: "반복되는 손일을 덜어내는 자동화",
+    lead: "지금 반복되는 입력·정리·답장 업무를 보고 폼, 시트, 메일, 문서, 알림을 필요한 만큼만 연결합니다.",
     windows: [
       ["01", "업무 확인", "매일 반복되는 입력, 정리, 답장 업무를 찾음"],
       ["02", "작게 연결", "시트, 폼, 메일, AI 도구를 필요한 만큼만 연결"],
-      ["03", "운영 기준", "혼자서도 유지할 수 있는 문서와 템플릿 정리"]
+      ["03", "운영 기준", "혼자서도 유지할 수 있게 문서로 정리합니다."]
     ],
     checkpoints: ["반복 업무", "쓰는 도구", "저장 위치", "알림 방식"],
     related: ["inquiry-agent", "homepage", "content"]
@@ -423,7 +414,7 @@ const basePath = detectBasePath();
 const mainNavItems = [
   ["포트폴리오", "portfolio-hub"],
   ["서비스", "services"],
-  ["견적문의", "contact"]
+  ["견적 안내", "estimate"]
 ];
 
 function detectBasePath() {
@@ -451,15 +442,30 @@ function asset(name) {
   return `${basePath}/assets/${name}`;
 }
 
+const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/ai_aesop.jpg":[720,1290],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/video_03.jpg":[540,960],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/ai_soil.jpg":[720,1290],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136]};
+function pic(name, opts) {
+  opts = opts || {};
+  var meta = imgMeta[name];
+  var cls = opts.cls ? ' class="' + opts.cls + '"' : "";
+  var alt = opts.alt || "";
+  var loading = opts.loading || "lazy";
+  var sizes = opts.sizes ? ' sizes="' + opts.sizes + '"' : "";
+  var wh = meta ? ' width="' + meta[0] + '" height="' + meta[1] + '"' : "";
+  var img = '<img' + cls + ' src="' + asset(name) + '"' + wh + ' alt="' + alt + '" loading="' + loading + '" decoding="async"' + sizes + ' />';
+  if (!meta) return img;
+  var webp = asset(name.replace(/\.(jpe?g|png)$/i, ".webp"));
+  return '<picture><source type="image/webp" srcset="' + webp + '" />' + img + '</picture>';
+}
+
 function nav() {
   const items = mainNavItems
-    .map(([label, id]) => `<a href="${sectionHref(id)}">${label}</a>`)
+    .map(([label, id]) => `<a href="${id === "estimate" ? routeHref("estimate") : sectionHref(id)}">${label}</a>`)
     .join("");
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
     <header class="topbar">
       <a class="brand" href="${routeHref()}">
-        <img src="${asset("symbol.png")}" alt="Video Roastery" />
+        ${pic("symbol.png", { alt: "Video Roastery", loading: "eager" })}
         <span>Video Roastery</span>
       </a>
       <nav class="nav" aria-label="서비스 메뉴">${items}</nav>
@@ -468,21 +474,56 @@ function nav() {
 }
 
 function hero(route) {
-  const primaryHref = route.primaryHref || "#contact";
+  const primaryHref = route.primaryHref === "estimate" ? routeHref("estimate") : (route.primaryHref || "#contact");
   const secondaryHref = route.secondaryHref || "#portfolio";
   const secondaryCta = route.secondaryCta || "사례 먼저 보기";
   const trustItems = route.trustItems || ["실제 작업물 중심", "서비스별 별도 상담", "작업 가능 범위 먼저 확인"];
   const isEditorial = route.layout === "editorial";
+  // 히어로 A/B 비교용 변형(대표님 검토용): ?hero=mood / ?hero=hybrid. 기본값(파라미터 없음)=현재 그대로.
+  const heroVariant = isEditorial && typeof location !== "undefined" ? new URLSearchParams(location.search).get("hero") : null;
+  const isMood = heroVariant === "mood";
+  const isHybrid = heroVariant === "hybrid";
+  const variantClass = isMood ? " hero-mood" : isHybrid ? " hero-hybrid" : "";
+
+  // 메인 전용: 포트폴리오-퍼스트 히어로 — 어두운 2줄 마퀴 영상월(대부분 정지컷, 보이는 소수만 무음 루프)
+  // + 좌하단 작은 포지셔닝 한 줄 + 우하단 골드 견적 CTA. reduced-motion/모바일은 setupHeroWall에서 재생 억제.
+  if (route.heroGallery) {
+    // 배경이미지로 렌더(<img> 아님) — transform 애니메이션 레이어에서 <img>가 검게 남는
+    // 크롬 버그를, 요소와 함께 래스터되는 background-image로 근본 회피.
+    const tileHtml = ([image, label, video]) => `
+        <figure class="hw-tile${video ? " hw-tile--video" : ""}"${video ? ` data-loop="${asset(video)}"` : ""} role="img" aria-label="${label} 작업 사례" style="background-image:url('${asset(image)}')">
+          ${video ? `<video muted loop playsinline preload="none" aria-hidden="true"></video>` : ""}
+          <figcaption>${label}</figcaption>
+        </figure>`;
+    // 타일은 JS가 각각 절대위치로 이동·재활용(캐러셀). 복제본/넓은 트랙 없음 → 컨테이너가
+    // 뷰포트 크기라 화면 밖 이미지가 검게 렌더되는 크롬 레이어 버그를 근본 회피.
+    const rowHtml = (tiles, dir) =>
+      `<div class="hw-row hw-row--${dir}">${tiles.map(tileHtml).join("")}</div>`;
+    const rows = route.wallRows || [];
+    return `
+    <section class="hero hero-wall" aria-label="대표 작업 사례">
+      <div class="hero-wall__rows">
+        ${rowHtml(rows[0] || [], "left")}
+        ${rowHtml(rows[1] || [], "right")}
+      </div>
+      <p class="hero-wall__eyebrow">${route.kicker}</p>
+      <div class="hero-wall__cta">
+        <a class="hero-wall__more" href="${secondaryHref}">작업 사례 전체 보기</a>
+        <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+      </div>
+    </section>`;
+  }
+
   return `
-    <section class="hero${isEditorial ? " editorial" : ""}">
+    <section class="hero${isEditorial ? " editorial" : ""}${variantClass}">
       <video autoplay muted loop playsinline preload="metadata" poster="${asset(route.heroImage)}">
         <source src="${asset(route.heroVideo)}" type="video/mp4" />
       </video>
-      ${isEditorial ? `
+      ${(isEditorial && !isMood) ? `
         <div class="hero-showcase" aria-label="대표 작업 사례">
           ${(route.showcase || []).map(([image, label]) => `
             <figure>
-              <img src="${asset(image)}" alt="${label} 작업 사례" />
+              ${pic(image, { alt: label + " 작업 사례", loading: "eager" })}
               <figcaption>${label}</figcaption>
             </figure>
           `).join("")}
@@ -490,18 +531,19 @@ function hero(route) {
       ` : ""}
       <div class="hero-inner">
         ${isEditorial ? `
-          <p class="hero-kicker">${route.kicker}</p>
-          <p class="hero-intro">${route.intro}</p>
-          ${route.prefix ? `<p class="hero-prefix">${route.prefix}</p>` : ""}
+          <p class="hero-kicker${route.heroRich ? " hero-kicker--home" : ""}">${route.kicker}</p>
+          ${(route.intro && !isMood) ? `<p class="hero-intro">${route.intro}</p>` : ""}
+          ${(route.prefix && !isMood) ? `<p class="hero-prefix">${route.prefix}</p>` : ""}
         ` : `<span class="route-pill">${route.badge}</span>`}
         <h1>${route.title}</h1>
-        <p class="hero-lead">${route.lead}</p>
+        ${!(isMood || isHybrid) ? `<p class="hero-lead">${route.lead}</p>` : ""}
         ${isEditorial ? `
           <div class="hero-actions editorial-actions">
             <a class="btn primary" href="${primaryHref}">${route.cta}</a>
-            ${route.heroRich ? `<a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>` : ""}
+            ${(route.heroRich || isMood || isHybrid) ? `<a class="btn secondary" href="${secondaryHref}">${secondaryCta}</a>` : ""}
           </div>
           ${route.heroRich ? `<div class="hero-trust" aria-label="신뢰 확인 정보">${trustItems.map((item) => `<span>${item}</span>`).join("")}</div>` : ""}
+          ${(isMood || isHybrid) ? `<p class="hero-scrollhint" aria-hidden="true">제주 현장촬영 · 전국 AI 숏폼 · 맞춤 견적 ↓</p>` : ""}
         ` : `
           <div class="hero-actions">
             <a class="btn primary" href="${primaryHref}">${route.cta}</a>
@@ -516,20 +558,169 @@ function hero(route) {
   `;
 }
 
+function testimonialsSection() {
+  return `
+      <section class="section tight" id="testimonials">
+        <div class="section-head">
+          <div>
+            <span class="section-statement" aria-hidden="true">REVIEWS</span>
+            <h2 class="h2-en">Client Reviews</h2>
+            <p class="section-sub">크몽에서 실제로 거래한 고객이 남긴 후기입니다.</p>
+          </div>
+        </div>
+        <div class="review-stats">
+          <div class="review-stat"><strong>★ 4.5</strong><span>크몽 서비스 평점</span></div>
+          <div class="review-stat"><strong>7건+</strong><span>실거래 후기</span></div>
+          <div class="review-stat"><strong>재구매 다수</strong><span>다시 찾는 고객</span></div>
+          <a class="review-source" href="https://kmong.com/gig/687384" target="_blank" rel="noopener">크몽에서 실제 후기 보기 ↗</a>
+        </div>
+        <ul class="testimonial-grid" aria-label="고객 후기">
+          ${testimonials.map((t) => `<li class="testimonial"><p class="stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">별점 5점 만점</span></p><blockquote>&ldquo;${t.quote}&rdquo;</blockquote><div class="testimonial-foot"><cite>${t.who}</cite><span class="tm-tags">${t.repeat ? `<em class="tm-repeat">재구매</em>` : ""}<em class="tm-svc">${t.svc}</em></span></div></li>`).join("")}
+        </ul>
+      </section>
+  `;
+}
+
+// 견적 안내 전용 페이지 (독립 라우트 /estimate/)
+function estimateSlip(i) {
+  const svcs = ["AI 숏폼", "기업영상", "드론 촬영", "홈페이지", "브랜드필름", "콘텐츠", "웨딩"];
+  const svc = svcs[i % svcs.length];
+  const rows = 2 + (i % 3);
+  const lines = Array.from({ length: rows }, () => `<span class="est-line"></span>`).join("");
+  return `<div class="est-slip"><div class="est-slip-top"><span class="est-badge">견적서</span><em>${svc}</em></div>${lines}<div class="est-slip-total"><span class="est-line short"></span><b class="est-amount"></b></div></div>`;
+}
+
+function estimatePage() {
+  const wall = Array.from({ length: 160 }, (_, i) => estimateSlip(i)).join("");
+  const steps = [
+    ["01", "자료 보내기", "보유한 제품컷·로고·참고 영상과 원하는 결과물을 보내주세요. 촬영 없이 사진만 있어도 됩니다."],
+    ["02", "범위 확인", "받은 자료로 필요한 제작 범위와 일정을 정리합니다. 궁금한 점은 카톡·메일로 먼저 여쭤봐요."],
+    ["03", "맞춤 견적서 회신", "프로젝트에 맞춘 구성·범위·일정이 담긴 견적서를 보내드립니다. 고정가가 아니라 딱 필요한 만큼."],
+    ["04", "제작 시작", "확정되면 바로 제작에 들어갑니다. 수정도 협의된 횟수 안에서 함께 맞춰갑니다."]
+  ].map(([n, t, d]) => `<li class="estimate-step"><span class="estimate-step-no">${n}</span><div><strong>${t}</strong><p>${d}</p></div></li>`).join("");
+  const factors = [
+    ["제작 범위", "편수·길이·버전(자막/무자막/채널별 리사이즈) 수에 따라 달라집니다."],
+    ["촬영 여부", "제주 현장 촬영·드론이 필요한지, 보유 자료만으로 가능한지에 따라 나뉩니다."],
+    ["기획 깊이", "단순 편집인지, 콘셉트·시나리오 기획부터인지에 따라 구성이 달라집니다."],
+    ["납기", "일반 일정인지 급한 일정인지에 따라 조정될 수 있습니다."],
+    ["수정 횟수", "필요한 수정 라운드 수를 미리 협의해 반영합니다."],
+    ["사용 범위", "SNS·광고·상업적 사용 범위에 따라 안내가 달라질 수 있습니다."]
+  ].map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
+  return `
+    ${nav()}
+    <main id="main" class="estimate-page">
+      <section class="section estimate-hero">
+        <div class="estimate-hero-inner">
+          <span class="section-statement" aria-hidden="true">QUOTE</span>
+          <p class="section-kicker">견적 안내</p>
+          <h1>맞춤 견적서로 회신드립니다</h1>
+          <p class="estimate-lead">홈페이지에 고정 가격을 적어두지 않습니다. 보유 자료와 원하는 결과물만 보내주시면, 필요한 제작 범위를 확인해 프로젝트에 딱 맞는 견적서를 보내드립니다.</p>
+          <div class="estimate-cta-row">
+            <a class="btn primary" href="#estimate-form">견적 요청하기</a>
+            ${kakaoUrl ? `<a class="btn secondary dark" href="${kakaoUrl}" target="_blank" rel="noopener">카카오톡으로 먼저 물어보기</a>` : ""}
+          </div>
+          <p class="estimate-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 견적 무료</p>
+        </div>
+      </section>
+
+      <section class="section estimate-proof">
+        <div class="section-head"><div>
+          <p class="section-kicker">Estimates</p>
+          <h2>규모·업종별로, 맞춤 견적서를 드립니다</h2>
+          <p class="section-sub">개인 소상공인부터 기관·기업까지 — 프로젝트마다 범위가 달라 정찰가 대신 맞춤 견적으로 안내합니다. 실제 견적서는 고객 정보 보호를 위해 흐리게 표시했습니다.</p>
+        </div></div>
+        <div class="estimate-wall-frame">
+          <div class="estimate-wall" aria-hidden="true">${wall}</div>
+          <div class="estimate-wall-cta"><a class="btn primary" href="#estimate-form">내 프로젝트 견적 받기</a></div>
+        </div>
+      </section>
+
+      <section class="section estimate-how">
+        <div class="section-head"><div>
+          <p class="section-kicker">How it works</p>
+          <h2>견적, 이렇게 나갑니다</h2>
+        </div></div>
+        <ol class="estimate-steps">${steps}</ol>
+      </section>
+
+      <section class="section estimate-factors-sec">
+        <div class="section-head"><div>
+          <p class="section-kicker">What affects the quote</p>
+          <h2>견적에 영향을 주는 것</h2>
+          <p class="section-sub">아래 조건에 따라 구성과 견적이 달라집니다. 자료 주시면 이 기준으로 정리해 드려요.</p>
+        </div></div>
+        <div class="estimate-factor-grid">${factors}</div>
+      </section>
+
+      <section class="section tight" id="estimate-form">
+        <div class="cta-band has-form">
+          <h2>견적 요청하기</h2>
+          <p class="cta-note">보유 자료와 원하는 결과물만 적어주시면, 제작 범위·일정을 확인해 맞춤 견적서로 회신드립니다.</p>
+          <p class="contact-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 40+ 실제 제작 영상</p>
+          ${quoteForm()}
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="brand" href="${routeHref()}">${pic("symbol.png", { alt: "Video Roastery", loading: "lazy" })}<span>Video Roastery</span></a>
+      <p>제주 촬영 중심 · 온라인 제작 전국 상담 · 문의 양식 우선 접수</p>
+      <a href="${routeHref("privacy")}">개인정보처리방침</a>
+    </footer>
+  `;
+}
+
 function mainPage() {
   const main = {
     layout: "editorial",
     heroRich: true,
+    heroGallery: true,
+    // 2줄 마퀴 월: 각 줄 20타일(정지 포스터 webp), 줄당 4개는 무음 루프 영상(hero_loops). 총 40타일·8영상.
+    wallRows: [
+      [
+        ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
+        ["portfolio_covers/drone_06.webp", "드론·항공"],
+        ["portfolio_covers/wedding_01.webp", "웨딩"],
+        ["hero_loops/loop_02.webp", "항공 촬영", "hero_loops/loop_02.mp4"],
+        ["portfolio_covers/content_02.webp", "콘텐츠·릴스"],
+        ["portfolio_covers/corp_03.webp", "기업 영상"],
+        ["portfolio_covers/drone_02.webp", "드론·항공"],
+        ["portfolio_covers/video_01.webp", "브랜드필름"],
+        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
+        ["portfolio_covers/wedding_03.webp", "웨딩"],
+        ["portfolio_covers/corp_05.webp", "기업 영상"],
+        ["portfolio_covers/ai_03.webp", "AI 영상"],
+        ["portfolio_covers/content_03.webp", "콘텐츠·릴스"],
+        ["hero_loops/loop_04.webp", "제주 팜", "hero_loops/loop_04.mp4"],
+        ["portfolio_covers/drone_04.webp", "드론·항공"],
+        ["portfolio_covers/corp_06.webp", "기업 영상"]
+      ],
+      [
+        ["portfolio_covers/corp_08.webp", "기업 영상"],
+        ["portfolio_covers/drone_05.webp", "드론·항공"],
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
+        ["portfolio_covers/ai_05.webp", "AI 영상"],
+        ["portfolio_covers/content_05.webp", "콘텐츠·릴스"],
+        ["portfolio_covers/wedding_indoor.webp", "웨딩"],
+        ["hero_loops/loop_06.webp", "웨딩 항공", "hero_loops/loop_06.mp4"],
+        ["portfolio_covers/corp_07.webp", "기업 영상"],
+        ["portfolio_covers/video_06.webp", "브랜드필름"],
+        ["portfolio_covers/wedding_02.webp", "웨딩"],
+        ["hero_loops/loop_07.webp", "ESG·시설", "hero_loops/loop_07.mp4"],
+        ["portfolio_covers/drone_01.webp", "드론·항공"],
+        ["portfolio_covers/content_06.webp", "콘텐츠·릴스"],
+        ["portfolio_covers/wedding_04.webp", "웨딩"],
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"],
+        ["portfolio_covers/wedding_06.webp", "웨딩"]
+      ]
+    ],
     badge: "Video Roastery",
-    kicker: "Video Roastery Studio",
-    intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
-    prefix: "저희는,",
-    title: "홈페이지·영상·콘텐츠를<br>문의로 이어지게 만듭니다.",
-    lead: "제주는 현장 촬영·드론으로, 전국은 촬영 없이 AI 숏폼으로. 보유 자료만 보내주시면 필요한 제작 범위를 확인해 맞춤 견적서로 회신합니다.",
+    kicker: "제주 영상제작 · 전국 AI 숏폼",
+    title: "보기만 하던 방문자를,<br>문의로 바꿉니다.",
+    lead: "작업물을 먼저 보고, 필요한 제작만 고르세요. 제주는 현장 촬영·드론으로, 전국은 촬영 없이 AI 숏폼으로 — 자료만 보내주시면 맞춤 견적서로 회신드립니다.",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "견적 문의",
-    primaryHref: "#contact",
+    primaryHref: "estimate",
     secondaryCta: "작업 사례 보기",
     secondaryHref: "#portfolio-hub",
     trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
@@ -564,6 +755,8 @@ function mainPage() {
   const homeWallItems = homeFeatured
     .map((img) => portfolioWallItems.find((item) => item.image === img))
     .filter(Boolean);
+  // 위계: 시그니처 대표작을 2x2 피처 타일로(그리드 덤프 → 편집형 쇼케이스)
+  if (homeWallItems[0]) homeWallItems[0] = { ...homeWallItems[0], size: "large" };
   return `
     ${nav()}
     ${hero(main)}
@@ -571,9 +764,8 @@ function mainPage() {
       <section class="section" id="portfolio-hub">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Selected Work</p>
-            <h2>실제 사례 — 눌러서 영상·라이브 사이트로 확인하세요</h2>
-            <p class="section-sub">이미지가 아니라 실제 납품한 영상과 운영 중인 웹사이트로 바로 연결됩니다.</p>
+            <span class="section-statement" aria-hidden="true">WORK</span>
+            <h2 class="h2-en">Selected Work</h2>
           </div>
         </div>
         <ul class="proof-bar" aria-label="실적 요약">
@@ -587,20 +779,21 @@ function mainPage() {
       <section class="section" id="cases">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Case Studies</p>
-            <h2>과제 → 접근 → 결과로 보는 실제 작업</h2>
-            <p class="section-sub">썸네일이 아니라 어떤 문제를 어떻게 풀었는지로 확인하세요.</p>
+            <span class="section-statement" aria-hidden="true">STORY</span>
+            <h2 class="h2-en">Case Studies</h2>
           </div>
         </div>
-        <div class="case-grid">
+        <div class="case-modern">
           ${caseStudies.map((c) => `
-            <article class="case-card">
-              <a class="case-media" href="${routeHref(c.slug)}"><img src="${asset(c.cover)}" alt="${c.client} ${c.tag} 사례" loading="lazy" /></a>
-              <div class="case-body">
-                <div class="case-head"><strong>${c.client}</strong><span>${c.tag}</span></div>
-                <p class="case-row"><b>과제</b> ${c.task}</p>
-                <p class="case-row"><b>접근</b> ${c.approach}</p>
-                <p class="case-row"><b>결과</b> ${c.result}</p>
+            <article class="case-m">
+              <a class="case-m-media" href="${routeHref(c.slug)}">
+                ${pic(c.cover, { cls: "case-m-img", alt: c.client + " 사례" })}
+                <span class="case-m-name">${c.client}</span>
+              </a>
+              <div class="case-m-cap">
+                <span class="case-m-tag">${c.tag}</span>
+                <p class="case-m-line">${c.hook}</p>
+                <a class="case-m-more" href="${routeHref(c.slug)}">See More <span aria-hidden="true">→</span></a>
               </div>
             </article>`).join("")}
         </div>
@@ -608,45 +801,33 @@ function mainPage() {
       <section class="section tight" id="clients">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Clients & Partners</p>
-            <h2>함께한 브랜드·기관</h2>
+            <span class="section-statement" aria-hidden="true">CLIENTS</span>
+            <h2 class="h2-en">Clients &amp; Partners</h2>
             <p class="section-sub">실제 촬영·영상·웹 제작으로 함께한 곳들입니다.</p>
           </div>
         </div>
         <ul class="client-logos" aria-label="대표 협력 로고">
-          <li><img src="${asset("logos/lg_uplus.png")}" alt="LG U+" loading="lazy" /></li>
-          <li><img src="${asset("logos/make_a_wish.png")}" alt="Make-A-Wish" loading="lazy" /></li>
-          <li><img src="${asset("logos/lions.png")}" alt="국제라이온스클럽" loading="lazy" /></li>
+          <li>${pic("logos/lg_uplus.png", { alt: "LG U+" })}</li>
+          <li>${pic("logos/make_a_wish.png", { alt: "Make-A-Wish" })}</li>
+          <li>${pic("logos/lions.png", { alt: "국제라이온스클럽" })}</li>
         </ul>
         <ul class="client-strip" aria-label="함께한 클라이언트">
           ${["LG U+","대한결핵협회","마크애니","Make-A-Wish","제주특별자치도교육청","국제라이온스클럽","라이즈센터 RISE","한국마사회 렛츠런파크","리치디바인","모루농장","토버스 SUMBI","삼대국수회관","벨롱벨롱","페를로","작심랩","산지로","pawshare"].map((c) => `<li>${c}</li>`).join("")}
         </ul>
-        <p class="client-sub-label">AI 브랜드 필름 작업 (레퍼런스)</p>
+        <p class="client-sub-label">AI 브랜드 필름 작업 (참고용)</p>
         <ul class="client-strip ai-brands" aria-label="AI 브랜드 작업">
           ${["KINETIA","그린로하스","블라이트워","새만금","MOTONICA","AURELIA LUNA","S-OIL 에너지"].map((c) => `<li>${c}</li>`).join("")}
         </ul>
         <ul class="trust-badges" aria-label="제작 신뢰 지표">
-          ${["실제 제작 영상 40+","운영 중 라이브 사이트 10곳","8개 제작 분야","제주 현장 촬영·드론 운용","4K 항공촬영","대기업·기관 협업","공공기관·공익 캠페인","글로벌 비영리 재단 협업","ESG·공모전 영상 제작","AI 영상·숏폼 제작","브랜드필름·기업 홍보영상","제품 광고 숏폼","웨딩 영상·스냅","카드뉴스·릴스 콘텐츠","홈페이지 기획·개발","문의 자동화·AI Ops","초상권 범위 협의 편집","전국 온라인 제작 상담"].map((b) => `<li>${b}</li>`).join("")}
+          ${["실제 제작 영상 40+","운영 중 라이브 사이트 10곳","대기업·기관 협업","공공기관·공익 캠페인","제주 현장 촬영·4K 드론","AI 숏폼·브랜드필름","홈페이지 기획·개발","전국 온라인 제작"].map((b) => `<li>${b}</li>`).join("")}
         </ul>
         <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품 프로젝트 및 AI 브랜드 필름 작업 기준으로 표기했습니다.</p>
-      </section>
-      <section class="section tight" id="testimonials">
-        <div class="section-head">
-          <div>
-            <p class="section-kicker">Reviews</p>
-            <h2>실제 크몽 거래 후기</h2>
-            <p class="section-sub">상담 전에 실거래 리뷰로 먼저 확인하세요. 크몽 AI 숏폼 서비스 ★4.5(7건) 등 실거래 리뷰에서 발췌했습니다.</p>
-          </div>
-        </div>
-        <ul class="testimonial-grid" aria-label="고객 후기">
-          ${testimonials.map((t) => `<li class="testimonial"><p class="stars" aria-label="별점 5점">★★★★★</p><blockquote>&ldquo;${t.quote}&rdquo;</blockquote><cite>${t.who} · ${t.svc}</cite></li>`).join("")}
-        </ul>
       </section>
       <section class="section" id="services">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Services</p>
-            <h2>필요한 제작만 선택</h2>
+            <span class="section-statement" aria-hidden="true">SERVICES</span>
+            <h2 class="h2-en">Services</h2>
           </div>
         </div>
         <div class="route-grid core-grid">
@@ -655,7 +836,7 @@ function mainPage() {
         <div class="support-grid" aria-label="추가 상담 가능 분야">
           ${supportRoutes.map((route) => `
             <a class="support-card" href="${routeHref(route.slug)}">
-              <img src="${asset(routeCardImages[route.slug] || route.heroImage)}" alt="${route.nav} 추가 사례" loading="lazy" />
+              ${pic(routeCardImages[route.slug] || route.heroImage, { alt: route.nav + " 추가 사례" })}
               <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
             </a>
           `).join("")}
@@ -664,19 +845,22 @@ function mainPage() {
       <section class="section" id="pricing">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Packages</p>
-            <h2>필요한 구성만 고르고, 맞춤 견적서로 받으세요</h2>
+            <span class="section-statement" aria-hidden="true">PRICING</span>
+            <h2 class="h2-en">Packages</h2>
             <p class="section-sub">보유 자료와 제작 범위에 따라 구성을 조합합니다. 자료만 보내주시면 범위를 확인해 견적서로 안내합니다.</p>
           </div>
         </div>
         <div class="pricing-grid">
           ${pricingGroups.map((g) => `
             <div class="price-card">
-              <h3>${g.name}</h3>
-              <ul>
-                ${g.tiers.map((t) => `<li><span class="tier">${t.tier}</span><span class="inc">${t.inc}</span></li>`).join("")}
-              </ul>
-              <a class="price-link" href="${routeHref(g.slug)}">${g.name} 사례·견적 요청 →</a>
+              <div class="price-card-media">${pic(routeCardImages[g.slug] || (routeBySlug[g.slug] && routeBySlug[g.slug].heroImage), { cls: "price-card-img", alt: "" })}</div>
+              <div class="price-card-body">
+                <h3>${g.name}</h3>
+                <ul>
+                  ${g.tiers.map((t) => `<li><span class="tier">${t.tier}</span><span class="inc">${t.inc}</span></li>`).join("")}
+                </ul>
+                <a class="price-link" href="${routeHref(g.slug)}">${g.name} 사례·견적 요청 →</a>
+              </div>
             </div>`).join("")}
         </div>
         <p class="client-note">* 정확한 견적은 보유 자료·제작 범위를 확인한 뒤 견적서로 보내드립니다.</p>
@@ -684,12 +868,12 @@ function mainPage() {
       ${faqSection(main)}
       <section class="section tight" id="contact">
         <div class="cta-band">
-          <h2>자료만 보내주세요. 맞춤 견적서로 회신합니다.</h2>
-          <p class="cta-note">아래에 필요한 제작·보유 자료·희망 일정만 적어주시면, 범위를 확인해 견적서와 다음 단계를 회신합니다.</p>
-          ${kakaoUrl ? `<div class="contact-quickline"><a class="btn kakao-btn" href="${kakaoUrl}" target="_blank" rel="noopener">💬 카카오톡으로 빠르게 문의</a><span>또는 아래 폼으로 자료와 함께 견적 요청</span></div>` : ""}
-          ${quoteForm()}
-          <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>원하는 결과물 · 보유 자료 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
-          <a class="cta-textlink" href="#services">먼저 서비스별 사례 둘러보기 →</a>
+          <h2 class="h2-en">Get a Quote</h2>
+          <p class="cta-note">보유 자료와 원하는 결과물만 보내주시면, 제작 범위를 확인해 맞춤 견적서로 회신드립니다. 고정가는 없습니다.</p>
+          <div class="contact-actions single">
+            <a class="btn primary" href="${routeHref("estimate")}">견적 안내 보기</a>
+            ${kakaoUrl ? `<a class="btn kakao-btn" href="${kakaoUrl}" target="_blank" rel="noopener">💬 카카오톡 문의</a>` : ""}
+          </div>
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
         </div>
       </section>
@@ -710,7 +894,7 @@ function routeCard(route) {
   const cardImage = routeCardImages[route.slug] || route.heroImage;
   return `
     <a class="service-card" href="${routeHref(route.slug)}">
-      <img src="${asset(cardImage)}" alt="${route.nav} 대표 이미지" loading="lazy" />
+      ${pic(cardImage, { alt: route.nav + " 대표 이미지" })}
       <div class="service-card-body">
         <span class="path">${eyebrow}</span>
         <h3>${title}</h3>
@@ -877,7 +1061,7 @@ function portfolioCard(item, staticMode = false) {
     badge = `<span class="portfolio-open">사이트 열기 ↗</span>`;
   }
   const inner = `
-      <img src="${asset(item.image)}" alt="Video Roastery ${item.label} 제작 사례 — ${item.title}" loading="lazy" />
+      ${pic(item.image, { alt: "Video Roastery " + item.label + " 제작 사례 — " + item.title })}
       ${badge}
       <span class="portfolio-meta">
         <small>${item.label}</small>
@@ -914,8 +1098,8 @@ function detailOverview(route, detail) {
     <section class="detail-overview" id="overview">
       <div class="detail-shell">
         <div class="detail-copy">
-          <p class="section-kicker">${detail.kicker}</p>
-          <h2>${detail.title}</h2>
+          <h2 class="h2-en">${detail.kicker}</h2>
+          <p class="detail-lead-title">${detail.title}</p>
           <p>${detail.lead}</p>
         </div>
         <div class="detail-window-grid" aria-label="${route.nav} 세부 창 구성">
@@ -924,7 +1108,7 @@ function detailOverview(route, detail) {
             return `
             <article class="detail-window">
               ${visual ? (() => {
-                const vImg = `<img class="detail-window-visual" src="${asset(visual.image)}" alt="${visual.title}" loading="lazy" />`;
+                const vImg = pic(visual.image, { cls: "detail-window-visual", alt: visual.title });
                 const vLink = portfolioLink(visual);
                 if (vLink && vLink.type === "site") {
                   return `<a class="detail-window-link" href="${vLink.href}" target="_blank" rel="noopener">${vImg}<span class="portfolio-open" aria-hidden="true">사이트 열기 ↗</span></a>`;
@@ -951,8 +1135,7 @@ function detailScope(route, detail) {
     <section class="section detail-scope" id="scope">
       <div class="scope-layout">
         <div>
-          <p class="section-kicker">Project Check</p>
-          <h2>진행 전에 확인할 것</h2>
+          <h2 class="h2-en">Project Check</h2>
         </div>
         <div class="scope-checks" aria-label="상담 전 확인 항목">
           ${detail.checkpoints.map((item) => `<span>${item}</span>`).join("")}
@@ -980,14 +1163,13 @@ function relatedServices(route, detail) {
     <section class="section tight" id="related">
       <div class="section-head">
         <div>
-          <p class="section-kicker">Related</p>
-          <h2>함께 볼 수 있는 제작</h2>
+          <h2 class="h2-en">Related Work</h2>
         </div>
       </div>
       <div class="related-strip">
         ${related.map((item) => `
           <a class="related-card" href="${routeHref(item.slug)}">
-            <img src="${asset(routeCardImages[item.slug] || item.heroImage)}" alt="${item.nav} 관련 작업" loading="lazy" />
+            ${pic(routeCardImages[item.slug] || item.heroImage, { alt: item.nav + " 관련 작업" })}
             <span>${routeLabels[item.slug]?.[1] || item.nav}</span>
           </a>
         `).join("")}
@@ -1091,6 +1273,7 @@ const quoteQuestions = [
   ["qn_name", "이름 / 업체명", "text", "김민지 / 제주 ○○카페", true],
   ["qn_contact", "연락처 (전화 또는 이메일)", "text", "010-0000-0000 또는 email@example.com", true],
   ["qn_service", "필요한 제작", "text", "AI 숏폼 / 드론 / 기업영상 / 홈페이지 등", true],
+  ["qn_reference", "참고 영상 링크 (있으면 견적이 빨라져요)", "text", "예: 유튜브·릴스 URL, 원하는 스타일 영상"],
   ["qn_assets", "보유 자료", "text", "제품 사진 있음 / 기존 영상 있음 / 자료 없음"],
   ["qn_plan", "희망 일정 · 예산대", "text", "예: 8월 초 납품 / 예산 100만원대·미정"],
   ["qn_message", "문의 내용", "textarea", "예: 제품 사진으로 릴스 4편 제작 가능할까요?", true]
@@ -1172,8 +1355,7 @@ function faqSection(route) {
     <section class="section faq-section" id="faq" aria-label="${(route && route.nav) || "제작"} 자주 묻는 질문">
       <div class="section-head">
         <div>
-          <p class="section-kicker">FAQ</p>
-          <h2>시작 전에 자주 묻는 것</h2>
+          <h2 class="h2-en">FAQ</h2>
         </div>
       </div>
       <div class="faq-list">
@@ -1193,6 +1375,7 @@ function detailPage(route) {
   // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
   // 앞 3장은 오버뷰가 쓰므로 그 다음부터 전부 노출(상한 제거 → 타일 조용히 잘리지 않음)
   const routePortfolioItems = portfolioItemsForRoute(route).slice(3);
+  if (routePortfolioItems[0]) routePortfolioItems[0] = { ...routePortfolioItems[0], size: "large" };
   // 이 페이지에 연결된 영상/사이트가 하나라도 있나(없으면 '화면 예시'로, 타일은 클릭 안 되는 정적 figure)
   const routeHasMedia = portfolioItemsForRoute(route).some((item) => portfolioLink(item));
   const detail = routeDetails[route.slug] || {
@@ -1212,19 +1395,19 @@ function detailPage(route) {
       <section class="section" id="portfolio">
         <div class="section-head">
           <div>
-            <p class="section-kicker">Portfolio</p>
-            <h2>${route.nav} ${routeHasMedia ? "실제 사례 — 눌러서 확인" : "화면 예시"}</h2>
+            <h2 class="h2-en">${routeHasMedia ? "Selected Work" : "Preview"}</h2>
             <p class="section-sub">${routeHasMedia ? "▶ 영상은 바로 재생, 웹 작업은 실제 사이트로 열립니다." : "실제 진행 시 제작하는 화면 구성 예시입니다."}</p>
           </div>
         </div>
         ${portfolioWall(routePortfolioItems, "detail-wall", !routeHasMedia)}
       </section>
+      ${route.slug === "ai-shortform" ? testimonialsSection() : ""}
       ${detailScope(route, detail)}
       ${relatedServices(route, detail)}
       ${faqSection(route)}
       <section class="section tight" id="contact">
-        <div class="cta-band${route.slug === "consulting" ? " has-form" : ""}">
-          <h2>${route.nav} 문의하기</h2>
+        <div class="cta-band${route.slug === "consulting" ? " has-form" : " cta-dark"}">
+          <h2 class="h2-en">Get in Touch</h2>
           ${route.slug === "consulting" ? `
           <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
           <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
@@ -1307,7 +1490,7 @@ function footer() {
     <footer>
       <strong>Video Roastery</strong>
       <span>홈페이지·영상·촬영·자동화 제작 상담</span>
-      <span>제주 촬영 중심 · 온라인 제작 전국 상담 · 상담폼 우선 접수</span>
+      <span>제주 촬영 중심 · 온라인 제작 전국 상담 · 문의 양식 우선 접수</span>
       <a href="${routeHref("privacy")}">개인정보처리방침</a>
     </footer>
   `;
@@ -1316,9 +1499,9 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
-  const pageTitle = route ? `${route.nav} | Video Roastery` : "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery";
-  const pageDesc = route ? route.lead : "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.";
-  const pageUrl = route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/";
+  const pageTitle = slug === "estimate" ? "견적 안내 | Video Roastery" : (route ? `${route.nav} | Video Roastery` : "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery");
+  const pageDesc = slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다." : (route ? route.lead : "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.");
+  const pageUrl = slug === "estimate" ? "https://videoroastery.com/estimate/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -1333,13 +1516,102 @@ function render() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
-  document.querySelector("#app").innerHTML = route ? detailPage(route) : mainPage();
+  document.querySelector("#app").innerHTML = slug === "estimate" ? estimatePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupConsultForm();
   setupQuoteForm();
   setupScrollReveal();
   setupHeroMotion();
+  setupHeroWall();
+}
+
+// 메인 마퀴 영상월: 화면에 보이는 타일만, 동시재생 상한 내에서 무음 루프 재생.
+// reduced-motion/Save-Data/모바일에서는 재생 억제(마퀴 정지는 CSS가 담당).
+function setupHeroWall() {
+  const wall = document.querySelector(".hero-wall");
+  if (!wall) return;
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 각 타일 이미지가 로드/디코드된 뒤 1회 리페인트 넛지. transform으로만 움직이는 합성 레이어는
+  // 이미지가 늦게 로드돼도 크롬이 재래스터하지 않아 타일이 검게 남는다 → opacity 토글로 강제.
+  // ── 마퀴(캐러셀): 타일을 각각 translateX로 이동하고, 화면 밖으로 나가면 반대편 끝으로 재배치.
+  //    컨테이너(.hw-row)는 뷰포트 폭 + overflow:hidden이라 페인트 레이어가 작게 유지됨
+  //    → 넓은 트랙을 통째로 움직일 때 화면 밖 이미지가 검게 렌더되는 크롬 버그를 근본 회피. ──
+  if (!reduce) {
+    const GAP = 10;
+    const SPEED = 18; // px/s (Codex 권장 12~18)
+    const setups = Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).map((row) => {
+      const dir = row.classList.contains("hw-row--right") ? 1 : -1; // 첫줄 좌로 흐름, 둘째줄 우로
+      const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
+      const n = tiles.length;
+      const measure = () => {
+        const tw = tiles[0].getBoundingClientRect().width + GAP;
+        return { tw, total: tw * n };
+      };
+      let { tw, total } = measure();
+      const xs = tiles.map((t, i) => i * tw);
+      const apply = () => { for (let i = 0; i < n; i++) tiles[i].style.transform = "translateX(" + xs[i].toFixed(2) + "px)"; };
+      apply();
+      // 리사이즈 시 폭 재측정
+      window.addEventListener("resize", () => { const m = measure(); tw = m.tw; total = m.total; }, { passive: true });
+      return { tiles, n, xs, dir, apply, tw: () => tw, total: () => total };
+    });
+    let last = null;
+    const frame = (ts) => {
+      if (last == null) last = ts;
+      const dt = Math.min((ts - last) / 1000, 0.05); last = ts;
+      setups.forEach((s) => {
+        const d = s.dir * SPEED * dt, total = s.total(), tw = s.tw();
+        for (let i = 0; i < s.n; i++) {
+          let x = s.xs[i] + d;
+          if (x <= -tw) x += total;         // 왼쪽으로 완전히 나감 → 오른쪽 끝으로
+          else if (x >= total - tw) x -= total; // 오른쪽으로 나감 → 왼쪽 끝으로
+          s.xs[i] = x;
+        }
+        s.apply();
+      });
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  const conn = navigator.connection || {};
+  const saveData = !!conn.saveData;
+  const w = window.innerWidth || 1024;
+  let cap = w >= 1024 ? 4 : (w >= 640 ? 2 : 1);
+  if (reduce || saveData) cap = 0;
+  const tiles = Array.prototype.slice.call(wall.querySelectorAll("[data-loop]"));
+  if (!cap || !tiles.length || !("IntersectionObserver" in window)) return;
+
+  const active = new Set();
+  const visible = new Set();
+  const start = (fig) => {
+    if (active.has(fig) || active.size >= cap) return;
+    const v = fig.querySelector("video");
+    if (!v) return;
+    if (!v.getAttribute("src")) v.setAttribute("src", fig.dataset.loop);
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+    fig.classList.add("is-playing");
+    active.add(fig);
+  };
+  const stop = (fig) => {
+    if (!active.has(fig)) return;
+    const v = fig.querySelector("video");
+    if (v && v.pause) v.pause();
+    fig.classList.remove("is-playing");
+    active.delete(fig);
+  };
+  const fill = () => { visible.forEach((fig) => { if (active.size < cap) start(fig); }); };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) visible.add(e.target);
+      else { visible.delete(e.target); stop(e.target); }
+    });
+    fill();
+  }, { root: null, threshold: 0.6 });
+  tiles.forEach((t) => io.observe(t));
 }
 
 // 모션 최소화 선호 시 히어로 배경영상 자동재생 중지(접근성·배터리)

@@ -44,7 +44,7 @@ PAGES = [
         "title": "AI 숏폼 제작 상담 | Video Roastery",
         "description": "제품 사진과 콘셉트, 문구를 바탕으로 쇼츠·릴스·틱톡용 세로 광고 영상을 구성합니다.",
         "service": "AI 숏폼 제작 상담",
-        "image": "portfolio_video_product_reels_ad.jpg",
+        "image": "card_ai_shortform_photo.jpg",
         "og": "og_ai_shortform.jpg",
         "video": "ai_shortform_hero_web.mp4",
         "url": "/ai-shortform/",
@@ -125,9 +125,7 @@ HTML = """<!doctype html>
     <link rel="icon" href="{asset_prefix}assets/symbol.png" />
     <link rel="apple-touch-icon" href="{asset_prefix}assets/profile_symbol.png" />
     <link rel="manifest" href="{asset_prefix}manifest.webmanifest" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preload" href="{asset_prefix}assets/{hero_video}" as="video" type="video/mp4" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preload" href="{asset_prefix}assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="{asset_prefix}style.css" />
     <script type="application/ld+json">{schema_json}</script>
   </head>
