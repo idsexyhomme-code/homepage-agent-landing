@@ -695,7 +695,6 @@ function mainPage() {
         ["portfolio_covers/wedding_03.webp", "웨딩"],
         ["portfolio_covers/content_05.webp", "제품 컷"],
         ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
-        ["portfolio_covers/wedding_04.webp", "웨딩"],
         ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"]
       ]
     ],
