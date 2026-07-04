@@ -673,30 +673,28 @@ function mainPage() {
     layout: "editorial",
     heroRich: true,
     heroGallery: true,
-    // 2줄 마퀴 월 — 시네마틱 컷만 엄선(세로형·카드뉴스·이벤트/텍스트·중복 제거). 18타일·9영상루프.
-    // 각 줄 항공 3~4개만 분산 배치, 위아래 같은 카테고리 정렬 회피(+JS가 둘째줄 반칸 엇갈림).
+    // 2줄 마퀴 월 — 시네마틱 컷만. 항공 4개(22%)만: loop_01(마을드론)·drone_02(시설)·corp_08(팜)·loop_05(풍차해안).
+    // Codex 반영: ai_05·video_01·loop_04 제외(항공 중복), 8/7 비대칭 길이로 반복주기 깸,
+    // 항공 하위타입 분산 + 항공끼리 인접/정렬 회피 + wrap 끝단 비항공, 둘째줄 반칸 stagger.
     wallRows: [
       [
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
         ["portfolio_covers/wedding_01.webp", "웨딩"],
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["portfolio_covers/drone_02.webp", "드론·해안"],
         ["portfolio_covers/corp_03.webp", "기업 영상"],
-        ["portfolio_covers/video_01.webp", "제주 항공"],
+        ["portfolio_covers/drone_02.webp", "시설 항공"],
         ["portfolio_covers/wedding_02.webp", "웨딩"],
-        ["portfolio_covers/content_05.webp", "제품 컷"],
-        ["hero_loops/loop_04.webp", "제주 팜", "hero_loops/loop_04.mp4"]
+        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ],
       [
         ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
         ["portfolio_covers/corp_08.webp", "항공·팜"],
-        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
         ["portfolio_covers/wedding_03.webp", "웨딩"],
-        ["portfolio_covers/ai_05.webp", "항공·시설"],
+        ["portfolio_covers/content_05.webp", "제품 컷"],
         ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
         ["portfolio_covers/wedding_04.webp", "웨딩"],
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"]
       ]
     ],
     badge: "Video Roastery",
@@ -1526,7 +1524,7 @@ function setupHeroWall() {
   //    → 넓은 트랙을 통째로 움직일 때 화면 밖 이미지가 검게 렌더되는 크롬 버그를 근본 회피. ──
   if (!reduce) {
     const GAP = 10;
-    const SPEED = 18; // px/s (Codex 권장 12~18)
+    const SPEED = 13; // px/s (Codex 권장 12~14, 더 시네마틱하게 하향)
     const setups = Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).map((row) => {
       const dir = row.classList.contains("hw-row--right") ? 1 : -1; // 첫줄 좌로 흐름, 둘째줄 우로
       const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
@@ -1599,6 +1597,16 @@ function setupHeroWall() {
     fill();
   }, { root: null, threshold: 0.6 });
   tiles.forEach((t) => io.observe(t));
+
+  // 탭이 백그라운드였다가 다시 보일 때, 재생 중이던(active) 타일 영상 재개
+  // (브라우저가 hidden 탭의 muted 영상을 일시정지 → 복귀 시 자동으로 안 살아나는 문제 대응)
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    active.forEach((fig) => {
+      const v = fig.querySelector("video");
+      if (v && v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    });
+  });
 }
 
 // 모션 최소화 선호 시 히어로 배경영상 자동재생 중지(접근성·배터리)
