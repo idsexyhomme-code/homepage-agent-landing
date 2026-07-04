@@ -1541,6 +1541,11 @@ function setupHeroWall() {
       let { tw, total } = measure();
       const stagger = dir > 0 ? tw / 2 : 0; // 둘째줄만 반칸 밀어 벽돌쌓기 → 위아래 세로 컬럼 정렬 방지
       const xs = tiles.map((t, i) => i * tw + stagger);
+      // 초기 위치 정규화: total-tw를 넘는 타일을 미리 왼쪽(-tw쪽)으로 감아, 로드 순간 좌측 끝 빈틈(컷 튐) 방지
+      for (let i = 0; i < n; i++) {
+        while (xs[i] >= total - tw) xs[i] -= total;
+        while (xs[i] < -tw) xs[i] += total;
+      }
       const apply = () => { for (let i = 0; i < n; i++) tiles[i].style.transform = "translateX(" + xs[i].toFixed(2) + "px)"; };
       apply();
       // 리사이즈 시 폭 재측정
