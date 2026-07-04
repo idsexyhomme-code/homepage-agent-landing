@@ -682,9 +682,8 @@ function mainPage() {
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
         ["portfolio_covers/drone_02.webp", "시설 항공"],
-        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
-        ["portfolio_covers/corp_08.webp", "항공·팜"],
         ["portfolio_covers/content_05.webp", "제품 컷"],
+        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
         ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
         ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ],
