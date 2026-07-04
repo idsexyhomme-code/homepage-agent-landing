@@ -681,6 +681,7 @@ function mainPage() {
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
         ["portfolio_covers/wedding_01.webp", "웨딩"],
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
+        ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
         ["portfolio_covers/corp_03.webp", "기업 영상"],
         ["portfolio_covers/drone_02.webp", "시설 항공"],
         ["portfolio_covers/wedding_02.webp", "웨딩"],
