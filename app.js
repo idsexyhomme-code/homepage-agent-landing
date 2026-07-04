@@ -673,40 +673,29 @@ function mainPage() {
     layout: "editorial",
     heroRich: true,
     heroGallery: true,
-    // 2줄 마퀴 월: 각 줄 20타일(정지 포스터 webp), 줄당 4개는 무음 루프 영상(hero_loops). 총 40타일·8영상.
+    // 2줄 마퀴 월 — 시네마틱 컷만 엄선(세로형·카드뉴스·이벤트/텍스트·중복 제거). 18타일·9영상루프.
+    // 각 줄 항공 3~4개만 분산 배치, 위아래 같은 카테고리 정렬 회피(+JS가 둘째줄 반칸 엇갈림).
     wallRows: [
       [
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
-        ["portfolio_covers/drone_06.webp", "드론·항공"],
         ["portfolio_covers/wedding_01.webp", "웨딩"],
-        ["hero_loops/loop_02.webp", "항공 촬영", "hero_loops/loop_02.mp4"],
-        ["portfolio_covers/content_02.webp", "콘텐츠·릴스"],
+        ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
+        ["portfolio_covers/drone_02.webp", "드론·해안"],
         ["portfolio_covers/corp_03.webp", "기업 영상"],
-        ["portfolio_covers/drone_02.webp", "드론·항공"],
-        ["portfolio_covers/video_01.webp", "브랜드필름"],
-        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
-        ["portfolio_covers/wedding_03.webp", "웨딩"],
-        ["portfolio_covers/corp_05.webp", "기업 영상"],
-        ["portfolio_covers/ai_03.webp", "AI 영상"],
-        ["portfolio_covers/content_03.webp", "콘텐츠·릴스"],
-        ["hero_loops/loop_04.webp", "제주 팜", "hero_loops/loop_04.mp4"],
-        ["portfolio_covers/drone_04.webp", "드론·항공"],
-        ["portfolio_covers/corp_06.webp", "기업 영상"]
+        ["portfolio_covers/video_01.webp", "제주 항공"],
+        ["portfolio_covers/wedding_02.webp", "웨딩"],
+        ["portfolio_covers/content_05.webp", "제품 컷"],
+        ["hero_loops/loop_04.webp", "제주 팜", "hero_loops/loop_04.mp4"]
       ],
       [
-        ["portfolio_covers/corp_08.webp", "기업 영상"],
-        ["portfolio_covers/drone_05.webp", "드론·항공"],
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
-        ["portfolio_covers/ai_05.webp", "AI 영상"],
-        ["portfolio_covers/content_05.webp", "콘텐츠·릴스"],
-        ["hero_loops/loop_06.webp", "웨딩 항공", "hero_loops/loop_06.mp4"],
-        ["portfolio_covers/corp_07.webp", "기업 영상"],
-        ["portfolio_covers/video_06.webp", "브랜드필름"],
-        ["portfolio_covers/wedding_02.webp", "웨딩"],
-        ["hero_loops/loop_07.webp", "ESG·시설", "hero_loops/loop_07.mp4"],
-        ["portfolio_covers/drone_01.webp", "드론·항공"],
-        ["portfolio_covers/content_06.webp", "콘텐츠·릴스"],
+        ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
+        ["portfolio_covers/corp_08.webp", "항공·팜"],
+        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
+        ["portfolio_covers/wedding_03.webp", "웨딩"],
+        ["portfolio_covers/ai_05.webp", "항공·시설"],
+        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
         ["portfolio_covers/wedding_04.webp", "웨딩"],
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
         ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ]
     ],
@@ -1547,7 +1536,8 @@ function setupHeroWall() {
         return { tw, total: tw * n };
       };
       let { tw, total } = measure();
-      const xs = tiles.map((t, i) => i * tw);
+      const stagger = dir > 0 ? tw / 2 : 0; // 둘째줄만 반칸 밀어 벽돌쌓기 → 위아래 세로 컬럼 정렬 방지
+      const xs = tiles.map((t, i) => i * tw + stagger);
       const apply = () => { for (let i = 0; i < n; i++) tiles[i].style.transform = "translateX(" + xs[i].toFixed(2) + "px)"; };
       apply();
       // 리사이즈 시 폭 재측정
