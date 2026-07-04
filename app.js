@@ -502,6 +502,7 @@ function hero(route) {
     const rows = route.wallRows || [];
     return `
     <section class="hero hero-wall" aria-label="대표 작업 사례">
+      <h1 class="sr-only">${(route.title || "").replace(/<br\s*\/?>/gi, " ")}</h1>
       <div class="hero-wall__rows">
         ${rowHtml(rows[0] || [], "left")}
         ${rowHtml(rows[1] || [], "right")}
@@ -1488,8 +1489,9 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
-  const pageTitle = slug === "estimate" ? "견적 안내 | Video Roastery" : (route ? `${route.nav} | Video Roastery` : "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery");
-  const pageDesc = slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다." : (route ? route.lead : "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.");
+  // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
+  const pageTitle = slug === "estimate" ? "견적 안내 | Video Roastery" : (route ? `${route.nav} | Video Roastery` : "문의로 이어지는 홈페이지·영상·콘텐츠 제작 | Video Roastery");
+  const pageDesc = slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다." : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
   const pageUrl = slug === "estimate" ? "https://videoroastery.com/estimate/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
