@@ -506,7 +506,6 @@ function hero(route) {
         ${rowHtml(rows[0] || [], "left")}
         ${rowHtml(rows[1] || [], "right")}
       </div>
-      <p class="hero-wall__eyebrow">${route.kicker}</p>
       <div class="hero-wall__cta">
         <a class="hero-wall__more" href="${secondaryHref}">작업 사례 전체 보기</a>
         <a class="btn primary" href="${primaryHref}">${route.cta}</a>
@@ -769,8 +768,8 @@ function mainPage() {
         <ul class="proof-bar" aria-label="실적 요약">
           <li><strong>40+</strong><span>실제 제작 영상</span></li>
           <li><strong>10곳</strong><span>운영 중 라이브 사이트</span></li>
-          <li><strong>제주</strong><span>현장 촬영·드론</span></li>
           <li><strong>8</strong><span>제작 분야</span></li>
+          <li><strong>전국</strong><span>온라인 제작 상담</span></li>
         </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
       </section>
