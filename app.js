@@ -772,7 +772,7 @@ function mainPage() {
           ${caseStudies.map((c) => `
             <article class="case-m">
               <a class="case-m-media" href="${routeHref(c.slug)}">
-                ${pic(c.cover, { cls: "case-m-img", alt: c.client + " 사례" })}
+                ${pic(c.cover, { cls: "case-m-img", alt: "" })}
                 <span class="case-m-name">${c.client}</span>
               </a>
               <div class="case-m-cap">
@@ -1037,7 +1037,7 @@ function portfolioCard(item, staticMode = false) {
   let extraAttr = "";
   let badge = "";
   if (link && link.type === "video") {
-    linkAttr = ` data-video="${link.src}"`;
+    linkAttr = ` data-video="${link.src}" aria-haspopup="dialog"`;
     badge = `<span class="portfolio-play" aria-hidden="true"></span>`;
   } else if (link && link.type === "site") {
     href = link.href; // 실제 라이브 사이트로 직접(가운데클릭·링크복사·JS-off·스크린리더 정상)
@@ -1293,6 +1293,10 @@ function setupQuoteForm() {
       const value = ((field && field.value) || "").trim();
       lines.push(label, `→ ${value || "(미작성)"}`, "");
     });
+    // 유입 경로 요약(일반 mailto와 동일하게) — 어느 페이지·경로에서 온 문의인지 파악용
+    lines.push("──────────", `페이지: ${currentPageUrl({ slug: "main" })}`);
+    const tracking = trackingSummary();
+    if (tracking) lines.push(`유입: ${tracking}`);
     return lines.join("\n");
   };
   const subject = "[Video Roastery] 제작 견적 요청";
