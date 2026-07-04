@@ -200,7 +200,7 @@ const caseStudies = [
     client: "작심랩", tag: "AI 숏폼 · 제품광고", cover: "portfolio_covers/ai_kombucha.jpg", slug: "ai-shortform", hook: "촬영 없이, 제품 사진만으로 만든 광고 숏폼"
   },
   {
-    client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum.jpg", slug: "ai-shortform", hook: "브랜드 무드까지 담은 AI 세로 캠페인"
+    client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum_case.webp", slug: "ai-shortform", hook: "브랜드 무드까지 담은 AI 세로 캠페인"
   },
   {
     client: "대한결핵협회", tag: "공익 캠페인 · 기업영상", cover: "portfolio_covers/corp_01.jpg", slug: "brand-film", hook: "공익 메시지를 40초 홍보영상으로"
