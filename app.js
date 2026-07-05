@@ -504,8 +504,7 @@ function hero(route) {
     <section class="hero hero-wall" aria-label="대표 작업 사례">
       <h1 class="sr-only">${(route.title || "").replace(/<br\s*\/?>/gi, " ")}</h1>
       <div class="hero-wall__rows">
-        ${rowHtml(rows[0] || [], "left")}
-        ${rowHtml(rows[1] || [], "right")}
+        ${rows.map((r, i) => rowHtml(r, i % 2 === 0 ? "left" : "right")).join("")}
       </div>
       <div class="hero-wall__cta">
         <a class="hero-wall__more" href="${secondaryHref}">작업 사례 전체 보기</a>
@@ -677,24 +676,45 @@ function mainPage() {
     // 2줄 마퀴 월 — 시네마틱 컷만. 항공 4개(22%)만: loop_01(마을드론)·drone_02(시설)·corp_08(팜)·loop_05(풍차해안).
     // Codex 반영: ai_05·video_01·loop_04 제외(항공 중복), 8/7 비대칭 길이로 반복주기 깸,
     // 항공 하위타입 분산 + 항공끼리 인접/정렬 회피 + wrap 끝단 비항공, 둘째줄 반칸 stagger.
+    // 4줄 마퀴 — 실제 영상들에서 다양한 컷 추출(assets/hero_wall). 인접 줄 카테고리 분리:
+    // 1줄 육지항공 / 2줄 웨딩·사람 / 3줄 해안·바다항공 / 4줄 음식·제품·시네마틱. 영상루프 5개로 모션.
     wallRows: [
       [
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
-        ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["portfolio_covers/drone_02.webp", "시설 항공"],
-        ["portfolio_covers/content_05.webp", "제품 컷"],
-        ["hero_loops/loop_07.webp", "제품 광고", "hero_loops/loop_07.mp4"],
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
+        ["hero_wall/hw_02.webp", "제주 항공"],
+        ["hero_wall/hw_03.webp", "제주 밭"],
+        ["hero_wall/hw_07.webp", "드론 촬영"],
+        ["hero_wall/hw_05.webp", "목장"],
+        ["hero_wall/hw_04.webp", "제주 숲"],
+        ["hero_wall/hw_08.webp", "꽃밭"],
+        ["hero_wall/hw_06.webp", "제주 시내"]
       ],
       [
         ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
-        ["portfolio_covers/corp_03.webp", "기업 영상"],
-        ["portfolio_covers/wedding_01.webp", "웨딩"],
-        ["hero_loops/loop_03.webp", "기업 영상", "hero_loops/loop_03.mp4"],
-        ["portfolio_covers/wedding_03.webp", "웨딩"],
+        ["hero_wall/hw_15.webp", "웨딩"],
+        ["hero_wall/hw_16.webp", "웨딩"],
+        ["hero_wall/hw_18.webp", "웨딩"],
+        ["hero_wall/hw_19.webp", "웨딩"],
+        ["hero_wall/hw_20.webp", "기업 현장"],
+        ["portfolio_covers/corp_03.webp", "기업 영상"]
+      ],
+      [
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
+        ["hero_wall/hw_09.webp", "해변 항공"],
+        ["hero_wall/hw_10.webp", "제주 섬"],
+        ["hero_wall/hw_11.webp", "포구"],
+        ["hero_wall/hw_12.webp", "제주 바다"],
+        ["hero_wall/hw_13.webp", "해안 마을"],
+        ["hero_wall/hw_28.webp", "해변"]
+      ],
+      [
+        ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
+        ["hero_wall/hw_21.webp", "푸드 디테일"],
+        ["hero_wall/hw_24.webp", "제품 광고"],
+        ["portfolio_covers/content_05.webp", "제품 컷"],
+        ["hero_wall/hw_23.webp", "플레이팅"],
         ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
-        ["portfolio_covers/wedding_02.webp", "웨딩"]
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
       ]
     ],
     badge: "Video Roastery",
@@ -1528,10 +1548,10 @@ function setupHeroWall() {
   //    컨테이너(.hw-row)는 뷰포트 폭 + overflow:hidden이라 페인트 레이어가 작게 유지됨
   //    → 넓은 트랙을 통째로 움직일 때 화면 밖 이미지가 검게 렌더되는 크롬 버그를 근본 회피. ──
   if (!reduce) {
-    const GAP = 10;
+    const GAP = 6;
     const SPEED = 13; // px/s (Codex 권장 12~14, 더 시네마틱하게 하향)
-    const setups = Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).map((row) => {
-      const dir = row.classList.contains("hw-row--right") ? 1 : -1; // 첫줄 좌로 흐름, 둘째줄 우로
+    const setups = Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).map((row, ri) => {
+      const dir = ri % 2 === 0 ? -1 : 1; // 홀짝 줄 반대방향
       const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
       const n = tiles.length;
       const measure = () => {
@@ -1539,7 +1559,7 @@ function setupHeroWall() {
         return { tw, total: tw * n };
       };
       let { tw, total } = measure();
-      const stagger = dir > 0 ? tw / 2 : 0; // 둘째줄만 반칸 밀어 벽돌쌓기 → 위아래 세로 컬럼 정렬 방지
+      const stagger = (ri % 4) * (tw / 4); // 줄마다 ¼타일씩 밀어 4줄이 세로로 안 겹치게(벽돌쌓기)
       const xs = tiles.map((t, i) => i * tw + stagger);
       // 초기 위치 정규화: total-tw를 넘는 타일을 미리 왼쪽(-tw쪽)으로 감아, 로드 순간 좌측 끝 빈틈(컷 튐) 방지
       for (let i = 0; i < n; i++) {

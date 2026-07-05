@@ -384,15 +384,15 @@ picture {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
   width: 100%;
 }
 /* 행은 뷰포트 폭 클리핑 컨테이너 — 화면 밖 절대위치 타일은 페인트 영역 밖이라 레이어가 작게 유지됨.
-   마퀴는 JS(setupHeroWall)가 각 타일을 translateX로 이동·재활용(캐러셀). */
+   마퀴는 JS(setupHeroWall)가 각 타일을 translateX로 이동·재활용(캐러셀). 4줄이라 높이 축소. */
 .hw-row {
   position: relative;
   width: 100%;
-  height: clamp(180px, 28vh, 240px);
+  height: clamp(116px, 19vh, 178px);
   overflow: hidden;
 }
 .hw-tile {
@@ -536,7 +536,7 @@ picture {
   .hero.hero-wall::before,
   .hero.hero-wall::after { display: none; }
   .hero-wall__rows { gap: 10px; }
-  .hw-row { height: clamp(126px, 20vh, 170px); height: clamp(126px, 20svh, 170px); }
+  .hw-row { height: clamp(92px, 13vh, 122px); height: clamp(92px, 13svh, 122px); }
   .hw-tile { border-radius: 8px; }
   .hero-wall__eyebrow {
     top: auto;
