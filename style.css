@@ -143,6 +143,11 @@ button:focus-visible {
   transition: background 180ms ease, box-shadow 180ms ease;
 }
 
+/* 메인 히어로월: topbar 배경·경계선 제거로 상단 검은 박스 없앰(스크롤 시 is-scrolled가 다시 배경). nav 가독성은 텍스트 그림자로. */
+.topbar--wall { background: none; border-bottom-color: transparent; }
+.topbar--wall .brand span,
+.topbar--wall .nav a { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.78); }
+
 .topbar.is-scrolled {
   background: rgba(5, 9, 12, 0.92);
   backdrop-filter: blur(18px);

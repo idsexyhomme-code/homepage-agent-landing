@@ -457,13 +457,13 @@ function pic(name, opts) {
   return '<picture><source type="image/webp" srcset="' + webp + '" />' + img + '</picture>';
 }
 
-function nav() {
+function nav(variant) {
   const items = mainNavItems
     .map(([label, id]) => `<a href="${id === "estimate" ? routeHref("estimate") : sectionHref(id)}">${label}</a>`)
     .join("");
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
-    <header class="topbar">
+    <header class="topbar${variant === "wall" ? " topbar--wall" : ""}">
       <a class="brand" href="${routeHref()}">
         ${pic("symbol.png", { alt: "Video Roastery", loading: "eager" })}
         <span>Video Roastery</span>
@@ -681,7 +681,7 @@ function mainPage() {
     wallRows: [
       [
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["hero_wall/hw_15.webp", "웨딩"],
+        ["hero_wall/hw_29.webp", "웨딩"],
         ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
         ["hero_wall/hw_16.webp", "웨딩"],
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
@@ -762,7 +762,7 @@ function mainPage() {
   // 위계: 시그니처 대표작을 2x2 피처 타일로(그리드 덤프 → 편집형 쇼케이스)
   if (homeWallItems[0]) homeWallItems[0] = { ...homeWallItems[0], size: "large" };
   return `
-    ${nav()}
+    ${nav("wall")}
     ${hero(main)}
     <main id="main">
       <section class="section" id="portfolio-hub">
