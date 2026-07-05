@@ -454,8 +454,8 @@ picture {
   z-index: 3;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(4, 7, 10, 0.72) 0%, transparent 15%, transparent 74%, rgba(4, 7, 10, 0.9) 100%),
-    linear-gradient(0deg, rgba(4, 7, 10, 0.34), rgba(4, 7, 10, 0.34));
+    linear-gradient(180deg, rgba(4, 7, 10, 0.78) 0%, transparent 16%, transparent 72%, rgba(4, 7, 10, 0.92) 100%),
+    linear-gradient(0deg, rgba(4, 7, 10, 0.5), rgba(4, 7, 10, 0.5));
 }
 /* 우하단 코너 비네트(견적 CTA 대비) — base .hero::after 전면 오버레이 대체 */
 .hero.hero-wall::after {
@@ -533,8 +533,14 @@ picture {
   }
   /* 모바일은 배경이 이미 검고 CTA·eyebrow가 검은 밴드 위라, 데스크탑용 어둠 오버레이(전체 veil +
      우하단 비네트)가 오히려 "반투명 검은 덩어리"로 보임 → 모바일에서만 제거해 타일을 선명하게. */
-  .hero.hero-wall::before,
   .hero.hero-wall::after { display: none; }
+  /* 모바일도 균일한 무드 어둠(밀도 높은 4줄이라 veil이 아니라 의도된 톤으로 읽힘) + nav/CTA 스크림 */
+  .hero.hero-wall::before {
+    display: block;
+    background:
+      linear-gradient(180deg, rgba(3, 6, 9, 0.66) 0%, transparent 20%, transparent 80%, rgba(3, 6, 9, 0.74) 100%),
+      linear-gradient(0deg, rgba(3, 6, 9, 0.42), rgba(3, 6, 9, 0.42));
+  }
   .hero-wall__rows { gap: 10px; }
   .hw-row { height: clamp(92px, 13vh, 122px); height: clamp(92px, 13svh, 122px); }
   .hw-tile { border-radius: 8px; }
