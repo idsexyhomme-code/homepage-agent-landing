@@ -564,14 +564,8 @@ function testimonialsSection() {
           <div>
             <span class="section-statement" aria-hidden="true">REVIEWS</span>
             <h2 class="h2-en">Client Reviews</h2>
-            <p class="section-sub">크몽에서 실제로 거래한 고객이 남긴 후기입니다.</p>
+            <p class="section-sub">실제로 거래한 고객이 남긴 후기입니다.</p>
           </div>
-        </div>
-        <div class="review-stats">
-          <div class="review-stat"><strong>★ 4.5</strong><span>크몽 서비스 평점</span></div>
-          <div class="review-stat"><strong>7건+</strong><span>실거래 후기</span></div>
-          <div class="review-stat"><strong>재구매 다수</strong><span>다시 찾는 고객</span></div>
-          <a class="review-source" href="https://kmong.com/gig/687384" target="_blank" rel="noopener">크몽에서 실제 후기 보기 ↗</a>
         </div>
         <ul class="testimonial-grid" aria-label="고객 후기">
           ${testimonials.map((t) => `<li class="testimonial"><p class="stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">별점 5점 만점</span></p><blockquote>&ldquo;${t.quote}&rdquo;</blockquote><div class="testimonial-foot"><cite>${t.who}</cite><span class="tm-tags">${t.repeat ? `<em class="tm-repeat">재구매</em>` : ""}<em class="tm-svc">${t.svc}</em></span></div></li>`).join("")}
@@ -650,6 +644,8 @@ function estimatePage() {
         </div></div>
         <div class="estimate-factor-grid">${factors}</div>
       </section>
+
+      ${testimonialsSection()}
 
       <section class="section tight" id="estimate-form">
         <div class="cta-band has-form">
@@ -870,7 +866,6 @@ function mainPage() {
         <p class="client-note">* 정확한 견적은 보유 자료·제작 범위를 확인한 뒤 견적서로 보내드립니다.</p>
       </section>
       ${faqSection(main)}
-      ${testimonialsSection()}
       <section class="section tight" id="contact">
         <div class="cta-band has-form">
           <h2 class="h2-en">Get a Quote</h2>
