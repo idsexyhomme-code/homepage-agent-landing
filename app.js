@@ -1514,9 +1514,9 @@ function render() {
     "inquiry-agent": "비디오 로스터리 | 문의 자동화·고객응대 시스템",
     "ai-shortform": "비디오 로스터리 | AI 숏폼·릴스·쇼츠 광고영상 제작",
     "brand-film": "비디오 로스터리 | 기업 홍보영상·브랜드필름 제작",
-    drone: "비디오 로스터리 | 제주 드론 항공촬영·영상",
+    drone: "비디오 로스터리 | 제주 드론촬영·항공영상",
     wedding: "비디오 로스터리 | 제주 웨딩 스냅·영상 촬영",
-    content: "비디오 로스터리 | 카드뉴스·릴스 콘텐츠 제작",
+    content: "비디오 로스터리 | 상세페이지·카드뉴스·릴스 제작",
     consulting: "비디오 로스터리 | AI 활용 컨설팅·자동화",
   };
   const pageTitle = seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);

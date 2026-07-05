@@ -61,7 +61,7 @@ PAGES = [
     },
     {
         "slug": "drone",
-        "title": "비디오 로스터리 | 제주 드론 항공촬영·영상",
+        "title": "비디오 로스터리 | 제주 드론촬영·항공영상",
         "description": "숙소, 시설, 관광지, 농장, 외관까지 목적에 맞는 와이드 컷과 야간 외관 컷을 함께 제안합니다.",
         "service": "드론 항공촬영 상담",
         "image": "portfolio_drone_night_exterior_clean.jpg",
@@ -81,7 +81,7 @@ PAGES = [
     },
     {
         "slug": "content",
-        "title": "비디오 로스터리 | 카드뉴스·릴스 콘텐츠 제작",
+        "title": "비디오 로스터리 | 상세페이지·카드뉴스·릴스 제작",
         "description": "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 한 번에 재활용되도록 구성합니다.",
         "service": "카드뉴스·콘텐츠 제작 상담",
         "image": "portfolio_content_reels_page.jpg",
