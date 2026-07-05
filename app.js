@@ -680,41 +680,41 @@ function mainPage() {
     // 1줄 육지항공 / 2줄 웨딩·사람 / 3줄 해안·바다항공 / 4줄 음식·제품·시네마틱. 영상루프 5개로 모션.
     wallRows: [
       [
-        ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
-        ["hero_wall/hw_02.webp", "제주 항공"],
-        ["hero_wall/hw_03.webp", "제주 밭"],
-        ["hero_wall/hw_07.webp", "드론 촬영"],
-        ["hero_wall/hw_05.webp", "목장"],
-        ["hero_wall/hw_04.webp", "제주 숲"],
-        ["hero_wall/hw_08.webp", "꽃밭"],
-        ["hero_wall/hw_06.webp", "제주 시내"]
-      ],
-      [
-        ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
-        ["hero_wall/hw_15.webp", "웨딩"],
-        ["hero_wall/hw_16.webp", "웨딩"],
-        ["hero_wall/hw_18.webp", "웨딩"],
-        ["hero_wall/hw_19.webp", "웨딩"],
-        ["hero_wall/hw_20.webp", "기업 현장"],
-        ["portfolio_covers/corp_03.webp", "기업 영상"]
-      ],
-      [
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
-        ["hero_wall/hw_09.webp", "해변 항공"],
-        ["hero_wall/hw_10.webp", "제주 섬"],
-        ["hero_wall/hw_11.webp", "포구"],
-        ["hero_wall/hw_12.webp", "제주 바다"],
-        ["hero_wall/hw_13.webp", "해안 마을"],
-        ["hero_wall/hw_28.webp", "해변"]
-      ],
-      [
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["hero_wall/hw_21.webp", "푸드 디테일"],
-        ["hero_wall/hw_24.webp", "제품 광고"],
-        ["portfolio_covers/content_05.webp", "제품 컷"],
-        ["hero_wall/hw_23.webp", "플레이팅"],
+        ["hero_wall/hw_15.webp", "웨딩"],
         ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"]
+        ["hero_wall/hw_16.webp", "웨딩"],
+        ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
+        ["hero_wall/hw_09.webp", "해변 항공"],
+        ["hero_wall/hw_02.webp", "제주 항공"]
+      ],
+      [
+        ["portfolio_covers/corp_03.webp", "기업 영상"],
+        ["hero_wall/hw_24.webp", "제품 광고"],
+        ["hero_wall/hw_18.webp", "웨딩"],
+        ["hero_wall/hw_03.webp", "제주 밭"],
+        ["hero_wall/hw_10.webp", "제주 섬"],
+        ["hero_wall/hw_04.webp", "제주 숲"],
+        ["hero_wall/hw_11.webp", "포구"]
+      ],
+      [
+        ["hero_wall/hw_19.webp", "웨딩"],
+        ["portfolio_covers/content_05.webp", "제품 컷"],
+        ["hero_wall/hw_20.webp", "기업 현장"],
+        ["hero_wall/hw_05.webp", "목장"],
+        ["hero_wall/hw_12.webp", "제주 바다"],
+        ["hero_wall/hw_06.webp", "제주 시내"],
+        ["hero_wall/hw_13.webp", "해안 마을"]
+      ],
+      [
+        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"],
+        ["hero_wall/hw_23.webp", "플레이팅"],
+        ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
+        ["hero_wall/hw_21.webp", "푸드 디테일"],
+        ["hero_wall/hw_07.webp", "드론 촬영"],
+        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
+        ["hero_wall/hw_08.webp", "꽃밭"],
+        ["hero_wall/hw_28.webp", "해변"]
       ]
     ],
     badge: "Video Roastery",

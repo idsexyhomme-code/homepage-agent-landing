@@ -454,7 +454,7 @@ picture {
   z-index: 3;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(4, 7, 10, 0.78) 0%, transparent 16%, transparent 72%, rgba(4, 7, 10, 0.92) 100%),
+    linear-gradient(180deg, rgba(4, 7, 10, 0.34) 0%, transparent 22%, transparent 74%, rgba(4, 7, 10, 0.9) 100%),
     linear-gradient(0deg, rgba(4, 7, 10, 0.5), rgba(4, 7, 10, 0.5));
 }
 /* 우하단 코너 비네트(견적 CTA 대비) — base .hero::after 전면 오버레이 대체 */
@@ -538,7 +538,7 @@ picture {
   .hero.hero-wall::before {
     display: block;
     background:
-      linear-gradient(180deg, rgba(3, 6, 9, 0.66) 0%, transparent 20%, transparent 80%, rgba(3, 6, 9, 0.74) 100%),
+      linear-gradient(180deg, rgba(3, 6, 9, 0.34) 0%, transparent 24%, transparent 82%, rgba(3, 6, 9, 0.7) 100%),
       linear-gradient(0deg, rgba(3, 6, 9, 0.42), rgba(3, 6, 9, 0.42));
   }
   .hero-wall__rows { gap: 10px; }
