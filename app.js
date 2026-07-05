@@ -1547,8 +1547,17 @@ function setupHeroWall() {
   // ── 마퀴(캐러셀): 타일을 각각 translateX로 이동하고, 화면 밖으로 나가면 반대편 끝으로 재배치.
   //    컨테이너(.hw-row)는 뷰포트 폭 + overflow:hidden이라 페인트 레이어가 작게 유지됨
   //    → 넓은 트랙을 통째로 움직일 때 화면 밖 이미지가 검게 렌더되는 크롬 버그를 근본 회피. ──
-  if (!reduce) {
-    const GAP = 6;
+  const GAP = 6;
+  if (reduce) {
+    // 모션 최소화 사용자: 마퀴·클론 없이 타일을 정지 상태로 가로 배열.
+    // (절대배치 타일은 CSS만으로는 전부 left:0에 겹쳐 쌓이므로 JS에서 정적 위치 지정이 필요.)
+    Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).forEach((row) => {
+      const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
+      if (!tiles.length) return;
+      const tw = tiles[0].getBoundingClientRect().width + GAP;
+      tiles.forEach((t, i) => { t.style.transform = "translateX(" + (i * tw).toFixed(2) + "px)"; });
+    });
+  } else {
     const SPEED = 13; // px/s (Codex 권장 12~14, 더 시네마틱하게 하향)
     // 트랙폭 계산에 쓸 최대 뷰포트(현재폭·화면폭 중 큰 값) — 창을 넓혀도 빈틈 안 나게 여유 확보
     const maxVW = Math.max(window.innerWidth || 0, (window.screen && window.screen.width) || 0, 1024);

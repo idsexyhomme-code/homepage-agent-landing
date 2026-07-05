@@ -564,10 +564,8 @@ picture {
   }
 }
 
-/* 모션 최소화: 마퀴 정지 + 재생 억제(JS는 별도로 src 미부여) */
+/* 모션 최소화: 마퀴 정지(JS가 정적 배치) + 영상 재생 억제(JS는 별도로 src 미부여) */
 @media (prefers-reduced-motion: reduce) {
-  .hw-row--left .hw-track,
-  .hw-row--right .hw-track { animation: none; }
   .hw-tile video { display: none; }
 }
 
