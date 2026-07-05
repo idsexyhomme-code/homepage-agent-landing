@@ -1550,15 +1550,28 @@ function setupHeroWall() {
   if (!reduce) {
     const GAP = 6;
     const SPEED = 13; // px/s (Codex 권장 12~14, 더 시네마틱하게 하향)
+    // 트랙폭 계산에 쓸 최대 뷰포트(현재폭·화면폭 중 큰 값) — 창을 넓혀도 빈틈 안 나게 여유 확보
+    const maxVW = Math.max(window.innerWidth || 0, (window.screen && window.screen.width) || 0, 1024);
     const setups = Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).map((row, ri) => {
       const dir = ri % 2 === 0 ? -1 : 1; // 홀짝 줄 반대방향
       const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
+      const baseCount = tiles.length;
+      const twOf = () => tiles[0].getBoundingClientRect().width + GAP;
+      let tw = twOf();
+      // 재활용 밴드(=타일 합 폭 total) < 뷰포트면 오른쪽에 세로 검은 틈이 주기적으로 생긴다.
+      // 타일 세트를 통째 복제해 total ≥ 뷰포트×2 + 타일1개를 보장 → 어떤 화면폭에서도 빈틈 0.
+      let guard = 0;
+      while (tiles.length * tw < maxVW * 2 + tw && guard < 8) {
+        for (let i = 0; i < baseCount; i++) {
+          const clone = tiles[i].cloneNode(true);
+          clone.setAttribute("aria-hidden", "true"); // 복제본은 접근성 트리에서 제외(중복 낭독 방지)
+          row.appendChild(clone);
+          tiles.push(clone);
+        }
+        guard++;
+      }
       const n = tiles.length;
-      const measure = () => {
-        const tw = tiles[0].getBoundingClientRect().width + GAP;
-        return { tw, total: tw * n };
-      };
-      let { tw, total } = measure();
+      let total = tw * n;
       const stagger = (ri % 4) * (tw / 4); // 줄마다 ¼타일씩 밀어 4줄이 세로로 안 겹치게(벽돌쌓기)
       const xs = tiles.map((t, i) => i * tw + stagger);
       // 초기 위치 정규화: total-tw를 넘는 타일을 미리 왼쪽(-tw쪽)으로 감아, 로드 순간 좌측 끝 빈틈(컷 튐) 방지
@@ -1568,8 +1581,8 @@ function setupHeroWall() {
       }
       const apply = () => { for (let i = 0; i < n; i++) tiles[i].style.transform = "translateX(" + xs[i].toFixed(2) + "px)"; };
       apply();
-      // 리사이즈 시 폭 재측정
-      window.addEventListener("resize", () => { const m = measure(); tw = m.tw; total = m.total; }, { passive: true });
+      // 리사이즈 시 폭 재측정(타일 수는 유지 — maxVW 기준으로 이미 넉넉히 복제됨)
+      window.addEventListener("resize", () => { tw = twOf(); total = tw * n; }, { passive: true });
       return { tiles, n, xs, dir, apply, tw: () => tw, total: () => total };
     });
     let last = null;
