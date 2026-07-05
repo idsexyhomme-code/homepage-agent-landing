@@ -698,7 +698,7 @@ function mainPage() {
         ["hero_wall/hw_11.webp", "포구"]
       ],
       [
-        ["hero_wall/hw_19.webp", "웨딩"],
+        ["hero_wall/hw_30.webp", "웨딩"],
         ["portfolio_covers/content_05.webp", "제품 컷"],
         ["hero_wall/hw_20.webp", "기업 현장"],
         ["hero_wall/hw_05.webp", "목장"],
