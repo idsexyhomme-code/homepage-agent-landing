@@ -1506,7 +1506,20 @@ function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
-  const pageTitle = slug === "estimate" ? "견적 안내 | Video Roastery" : (route ? `${route.nav} | Video Roastery` : "문의로 이어지는 홈페이지·영상·콘텐츠 제작 | Video Roastery");
+  // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
+  const seoTitles = {
+    main: "비디오 로스터리 Video Roastery | 제주 영상제작·홈페이지·드론·AI 숏폼",
+    estimate: "비디오 로스터리 | 제작 견적 안내·맞춤 견적서",
+    homepage: "비디오 로스터리 | 홈페이지 제작·랜딩페이지 제작",
+    "inquiry-agent": "비디오 로스터리 | 문의 자동화·고객응대 시스템",
+    "ai-shortform": "비디오 로스터리 | AI 숏폼·릴스·쇼츠 광고영상 제작",
+    "brand-film": "비디오 로스터리 | 기업 홍보영상·브랜드필름 제작",
+    drone: "비디오 로스터리 | 제주 드론 항공촬영·영상",
+    wedding: "비디오 로스터리 | 제주 웨딩 스냅·영상 촬영",
+    content: "비디오 로스터리 | 카드뉴스·릴스 콘텐츠 제작",
+    consulting: "비디오 로스터리 | AI 활용 컨설팅·자동화",
+  };
+  const pageTitle = seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
   const pageDesc = slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다." : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
   const pageUrl = slug === "estimate" ? "https://videoroastery.com/estimate/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;

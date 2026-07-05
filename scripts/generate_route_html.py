@@ -11,7 +11,7 @@ FONT = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 PAGES = [
     {
         "slug": "",
-        "title": "홈페이지와 영상을 기획하고 제작하고 연결합니다 | Video Roastery",
+        "title": "비디오 로스터리 Video Roastery | 제주 영상제작·홈페이지·드론·AI 숏폼",
         "description": "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.",
         "service": "포트폴리오 기반 제작 상담",
         "image": "logo.png",
@@ -21,7 +21,7 @@ PAGES = [
     },
     {
         "slug": "homepage",
-        "title": "홈페이지 제작 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 홈페이지 제작·랜딩페이지 제작",
         "description": "첫 방문자가 업종을 이해하고 시안 확인과 상담 요청까지 자연스럽게 이어지도록 홈페이지를 설계합니다.",
         "service": "홈페이지 제작 상담",
         "image": "portfolio_automation_homepage_flow.jpg",
@@ -31,7 +31,7 @@ PAGES = [
     },
     {
         "slug": "inquiry-agent",
-        "title": "문의 자동화 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 문의 자동화·고객응대 시스템",
         "description": "폼, 메일, 카카오, 시트, 알림을 엮어 고객 요청과 답장 초안이 먼저 정리되는 상담 흐름을 만듭니다.",
         "service": "문의 자동화 상담",
         "image": "portfolio_automation_examples.jpg",
@@ -41,7 +41,7 @@ PAGES = [
     },
     {
         "slug": "ai-shortform",
-        "title": "AI 숏폼 제작 상담 | Video Roastery",
+        "title": "비디오 로스터리 | AI 숏폼·릴스·쇼츠 광고영상 제작",
         "description": "제품 사진과 콘셉트, 문구를 바탕으로 쇼츠·릴스·틱톡용 세로 광고 영상을 구성합니다.",
         "service": "AI 숏폼 제작 상담",
         "image": "card_ai_shortform_photo.jpg",
@@ -51,7 +51,7 @@ PAGES = [
     },
     {
         "slug": "brand-film",
-        "title": "기업 홍보영상 제작 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 기업 홍보영상·브랜드필름 제작",
         "description": "기업 소개, 브랜드 메시지, ESG, 서비스 설명을 장면 흐름으로 정리해 설득력 있는 영상으로 만듭니다.",
         "service": "기업 홍보영상 제작 상담",
         "image": "portfolio_video_corporate_main.jpg",
@@ -61,7 +61,7 @@ PAGES = [
     },
     {
         "slug": "drone",
-        "title": "드론 항공촬영 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 제주 드론 항공촬영·영상",
         "description": "숙소, 시설, 관광지, 농장, 외관까지 목적에 맞는 와이드 컷과 야간 외관 컷을 함께 제안합니다.",
         "service": "드론 항공촬영 상담",
         "image": "portfolio_drone_night_exterior_clean.jpg",
@@ -71,7 +71,7 @@ PAGES = [
     },
     {
         "slug": "wedding",
-        "title": "웨딩스냅·영상 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 제주 웨딩 스냅·영상 촬영",
         "description": "스냅과 영상 분위기를 먼저 확인하고 얼굴 노출 부담을 낮춘 디테일·분위기 중심의 웨딩 기록을 제안합니다.",
         "service": "웨딩스냅·영상 상담",
         "image": "portfolio_wedding_studio_mood.jpg",
@@ -81,7 +81,7 @@ PAGES = [
     },
     {
         "slug": "content",
-        "title": "카드뉴스·콘텐츠 제작 상담 | Video Roastery",
+        "title": "비디오 로스터리 | 카드뉴스·릴스 콘텐츠 제작",
         "description": "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 한 번에 재활용되도록 구성합니다.",
         "service": "카드뉴스·콘텐츠 제작 상담",
         "image": "portfolio_content_reels_page.jpg",
@@ -91,7 +91,7 @@ PAGES = [
     },
     {
         "slug": "consulting",
-        "title": "AI 활용 컨설팅 상담 | Video Roastery",
+        "title": "비디오 로스터리 | AI 활용 컨설팅·자동화",
         "description": "반복되는 업무를 진단하고 노션, 시트, 폼, 메일, AI 도구를 실제 업무 흐름에 맞게 연결합니다.",
         "service": "AI 활용 컨설팅 상담",
         "image": "ai_service_landing.png",
@@ -199,6 +199,7 @@ def schema_for(page):
         "@type": "Organization",
         "@id": f"{DOMAIN}/#organization",
         "name": "Video Roastery",
+        "alternateName": "비디오 로스터리",
         "url": DOMAIN,
         "logo": f"{DOMAIN}/assets/symbol.png",
         "contactPoint": {
@@ -314,7 +315,7 @@ def write_og(page):
     draw.text((94, 176), pill, font=font(21, 8), fill=white)
 
     y = 248
-    for line in wrap(draw, page["title"].replace(" | Video Roastery", ""), font(56, 8), 720)[:2]:
+    for line in wrap(draw, page["title"].split(" | ", 1)[-1], font(56, 8), 720)[:2]:
         draw.text((72, y), line, font=font(56, 8), fill=white)
         y += 68
 
