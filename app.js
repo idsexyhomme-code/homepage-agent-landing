@@ -851,7 +851,7 @@ function mainPage() {
           <div>
             <span class="section-statement" aria-hidden="true">PRICING</span>
             <h2 class="h2-en">Packages</h2>
-            <p class="section-sub">보유 자료와 제작 범위에 따라 구성을 조합합니다. 자료만 보내주시면 범위를 확인해 견적서로 안내합니다.</p>
+            <p class="section-sub">고정 가격을 붙이지 않는 건 자료·범위에 따라 실제 비용 차이가 커서예요. 예산만 알려주시면 그 안에서 가능한 구성으로 맞춰 견적서로 보내드립니다.</p>
           </div>
         </div>
         <div class="pricing-grid">
@@ -870,12 +870,15 @@ function mainPage() {
         <p class="client-note">* 정확한 견적은 보유 자료·제작 범위를 확인한 뒤 견적서로 보내드립니다.</p>
       </section>
       ${faqSection(main)}
+      ${testimonialsSection()}
       <section class="section tight" id="contact">
-        <div class="cta-band">
+        <div class="cta-band has-form">
           <h2 class="h2-en">Get a Quote</h2>
-          <p class="cta-note">보유 자료와 원하는 결과물만 보내주시면, 제작 범위를 확인해 맞춤 견적서로 회신드립니다. 고정가는 없습니다.</p>
+          <p class="cta-note">보유 자료와 원하는 결과물만 적어주시면, 제작 범위·일정을 확인해 맞춤 견적서로 회신드립니다. 고정가는 없습니다.</p>
+          <p class="contact-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 40+ 실제 제작 영상</p>
+          ${quoteForm()}
           <div class="contact-actions single">
-            <a class="btn primary" href="${routeHref("estimate")}">견적 안내 보기</a>
+            <a class="btn secondary" href="${routeHref("estimate")}">견적 산정 기준·실제 견적서 예시 보기</a>
             ${kakaoUrl ? `<a class="btn kakao-btn" href="${kakaoUrl}" target="_blank" rel="noopener">💬 카카오톡 문의</a>` : ""}
           </div>
           <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
