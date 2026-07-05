@@ -41,7 +41,7 @@ PAGES = [
     },
     {
         "slug": "ai-shortform",
-        "title": "비디오 로스터리 | AI 숏폼·릴스·쇼츠 광고영상 제작",
+        "title": "비디오 로스터리 | AI 영상제작·AI 숏폼·릴스 광고",
         "description": "제품 사진과 콘셉트, 문구를 바탕으로 쇼츠·릴스·틱톡용 세로 광고 영상을 구성합니다.",
         "service": "AI 숏폼 제작 상담",
         "image": "card_ai_shortform_photo.jpg",
