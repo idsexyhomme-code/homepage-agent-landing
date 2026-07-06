@@ -464,17 +464,7 @@ picture {
     linear-gradient(0deg, rgba(4, 7, 10, 0.5), rgba(4, 7, 10, 0.5));
 }
 /* 우하단 코너 비네트(견적 CTA 대비) — base .hero::after 전면 오버레이 대체 */
-.hero.hero-wall::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 62%;
-  height: 52%;
-  z-index: 3;
-  pointer-events: none;
-  background: radial-gradient(130% 130% at 100% 100%, rgba(4, 7, 10, 0.86) 0%, rgba(4, 7, 10, 0.4) 38%, transparent 66%);
-}
+.hero.hero-wall::after { display: none; }
 .hero-wall__eyebrow {
   position: absolute;
   left: max(32px, 5vw);
