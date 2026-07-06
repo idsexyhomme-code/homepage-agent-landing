@@ -1565,8 +1565,15 @@ function setupHeroWall() {
     Array.prototype.slice.call(wall.querySelectorAll(".hw-row")).forEach((row) => {
       const tiles = Array.prototype.slice.call(row.querySelectorAll(".hw-tile"));
       if (!tiles.length) return;
-      const tw = tiles[0].getBoundingClientRect().width + GAP;
-      tiles.forEach((t, i) => { t.style.transform = "translateX(" + (i * tw).toFixed(2) + "px)"; });
+      // 정적 경로도 타일폭이 로드 후 바뀌면 간격이 벌어지므로, 폭 변화 시 재배치(마퀴 경로와 동일한 근본대응).
+      const place = () => {
+        const tw = tiles[0].getBoundingClientRect().width + GAP;
+        tiles.forEach((t, i) => { t.style.transform = "translateX(" + (i * tw).toFixed(2) + "px)"; });
+      };
+      place();
+      if (typeof ResizeObserver !== "undefined") new ResizeObserver(place).observe(tiles[0]);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place).catch(() => {});
+      window.addEventListener("resize", place, { passive: true });
     });
   } else {
     const SPEED = 13; // px/s (Codex 권장 12~14, 더 시네마틱하게 하향)
@@ -1609,8 +1616,8 @@ function setupHeroWall() {
       const relayout = () => {
         const ntw = twOf();
         if (!ntw || Math.abs(ntw - tw) < 0.5) return; // 변화 없으면 스킵(ResizeObserver 무한루프 방지)
-        for (let i = 0; i < n; i++) xs[i] = Math.round(xs[i] / tw) * ntw; // 현재 위치를 새 격자에 스냅(순서·위치 보존)
-        stagger = (ri % 4) * (ntw / 4);
+        const scale = ntw / tw; // 비율 스케일: 간격·스태거·애니 위상 모두 보존, 새 간격이 정확히 GAP(6px)
+        for (let i = 0; i < n; i++) xs[i] *= scale;
         tw = ntw; total = tw * n;
         normalize(); apply();
       };
