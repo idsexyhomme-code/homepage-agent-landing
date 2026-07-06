@@ -397,7 +397,7 @@ picture {
 .hw-row {
   position: relative;
   width: 100%;
-  height: clamp(116px, 19vh, 178px);
+  height: clamp(150px, calc((100vh - 24px) / 4), 240px);
   overflow: hidden;
 }
 .hw-tile {

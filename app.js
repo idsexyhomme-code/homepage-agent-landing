@@ -679,7 +679,7 @@ function mainPage() {
         ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
         ["hero_wall/hw_29.webp", "웨딩"],
         ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
-        ["hero_wall/hw_16.webp", "웨딩"],
+        ["hero_wall/hw_26.webp", "단풍 계곡"],
         ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
         ["hero_wall/hw_09.webp", "해변 항공"],
         ["hero_wall/hw_02.webp", "제주 항공"]
