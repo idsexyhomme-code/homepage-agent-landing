@@ -1592,17 +1592,31 @@ function setupHeroWall() {
       }
       const n = tiles.length;
       let total = tw * n;
-      const stagger = (ri % 4) * (tw / 4); // 줄마다 ¼타일씩 밀어 4줄이 세로로 안 겹치게(벽돌쌓기)
+      let stagger = (ri % 4) * (tw / 4); // 줄마다 ¼타일씩 밀어 4줄이 세로로 안 겹치게(벽돌쌓기)
       const xs = tiles.map((t, i) => i * tw + stagger);
-      // 초기 위치 정규화: total-tw를 넘는 타일을 미리 왼쪽(-tw쪽)으로 감아, 로드 순간 좌측 끝 빈틈(컷 튐) 방지
-      for (let i = 0; i < n; i++) {
-        while (xs[i] >= total - tw) xs[i] -= total;
-        while (xs[i] < -tw) xs[i] += total;
-      }
+      const normalize = () => { // total-tw를 넘는 타일을 왼쪽(-tw쪽)으로 감아 좌측 끝 빈틈(컷 튐) 방지
+        for (let i = 0; i < n; i++) {
+          while (xs[i] >= total - tw) xs[i] -= total;
+          while (xs[i] < -tw) xs[i] += total;
+        }
+      };
+      normalize();
       const apply = () => { for (let i = 0; i < n; i++) tiles[i].style.transform = "translateX(" + xs[i].toFixed(2) + "px)"; };
       apply();
-      // 리사이즈 시 폭 재측정(타일 수는 유지 — maxVW 기준으로 이미 넉넉히 복제됨)
-      window.addEventListener("resize", () => { tw = twOf(); total = tw * n; }, { passive: true });
+      // ── 근본수정(검은 줄 재발의 진짜 원인): 타일 실측폭은 폰트로드·이미지 디코드·vh 확정·스크롤바·리사이즈로
+      //    로드 직후 바뀔 수 있는데, tw를 로드 시 1회만 재서 고정하면 실제 타일폭과 어긋나 6px여야 할 간격이
+      //    수십 px 검은 줄로 벌어진다. tw 변화 감지 시 xs를 새 tw 격자로 재배치(re-snap)해 항상 정확한 간격 유지. ──
+      const relayout = () => {
+        const ntw = twOf();
+        if (!ntw || Math.abs(ntw - tw) < 0.5) return; // 변화 없으면 스킵(ResizeObserver 무한루프 방지)
+        for (let i = 0; i < n; i++) xs[i] = Math.round(xs[i] / tw) * ntw; // 현재 위치를 새 격자에 스냅(순서·위치 보존)
+        stagger = (ri % 4) * (ntw / 4);
+        tw = ntw; total = tw * n;
+        normalize(); apply();
+      };
+      if (typeof ResizeObserver !== "undefined") new ResizeObserver(relayout).observe(tiles[0]);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout).catch(() => {});
+      window.addEventListener("resize", relayout, { passive: true });
       return { tiles, n, xs, dir, apply, tw: () => tw, total: () => total };
     });
     let last = null;
