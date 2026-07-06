@@ -685,7 +685,7 @@ function mainPage() {
         ["hero_wall/hw_02.webp", "제주 항공"]
       ],
       [
-        ["portfolio_covers/corp_03.webp", "기업 영상"],
+        ["hero_wall/corp_tower_clean.webp", "기업 영상"],
         ["hero_wall/product_ingredients.webp", "제품 광고"],
         ["hero_wall/hw_18.webp", "웨딩"],
         ["hero_wall/hw_03.webp", "제주 밭"],
@@ -697,7 +697,7 @@ function mainPage() {
         ["hero_wall/hw_30.webp", "웨딩"],
         ["hero_wall/food_meat_clean.webp", "숯불 고기"],
         ["hero_wall/hw_20.webp", "기업 현장"],
-        ["hero_wall/hw_05.webp", "목장"],
+        ["hero_wall/hw_05_clean.webp", "목장"],
         ["hero_wall/hw_12.webp", "제주 바다"],
         ["hero_wall/hw_06.webp", "제주 시내"],
         ["hero_wall/hw_13.webp", "해안 마을"]
