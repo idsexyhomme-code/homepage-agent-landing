@@ -12,7 +12,7 @@ PAGES = [
     {
         "slug": "",
         "title": "비디오 로스터리 Video Roastery | 제주 영상제작·홈페이지·드론·AI 숏폼",
-        "description": "홈페이지, 영상, 촬영, 콘텐츠, 문의자동화까지 실제 작업물을 기준으로 브랜드에 필요한 제작을 연결하는 상담 페이지입니다.",
+        "description": "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.",
         "service": "포트폴리오 기반 제작 상담",
         "image": "logo.png",
         "og": "og_main.jpg",
@@ -22,7 +22,7 @@ PAGES = [
     {
         "slug": "homepage",
         "title": "비디오 로스터리 | 홈페이지 제작·랜딩페이지 제작",
-        "description": "첫 방문자가 업종을 이해하고 시안 확인과 상담 요청까지 자연스럽게 이어지도록 홈페이지를 설계합니다.",
+        "description": "첫 방문자가 업종을 이해하고 화면 예시 확인과 상담 요청까지 자연스럽게 이어지도록 홈페이지를 설계합니다.",
         "service": "홈페이지 제작 상담",
         "image": "portfolio_automation_homepage_flow.jpg",
         "og": "og_homepage.jpg",
@@ -54,7 +54,7 @@ PAGES = [
         "title": "비디오 로스터리 | 기업 홍보영상·브랜드필름 제작",
         "description": "기업 소개, 브랜드 메시지, ESG, 서비스 설명을 장면 흐름으로 정리해 설득력 있는 영상으로 만듭니다.",
         "service": "기업 홍보영상 제작 상담",
-        "image": "portfolio_video_corporate_main.jpg",
+        "image": "portfolio_video_industrial_brand.jpg",
         "og": "og_brand_film.jpg",
         "video": "brand_film_hero_web.mp4",
         "url": "/brand-film/",
@@ -125,7 +125,7 @@ HTML = """<!doctype html>
     <link rel="icon" href="{asset_prefix}assets/symbol.png" />
     <link rel="apple-touch-icon" href="{asset_prefix}assets/profile_symbol.png" />
     <link rel="manifest" href="{asset_prefix}manifest.webmanifest" />
-    <link rel="preload" href="{asset_prefix}assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="{asset_prefix}assets/fonts/PretendardVariable.subset.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="{asset_prefix}style.css" />
     <script type="application/ld+json">{schema_json}</script>
   </head>
@@ -157,22 +157,81 @@ def write_page(page):
     )
 
 
+# 실제 페이지에 렌더되는 FAQ와 1:1로 일치해야 함(app.js의 faqItems / routeFaqExtra와 동기화).
+# 구조화데이터 FAQPage는 화면에 보이는 문답과 반드시 동일해야 유효(Google 가이드라인).
+COMMON_FAQ = [
+    {
+        "q": "제작 기간은 얼마나 걸리나요?",
+        "a": "분량과 범위에 따라 보통 1~4주입니다. 보유 자료를 확인한 뒤 정확한 일정을 먼저 안내드립니다.",
+    },
+    {
+        "q": "비용은 어떻게 책정되나요?",
+        "a": "홈페이지에 금액을 일괄 표기하지 않고, 보유 자료와 제작 범위를 확인한 뒤 맞춤 견적서로 안내합니다. 예산 범위를 알려주시면 가능한 구성과 제외할 항목을 함께 정리해 회신합니다.",
+    },
+    {
+        "q": "영상 상업적 사용권은 어떻게 되나요?",
+        "a": "납품 영상은 상담 때 정한 범위 안에서 광고·홈페이지·SNS 등에 사용할 수 있게 안내합니다. 음악·스톡·AI 생성물의 사용 범위가 있으면 계약 전에 먼저 확인합니다.",
+    },
+    {
+        "q": "촬영 없이 AI 숏폼만 제작 가능한가요?",
+        "a": "가능합니다. 제품 사진·기존 영상·로고·핵심 문구만 있어도 릴스·쇼츠용 AI 숏폼으로 구성합니다. 자료가 부족하면 필요한 사진 기준을 먼저 안내드립니다.",
+    },
+    {
+        "q": "수정은 가능한가요?",
+        "a": "합의된 범위 안에서 수정이 포함됩니다. 톤·문구·구성을 먼저 확정하고 제작해 큰 수정이 생기지 않도록 진행합니다.",
+    },
+    {
+        "q": "어떻게 시작하나요?",
+        "a": "원하는 결과물, 보유 자료, 희망 일정만 적어 보내주시면 작업 가능 범위와 다음 단계를 회신드립니다. 계약 전 상담은 부담 없습니다.",
+    },
+    {
+        "q": "제주 외 지역도 가능한가요?",
+        "a": "홈페이지·영상·콘텐츠 제작은 전국 온라인으로 진행합니다. 현장 촬영·드론은 일정과 지역을 협의해 진행합니다.",
+    },
+]
+
+ROUTE_FAQ_EXTRA = {
+    "homepage": [
+        {
+            "q": "제작 후 수정과 관리도 가능한가요?",
+            "a": "런칭 후에도 문구·이미지 수정과 간단한 운영 관리를 이어서 도와드립니다. 관리 범위는 상담 때 함께 정합니다.",
+        }
+    ],
+    "ai-shortform": [
+        {
+            "q": "촬영 없이 보유 자료만으로도 가능한가요?",
+            "a": "네. 제품 사진·기존 영상·콘셉트만 있어도 숏폼 광고 소재로 구성합니다. 추가 촬영이 필요하면 따로 안내드립니다.",
+        }
+    ],
+    "brand-film": [
+        {
+            "q": "촬영 없이 보유 자료만으로도 가능한가요?",
+            "a": "네. 기존 영상·사진·로고 자료로도 구성 가능하며, 현장 촬영이 필요하면 일정을 협의합니다.",
+        }
+    ],
+    "drone": [
+        {
+            "q": "드론 촬영 허가·안전은 어떻게 처리하나요?",
+            "a": "비행 가능 구역과 허가 여부를 사전에 확인하고 안전 규정에 맞춰 촬영합니다. 지역·일정은 상담 때 함께 점검합니다.",
+        }
+    ],
+    "wedding": [
+        {
+            "q": "얼굴 노출이 부담스러운데 괜찮나요?",
+            "a": "디테일·실루엣·뒷모습 중심의 무드 편집으로 진행할 수 있습니다. 공개 범위를 먼저 협의합니다.",
+        }
+    ],
+    "content": [
+        {
+            "q": "꾸준한 콘텐츠 운영도 도와주나요?",
+            "a": "단건 제작뿐 아니라 카드뉴스·릴스 정기 운영 구성도 상담 가능합니다.",
+        }
+    ],
+}
+
+
 def faq_items(page):
-    service = page["service"]
-    return [
-        {
-            "q": "자료가 부족해도 상담할 수 있나요?",
-            "a": f"가능합니다. {service}에 필요한 사진, 링크, 문구, 참고 사례가 부족해도 현재 가진 자료를 기준으로 먼저 범위를 정리합니다.",
-        },
-        {
-            "q": "처음 문의할 때 무엇을 보내면 좋나요?",
-            "a": "원하는 결과물, 현재 가지고 있는 자료, 희망 일정, 참고 링크나 업종 정보만 보내주시면 됩니다.",
-        },
-        {
-            "q": "제작 범위는 어떻게 정하나요?",
-            "a": "상담 후 필요한 결과물과 우선순위를 먼저 나누고, 실제 제작에 필요한 범위와 진행 순서를 정리합니다.",
-        },
-    ]
+    return COMMON_FAQ + ROUTE_FAQ_EXTRA.get(page["slug"], [])
 
 
 def fallback_for(page, asset_prefix):
@@ -202,6 +261,7 @@ def schema_for(page):
         "alternateName": "비디오 로스터리",
         "url": DOMAIN,
         "logo": f"{DOMAIN}/assets/symbol.png",
+        "sameAs": ["https://www.youtube.com/@VideoRoastery-m9g"],
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer support",
@@ -243,6 +303,16 @@ def schema_for(page):
                 "areaServed": {"@type": "Country", "name": "KR"},
                 "url": canonical,
                 "image": f"{DOMAIN}/assets/{page['og']}",
+            }
+        )
+        graph.append(
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{canonical}#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "홈", "item": f"{DOMAIN}/"},
+                    {"@type": "ListItem", "position": 2, "name": page["service"], "item": canonical},
+                ],
             }
         )
         graph.append(
@@ -335,6 +405,11 @@ def write_sitemap():
         f"  <url><loc>{DOMAIN}{page['url']}</loc><changefreq>weekly</changefreq><priority>{'1.0' if page['slug'] == '' else '0.8'}</priority></url>"
         for page in PAGES
     ]
+    page_urls.append(f"  <url><loc>{DOMAIN}/estimate/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>")
+    page_urls.append(f"  <url><loc>{DOMAIN}/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>")
+    page_urls.append(f"  <url><loc>{DOMAIN}/en/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
+    page_urls.append(f"  <url><loc>{DOMAIN}/zh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
+    page_urls.append(f"  <url><loc>{DOMAIN}/zh-hant/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
     page_urls.append(f"  <url><loc>{DOMAIN}/privacy/</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>")
     urls = "\n".join(page_urls)
     (ROOT / "sitemap.xml").write_text(

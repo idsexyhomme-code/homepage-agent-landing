@@ -10,3 +10,5 @@ visual_*.png
 scripts/
 .DS_Store
 *.log
+_overnight/
+youtube-uploader/
