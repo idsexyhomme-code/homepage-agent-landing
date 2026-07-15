@@ -258,7 +258,7 @@ const portfolioWallItems = [
   ["portfolio_wedding_beach_privacy.jpg", "wedding", "WEDDING", "해변 무드 컷", "wedding"],
   ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"],
   ["portfolio_drone_wedding_wide.jpg", "wedding", "WEDDING", "웨딩 항공 와이드", "wedding"],
-  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "제주 웨딩 스냅", "wedding"],
+  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "웨딩 스냅 · Wedding", "wedding"],
 ].map(([image, category, label, title, slug, size = ""]) => ({
   image,
   category,
@@ -467,18 +467,18 @@ function mainPage() {
     layout: "editorial",
     heroRich: true,
     badge: "Video Roastery",
-    kicker: "Video Roastery Studio",
+    kicker: "Vancouver · Video Roastery Studio",
     intro: "작업물을 먼저 보고,<br>필요한 제작만 고릅니다.",
     prefix: "저희는,",
     title: "홈페이지·영상·콘텐츠를<br>문의로 이어지게 만듭니다.",
-    lead: "제주 촬영부터 전국 온라인 제작까지, 보유 자료를 보고 필요한 제작 범위와 견적 방향을 먼저 안내합니다.",
+    lead: "밴쿠버에서, 제주에서 시작한 팀이 만듭니다. 보유 자료를 보고 필요한 제작 범위와 견적을 먼저 안내합니다.<br><span lang='en'>Vancouver-based, born in Jeju — send what you have and we'll scope it with a quote first.</span>",
     heroVideo: "live_hero.mp4",
     heroImage: "logo.png",
     cta: "견적 문의",
     primaryHref: "#contact",
     secondaryCta: "작업 사례 보기",
     secondaryHref: "#portfolio-hub",
-    trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
+    trustItems: ["밴쿠버·제주 촬영 · Vancouver & Jeju", "원격 제작 상담 · Remote-friendly", "작업 범위 확인 후 진행 · Scoped first"],
     showcase: [
       ["portfolio_drone_night_exterior_clean.jpg", "야간 외관"],
       ["portfolio_web_regional_brand.png", "브랜드 화면"],
@@ -525,7 +525,7 @@ function mainPage() {
         <ul class="proof-bar" aria-label="실적 요약">
           <li><strong>40+</strong><span>실제 제작 영상</span></li>
           <li><strong>10곳</strong><span>운영 중 라이브 사이트</span></li>
-          <li><strong>제주</strong><span>현장 촬영·드론</span></li>
+          <li><strong>제주·밴쿠버</strong><span>현장·드론 / On-site</span></li>
           <li><strong>8</strong><span>제작 분야</span></li>
         </ul>
         ${portfolioWall(homeWallItems, "featured-wall")}
@@ -962,7 +962,7 @@ const faqItems = [
   ["비용은 어떻게 책정되나요?", "간단 제작 / 표준 제작 / 촬영 포함 제작 3단계로 먼저 안내합니다. 정확한 금액은 보유 자료와 범위를 보고 산정하며, 예산 범위를 알려주시면 가능한 구성과 제외할 항목을 함께 회신합니다."],
   ["수정은 가능한가요?", "합의된 범위 안에서 수정이 포함됩니다. 톤·문구·구성을 먼저 확정하고 제작해 큰 수정이 생기지 않도록 진행합니다."],
   ["어떻게 시작하나요?", "원하는 결과물, 보유 자료, 희망 일정만 적어 보내주시면 작업 가능 범위와 다음 단계를 회신드립니다. 계약 전 상담은 부담 없습니다."],
-  ["제주 외 지역도 가능한가요?", "홈페이지·영상·콘텐츠 제작은 전국 온라인으로 진행합니다. 현장 촬영·드론은 일정과 지역을 협의해 진행합니다."]
+  ["밴쿠버·제주 외 지역도 가능한가요? / Outside Vancouver or Jeju?", "홈페이지·영상·콘텐츠는 원격 온라인으로 전 세계 진행합니다. 현장 촬영·드론은 일정·지역을 협의합니다. / Web, video & content are produced remotely worldwide; on-site shoots by arrangement."]
 ];
 
 // 서비스별 추가 FAQ — 각 페이지의 핵심 구매 불안을 직접 해소
@@ -1035,11 +1035,11 @@ function detailPage(route) {
           <h2>${route.nav} 문의하기</h2>
           ${route.slug === "consulting" ? `
           <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
-          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
+          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 라이브 사이트 · 밴쿠버·제주 촬영 · 원격 상담 / 40+ videos · Vancouver & Jeju · remote-friendly</p>
           ${consultForm()}
           ` : `
           <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정을 회신합니다.</p>
-          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
+          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 라이브 사이트 · 밴쿠버·제주 촬영 · 원격 상담 / 40+ videos · Vancouver & Jeju · remote-friendly</p>
           <div class="contact-actions single">
             <a class="btn primary" href="${inquiryHref}">${route.cta}</a>
           </div>
@@ -1115,7 +1115,7 @@ function footer() {
     <footer>
       <strong>Video Roastery</strong>
       <span>홈페이지·영상·촬영·자동화 제작 상담</span>
-      <span>제주 촬영 중심 · 온라인 제작 전국 상담 · 상담폼 우선 접수</span>
+      <span>밴쿠버·제주 촬영 · 원격 제작 상담 / Vancouver · born in Jeju · remote-friendly</span>
       <a href="${routeHref("privacy")}">개인정보처리방침</a>
     </footer>
   `;
