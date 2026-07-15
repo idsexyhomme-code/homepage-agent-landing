@@ -122,25 +122,30 @@ const routes = [
 ];
 
 const routeBySlug = Object.fromEntries(routes.map((route) => [route.slug, route]));
+// 코어(VR 상업 영상·웹 제작 정체성) / 운영 지원 / 기록·추억(웨딩·리마인드=그 외 서비스)
 const coreServiceSlugs = [
   "homepage",
+  "brand-film",
   "ai-shortform",
   "drone",
   "content",
   "inquiry-agent"
 ];
-const supportServiceSlugs = [
-  "brand-film",
-  "consulting",
+const opsServiceSlugs = [
+  "consulting"
+];
+const alsoServiceSlugs = [
   "wedding"
 ];
 const serviceOrder = [
   ...coreServiceSlugs,
-  ...supportServiceSlugs
+  ...opsServiceSlugs,
+  ...alsoServiceSlugs
 ];
 const displayRoutes = serviceOrder.map((slug) => routeBySlug[slug]).filter(Boolean);
 const coreRoutes = coreServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
-const supportRoutes = supportServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
+const opsRoutes = opsServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
+const alsoRoutes = alsoServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
 const routeLabels = {
   homepage: ["WEB", "홈페이지 제작"],
   drone: ["DRONE", "드론 항공촬영"],
@@ -444,13 +449,16 @@ function asset(name) {
   return `${basePath}/assets/${name}`;
 }
 
-const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_aesop.jpg":[720,1290],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/video_03.jpg":[540,960],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/ai_soil.jpg":[720,1290],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136]};
+const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_aesop.jpg":[720,1290],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/video_03.jpg":[540,960],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/ai_soil.jpg":[720,1290],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136]};
 function pic(name, opts) {
   opts = opts || {};
   var meta = imgMeta[name];
-  var cls = opts.cls ? ' class="' + opts.cls + '"' : "";
   var alt = opts.alt || "";
   var loading = opts.loading || "lazy";
+  // 프리미엄 로드 페이드인 — lazy 콘텐츠 이미지만(eager=브랜드로고·히어로·above-fold는 즉시노출).
+  var classes = opts.cls || "";
+  if (loading !== "eager") classes += (classes ? " " : "") + "pic-fade";
+  var cls = classes ? ' class="' + classes + '"' : "";
   var sizes = opts.sizes ? ' sizes="' + opts.sizes + '"' : "";
   var wh = meta ? ' width="' + meta[0] + '" height="' + meta[1] + '"' : "";
   var img = '<img' + cls + ' src="' + asset(name) + '"' + wh + ' alt="' + alt + '" loading="' + loading + '" decoding="async"' + sizes + ' />';
@@ -482,6 +490,31 @@ function nav(variant) {
       <nav class="nav" aria-label="서비스 메뉴">${items}${langSwitch("ko")}</nav>
     </header>
   `;
+}
+
+// 상세페이지 히어로 고스트 텍스트(en/zh/estimate 톤과 통일 — 짧은 영문 한 단어).
+const heroStatements = {
+  homepage: "WEBSITE",
+  "inquiry-agent": "INQUIRY",
+  "ai-shortform": "SHORTFORM",
+  "brand-film": "FILM",
+  drone: "AERIAL",
+  wedding: "WEDDING",
+  content: "CONTENT",
+  consulting: "CONSULTING"
+};
+
+// 히어로 영상월 — 줄마다 '완전히 다른' 큐레이션 컷(줄 간 중복 0)으로 반복감 제거. 검증된 hero_wall/loops webp.
+const heroWallRows = [
+  ["hero_loops/loop_01.webp","hero_wall/hw_07.webp","hero_wall/food_meat_clean.webp","hero_wall/hw_29.webp","hero_wall/corp_tower_clean.webp","hero_wall/hw_03.webp","hero_wall/product_ingredients.webp","hero_wall/hw_24.webp","hero_wall/hw_26.webp"],
+  ["hero_wall/hw_10.webp","hero_wall/hw_18.webp","hero_loops/loop_06.webp","hero_wall/hw_04.webp","hero_wall/hw_05_clean.webp","hero_wall/hw_11.webp","hero_loops/loop_08.webp","hero_wall/hw_23.webp","hero_wall/hw_02.webp"],
+  ["hero_wall/hw_30.webp","hero_wall/hw_20.webp","hero_wall/hw_08.webp","hero_loops/loop_05.webp","hero_wall/hw_21.webp","hero_loops/loop_02.webp","hero_wall/hw_06.webp","hero_loops/loop_03.webp","hero_loops/loop_07.webp"]
+];
+function heroWallHtml() {
+  const tile = (pth, primary) => `<img class="en-tile" src="${asset(pth)}" alt="" loading="eager" decoding="async"${primary ? ' fetchpriority="high"' : ""} width="480" height="270" />`;
+  // 첫 행 첫 타일만 fetchpriority=high — head의 preload와 짝지어 LCP 조기 발견.
+  const row = (arr, first) => `<div class="en-wall-row">${arr.map((p, i) => tile(p, first && i === 0)).join("")}${arr.map((p) => tile(p)).join("")}</div>`;
+  return `<div class="en-hero-wall" aria-hidden="true">${heroWallRows.map((r, i) => row(r, i === 0)).join("")}</div>`;
 }
 
 function hero(route) {
@@ -517,9 +550,33 @@ function hero(route) {
       <div class="hero-wall__rows">
         ${rows.map((r, i) => rowHtml(r, i % 2 === 0 ? "left" : "right")).join("")}
       </div>
+      <div class="hero-wall__reel-wrap">
+        <a class="reel-cta reel-cta--light" href="${secondaryHref}" data-reel-open="ko" aria-haspopup="dialog">WATCH<br>REEL ▶</a>
+      </div>
       <div class="hero-wall__cta">
         <a class="hero-wall__more" href="${secondaryHref}">작업 사례 전체 보기</a>
         <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+      </div>
+    </section>`;
+  }
+
+  // 서비스 상세페이지(비 editorial) — /en//zh//estimate 와 통일된 클린 타이포 히어로(.estimate-hero 재사용,
+  // 신규 CSS 0). 사진/영상 배경·URL 알약·칩을 걷어내고 고스트텍스트+골드키커+대형 h1+CTA+신뢰줄로 통일.
+  if (!isEditorial) {
+    const detailKicker = (routeDetails[route.slug] && routeDetails[route.slug].kicker) || route.nav;
+    const statement = heroStatements[route.slug] || String(detailKicker).toUpperCase();
+    return `
+    <section class="section estimate-hero">
+      <div class="estimate-hero-inner">
+        <span class="section-statement" aria-hidden="true">${statement}</span>
+        <p class="section-kicker">${detailKicker}</p>
+        <h1>${route.title}</h1>
+        <p class="estimate-lead">${route.lead}</p>
+        <div class="estimate-cta-row">
+          <a class="btn primary" href="${primaryHref}">${route.cta}</a>
+          <a class="btn secondary dark" href="${secondaryHref}">${secondaryCta}</a>
+        </div>
+        <p class="estimate-trust">${trustItems.join(" · ")}</p>
       </div>
     </section>`;
   }
@@ -595,13 +652,12 @@ function estimateSlip(i) {
 }
 
 function estimatePage() {
-  const wall = Array.from({ length: 160 }, (_, i) => estimateSlip(i)).join("");
   const steps = [
     ["01", "자료 보내기", "보유한 제품컷·로고·참고 영상과 원하는 결과물을 보내주세요. 촬영 없이 사진만 있어도 됩니다."],
     ["02", "범위 확인", "받은 자료로 필요한 제작 범위와 일정을 정리합니다. 궁금한 점은 카톡·메일로 먼저 여쭤봐요."],
     ["03", "맞춤 견적서 회신", "프로젝트에 맞춘 구성·범위·일정이 담긴 견적서를 보내드립니다. 고정가가 아니라 딱 필요한 만큼."],
     ["04", "제작 시작", "확정되면 바로 제작에 들어갑니다. 수정도 협의된 횟수 안에서 함께 맞춰갑니다."]
-  ].map(([n, t, d]) => `<li class="estimate-step"><span class="estimate-step-no">${n}</span><div><strong>${t}</strong><p>${d}</p></div></li>`).join("");
+  ].map(([n, t, d]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
   const factors = [
     ["제작 범위", "편수·길이·버전(자막/무자막/채널별 리사이즈) 수에 따라 달라집니다."],
     ["촬영 여부", "제주 현장 촬영·드론이 필요한지, 보유 자료만으로 가능한지에 따라 나뉩니다."],
@@ -609,69 +665,49 @@ function estimatePage() {
     ["납기", "일반 일정인지 급한 일정인지에 따라 조정될 수 있습니다."],
     ["수정 횟수", "필요한 수정 라운드 수를 미리 협의해 반영합니다."],
     ["사용 범위", "SNS·광고·상업적 사용 범위에 따라 안내가 달라질 수 있습니다."]
-  ].map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
+  ].map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
   return `
-    ${nav()}
-    <main id="main" class="estimate-page">
-      <section class="section estimate-hero">
-        <div class="estimate-hero-inner">
-          <span class="section-statement" aria-hidden="true">QUOTE</span>
-          <p class="section-kicker">견적 안내</p>
-          <h1>맞춤 견적서로 회신드립니다</h1>
-          <p class="estimate-lead">홈페이지에 고정 가격을 적어두지 않습니다. 보유 자료와 원하는 결과물만 보내주시면, 필요한 제작 범위를 확인해 프로젝트에 딱 맞는 견적서를 보내드립니다.</p>
-          <div class="estimate-cta-row">
-            <a class="btn primary" href="#estimate-form">견적 요청하기</a>
-            ${kakaoUrl ? `<a class="btn secondary dark" href="${kakaoUrl}" target="_blank" rel="noopener">카카오톡으로 먼저 물어보기</a>` : ""}
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="#estimate-form">견적 요청</a><a href="${routeHref("about")}">회사소개</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">견적 안내</p>
+          <h1 class="en-detail-h1">맞춤 견적서로 회신드립니다</h1>
+          <p class="en-detail-lead">홈페이지에 고정 가격을 적어두지 않습니다. 보유 자료와 원하는 결과물만 보내주시면, 필요한 제작 범위를 확인해 프로젝트에 딱 맞는 견적서를 보내드립니다.</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="#estimate-form">견적 요청하기 ↗</a>
+            ${kakaoUrl ? `<a class="en-detail-link" href="${kakaoUrl}" target="_blank" rel="noopener">카카오톡으로 먼저 물어보기</a>` : ""}
           </div>
-          <p class="estimate-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 견적 무료</p>
-        </div>
-      </section>
+        </section>
 
-      <section class="section estimate-proof">
-        <div class="section-head"><div>
-          <p class="section-kicker">Estimates</p>
-          <h2>규모·업종별로, 맞춤 견적서를 드립니다</h2>
-          <p class="section-sub">개인 소상공인부터 기관·기업까지 — 프로젝트마다 범위가 달라 정찰가 대신 맞춤 견적으로 안내합니다. 실제 견적서는 고객 정보 보호를 위해 흐리게 표시했습니다.</p>
-        </div></div>
-        <div class="estimate-wall-frame">
-          <div class="estimate-wall" aria-hidden="true">${wall}</div>
-          <div class="estimate-wall-cta"><a class="btn primary" href="#estimate-form">내 프로젝트 견적 받기</a></div>
-        </div>
-      </section>
+        <section class="en-services">
+          <div class="en-sec-head"><span>견적 절차</span><span>(04)</span></div>
+          <div class="en-svc-list">${steps}</div>
+        </section>
 
-      <section class="section estimate-how">
-        <div class="section-head"><div>
-          <p class="section-kicker">How it works</p>
-          <h2>견적, 이렇게 나갑니다</h2>
-        </div></div>
-        <ol class="estimate-steps">${steps}</ol>
-      </section>
+        <section class="en-services">
+          <div class="en-sec-head"><span>견적에 영향을 주는 것</span><span>(06)</span></div>
+          <div class="en-svc-list">${factors}</div>
+        </section>
 
-      <section class="section estimate-factors-sec">
-        <div class="section-head"><div>
-          <p class="section-kicker">What affects the quote</p>
-          <h2>견적에 영향을 주는 것</h2>
-          <p class="section-sub">아래 조건에 따라 구성과 견적이 달라집니다. 자료 주시면 이 기준으로 정리해 드려요.</p>
-        </div></div>
-        <div class="estimate-factor-grid">${factors}</div>
-      </section>
-
-      ${testimonialsSection()}
-
-      <section class="section tight" id="estimate-form">
-        <div class="cta-band has-form">
-          <h2>견적 요청하기</h2>
-          <p class="cta-note">보유 자료와 원하는 결과물만 적어주시면, 제작 범위·일정을 확인해 맞춤 견적서로 회신드립니다.</p>
-          <p class="contact-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 40+ 실제 제작 영상</p>
-          ${quoteForm()}
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <a class="brand" href="${routeHref()}">${pic("symbol.png", { alt: "Video Roastery", loading: "lazy" })}<span>Video Roastery</span></a>
-      <p>제주 촬영 중심 · 온라인 제작 전국 상담 · 문의 양식 우선 접수</p>
-      <a href="${routeHref("privacy")}">개인정보처리방침</a>
-    </footer>
+        <section class="section tight en-form-sec" id="estimate-form">
+          <div class="cta-band has-form">
+            <h2>견적 요청하기</h2>
+            <p class="cta-note">보유 자료와 원하는 결과물만 적어주시면, 제작 범위·일정을 확인해 맞춤 견적서로 회신드립니다.</p>
+            <p class="contact-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 40+ 실제 제작 영상</p>
+            ${quoteForm()}
+          </div>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
   `;
 }
 
@@ -680,124 +716,208 @@ function aboutPage() {
     ["실제 작업물로 이야기합니다", "말보다 만든 결과물을 먼저 보여드려요. 포트폴리오를 보고 판단하실 수 있습니다."],
     ["고정가를 붙이지 않습니다", "필요한 것만 골라 딱 맞는 견적을 드려요. 예산을 알려주시면 그 안에서 맞춰드립니다."],
     ["끝까지 함께합니다", "제주 현장은 직접 찾아가고, 전국은 온라인으로. 만들고 끝이 아니라 문의가 도착하는 데까지 챙깁니다."]
-  ].map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
+  ].map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
   const services = displayRoutes
-    .map((r) => `<a class="estimate-factor" href="${routeHref(r.slug)}"><strong>${r.nav}</strong><p>${r.title}</p></a>`)
+    .map((r, i) => `<a class="en-svc" href="${routeHref(r.slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${r.nav}</span><span class="en-svc-d">${r.title}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`)
     .join("");
   return `
-    ${nav()}
-    <main id="main" class="about-page">
-      <section class="section estimate-hero">
-        <div class="estimate-hero-inner">
-          <span class="section-statement" aria-hidden="true">ABOUT</span>
-          <p class="section-kicker">회사소개</p>
-          <h1>비디오 로스터리, 이런 회사예요</h1>
-          <p class="estimate-lead">제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 가게는 좋은데 온라인에서는 그 매력이 다 안 보이는 곳이 많아요. 사장님이 가진 이야기와 자료를, 손님이 믿고 문의하고 싶은 형태로 바꿔드립니다.</p>
-          <div class="estimate-cta-row">
-            <a class="btn primary" href="${routeHref()}#portfolio-hub">작업 사례 보기</a>
-            <a class="btn secondary dark" href="${routeHref("estimate")}">견적 문의하기</a>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="#services">서비스</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">회사소개</p>
+          <h1 class="en-detail-h1">비디오 로스터리, 이런 회사예요</h1>
+          <p class="en-detail-lead">제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 가게는 좋은데 온라인에서는 그 매력이 다 안 보이는 곳이 많아요. 사장님이 가진 이야기와 자료를, 손님이 믿고 문의하고 싶은 형태로 바꿔드립니다.</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
+            <a class="en-detail-link" href="${routeHref()}#work">작업 사례 보기</a>
           </div>
-          <p class="estimate-trust">홈페이지·영상·드론·AI 숏폼·콘텐츠 · 제주 현장 + 전국 온라인 · 보통 1~4주</p>
-        </div>
-      </section>
+        </section>
 
-      <section class="section">
-        <div class="section-head"><div>
-          <p class="section-kicker">How we work</p>
-          <h2>일하는 방식</h2>
-        </div></div>
-        <div class="estimate-factor-grid">${ways}</div>
-      </section>
+        <section class="en-services">
+          <div class="en-sec-head"><span>일하는 방식</span><span>(03)</span></div>
+          <div class="en-svc-list">${ways}</div>
+        </section>
 
-      <section class="section">
-        <div class="section-head"><div>
-          <p class="section-kicker">What we make</p>
-          <h2>무엇을 만드나요</h2>
-          <p class="section-sub">필요한 제작을 한 곳에서. 각 항목을 눌러 실제 작업과 상담 안내를 보실 수 있어요.</p>
-        </div></div>
-        <div class="estimate-factor-grid">${services}</div>
-      </section>
+        <section class="en-services" id="services">
+          <div class="en-sec-head"><span>무엇을 만드나요</span></div>
+          <div class="en-svc-list">${services}</div>
+        </section>
 
-      ${testimonialsSection()}
-
-      <section class="section tight" id="contact">
-        <div class="cta-band cta-dark">
-          <h2>제작이 필요하시면, 편하게 말 거세요</h2>
-          <p class="cta-note">보유 자료와 원하는 결과물만 알려주시면, 딱 맞는 범위와 견적으로 정직하게 회신드립니다.</p>
-          <p class="contact-trust">크몽 실거래 ★4.5 후기·재구매 · 제주 현장 촬영 · 전국 온라인 상담</p>
-          <div class="contact-actions single">
-            <a class="btn primary" href="${routeHref("estimate")}">견적 문의하기</a>
-            ${kakaoUrl ? `<a class="btn secondary" href="${kakaoUrl}" target="_blank" rel="noopener">카카오톡으로 물어보기</a>` : ""}
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <a class="brand" href="${routeHref()}">${pic("symbol.png", { alt: "Video Roastery", loading: "lazy" })}<span>Video Roastery</span></a>
-      <p>제주 촬영 중심 · 온라인 제작 전국 상담 · 문의 양식 우선 접수</p>
-      <a href="${routeHref("privacy")}">개인정보처리방침</a>
-    </footer>
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">문의</p>
+          <h2 class="en-cta-h">제작이 필요하시면, 편하게 말 거세요.</h2>
+          <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
+          <p class="en-cta-note">보유 자료와 원하는 결과물만 알려주시면, 딱 맞는 범위와 견적으로 정직하게 회신드립니다.</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
   `;
 }
 
+// 리메모리 — 옛 사진 복원·리마인드 앨범(비디오 로스터리 산하 서비스). VR 디자인 시스템 재사용(신규 CSS 0).
+function rememoryPage() {
+  const svc = (arr) => arr.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  const occasions = svc([
+    ["금혼식·회혼례", "50·60년을 함께하신 두 분께, 그날의 결혼사진을 되살려 드립니다."],
+    ["칠순·회갑·생신", "빛바랜 젊은 날의 사진 한 장이, 가장 따뜻한 선물이 됩니다."],
+    ["영정·추억 복원", "돌아가신 분의 사진도 인상과 표정을 그대로 지켜 조심스럽게 복원합니다."]
+  ]);
+  const steps = svc([
+    ["사진 보내기", "스튜디오 방문·촬영 없이, 가진 옛 사진을 휴대폰으로 찍거나 스캔해 보내주시면 됩니다. 거동이 불편하신 부모님도 부담 없어요."],
+    ["복원 + 사람 검수", "스크래치·찢김·얼룩·흐림·변색을 복원하고, 흑백사진은 자연스러운 컬러로. 사람이 한 장씩 원본의 닮음을 지켜 검수합니다."],
+    ["파일 또는 실물로", "고해상도 디지털 파일로, 또는 고급 인화 액자·미니 앨범 실물로 받아보세요."]
+  ]);
+  const plans = svc([
+    ["기본 복원 · ₩19,000/장", "흐림·스크래치·찢김·얼룩·변색 복원과 화질 선명화. 고해상도 디지털 파일로 드립니다."],
+    ["컬러 복원 + 리마인드 · ₩49,000 · 가장 인기", "기본 복원 전체 + 흑백→자연스러운 컬러 복원 + 얼굴 선명 복원(닮음 검수) + 예복 리마인드 재현 컷 1종(옵션)."],
+    ["선물 패키지(실물) · ₩99,000~", "금혼식·칠순 선물용. 3~5장 컬러 복원 + 고급 인화 액자 또는 미니 앨범 + 선물 포장·택배 배송 + 기념 문구 삽입(옵션)."]
+  ]);
+  const faqData = [
+    ["촬영을 다시 해야 하나요?", "아니요. 스튜디오 방문·촬영 없이, 가지고 계신 옛 사진을 휴대폰으로 찍거나 스캔해 보내주시면 됩니다. 거동이 불편하신 부모님도 부담이 없습니다."],
+    ["많이 손상되고 빛바랜 사진도 복원되나요?", "네. 스크래치·찢김·얼룩·흐림·변색을 복원하고, 흑백사진은 자연스러운 컬러로 되살립니다. 상태가 심한 사진은 먼저 무료로 확인 후 가능 여부를 알려드립니다."],
+    ["AI 무료 앱이랑 뭐가 다른가요?", "무료 앱은 얼굴을 임의로 바꿔 ‘다른 사람’처럼 되는 경우가 많습니다. 리메모리는 원본 인물의 닮음을 지키는 것을 원칙으로, 사람이 한 장 한 장 검수합니다."],
+    ["돌아가신 부모님·조부모님 사진도 되나요?", "네. 영정사진 복원·제작도 조심스럽게 도와드립니다. 원본의 인상과 표정을 최대한 그대로 지켜 복원합니다."],
+    ["액자나 앨범 실물로도 받을 수 있나요?", "네. 복원한 사진을 고급 인화 액자·미니 앨범으로 제작해 택배로 보내드립니다. 금혼식·칠순·어버이날 선물로 많이 찾으십니다."],
+    ["얼마나 걸리나요?", "디지털 복원본은 보통 2~3일 내, 액자·앨범 실물은 제작·배송 포함 5~7일 내 받으실 수 있습니다."]
+  ];
+  const faqs = faqData.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  const mailHref = `mailto:${consultEmail}?subject=${encodeURIComponent("리메모리 사진 복원 문의 — Video Roastery")}`;
+
+  return `
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="#plans">가격</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">리메모리 · 옛 사진 복원</p>
+          <h1 class="en-detail-h1">빛바랜 그날의 사진을, 다시 손에 쥐어 드립니다</h1>
+          <p class="en-detail-lead">촬영 없이 사진만 보내주세요. 스크래치·흐림·변색을 복원하고, 흑백사진은 자연스러운 컬러로 되살립니다. 무료 앱과 달리 사람이 한 장씩 검수해 원본의 닮음을 지킵니다. 금혼식·칠순·어버이날, 부모님께 드리는 가장 따뜻한 선물.</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${mailHref}">무료로 복원 확인받기 ↗</a>
+            <a class="en-detail-link" href="#plans">가격 보기</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>복원 전 / 후</span></div>
+          <div class="rememory-ba">
+            <figure class="ba-item"><span class="ba-tag">복원 전</span>${pic("rememory_before.jpg", { alt: "복원 전 — 빛바랜 옛 가족사진 예시" })}</figure>
+            <figure class="ba-item"><span class="ba-tag ba-tag--after">복원 후</span>${pic("rememory_after.jpg", { alt: "복원 후 — 자연스러운 컬러로 되살린 가족사진 예시" })}</figure>
+          </div>
+          <p class="ba-note">복원 예시 이미지입니다 · 실제 결과는 원본 사진의 상태에 따라 달라집니다.</p>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>이런 날에</span><span>(03)</span></div>
+          <div class="en-svc-list">${occasions}</div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>진행 방법</span><span>(03)</span></div>
+          <div class="en-svc-list">${steps}</div>
+        </section>
+
+        <section class="en-services">
+          <div class="rememory-scene-wrap">${pic("rememory_scene.jpg", { alt: "복원한 사진을 담은 액자와 리마인드 앨범, 따뜻한 실물 결과물" })}</div>
+        </section>
+
+        <section class="en-services" id="plans">
+          <div class="en-sec-head"><span>가격 안내</span><span>(03)</span></div>
+          <div class="en-svc-list">${plans}</div>
+          <p class="en-cta-note" style="margin-top:16px;max-width:60ch;text-align:left">먼저 무료로 복원 가능 여부를 확인해 드려요. 결과가 마음에 드실 때만 결제하세요. 가격은 예시이며 사진 상태·수량·실물 옵션에 따라 조정됩니다.</p>
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>자주 묻는 질문</span><span>FAQ</span></div>
+          <div class="en-faq">${faqs}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">문의</p>
+          <h2 class="en-cta-h">먼저, 사진 한 장 보여주세요.</h2>
+          <a class="en-cta-btn" href="${mailHref}">무료로 복원 확인받기 ↗</a>
+          <p class="en-cta-note">복원 가능 여부와 예상 결과를 무료로 확인해 드립니다. 옛 사진을 휴대폰으로 찍어 보내주시면 됩니다.</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 리메모리 · 옛 사진 복원·리마인드 앨범</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
+// 영문/해외(캐나다)용 페이지 — BASIC/DEPT 스타일(모노크롬·그로테스크·여백·영상 히어로). 스코프 CSS는 .en-*.
 function enPage() {
   const services = [
-    ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert."],
-    ["Brand & Corporate Film", "Company and brand stories told in the order people actually understand them."],
+    ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them."],
     ["Drone & Aerial", "The scale, flow and mood of a place — resorts, farms, facilities, coastline."],
-    ["AI Short-form Ads", "Reels & shorts built from your product photos — no shoot, no models needed."],
+    ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed."],
+    ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert."],
     ["Wedding Film", "Natural, detail-first records, with a light touch on privacy."],
-    ["Content & Automation", "Card news, reels, and inquiry automation that keep working after launch."]
-  ].map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
-  const why = [
-    ["We show, then talk", "We lead with real work — you see it first, then decide what you need."],
-    ["Scoped to you", "No fixed price tags. We shape each quote around what your project actually needs."],
-    ["Jeju on-site, worldwide online", "On location in Jeju, South Korea — and remote production anywhere."]
-  ].map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
+    ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch."]
+  ].map(([t, d], i) => `<a class="en-svc" href="#contact"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
+  const mail = `mailto:${consultEmail}?subject=${encodeURIComponent("Project inquiry — Video Roastery")}`;
+  // 히어로 배경: 대표 작업물 썸네일이 빠르게 흐르는 영상월(BASIC식). webp 스틸이라 초경량·안정(raw video 다수는 모바일 프리징).
+  const wall = heroWallHtml();
   return `
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="topbar">
-      <a class="brand" href="${routeHref("en")}">${pic("symbol.png", { alt: "Video Roastery", loading: "eager" })}<span>Video Roastery</span></a>
-      <nav class="nav" aria-label="menu"><a href="${routeHref()}#portfolio-hub">Work</a><a href="#contact">Contact</a>${langSwitch("en")}</nav>
-    </header>
-    <main id="main" class="about-page">
-      <section class="section estimate-hero">
-        <div class="estimate-hero-inner">
-          <span class="section-statement" aria-hidden="true">STUDIO</span>
-          <p class="section-kicker">Jeju, South Korea</p>
-          <h1>Film, video &amp; websites,<br>made in Jeju.</h1>
-          <p class="estimate-lead">Video Roastery is a Jeju-based studio crafting brand films, drone &amp; aerial, AI short-form ads, and conversion-focused websites — always consulting from real work, never templates.</p>
-          <div class="estimate-cta-row">
-            <a class="btn primary" href="${routeHref()}#portfolio-hub">See our work</a>
-            <a class="btn secondary dark" href="#contact">Start a project</a>
+    <div class="en-page">
+      <header class="en-bar">
+        <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="#work">WORK</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-hero" id="work">
+          ${wall}
+          <div class="en-hero-scrim" aria-hidden="true"></div>
+          <div class="en-hero-center">
+            <a class="en-reel" href="#work" data-reel-open="en" aria-haspopup="dialog">WATCH<br>REEL ▶</a>
+            <p class="en-reel-label">Video Roastery® · Showreel · Jeju 2019—</p>
           </div>
-          <p class="estimate-trust">Websites · Film · Drone · AI Short-form · On-site in Jeju + remote worldwide</p>
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-head"><div><p class="section-kicker">What we make</p><h2>Services</h2></div></div>
-        <div class="estimate-factor-grid">${services}</div>
-      </section>
-      <section class="section">
-        <div class="section-head"><div><p class="section-kicker">How we work</p><h2>Why Video Roastery</h2></div></div>
-        <div class="estimate-factor-grid">${why}</div>
-      </section>
-      <section class="section tight" id="contact">
-        <div class="cta-band cta-dark">
-          <h2>Have a project in mind?</h2>
-          <p class="cta-note">Tell us what you have and what you want — we'll reply with a scope and quote made for you.</p>
-          <p class="contact-trust">★4.5 verified reviews on Kmong · On-site in Jeju, Korea · Remote worldwide</p>
-          <div class="contact-actions single">
-            <a class="btn primary" href="mailto:${consultEmail}?subject=${encodeURIComponent("Project inquiry — Video Roastery")}">Email us</a>
+        </section>
+
+        <section class="en-statement">
+          <div class="en-rule"></div>
+          <div class="en-statement-grid">
+            <p class="en-statement-copy">Video Roastery is a Jeju-based studio building brand films, drone &amp; aerial, AI short-form ads, and conversion-focused websites — on location in Jeju, South Korea, and remote worldwide.</p>
+            <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <a class="brand" href="${routeHref("en")}">${pic("symbol.png", { alt: "Video Roastery", loading: "lazy" })}<span>Video Roastery</span></a>
-      <p>Jeju, South Korea · Video, film &amp; web production · Remote worldwide</p>
-      <a href="${routeHref()}">한국어</a>
-    </footer>
+        </section>
+
+        <section class="en-services" id="services">
+          <div class="en-sec-head"><span>Services</span><span>(06)</span></div>
+          <div class="en-svc-list">${services}</div>
+        </section>
+
+        <section class="en-clients">
+          <div class="en-sec-head"><span>Selected Clients</span></div>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Korean Anti-Tuberculosis Association &nbsp;·&nbsp; Jaksim Lab</p>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">Start a project</p>
+          <h2 class="en-cta-h">Tell us what you have.<br>We reply with a scope.</h2>
+          <a class="en-cta-btn" href="${mail}">Email us ↗</a>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — Jeju, South Korea · Remote worldwide</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
   `;
 }
 
@@ -805,15 +925,15 @@ function zhPage(variant) {
   const hant = variant === "hant";
   const T = hant ? {
     home: routeHref("zh-hant"), cur: "hant", skip: "跳到正文", work: "作品", contact: "聯絡",
-    kicker: "韓國 · 濟州島", h1: "影像 · 短片 · 網站，<br>源自濟州島。",
-    lead: "Video Roastery 是一家位於韓國濟州島的製作工作室，專注品牌短片、無人機航拍、AI 短影音廣告，以及以轉換為核心的網站設計——始終以真實作品為基礎溝通，絕不套用範本。",
+    kicker: "韓國 · 濟州島", h1: "影像 · 短片 · 網站，源自濟州島。",
+    lead: "Video Roastery 是一家位於韓國濟州島的製作工作室，專注品牌短片、無人機空拍、AI 短影音廣告，以及以轉換為核心的網站設計——始終以真實作品為基礎溝通，絕不套用範本。",
     seeWork: "查看作品", start: "開始專案",
     trust: "網站 · 影像 · 無人機 · AI 短影音 · 濟州島現場 + 全球遠端",
     servicesH: "服務內容", whyH: "為什麼選擇我們",
     services: [
       ["網站與著陸頁", "讓訪客轉換為諮詢的網站——第一屏就說清楚，為轉換而建。"],
       ["品牌與企業短片", "把公司與品牌故事，依觀眾真正能理解的順序講述。"],
-      ["無人機航拍", "呈現空間的規模、動線與氛圍——度假村、農場、設施、海岸線。"],
+      ["無人機空拍", "呈現空間的規模、動線與氛圍——度假村、農場、設施、海岸線。"],
       ["AI 短影音廣告", "僅用您的產品照片製作 Reels 與短影音——無需拍攝、無需模特兒。"],
       ["婚禮影像", "自然、注重細節的記錄，兼顧隱私。"],
       ["內容與自動化", "卡片新聞、Reels 與諮詢自動化，上線後持續發揮作用。"]
@@ -830,7 +950,7 @@ function zhPage(variant) {
     footer: "韓國濟州島 · 影像、短片與網站製作 · 全球遠端"
   } : {
     home: routeHref("zh"), cur: "hans", skip: "跳到正文", work: "作品", contact: "联系",
-    kicker: "韩国 · 济州岛", h1: "影像 · 短片 · 网站，<br>源自济州岛。",
+    kicker: "韩国 · 济州岛", h1: "影像 · 短片 · 网站，源自济州岛。",
     lead: "Video Roastery 是一家位于韩国济州岛的制作工作室，专注品牌短片、无人机航拍、AI 短视频广告，以及以转化为核心的网站设计——始终以真实作品为基础沟通，绝不套用模板。",
     seeWork: "查看作品", start: "开始项目",
     trust: "网站 · 影像 · 无人机 · AI 短视频 · 济州岛现场 + 全球远程",
@@ -854,280 +974,276 @@ function zhPage(variant) {
     emailBtn: "邮件联系我们", emailSubj: "项目咨询 — Video Roastery",
     footer: "韩国济州岛 · 影像、短片与网站制作 · 全球远程"
   };
-  const services = T.services.map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
-  const why = T.why.map(([t, d]) => `<div class="estimate-factor"><strong>${t}</strong><p>${d}</p></div>`).join("");
+  const services = T.services.map(([t, d], i) => `<a class="en-svc" href="#contact"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
+  const why = T.why.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  const wall = heroWallHtml();
+  const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(T.emailSubj)}`;
   return `
     <a class="skip-link" href="#main">${T.skip}</a>
-    <header class="topbar">
-      <a class="brand" href="${T.home}">${pic("symbol.png", { alt: "Video Roastery", loading: "eager" })}<span>Video Roastery</span></a>
-      <nav class="nav" aria-label="menu"><a href="${routeHref()}#portfolio-hub">${T.work}</a><a href="#contact">${T.contact}</a>${langSwitch(T.cur)}</nav>
-    </header>
-    <main id="main" class="about-page">
-      <section class="section estimate-hero">
-        <div class="estimate-hero-inner">
-          <span class="section-statement" aria-hidden="true">STUDIO</span>
-          <p class="section-kicker">${T.kicker}</p>
-          <h1>${T.h1}</h1>
-          <p class="estimate-lead">${T.lead}</p>
-          <div class="estimate-cta-row">
-            <a class="btn primary" href="${routeHref()}#portfolio-hub">${T.seeWork}</a>
-            <a class="btn secondary dark" href="#contact">${T.start}</a>
+    <div class="en-page basic-zh">
+      <header class="en-bar">
+        <a class="en-wm" href="${T.home}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="#work">${T.work}</a><a href="#services">${T.servicesH}</a><a href="#contact">${T.contact}</a><span class="en-lang">${langSwitch(T.cur)}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-hero" id="work">
+          <h1 class="sr-only">${T.h1}</h1>
+          ${wall}
+          <div class="en-hero-scrim" aria-hidden="true"></div>
+          <div class="en-hero-center">
+            <a class="en-reel" href="#work" data-reel-open="${T.cur}" aria-haspopup="dialog">WATCH<br>REEL ▶</a>
           </div>
-          <p class="estimate-trust">${T.trust}</p>
-        </div>
-      </section>
-      <section class="section">
-        <div class="section-head"><div><p class="section-kicker">Services</p><h2>${T.servicesH}</h2></div></div>
-        <div class="estimate-factor-grid">${services}</div>
-      </section>
-      <section class="section">
-        <div class="section-head"><div><p class="section-kicker">How we work</p><h2>${T.whyH}</h2></div></div>
-        <div class="estimate-factor-grid">${why}</div>
-      </section>
-      <section class="section tight" id="contact">
-        <div class="cta-band cta-dark">
-          <h2>${T.contactH}</h2>
-          <p class="cta-note">${T.contactNote}</p>
-          <p class="contact-trust">${T.contactTrust}</p>
-          <div class="contact-actions single">
-            <a class="btn primary" href="mailto:${consultEmail}?subject=${encodeURIComponent(T.emailSubj)}">${T.emailBtn}</a>
+        </section>
+
+        <section class="en-statement">
+          <div class="en-rule"></div>
+          <div class="en-statement-grid">
+            <p class="en-statement-copy">${T.lead}</p>
+            <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <a class="brand" href="${T.home}">${pic("symbol.png", { alt: "Video Roastery", loading: "lazy" })}<span>Video Roastery</span></a>
-      <p>${T.footer}</p>
-      <a href="${routeHref()}">한국어</a>
-    </footer>
+        </section>
+
+        <section class="en-services" id="services">
+          <div class="en-sec-head"><span>${T.servicesH}</span><span>(06)</span></div>
+          <div class="en-svc-list">${services}</div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${T.whyH}</span><span>(03)</span></div>
+          <div class="en-svc-list">${why}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">${T.contact}</p>
+          <h2 class="en-cta-h">${T.contactH}</h2>
+          <a class="en-cta-btn" href="${mail}">${T.emailBtn} ↗</a>
+          <p class="en-cta-note">${T.contactNote}</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${T.footer}</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
+// 무료 30초 샘플 랜딩 — 모든 채널(크몽·인스타·당근·SEO·아웃리치)의 착지점. BASIC 스타일 + quoteForm(UTM 자동 귀속).
+function freePage() {
+  const steps = [
+    ["사진 보내기", "가게·제품·공간 사진 3~5장과 업종만 알려주세요. 촬영도, 방문도 필요 없어요."],
+    ["무료 샘플 제작", "AI로 30초 세로 홍보영상 샘플을 만들어 보여드립니다. 릴스·쇼츠·매장 TV·네이버플레이스 어디든 바로 사용."],
+    ["마음에 들면 진행", "샘플이 좋으면 편수·버전만 정해 진행합니다. 아니면 전혀 부담 없이 안 하셔도 됩니다."]
+  ].map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  return `
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="#how">진행 방법</a><a href="#free-form">신청</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">무료 30초 샘플 · 이번 달 선착순</p>
+          <h1 class="en-detail-h1">제주 사장님, 무료로 30초 홍보영상 만들어 드립니다</h1>
+          <p class="en-detail-lead">촬영도 방문도 없이, 가게·제품 사진만 보내주세요. AI로 30초 홍보영상 샘플을 만들어 먼저 보여드려요. 마음에 들 때만 진행하시면 됩니다.</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="#free-form">무료 샘플 신청하기 ↗</a>
+            <a class="en-detail-link" href="#work" data-reel-open="ko" aria-haspopup="dialog">실제 작업 보기</a>
+          </div>
+        </section>
+
+        <section class="en-services" id="how">
+          <div class="en-sec-head"><span>이렇게 진행돼요</span><span>(03)</span></div>
+          <div class="en-svc-list">${steps}</div>
+        </section>
+
+        <section class="en-cta">
+          <p class="en-eyebrow">왜 무료로 해드리나요</p>
+          <h2 class="en-cta-h">말보다, 결과물을 먼저 보여드립니다.</h2>
+          <p class="en-cta-note">크몽 실거래 ★4.5 · 40+ 실제 제작 영상 · 촬영 없이 사진만으로. 백 마디 설명보다 사장님 가게가 영상이 된 걸 직접 보시는 게 빠르니까요.</p>
+        </section>
+
+        <section class="section tight en-form-sec" id="free-form">
+          <div class="cta-band has-form">
+            <h2>무료 샘플 신청</h2>
+            <p class="cta-note">업종과 제품/공간 사진(링크 또는 설명)만 남겨주세요. 확인 후 무료 30초 샘플을 만들어 연락드립니다.</p>
+            <p class="contact-trust">이번 달 선착순 · 평균 1시간 내 응답 · 마음에 들 때만 진행</p>
+            ${quoteForm()}
+          </div>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
+// 업종별 SEO 랜딩 — "제주 [업종] 홍보영상" 검색 유입 → /free 무료오퍼. 구조 공유(1함수+데이터맵).
+const industryPages = {
+  "jeju-food-video": {
+    kicker: "제주 음식점·맛집 홍보영상",
+    h1: "제주 맛집 사장님, 손님이 오고 싶게 만드는 30초",
+    lead: "메뉴 사진은 예쁜데 영상이 없어 SNS·네이버플레이스에서 밀리는 가게가 많아요. 촬영 없이 보유 사진만으로, 군침 도는 30초 릴스를 만들어 드립니다.",
+    title: "제주 음식점 홍보영상·맛집 릴스 제작 | 비디오 로스터리",
+    desc: "제주 맛집·음식점 홍보영상, 촬영 없이 사진만으로 30초 릴스 제작. 무료 샘플 먼저 확인하세요. 크몽 ★4.5.",
+    why: [
+      ["릴스가 사진을 이긴다", "인스타·네이버플레이스에서 영상은 사진보다 훨씬 많이 노출됩니다. 첫 3초에 군침 돌게."],
+      ["촬영·방문 없이", "가진 메뉴 사진 몇 장만 보내주세요. AI로 세로 숏폼을 만들어 드립니다."],
+      ["어디든 바로", "릴스·쇼츠·매장 TV·네이버플레이스·배달앱 어디든 바로 쓰실 수 있어요."]
+    ]
+  },
+  "jeju-pension-video": {
+    kicker: "제주 펜션·숙소 홍보영상·드론",
+    h1: "제주 펜션, 예약을 부르는 영상과 드론컷",
+    lead: "숙소는 좋은데 온라인에선 그 분위기가 다 안 보이죠. 공간의 규모·오션뷰·동선을 드론과 무드컷으로 담아, 예약으로 이어지는 영상을 만듭니다.",
+    title: "제주 펜션·숙소 홍보영상·드론촬영 | 비디오 로스터리",
+    desc: "제주 펜션·독채·풀빌라 홍보영상과 드론 항공컷. 예약을 부르는 30초. 무료 샘플 먼저 확인. 크몽 ★4.5.",
+    why: [
+      ["첫인상이 예약을 만든다", "예약 사이트·인스타 첫 화면에서 '가고 싶다'가 3초에 결정됩니다."],
+      ["드론으로 규모·뷰를", "오션뷰·독채·수영장을 항공컷으로 담으면 사진과 차원이 달라져요."],
+      ["성수기 전에", "예약 시즌 전에 영상 하나면 노출·전환이 확 올라갑니다."]
+    ]
+  },
+  "jeju-cafe-reels": {
+    kicker: "제주 카페 릴스·감성 영상",
+    h1: "제주 카페, 감성이 도는 릴스 한 편",
+    lead: "감성 좋은 카페일수록 릴스가 손님을 부릅니다. 시그니처 메뉴·공간·창밖 풍경을 무드 있게 담아, 저장·공유되는 릴스를 만들어 드립니다.",
+    title: "제주 카페 릴스·감성 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 감성 카페 릴스·홍보영상, 촬영 없이 사진만으로. 저장·공유되는 30초. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["카페는 릴스로 뜬다", "'제주 감성 카페' 검색·인스타 탐색에서 릴스가 발견을 만듭니다."],
+      ["무드가 전부", "시그니처 컷·창밖·라떼아트를 감성 톤으로. 사진만으로도 가능해요."],
+      ["저장·공유 유도", "'가보고 싶다' 저장되는 릴스가 방문으로 이어져요."]
+    ]
+  },
+  "jeju-farm-video": {
+    kicker: "제주 농장·체험 홍보영상",
+    h1: "제주 농장·체험, 신뢰를 주는 소개 영상",
+    lead: "귤밭·목장·체험 프로그램은 '어떤 곳인지' 보여줄 때 신뢰가 생깁니다. 현장 드론과 소개컷으로, 예약·구매로 이어지는 영상을 만들어 드립니다.",
+    title: "제주 농장·체험·귤밭 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 농장·귤밭·체험 프로그램 홍보영상과 드론. 신뢰를 주는 소개 영상. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["보여주면 믿는다", "체험·농장은 '실제 모습'을 영상으로 보여줄 때 예약률이 오릅니다."],
+      ["드론으로 규모를", "귤밭·목장의 스케일과 제주 풍경을 항공컷으로 담아요."],
+      ["온라인 판매까지", "스마트스토어·예약페이지에 영상 하나면 전환이 달라집니다."]
+    ]
+  }
+};
+
+function industryPage(key) {
+  const d = industryPages[key];
+  const why = d.why.map(([t, dd], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${dd}</span></span></div>`).join("");
+  const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(d.kicker + " 문의 — Video Roastery")}`;
+  return `
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="${routeHref("free")}">무료 샘플</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${d.kicker}</p>
+          <h1 class="en-detail-h1">${d.h1}</h1>
+          <p class="en-detail-lead">${d.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${routeHref("free")}">무료 30초 샘플 받기 ↗</a>
+            <a class="en-detail-link" href="#work" data-reel-open="ko" aria-haspopup="dialog">실제 작업 보기</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>왜 필요할까요</span><span>(03)</span></div>
+          <div class="en-svc-list">${why}</div>
+        </section>
+
+        <a class="en-offer" href="${routeHref("free")}">
+          <span class="en-offer-k">이번 달 선착순 · 무료</span>
+          <span class="en-offer-t">사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
+          <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
+        </a>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">문의</p>
+          <h2 class="en-cta-h">먼저 무료 샘플로 확인하세요.</h2>
+          <a class="en-cta-btn" href="${mail}">문의하기 ↗</a>
+          <p class="en-cta-note">업종과 사진(링크 또는 설명)만 보내주시면, 무료 샘플과 함께 범위·견적을 회신드립니다. 크몽 실거래 ★4.5 · 40+ 실제 제작 영상.</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
   `;
 }
 
 function mainPage() {
-  const main = {
-    layout: "editorial",
-    heroRich: true,
-    heroGallery: true,
-    // 2줄 마퀴 월 — 시네마틱 컷만. 항공 4개(22%)만: loop_01(마을드론)·drone_02(시설)·corp_08(팜)·loop_05(풍차해안).
-    // Codex 반영: ai_05·video_01·loop_04 제외(항공 중복), 8/7 비대칭 길이로 반복주기 깸,
-    // 항공 하위타입 분산 + 항공끼리 인접/정렬 회피 + wrap 끝단 비항공, 둘째줄 반칸 stagger.
-    // 4줄 마퀴 — 실제 영상들에서 다양한 컷 추출(assets/hero_wall). 인접 줄 카테고리 분리:
-    // 1줄 육지항공 / 2줄 웨딩·사람 / 3줄 해안·바다항공 / 4줄 음식·제품·시네마틱. 영상루프 5개로 모션.
-    wallRows: [
-      [
-        ["hero_loops/loop_06.webp", "제품·푸드", "hero_loops/loop_06.mp4"],
-        ["hero_wall/hw_29.webp", "웨딩"],
-        ["portfolio_covers/ai_nadaum_case.webp", "AI 캠페인"],
-        ["hero_wall/hw_26.webp", "단풍 계곡"],
-        ["hero_loops/loop_01.webp", "제주 드론", "hero_loops/loop_01.mp4"],
-        ["hero_wall/hw_09.webp", "해변 항공"],
-        ["hero_wall/hw_02.webp", "제주 항공"]
-      ],
-      [
-        ["hero_wall/corp_tower_clean.webp", "기업 영상"],
-        ["hero_wall/product_ingredients.webp", "제품 광고"],
-        ["hero_wall/hw_18.webp", "웨딩"],
-        ["hero_wall/hw_03.webp", "제주 밭"],
-        ["hero_wall/hw_10.webp", "제주 섬"],
-        ["hero_wall/hw_04.webp", "제주 숲"],
-        ["hero_wall/hw_11.webp", "포구"]
-      ],
-      [
-        ["hero_wall/hw_30.webp", "웨딩"],
-        ["hero_wall/food_meat_clean.webp", "숯불 고기"],
-        ["hero_wall/hw_20.webp", "기업 현장"],
-        ["hero_wall/hw_05_clean.webp", "목장"],
-        ["hero_wall/hw_12.webp", "제주 바다"],
-        ["hero_wall/hw_06.webp", "제주 시내"],
-        ["hero_wall/hw_13.webp", "해안 마을"]
-      ],
-      [
-        ["hero_loops/loop_08.webp", "시네마틱", "hero_loops/loop_08.mp4"],
-        ["hero_wall/hw_23.webp", "플레이팅"],
-        ["hero_loops/loop_02.webp", "웨딩 영상", "hero_loops/loop_02.mp4"],
-        ["hero_wall/hw_21.webp", "푸드 디테일"],
-        ["hero_wall/hw_07.webp", "드론 촬영"],
-        ["hero_loops/loop_05.webp", "해안 항공", "hero_loops/loop_05.mp4"],
-        ["hero_wall/hw_08.webp", "꽃밭"],
-        ["hero_wall/hw_28.webp", "해변"]
-      ]
-    ],
-    badge: "Video Roastery",
-    kicker: "제주 영상제작 · 전국 AI 숏폼",
-    title: "보기만 하던 방문자를,<br>문의로 바꿉니다.",
-    lead: "작업물을 먼저 보고, 필요한 제작만 고르세요. 제주는 현장 촬영·드론으로, 전국은 촬영 없이 AI 숏폼으로 — 자료만 보내주시면 맞춤 견적서로 회신드립니다.",
-    heroVideo: "live_hero.mp4",
-    heroImage: "logo.png",
-    cta: "견적 문의",
-    primaryHref: "estimate",
-    secondaryCta: "작업 사례 보기",
-    secondaryHref: "#portfolio-hub",
-    trustItems: ["제주 현장 촬영 가능", "전국 온라인 제작 상담", "작업 범위 확인 후 진행"],
-    showcase: [
-      ["portfolio_drone_night_exterior_clean.jpg", "야간 외관"],
-      ["portfolio_web_regional_brand.png", "브랜드 화면"],
-      ["portfolio_drone_resort_facility.jpg", "공간 촬영"],
-      ["portfolio_content_reels_page.jpg", "릴스 영상"],
-      ["portfolio_content_product.jpg", "제품 콘텐츠"],
-      ["portfolio_automation_homepage_flow.jpg", "상담형 홈페이지"]
-    ]
-  };
-  const mainInquiryHref = mailtoHref({ slug: "main", nav: "전체 제작 상담" });
-  // 홈은 '맛보기' — 엄선 12장 단일 쇼케이스. 두 개로 나뉘어 중복되던 포트폴리오 월을 하나로 통합.
-  // 전체 카탈로그는 각 서비스 상세페이지에 그대로 있음(손실 없음).
-  // 랜딩 쇼케이스: 썸네일·영상이 전부 고유하고 모두 재생되는 실제 작업물 12개를 명시적으로 큐레이션
-  // (이전엔 first 12라 비슷한 웹 목업 썸네일이 중복돼 보였음 → 신뢰도 위해 고유 작업물로 교체)
-  const homeFeatured = [
-    "portfolio_covers/beauty.jpg",            // 뷰티 브랜드 광고(대표작 featured)
-    "portfolio_covers/ai_nadaum.jpg",         // LG U+ 나다움(AI 브랜드 캠페인)
-    "portfolio_covers/content_04.jpg",        // 벨롱벨롱 디저트카페 릴스
-    "portfolio_covers/video_03.jpg",          // ESG 바다 메시지(돌고래 브랜드필름)
-    "portfolio_covers/ai_saemangeum.jpg",     // 새만금 시네마틱
-    "portfolio_covers/corp_08.jpg",           // 모루농장 브랜드영상
-    "portfolio_drone_village_overview.jpg",   // 제주 마을 전경 항공
-    "portfolio_covers/ai_kombucha.jpg",       // 작심랩 콤부차 DTC
-    "portfolio_covers/corp_07.jpg",           // 지역상생 RISE 포럼
-    "portfolio_covers/drone_02.jpg",          // 태양광 시설 석양 항공
-    "portfolio_covers/corp_02.jpg",           // 마크애니 TOSS(IT 서비스)
-    "portfolio_covers/ai_game_ua.jpg",        // 블라이트워 게임 UA
-    "portfolio_covers/drone_06.jpg"           // 풍차해안 석양 항공(맨 아래로)
-  ];
-  const homeWallItems = homeFeatured
-    .map((img) => portfolioWallItems.find((item) => item.image === img))
-    .filter(Boolean);
-  // 위계: 시그니처 대표작을 2x2 피처 타일로(그리드 덤프 → 편집형 쇼케이스)
-  if (homeWallItems[0]) homeWallItems[0] = { ...homeWallItems[0], size: "large" };
+  // BASIC/DEPT 한글 홈 — /en/ 디자인 시스템(.en-*) 그대로 + Pretendard(.basic-ko). 다크 마퀴 히어로 → 라이트 웜페이퍼 본문.
+  const wall = heroWallHtml();
+  const services = [
+    ["브랜드·기업 영상", "회사와 브랜드 이야기를, 보는 사람이 이해하는 순서로 풀어냅니다.", "brand-film"],
+    ["드론·항공", "숙소·시설·관광지·농장 — 공간의 규모와 동선, 분위기를 한눈에.", "drone"],
+    ["AI 숏폼 광고", "제품 사진만으로, 촬영 없이 첫 3초에 시선을 잡는 릴스·쇼츠.", "ai-shortform"],
+    ["홈페이지·랜딩", "첫 화면에서 신뢰를 주고, 방문자가 문의로 이어지게 만듭니다.", "homepage"],
+    ["웨딩 필름", "자연스럽고 디테일 중심의 기록 — 초상권은 조심스럽게 다룹니다.", "wedding"],
+    ["콘텐츠·자동화", "카드뉴스·릴스·문의 자동정리까지, 런칭 후에도 계속 작동합니다.", "content"]
+  ].map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref(slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   return `
-    ${nav("wall")}
-    ${hero(main)}
-    <main id="main">
-      <section class="section" id="portfolio-hub">
-        <div class="section-head">
-          <div>
-            <span class="section-statement" aria-hidden="true">WORK</span>
-            <h2 class="h2-en">Selected Work</h2>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="#work">작업</a><a href="#services">서비스</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-hero" id="work">
+          <h1 class="sr-only">비디오 로스터리 — 제주 영상·필름·웹 제작 스튜디오</h1>
+          ${wall}
+          <div class="en-hero-scrim" aria-hidden="true"></div>
+          <div class="en-hero-center">
+            <a class="en-reel" href="#work" data-reel-open="ko" aria-haspopup="dialog">WATCH<br>REEL ▶</a>
           </div>
-        </div>
-        <ul class="proof-bar" aria-label="실적 요약">
-          <li><strong>40+</strong><span>실제 제작 영상</span></li>
-          <li><strong>10곳</strong><span>운영 중 라이브 사이트</span></li>
-          <li><strong>8</strong><span>제작 분야</span></li>
-          <li><strong>전국</strong><span>온라인 제작 상담</span></li>
-        </ul>
-        ${portfolioWall(homeWallItems, "featured-wall")}
-      </section>
-      <section class="section" id="cases">
-        <div class="section-head">
-          <div>
-            <span class="section-statement" aria-hidden="true">STORY</span>
-            <h2 class="h2-en">Case Studies</h2>
+        </section>
+
+        <section class="en-statement">
+          <div class="en-rule"></div>
+          <div class="en-statement-grid">
+            <p class="en-statement-copy">제주에서 시작한 영상·필름·웹 스튜디오. 브랜드필름, 드론·항공, AI 숏폼, 전환 중심 홈페이지까지 — 현장에서 찍고, 필요한 것만 골라 맞춤 견적으로 회신합니다.</p>
+            <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
-        </div>
-        <div class="case-modern">
-          ${caseStudies.map((c) => `
-            <article class="case-m">
-              <a class="case-m-media" href="${routeHref(c.slug)}">
-                ${pic(c.cover, { cls: "case-m-img", alt: "" })}
-                <span class="case-m-name">${c.client}</span>
-              </a>
-              <div class="case-m-cap">
-                <span class="case-m-tag">${c.tag}</span>
-                <p class="case-m-line">${c.hook}</p>
-                <a class="case-m-more" href="${routeHref(c.slug)}">See More <span aria-hidden="true">→</span></a>
-              </div>
-            </article>`).join("")}
-        </div>
-      </section>
-      <section class="section tight" id="clients">
-        <div class="section-head">
-          <div>
-            <span class="section-statement" aria-hidden="true">CLIENTS</span>
-            <h2 class="h2-en">Clients &amp; Partners</h2>
-            <p class="section-sub">실제 촬영·영상·웹 제작으로 함께한 곳들입니다.</p>
-          </div>
-        </div>
-        <ul class="client-logos" aria-label="대표 협력 로고">
-          <li>${pic("logos/lg_uplus.png", { alt: "LG U+" })}</li>
-          <li>${pic("logos/make_a_wish.png", { alt: "Make-A-Wish" })}</li>
-          <li>${pic("logos/lions.png", { alt: "국제라이온스클럽" })}</li>
-        </ul>
-        <ul class="client-strip" aria-label="함께한 클라이언트">
-          ${["LG U+","대한결핵협회","마크애니","Make-A-Wish","제주특별자치도교육청","국제라이온스클럽","라이즈센터 RISE","한국마사회 렛츠런파크","리치디바인","모루농장","토버스 SUMBI","삼대국수회관","벨롱벨롱","페를로","작심랩","산지로","pawshare"].map((c) => `<li>${c}</li>`).join("")}
-        </ul>
-        <p class="client-sub-label">AI 브랜드 필름 작업 (참고용)</p>
-        <ul class="client-strip ai-brands" aria-label="AI 브랜드 작업">
-          ${["KINETIA","그린로하스","블라이트워","새만금","MOTONICA","AURELIA LUNA","S-OIL 에너지"].map((c) => `<li>${c}</li>`).join("")}
-        </ul>
-        <ul class="trust-badges" aria-label="제작 신뢰 지표">
-          ${["실제 제작 영상 40+","운영 중 라이브 사이트 10곳","대기업·기관 협업","공공기관·공익 캠페인","제주 현장 촬영·4K 드론","AI 숏폼·브랜드필름","홈페이지 기획·개발","전국 온라인 제작"].map((b) => `<li>${b}</li>`).join("")}
-        </ul>
-        <p class="client-note">* 로고는 각 브랜드 상표이며, 실제 제작·납품 프로젝트 및 AI 브랜드 필름 작업 기준으로 표기했습니다.</p>
-      </section>
-      <section class="section" id="services">
-        <div class="section-head">
-          <div>
-            <span class="section-statement" aria-hidden="true">SERVICES</span>
-            <h2 class="h2-en">Services</h2>
-          </div>
-        </div>
-        <div class="route-grid core-grid">
-          ${coreRoutes.map(routeCard).join("")}
-        </div>
-        <div class="support-grid" aria-label="추가 상담 가능 분야">
-          ${supportRoutes.map((route) => `
-            <a class="support-card" href="${routeHref(route.slug)}">
-              ${pic(routeCardImages[route.slug] || route.heroImage, { alt: route.nav + " 추가 사례" })}
-              <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
-            </a>
-          `).join("")}
-        </div>
-      </section>
-      <section class="section" id="pricing">
-        <div class="section-head">
-          <div>
-            <span class="section-statement" aria-hidden="true">PRICING</span>
-            <h2 class="h2-en">Packages</h2>
-            <p class="section-sub">고정 가격을 붙이지 않는 건 자료·범위에 따라 실제 비용 차이가 커서예요. 예산만 알려주시면 그 안에서 가능한 구성으로 맞춰 견적서로 보내드립니다.</p>
-          </div>
-        </div>
-        <div class="pricing-grid">
-          ${pricingGroups.map((g) => `
-            <div class="price-card">
-              <div class="price-card-media">${pic(routeCardImages[g.slug] || (routeBySlug[g.slug] && routeBySlug[g.slug].heroImage), { cls: "price-card-img", alt: "" })}</div>
-              <div class="price-card-body">
-                <h3>${g.name}</h3>
-                <ul>
-                  ${g.tiers.map((t) => `<li><span class="tier">${t.tier}</span><span class="inc">${t.inc}</span></li>`).join("")}
-                </ul>
-                <a class="price-link" href="${routeHref(g.slug)}">${g.name} 사례·견적 요청 →</a>
-              </div>
-            </div>`).join("")}
-        </div>
-        <p class="client-note">* 정확한 견적은 보유 자료·제작 범위를 확인한 뒤 견적서로 보내드립니다.</p>
-      </section>
-      ${faqSection(main)}
-      <section class="section tight" id="contact">
-        <div class="cta-band has-form">
-          <h2 class="h2-en">Get a Quote</h2>
-          <p class="cta-note">보유 자료와 원하는 결과물만 적어주시면, 제작 범위·일정을 확인해 맞춤 견적서로 회신드립니다. 고정가는 없습니다.</p>
-          <p class="contact-trust">평균 1시간 내 응답 · 중간 수수료 없이 직접 거래 · 40+ 실제 제작 영상</p>
-          ${quoteForm()}
-          <div class="contact-actions single">
-            <a class="btn secondary" href="${routeHref("estimate")}">견적 산정 기준·실제 견적서 예시 보기</a>
-            ${kakaoUrl ? `<a class="btn kakao-btn" href="${kakaoUrl}" target="_blank" rel="noopener">💬 카카오톡 문의</a>` : ""}
-          </div>
-          <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
-        </div>
-      </section>
-    </main>
-    ${sticky({
-      nav: "견적 문의",
-      badge: "Video Roastery",
-      stickyTarget: mainInquiryHref,
-      stickyLabel: "메일 문의",
-      stickyBody: "버튼 누르면 메일이 열립니다"
-    })}
-    ${footer()}
+        </section>
+
+        <a class="en-offer" href="${routeHref("free")}">
+          <span class="en-offer-k">이번 달 선착순 · 무료</span>
+          <span class="en-offer-t">사진만 보내면, 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
+          <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
+        </a>
+
+        <section class="en-services" id="services">
+          <div class="en-sec-head"><span>서비스</span><span>(06)</span></div>
+          <div class="en-svc-list">${services}</div>
+        </section>
+
+        <section class="en-clients">
+          <div class="en-sec-head"><span>주요 클라이언트</span></div>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; 한국마사회 &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 작심랩</p>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">프로젝트 시작</p>
+          <h2 class="en-cta-h">가진 자료만 주세요.<br>딱 맞는 범위로 회신합니다.</h2>
+          <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
   `;
 }
 
@@ -1142,6 +1258,15 @@ function routeCard(route) {
         <h3>${title}</h3>
         <strong>사례 보기</strong>
       </div>
+    </a>
+  `;
+}
+
+function supportCard(route) {
+  return `
+    <a class="support-card" href="${routeHref(route.slug)}">
+      ${pic(routeCardImages[route.slug] || route.heroImage, { alt: route.nav + " 서비스" })}
+      <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
     </a>
   `;
 }
@@ -1619,61 +1744,70 @@ function faqSection(route) {
 
 function detailPage(route) {
   const inquiryHref = mailtoHref(route);
-  // overview가 앞 3장을 쓰므로 포폴월은 그 다음 장부터 → 같은 페이지 내 중복 방지
-  // 앞 3장은 오버뷰가 쓰므로 그 다음부터 전부 노출(상한 제거 → 타일 조용히 잘리지 않음)
-  const routePortfolioItems = portfolioItemsForRoute(route).slice(3);
+  // 오버뷰가 앞 3장(구성 이미지)을 쓰던 로직 제거 — BASIC은 '구성'을 텍스트 넘버드로, '작업 사례'는 전체 노출.
+  const routePortfolioItems = portfolioItemsForRoute(route);
   if (routePortfolioItems[0]) routePortfolioItems[0] = { ...routePortfolioItems[0], size: "large" };
-  // 이 페이지에 연결된 영상/사이트가 하나라도 있나(없으면 '화면 예시'로, 타일은 클릭 안 되는 정적 figure)
-  const routeHasMedia = portfolioItemsForRoute(route).some((item) => portfolioLink(item));
+  const routeHasMedia = routePortfolioItems.some((item) => portfolioLink(item));
   const detail = routeDetails[route.slug] || {
     kicker: route.nav.toUpperCase(),
     title: route.title,
     lead: route.lead,
-    windows: route.proof.map(([title, body], index) => [String(index + 1).padStart(2, "0"), title, body]),
-    checkpoints: route.proof.map(([title]) => title),
-    related: displayRoutes.filter((item) => item.slug !== route.slug).slice(0, 3).map((item) => item.slug)
+    windows: route.proof.map(([title, body], index) => [String(index + 1).padStart(2, "0"), title, body])
   };
+  const windows = (detail.windows || [])
+    .map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`)
+    .join("");
   return `
-    ${nav()}
-    ${hero(route)}
-    ${detailNavigation(route)}
-    <main id="main">
-      ${detailOverview(route, detail)}
-      <section class="section" id="portfolio">
-        <div class="section-head">
-          <div>
-            <h2 class="h2-en">${routeHasMedia ? "Selected Work" : "Preview"}</h2>
-            <p class="section-sub">${routeHasMedia ? "▶ 영상은 바로 재생, 웹 작업은 실제 사이트로 열립니다." : "실제 진행 시 제작하는 화면 구성 예시입니다."}</p>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref()}">홈</a><a href="#work">작업</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${detail.kicker || route.nav}</p>
+          <h1 class="en-detail-h1">${route.title}</h1>
+          <p class="en-detail-lead">${route.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${inquiryHref}">${route.cta} ↗</a>
+            <a class="en-detail-link" href="#work">작업 사례 보기</a>
           </div>
-        </div>
-        ${portfolioWall(routePortfolioItems, "detail-wall", !routeHasMedia)}
-      </section>
-      ${route.slug === "ai-shortform" ? testimonialsSection() : ""}
-      ${detailScope(route, detail)}
-      ${relatedServices(route, detail)}
-      ${faqSection(route)}
-      <section class="section tight" id="contact">
-        <div class="cta-band${route.slug === "consulting" ? " has-form" : " cta-dark"}">
-          <h2 class="h2-en">Get in Touch</h2>
-          ${route.slug === "consulting" ? `
-          <p class="cta-note">아래 사전 질문지를 작성해 주시면, 제출 시 작성 내용이 담긴 메일이 열립니다. 보내주시면 검토 후 회신드립니다.</p>
-          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
-          ${consultForm()}
-          ` : `
-          <p class="cta-note">원하는 결과물과 보유 자료만 적어주시면 제작 범위·일정을 회신합니다.</p>
-          <p class="contact-trust">40+ 실제 제작 영상 · 10곳 운영 중 라이브 사이트 · 제주 현장 촬영 · 전국 온라인 상담</p>
-          <div class="contact-actions single">
-            <a class="btn primary" href="${inquiryHref}">${route.cta}</a>
-          </div>
-          <p class="contact-fallback">버튼을 눌러도 메일 앱이 안 열리면 <b>kiwee1223@gmail.com</b> 으로 <b>업종 · 원하는 결과물 · 희망 일정 · 예산 범위</b>만 보내주세요.</p>
-          <a class="cta-textlink" href="#portfolio">사례를 확인하셨다면 지금 보유 자료만 보내주세요 →</a>
-          `}
-          <p class="privacy-note">메일 내용은 상담 확인 목적에만 사용합니다. <a href="${routeHref("privacy")}">개인정보처리방침</a></p>
-        </div>
-      </section>
-    </main>
-    ${sticky(route)}
-    ${footer()}
+        </section>
+
+        <a class="en-offer" href="${routeHref("free")}">
+          <span class="en-offer-k">이번 달 선착순 · 무료</span>
+          <span class="en-offer-t">사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
+          <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
+        </a>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>구성</span><span>(0${(detail.windows || []).length})</span></div>
+          <div class="en-svc-list">${windows}</div>
+        </section>
+
+        <section class="en-services" id="work">
+          <div class="en-sec-head"><span>${routeHasMedia ? "작업 사례" : "화면 예시"}</span><span>${routeHasMedia ? "▶ 눌러서 재생" : ""}</span></div>
+          ${portfolioWall(routePortfolioItems, "detail-wall", !routeHasMedia)}
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>자주 묻는 질문</span><span>FAQ</span></div>
+          <div class="en-faq">${faqItems.concat(routeFaqExtra[route.slug] || []).map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("")}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">문의</p>
+          <h2 class="en-cta-h">가진 자료만 주세요.<br>딱 맞는 범위로 회신합니다.</h2>
+          <a class="en-cta-btn" href="${inquiryHref}">${route.cta} ↗</a>
+          <p class="en-cta-note">보유 자료와 원하는 결과물만 보내주시면 제작 범위·일정을 정직하게 회신드립니다.</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("en")}">EN ↗</a>
+      </footer>
+    </div>
   `;
 }
 
@@ -1763,15 +1897,19 @@ function render() {
     en: "Video Roastery — Video, Film & Web Studio in Jeju, Korea",
     zh: "Video Roastery — 韩国济州岛影像 · 短片 · 网站制作工作室",
     "zh-hant": "Video Roastery — 韓國濟州島影像 · 短片 · 網站製作工作室",
+    rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
+    free: "무료 30초 홍보영상 샘플 — 제주 소상공인 | 비디오 로스터리",
   };
-  const pageTitle = seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
     : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
-    : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機航拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
+    : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
+    : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
+    : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내면 무료로 30초 홍보영상 샘플을 만들어 드립니다. 마음에 들 때만 진행하시면 됩니다. 이번 달 선착순."
     : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -1786,14 +1924,34 @@ function render() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
-  document.querySelector("#app").innerHTML = slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
+  setupReelGallery();
   setupConsultForm();
   setupQuoteForm();
   setupScrollReveal();
   setupHeroMotion();
   setupHeroWall();
+  setupImageFade();
+}
+
+// 프리미엄 이미지 페이드인 — 안전설계: CSS 기본 opacity:1(무JS·미처리 시 항상 보임).
+// JS가 능동적으로만 pic-pending(숨김)을 붙이고, 모든 대상에 load+error 리스너로 반드시 노출.
+// → 캐시(complete)·깨진 이미지·JS 실패 어떤 경우에도 이미지가 안 보이는 사고 원천 차단.
+function setupImageFade() {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return; // 모션 최소화: 즉시 노출(기본 opacity:1)
+  var imgs = document.querySelectorAll("img.pic-fade");
+  Array.prototype.slice.call(imgs).forEach(function (img) {
+    if (img.classList.contains("pic-bound")) return;
+    img.classList.add("pic-bound");
+    if (img.complete && img.naturalWidth > 0) return; // 이미 로드됨(캐시) → 그대로 노출
+    img.classList.add("pic-pending");
+    var reveal = function () { img.classList.remove("pic-pending"); };
+    img.addEventListener("load", reveal, { once: true });
+    img.addEventListener("error", reveal, { once: true }); // 깨진 이미지도 반드시 노출
+  });
 }
 
 // 메인 마퀴 영상월: 화면에 보이는 타일만, 동시재생 상한 내에서 무음 루프 재생.
@@ -1954,6 +2112,116 @@ function setupHeroMotion() {
 }
 
 // 포트폴리오 칸 클릭 → 실제 영상 라이트박스 재생 (사이트 타일은 네이티브 <a target=_blank>로 동작)
+// ===== 릴/작업 갤러리 — WATCH REEL(원형 버튼) 클릭 시 전체 작업을 한곳에 모아보기 =====
+// 영상이 연결된 포폴 항목만 모아 그리드로 보여주고, 타일 클릭은 기존 라이트박스(vr-lightbox)로 재생.
+// data-video 만 세팅하면 setupPortfolioLightbox가 그대로 연결해준다(신규 재생 로직 0).
+function reelGalleryVideoItems() {
+  return portfolioWallItems
+    .map((item) => ({ item, link: portfolioLink(item) }))
+    .filter((x) => x.link && x.link.type === "video");
+}
+
+const reelGalleryCopy = {
+  ko: { kicker: "Video Roastery® · 쇼릴", title: "우리가 만든 것", sub: "제주 현장 촬영·드론부터 AI 숏폼·브랜드필름까지. 눌러서 바로 재생해 보세요.", close: "닫기" },
+  en: { kicker: "Video Roastery® · Showreel", title: "Selected Work", sub: "Drone, brand film, AI short-form — all shot & cut in Jeju. Tap any clip to play.", close: "Close" },
+  hans: { kicker: "Video Roastery® · 展示卷", title: "精选作品", sub: "从济州岛现场航拍到 AI 短视频与品牌短片。点击任意作品即可播放。", close: "关闭" },
+  hant: { kicker: "Video Roastery® · 展示卷", title: "精選作品", sub: "從濟州島現場空拍到 AI 短影音與品牌短片。點擊任一作品即可播放。", close: "關閉" }
+};
+// 비한국어 갤러리 타일 제목 — 한글 설명 대신 언어별 카테고리 명칭(라이트박스 캡션에도 사용).
+const reelCatNames = {
+  en: { web: "Website", drone: "Drone & Aerial", content: "Content", system: "Automation", ai: "AI Short-form", wedding: "Wedding Film" },
+  hans: { web: "网站", drone: "无人机航拍", content: "内容", system: "自动化", ai: "AI 短视频", wedding: "婚礼影像" },
+  hant: { web: "網站", drone: "無人機空拍", content: "內容", system: "自動化", ai: "AI 短影音", wedding: "婚禮影像" }
+};
+
+function reelGalleryMarkup(lang) {
+  const c = reelGalleryCopy[lang] || reelGalleryCopy.ko;
+  const ko = lang === "ko";
+  const names = reelCatNames[lang];
+  const tiles = reelGalleryVideoItems().map(({ item, link }) => {
+    const title = ko ? item.title : (names && names[item.category]) || item.label;
+    return `
+      <button class="reel-tile" type="button" data-video="${link.src}" aria-haspopup="dialog">
+        <img src="${asset(item.image)}" alt="${title}" loading="lazy" decoding="async" />
+        <span class="portfolio-play" aria-hidden="true"></span>
+        <span class="portfolio-meta"><small>${item.label}</small><strong>${title}</strong></span>
+      </button>`;
+  }).join("");
+  return `
+    <div class="reel-gallery-inner">
+      <div class="reel-gallery-head">
+        <div class="reel-gallery-heading">
+          <p class="reel-gallery-kicker">${c.kicker}</p>
+          <h2 class="reel-gallery-title">${c.title}</h2>
+          <p class="reel-gallery-sub">${c.sub}</p>
+        </div>
+        <button class="reel-gallery-close" type="button" aria-label="${c.close}">✕</button>
+      </div>
+      <div class="reel-gallery-grid">${tiles}</div>
+    </div>`;
+}
+
+function setupReelGallery() {
+  const triggers = document.querySelectorAll("[data-reel-open]");
+  if (!triggers.length) return;
+  let box = document.querySelector("#reel-gallery");
+  if (!box) {
+    box = document.createElement("div");
+    box.id = "reel-gallery";
+    box.className = "reel-gallery";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "작업 갤러리");
+    document.body.appendChild(box);
+    const close = () => {
+      box.classList.remove("is-open");
+      document.documentElement.style.removeProperty("overflow");
+      if (box.__trigger && box.__trigger.focus) box.__trigger.focus();
+      box.__trigger = null;
+    };
+    box.addEventListener("click", (e) => {
+      if (e.target === box || e.target.closest(".reel-gallery-close")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!box.classList.contains("is-open")) return;
+      const lb = document.querySelector("#vr-lightbox");
+      const lbOpen = lb && lb.classList.contains("is-open");
+      if (e.key === "Escape") {
+        // 영상 라이트박스가 위에 열려 있으면, Esc는 그것만 닫고 갤러리는 유지(그리드로 복귀).
+        if (lbOpen) return;
+        close();
+        return;
+      }
+      // 포커스 트랩: 라이트박스가 위에 없을 때만 갤러리 안에서 Tab 순환(모달 밖으로 포커스 이탈 방지).
+      if (e.key === "Tab" && !lbOpen) {
+        const f = box.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    box.__close = close;
+  }
+  triggers.forEach((t) => {
+    if (t.__reelWired) return;
+    t.__reelWired = true;
+    t.addEventListener("click", (e) => {
+      e.preventDefault();
+      const lang = t.getAttribute("data-reel-open") || "ko";
+      box.innerHTML = reelGalleryMarkup(lang);
+      box.__trigger = t;
+      box.classList.add("is-open");
+      document.documentElement.style.overflow = "hidden";
+      box.scrollTop = 0;
+      // 타일(data-video) → 기존 라이트박스 재생 연결(중복 연결은 __wired 가드로 방지)
+      setupPortfolioLightbox();
+      const closeBtn = box.querySelector(".reel-gallery-close");
+      if (closeBtn) closeBtn.focus();
+    });
+  });
+}
+
 function setupPortfolioLightbox() {
   // 포폴 타일 + 오버뷰 영상 버튼(detail-window-video) 모두 포함
   const tiles = document.querySelectorAll("[data-video]");
@@ -1998,7 +2266,9 @@ function setupPortfolioLightbox() {
     });
     document.addEventListener("keydown", (e) => {
       if (!box.classList.contains("is-open")) return;
-      if (e.key === "Escape") { close(); return; }
+      // 릴 갤러리 위에 이 라이트박스가 열려 있을 때, Esc가 문서 레벨의 갤러리 핸들러까지
+      // 도달해 갤러리째 닫히는 것을 방지(등록 순서 무관). → Esc는 영상만 닫고 그리드로 복귀.
+      if (e.key === "Escape") { e.stopImmediatePropagation(); close(); return; }
       // 포커스 트랩: 모달 안에서만 Tab 순환
       if (e.key === "Tab") {
         const focusable = box.querySelectorAll('button, video, [href], [tabindex]:not([tabindex="-1"])');
@@ -2076,4 +2346,23 @@ function setupStickyCta() {
   window.addEventListener("scroll", update, { passive: true });
 }
 
+// 위로 가기 버튼 — body에 1회 생성(SPA 렌더와 무관 지속), 스크롤 시 노출, 클릭 시 맨 위로.
+function setupBackToTop() {
+  if (document.querySelector(".back-to-top")) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "back-to-top";
+  btn.setAttribute("aria-label", "맨 위로 이동");
+  btn.innerHTML = '<span aria-hidden="true">↑</span>';
+  document.body.appendChild(btn);
+  btn.addEventListener("click", () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+  const toggle = () => btn.classList.toggle("is-visible", window.scrollY > 600);
+  window.addEventListener("scroll", toggle, { passive: true });
+  toggle();
+}
+
 render();
+setupBackToTop();

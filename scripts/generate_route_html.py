@@ -261,7 +261,7 @@ def schema_for(page):
         "alternateName": "비디오 로스터리",
         "url": DOMAIN,
         "logo": f"{DOMAIN}/assets/symbol.png",
-        "sameAs": ["https://www.youtube.com/@VideoRoastery-m9g"],
+        "sameAs": ["https://www.youtube.com/@VideoRoastery-m9g", "https://www.instagram.com/1minute_jeju","https://kmong.com/@%EB%B9%84%EB%94%94%EC%98%A4%EB%A1%9C%EC%8A%A4%ED%84%B0%EB%A6%AC"],
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer support",
@@ -401,19 +401,37 @@ def write_og(page):
 
 
 def write_sitemap():
+    # 홈(ko)·en·zh·zh-hant는 서로의 언어 대안 → 각 URL에 hreflang alternate 5종 상호 명시. x-default=홈.
+    i18n_alt = "".join(
+        f'<xhtml:link rel="alternate" hreflang="{lang}" href="{DOMAIN}{path}"/>'
+        for lang, path in (
+            ("ko", "/"), ("en", "/en/"), ("zh-Hans", "/zh/"),
+            ("zh-Hant", "/zh-hant/"), ("x-default", "/"),
+        )
+    )
+
+    def url_entry(loc, changefreq, priority, i18n=False):
+        return (
+            f"  <url><loc>{loc}</loc><changefreq>{changefreq}</changefreq>"
+            f"<priority>{priority}</priority>{i18n_alt if i18n else ''}</url>"
+        )
+
     page_urls = [
-        f"  <url><loc>{DOMAIN}{page['url']}</loc><changefreq>weekly</changefreq><priority>{'1.0' if page['slug'] == '' else '0.8'}</priority></url>"
+        url_entry(f"{DOMAIN}{page['url']}", "weekly", "1.0" if page["slug"] == "" else "0.8", i18n=(page["slug"] == ""))
         for page in PAGES
     ]
-    page_urls.append(f"  <url><loc>{DOMAIN}/estimate/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>")
-    page_urls.append(f"  <url><loc>{DOMAIN}/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>")
-    page_urls.append(f"  <url><loc>{DOMAIN}/en/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
-    page_urls.append(f"  <url><loc>{DOMAIN}/zh/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
-    page_urls.append(f"  <url><loc>{DOMAIN}/zh-hant/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>")
-    page_urls.append(f"  <url><loc>{DOMAIN}/privacy/</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>")
+    page_urls.append(url_entry(f"{DOMAIN}/estimate/", "weekly", "0.8"))
+    page_urls.append(url_entry(f"{DOMAIN}/about/", "monthly", "0.7"))
+    page_urls.append(url_entry(f"{DOMAIN}/en/", "monthly", "0.6", i18n=True))
+    page_urls.append(url_entry(f"{DOMAIN}/zh/", "monthly", "0.6", i18n=True))
+    page_urls.append(url_entry(f"{DOMAIN}/zh-hant/", "monthly", "0.6", i18n=True))
+    page_urls.append(url_entry(f"{DOMAIN}/rememory/", "monthly", "0.8"))
+    page_urls.append(url_entry(f"{DOMAIN}/privacy/", "monthly", "0.3"))
     urls = "\n".join(page_urls)
     (ROOT / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n',
+        f'<?xml version="1.0" encoding="UTF-8"?>\n'
+        f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        f'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}\n</urlset>\n',
         encoding="utf-8",
     )
 
@@ -426,12 +444,18 @@ def write_robots():
 
 
 def main():
+    # 루트(slug="") index.html은 수기 강화본(리치 Org 스키마·og:image 치수·?v 캐시버스팅)이라
+    # 템플릿에 없는 내용이 소실된다 → 생성기는 절대 루트를 쓰지 않는다. 서브페이지만 생성.
+    written = 0
     for page in PAGES:
+        if not page["slug"]:
+            continue
         write_og(page)
         write_page(page)
+        written += 1
     write_sitemap()
     write_robots()
-    print(f"generated {len(PAGES)} pages")
+    print(f"generated {written} subpages (root index.html skipped — hand-maintained)")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — 페이지를 찾을 수 없습니다 | Video Roastery</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/symbol.png" />
+  <style>
+    :root { --ink:#10151b; --gold:#c6924e; --paper:#fbfaf5; --muted:#9aa4ad; }
+    * { margin:0; box-sizing:border-box; }
+    html, body { height:100%; }
+    body {
+      font-family:-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", Pretendard, "Malgun Gothic", sans-serif;
+      background:radial-gradient(120% 120% at 50% 0%, #1b2a3f 0%, var(--ink) 60%);
+      color:var(--paper); min-height:100%;
+      display:flex; align-items:center; justify-content:center;
+      padding:32px; text-align:center; -webkit-font-smoothing:antialiased;
+    }
+    .wrap { max-width:560px; }
+    .logo { width:48px; height:48px; margin:0 auto 28px; display:block; opacity:.95; }
+    .code {
+      font-size:clamp(4.5rem, 16vw, 8rem); font-weight:800; line-height:1; letter-spacing:-.03em;
+      background:linear-gradient(180deg, #e7c98f, var(--gold));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    h1 { font-size:clamp(1.25rem, 3.4vw, 1.6rem); font-weight:700; margin:18px 0 10px; }
+    p { color:var(--muted); font-size:1rem; line-height:1.7; margin:0 auto; max-width:22em; }
+    .sub { font-size:.85rem; opacity:.7; margin-top:6px; letter-spacing:.01em; }
+    .cta { display:inline-flex; gap:10px; margin-top:32px; flex-wrap:wrap; justify-content:center; }
+    a.btn { display:inline-block; padding:13px 26px; border-radius:999px; font-weight:700; font-size:.95rem; text-decoration:none; transition:transform .15s ease; }
+    a.btn:hover { transform:translateY(-2px); }
+    a.primary { background:var(--gold); color:#211603; }
+    a.ghost { border:1px solid rgba(255,255,255,.25); color:var(--paper); }
+    .langs { margin-top:26px; font-size:.85rem; }
+    .langs a { color:var(--muted); text-decoration:none; margin:0 6px; }
+    .langs a:hover { color:var(--gold); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="/assets/symbol.png" alt="Video Roastery" width="48" height="48" />
+    <div class="code">404</div>
+    <h1>페이지를 찾을 수 없습니다</h1>
+    <p>주소가 바뀌었거나 삭제된 페이지예요. 홈에서 제작 사례와 서비스를 다시 확인해 주세요.</p>
+    <p class="sub">Page not found · 页面未找到 · 頁面找不到</p>
+    <div class="cta">
+      <a class="btn primary" href="/">홈으로</a>
+      <a class="btn ghost" href="mailto:kiwee1223@gmail.com?subject=Video%20Roastery%20%EB%AC%B8%EC%9D%98">문의하기</a>
+    </div>
+    <div class="langs">
+      <a href="/">한국어</a>·<a href="/en/">EN</a>·<a href="/zh/">简体</a>·<a href="/zh-hant/">繁體</a>
+    </div>
+  </main>
+</body>
+</html>
