@@ -877,7 +877,7 @@ function enPage() {
     <div class="en-page">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work">WORK</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -983,7 +983,7 @@ function zhPage(variant) {
     <div class="en-page basic-zh">
       <header class="en-bar">
         <a class="en-wm" href="${T.home}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work">${T.work}</a><a href="#services">${T.servicesH}</a><a href="#contact">${T.contact}</a><span class="en-lang">${langSwitch(T.cur)}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="${T.cur}" aria-haspopup="dialog">${T.work}</a><a href="#services">${T.servicesH}</a><a href="#contact">${T.contact}</a><span class="en-lang">${langSwitch(T.cur)}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -1035,6 +1035,18 @@ function freePage() {
     ["무료 샘플 제작", "AI로 30초 세로 홍보영상 샘플을 만들어 보여드립니다. 릴스·쇼츠·매장 TV·네이버플레이스 어디든 바로 사용."],
     ["마음에 들면 진행", "샘플이 좋으면 편수·버전만 정해 진행합니다. 아니면 전혀 부담 없이 안 하셔도 됩니다."]
   ].map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  const industryLinks = [
+    ["jeju-food-video", "음식점·맛집", "군침 도는 30초 릴스"],
+    ["jeju-cafe-reels", "카페", "저장·공유되는 감성 릴스"],
+    ["jeju-pension-video", "펜션·숙소", "예약을 부르는 드론컷"],
+    ["jeju-farm-video", "농장·귤밭·체험", "신뢰를 주는 소개 영상"],
+    ["jeju-clinic-video", "병원·의원", "환자가 믿고 찾는 소개"],
+    ["jeju-beauty-video", "미용실·네일·뷰티", "비포애프터 감성 릴스"],
+    ["jeju-fitness-video", "헬스장·필라테스", "등록을 부르는 공간 영상"],
+    ["jeju-academy-video", "학원·교습소", "학부모 신뢰 소개 영상"],
+    ["jeju-activity-video", "체험·액티비티·투어", "여행객 예약 부르는 현장"],
+    ["jeju-homepage", "홈페이지 제작", "문의로 이어지는 가게 사이트"]
+  ].map(([slug, t, d], i) => `<a class="en-svc" href="${routeHref(slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
     <div class="en-page basic-ko">
@@ -1062,6 +1074,11 @@ function freePage() {
           <p class="en-eyebrow">왜 무료로 해드리나요</p>
           <h2 class="en-cta-h">말보다, 결과물을 먼저 보여드립니다.</h2>
           <p class="en-cta-note">크몽 실거래 ★4.5 · 40+ 실제 제작 영상 · 촬영 없이 사진만으로. 백 마디 설명보다 사장님 가게가 영상이 된 걸 직접 보시는 게 빠르니까요.</p>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>업종·서비스별 맞춤 제안</span><span>(10)</span></div>
+          <div class="en-svc-list">${industryLinks}</div>
         </section>
 
         <section class="section tight en-form-sec" id="free-form">
@@ -1130,13 +1147,120 @@ const industryPages = {
       ["드론으로 규모를", "귤밭·목장의 스케일과 제주 풍경을 항공컷으로 담아요."],
       ["온라인 판매까지", "스마트스토어·예약페이지에 영상 하나면 전환이 달라집니다."]
     ]
+  },
+  "jeju-clinic-video": {
+    kicker: "제주 병원·의원·한의원 홍보영상",
+    h1: "제주 병원·의원, 환자가 믿고 찾아오는 소개 영상",
+    lead: "진료는 좋은데 온라인에선 '어떤 곳인지' 안 보여 첫 방문이 망설여지죠. 공간과 진료 분위기를 신뢰감 있게 담아, 검색하고 찾아온 환자가 예약으로 이어지게 만듭니다.",
+    title: "제주 병원·의원·한의원 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 병원·의원·치과·한의원 홍보영상. 신뢰를 주는 소개 영상으로 첫 방문을 예약으로. 무료 샘플 먼저 확인. 크몽 ★4.5.",
+    why: [
+      ["믿음이 예약을 만든다", "병원은 '믿을 만한 곳'이라는 인상이 첫 방문을 결정합니다. 공간과 진료 분위기를 차분하게 보여주세요."],
+      ["검색에서 눈에 띄게", "네이버플레이스·홈페이지 첫 화면의 영상 하나가 근처 다른 곳과 다르게 보이게 합니다."],
+      ["과장 없이 담백하게", "의료광고 기준을 고려해 과장 없이, 공간과 강점만 신뢰감 있게 담습니다."]
+    ]
+  },
+  "jeju-beauty-video": {
+    kicker: "제주 미용실·네일·뷰티샵 릴스",
+    h1: "제주 미용실·뷰티샵, 예약을 부르는 감성 릴스",
+    lead: "시술 결과는 좋은데 그 감각이 온라인에 다 드러나지 않죠. 비포애프터와 공간 무드를 감성 있게 담아, 저장되고 예약으로 이어지는 릴스를 만듭니다.",
+    title: "제주 미용실·네일·속눈썹 뷰티 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 미용실·네일샵·속눈썹·왁싱 릴스, 촬영 없이 사진만으로. 비포애프터로 예약을 부르는 30초. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["비포애프터가 예약을 만든다", "뷰티는 '결과'를 보여줄 때 예약이 옵니다. 비포애프터 한 컷이 열 마디 설명보다 강해요."],
+      ["인스타 탐색에서 발견되게", "'제주 미용실·네일' 탐색과 해시태그에서 릴스가 새 손님을 데려옵니다."],
+      ["촬영 없이 사진만", "가진 시술 사진 몇 장이면 됩니다. 감성 톤 세로 릴스로 만들어 드려요."]
+    ]
+  },
+  "jeju-fitness-video": {
+    kicker: "제주 헬스장·필라테스·요가 홍보영상",
+    h1: "제주 헬스장·필라테스, 등록을 부르는 공간 영상",
+    lead: "시설과 프로그램은 좋은데 온라인에선 규모와 분위기가 안 느껴지죠. 운동 공간·기구·수업 분위기를 역동적으로 담아, 상담·등록으로 이어지는 영상을 만듭니다.",
+    title: "제주 헬스장·필라테스·요가 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 헬스장·필라테스·요가·크로스핏 홍보영상. 공간과 분위기로 등록을 부르는 영상. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["공간이 등록을 만든다", "운동은 '여기서 하고 싶다'가 등록을 결정합니다. 넓은 공간·깨끗한 기구·수업 열기를 보여주세요."],
+      ["신규 이벤트와 함께", "오픈·신규 회원 이벤트 시즌에 릴스 하나면 상담 문의가 확 늘어납니다."],
+      ["역동적인 30초", "운동의 에너지가 느껴지는 세로 숏폼으로, 인스타·네이버플레이스 어디든."]
+    ]
+  },
+  "jeju-academy-video": {
+    kicker: "제주 학원·교습소 홍보영상",
+    h1: "제주 학원, 학부모가 믿고 등록하는 소개 영상",
+    lead: "커리큘럼은 탄탄한데 온라인에선 그 강점이 안 보여 상담이 망설여지죠. 강의실·수업 분위기를 신뢰감 있게 담아, 학부모 상담으로 이어지게 만듭니다.",
+    title: "제주 학원·교습소·공부방 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 학원·교습소·공부방 홍보영상. 학부모 신뢰를 주는 소개 영상으로 상담·등록을. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["믿음이 등록을 만든다", "학원은 학부모의 신뢰가 등록을 결정합니다. 공간과 수업 분위기를 차분하게 보여주세요."],
+      ["신학기 전에 노출을", "설명회·신학기 시즌 전 영상 하나면 블로그·맘카페·네이버플레이스에서 눈에 띕니다."],
+      ["촬영 없이 사진만", "학원 사진과 소개 자료만 보내주세요. 신뢰감 있는 소개 영상으로 만들어 드립니다."]
+    ]
+  },
+  "jeju-activity-video": {
+    kicker: "제주 체험·액티비티·투어 홍보영상",
+    h1: "제주 체험·액티비티, 예약을 부르는 현장 영상",
+    lead: "액티비티는 직접 해보면 좋은데 온라인에선 그 재미가 안 느껴지죠. 현장의 생생함과 제주 풍경을 드론과 함께 담아, 여행객이 바로 예약하게 만듭니다.",
+    title: "제주 체험·액티비티·투어·레저 홍보영상 제작 | 비디오 로스터리",
+    desc: "제주 체험·액티비티·투어·레저 홍보영상과 드론. 생생한 현장으로 여행객 예약을. 무료 샘플 먼저. 크몽 ★4.5.",
+    why: [
+      ["보여주면 예약한다", "체험은 '재미있어 보인다'가 예약을 만듭니다. 현장의 생생한 순간을 담아요."],
+      ["드론으로 제주를", "바다·오름·현장 스케일을 항공컷으로 담으면 여행 기대감이 확 올라갑니다."],
+      ["예약 플랫폼에 바로", "네이버·여행 플랫폼·인스타 어디든 바로 쓰는 세로·가로 영상."]
+    ]
+  },
+  "jeju-homepage": {
+    kicker: "제주 소상공인 홈페이지 제작",
+    h1: "제주 사장님, 검색하고 찾아온 손님이 딴 데 안 가는 홈페이지",
+    lead: "네이버·인스타에서 발견돼도, 홈페이지 첫 화면이 허술하면 손님은 그냥 떠납니다. 첫 화면에서 '여기 믿을 만하다'가 느껴지고, 바로 문의·예약으로 이어지는 홈페이지를 만듭니다.",
+    title: "제주 소상공인·자영업 홈페이지 제작 | 비디오 로스터리",
+    desc: "제주 소상공인·자영업·매장 홈페이지 제작. 첫 화면에서 신뢰를 주고 문의로 이어지는 사이트. 무료 진단 먼저. 크몽 ★4.5.",
+    why: [
+      ["첫 화면이 신뢰를 만든다", "손님은 3초 안에 '믿을 만한 곳인지' 판단합니다. 첫 화면을 그렇게 설계합니다."],
+      ["문의로 이어지게", "예쁘기만 한 사이트가 아니라, 방문자가 문의·예약 버튼을 누르게 만드는 구조로 만듭니다."],
+      ["영상까지 한 번에", "홈페이지 안에 들어갈 홍보영상·릴스까지 함께 만들 수 있어요."]
+    ],
+    offer: {
+      heroCta: "무료로 첫 화면 진단받기 ↗",
+      hrefSlug: "estimate",
+      k: "무료 진단 · 이번 달 선착순",
+      t: "지금 쓰는 홈페이지·인스타, 손님 눈엔 어떻게 보일까요? 무료로 봐드려요",
+      x: "무료 진단 받기 ↗",
+      ctaH: "먼저 무료 진단으로 확인하세요.",
+      note: "지금 쓰시는 홈페이지·SNS 주소만 보내주시면, 좋은 점·아쉬운 점·바꾸면 좋을 것을 무료로 짚어 드립니다. 크몽 실거래 ★4.5 · 40+ 실제 제작."
+    },
+    faqItems: [
+      ["홈페이지 제작 비용은 얼마인가요?", "고정가 대신 필요한 페이지·기능에 맞춰 견적을 드립니다. 무료 진단으로 먼저 방향을 잡고, 필요한 만큼만 정하시면 됩니다."],
+      ["제작 기간은 얼마나 걸리나요?", "규모에 따라 다르지만 소상공인 홈페이지는 대부분 짧은 기간에 오픈하실 수 있습니다. 자료가 준비되면 더 빨라져요."],
+      ["모바일에서도 잘 보이나요?", "네. 요즘은 손님 대부분이 휴대폰으로 봅니다. 모바일 화면을 기준으로, 작은 화면에서도 첫인상과 문의 버튼이 살아있게 만듭니다."],
+      ["도메인·호스팅도 해주시나요?", "네. 도메인 연결부터 배포까지 함께 도와드립니다. 이미 갖고 계신 게 있으면 그대로 연결해 드려요."],
+      ["기존 홈페이지를 고치는 것도 되나요?", "네. 새로 만드는 것뿐 아니라 지금 사이트의 첫 화면·문의 흐름만 손봐 성과를 올리는 것도 가능합니다. 무료 진단에서 방향을 알려드려요."],
+      ["영상이나 사진도 같이 되나요?", "네. 홈페이지에 들어갈 홍보영상·릴스·사진 보정까지 한 번에 진행할 수 있습니다."]
+    ]
   }
 };
+
+const industryFaqItems = [
+  ["정말 촬영 없이 사진만으로 되나요?", "네. 가지고 계신 가게·제품·공간 사진 3~5장이면 충분합니다. 촬영이나 방문 없이 세로 30초 홍보영상을 만들어 드립니다. 사진이 부족하면 어떤 컷이 필요한지 먼저 알려드려요."],
+  ["무료 샘플은 정말 무료인가요? 조건이 있나요?", "네, 무료입니다. 결과물을 먼저 보여드리려는 것이라 별도 조건은 없어요. 샘플이 마음에 들 때만 편수·버전을 정해 진행하시면 되고, 아니면 전혀 부담 없습니다. 이번 달 선착순으로 받고 있어요."],
+  ["제작 기간은 얼마나 걸리나요?", "무료 샘플은 보통 문의 후 며칠 안에 보여드립니다. 본 제작은 편수와 구성에 따라 다르지만 대부분 짧은 기간에 받아보실 수 있어요."],
+  ["만든 영상은 어디에 쓸 수 있나요?", "인스타 릴스·유튜브 쇼츠·네이버플레이스·매장 TV·배달앱 등 어디든 바로 쓰실 수 있습니다. 쓰실 곳에 맞춰 화면비(세로·정사각·가로)를 맞춰 드려요."],
+  ["제주가 아니어도 되나요?", "네. 사진만 주고받으면 되기 때문에 전국 어디든 온라인으로 진행됩니다. 제주는 현장 촬영·드론도 가능하고, 그 외 지역은 온라인 제작으로 도와드려요."],
+  ["비용은 어떻게 되나요?", "고정가 대신 원하는 편수·구성에 맞춰 견적을 드립니다. 무료 샘플을 먼저 보신 뒤 필요한 만큼만 정하시면 됩니다. 크몽 실거래 ★4.5로 검증된 합리적인 견적이에요."]
+];
 
 function industryPage(key) {
   const d = industryPages[key];
   const why = d.why.map(([t, dd], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${dd}</span></span></div>`).join("");
+  const faq = (d.faqItems || industryFaqItems).map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(d.kicker + " 문의 — Video Roastery")}`;
+  const off = d.offer || {};
+  const heroCta = off.heroCta || "무료 30초 샘플 받기 ↗";
+  const ctaHref = routeHref(off.hrefSlug || "free");
+  const offK = off.k || "이번 달 선착순 · 무료";
+  const offT = off.t || "사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요";
+  const offX = off.x || "무료 샘플 받기 ↗";
+  const ctaH = off.ctaH || "먼저 무료 샘플로 확인하세요.";
+  const ctaNote = off.note || "업종과 사진(링크 또는 설명)만 보내주시면, 무료 샘플과 함께 범위·견적을 회신드립니다. 크몽 실거래 ★4.5 · 40+ 실제 제작 영상.";
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
     <div class="en-page basic-ko">
@@ -1150,7 +1274,7 @@ function industryPage(key) {
           <h1 class="en-detail-h1">${d.h1}</h1>
           <p class="en-detail-lead">${d.lead}</p>
           <div class="en-detail-actions">
-            <a class="en-cta-btn" href="${routeHref("free")}">무료 30초 샘플 받기 ↗</a>
+            <a class="en-cta-btn" href="${ctaHref}">${heroCta}</a>
             <a class="en-detail-link" href="#work" data-reel-open="ko" aria-haspopup="dialog">실제 작업 보기</a>
           </div>
         </section>
@@ -1160,17 +1284,22 @@ function industryPage(key) {
           <div class="en-svc-list">${why}</div>
         </section>
 
-        <a class="en-offer" href="${routeHref("free")}">
-          <span class="en-offer-k">이번 달 선착순 · 무료</span>
-          <span class="en-offer-t">사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
-          <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
+        <a class="en-offer" href="${ctaHref}">
+          <span class="en-offer-k">${offK}</span>
+          <span class="en-offer-t">${offT}</span>
+          <span class="en-offer-x" aria-hidden="true">${offX}</span>
         </a>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>자주 묻는 질문</span><span>(FAQ)</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
 
         <section class="en-cta" id="contact">
           <p class="en-eyebrow">문의</p>
-          <h2 class="en-cta-h">먼저 무료 샘플로 확인하세요.</h2>
+          <h2 class="en-cta-h">${ctaH}</h2>
           <a class="en-cta-btn" href="${mail}">문의하기 ↗</a>
-          <p class="en-cta-note">업종과 사진(링크 또는 설명)만 보내주시면, 무료 샘플과 함께 범위·견적을 회신드립니다. 크몽 실거래 ★4.5 · 40+ 실제 제작 영상.</p>
+          <p class="en-cta-note">${ctaNote}</p>
         </section>
       </main>
       <footer class="en-footer">
@@ -1197,7 +1326,7 @@ function mainPage() {
     <div class="en-page basic-ko">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="메뉴"><a href="#work">작업</a><a href="#services">서비스</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+        <nav class="en-nav" aria-label="메뉴"><a href="#work" data-reel-open="ko" aria-haspopup="dialog">작업</a><a href="#services">서비스</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -1385,7 +1514,7 @@ const portfolioMedia = {
   "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
   "portfolio_covers/ai_superwater.jpg": "portfolio_videos/ai_superwater_reel.mp4",            // AI 건강음료 숏폼(작심랩 슈퍼워터 키네틱, 크몽 납품)
   "portfolio_covers/ai_lemondiet.jpg": "portfolio_videos/ai_lemondiet_reel.mp4",              // AI 다이어트 보충제 숏폼(알파레몬샷 NUTRICWELL, 크몽 납품)
-  "portfolio_covers/ai_kombucha.jpg": "portfolio_videos/ai_kombucha_reel.mp4",                // AI 콤부차 제품 릴스(작심랩 콤부차 DTC, 클린본)
+  "portfolio_covers/ai_kombucha.jpg": "portfolio_videos/ai_kombucha_reel.mp4?v=2",             // AI 콤부차 제품 릴스(작심랩 콤부차 DTC, 크몽 최종납품본 자막+BGM)
   "portfolio_covers/ai_game_ua.jpg": "portfolio_videos/ai_game_ua_reel.mp4",                  // AI 게임 광고(블라이트워 게임 UA, 히든몬스터)
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
@@ -2302,8 +2431,15 @@ function setupPortfolioLightbox() {
       v.src = video;
       // 모달 열리면 닫기 버튼으로 포커스 이동
       box.querySelector(".vr-lightbox-close").focus();
+      v.muted = false;
+      // 소리 있는 영상은 브라우저가 '무음 아닌 자동재생'을 막아 첫 프레임에 멈출 수 있음(=사진처럼 보임).
+      // 재생이 막히면 음소거로라도 재생해 항상 '움직이게' 하고, 노출된 컨트롤로 소리를 켤 수 있게 한다.
       const p = v.play();
-      if (p && p.catch) p.catch(() => {});
+      if (p && p.catch) p.catch(() => {
+        v.muted = true;
+        const p2 = v.play();
+        if (p2 && p2.catch) p2.catch(() => {});
+      });
     });
   });
 }
