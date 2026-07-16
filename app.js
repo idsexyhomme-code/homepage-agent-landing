@@ -1056,7 +1056,7 @@ function freePage() {
       </header>
       <main id="main">
         <section class="en-detail-hero">
-          <p class="en-eyebrow">무료 30초 샘플 · 이번 달 선착순</p>
+          <p class="en-eyebrow">무료 30초 샘플 · 이번 달 선착순 5팀</p>
           <h1 class="en-detail-h1">제주 사장님, 무료로 30초 홍보영상 만들어 드립니다</h1>
           <p class="en-detail-lead">촬영도 방문도 없이, 가게·제품 사진만 보내주세요. AI로 30초 홍보영상 샘플을 만들어 먼저 보여드려요. 마음에 들 때만 진행하시면 됩니다.</p>
           <div class="en-detail-actions">
@@ -1085,7 +1085,7 @@ function freePage() {
           <div class="cta-band has-form">
             <h2>무료 샘플 신청</h2>
             <p class="cta-note">업종과 제품/공간 사진(링크 또는 설명)만 남겨주세요. 확인 후 무료 30초 샘플을 만들어 연락드립니다.</p>
-            <p class="contact-trust">이번 달 선착순 · 평균 1시간 내 응답 · 마음에 들 때만 진행</p>
+            <p class="contact-trust">이번 달 선착순 5팀 · 평균 1시간 내 응답 · 마음에 들 때만 진행</p>
             ${quoteForm()}
           </div>
         </section>
@@ -1241,7 +1241,7 @@ const industryPages = {
 
 const industryFaqItems = [
   ["정말 촬영 없이 사진만으로 되나요?", "네. 가지고 계신 가게·제품·공간 사진 3~5장이면 충분합니다. 촬영이나 방문 없이 세로 30초 홍보영상을 만들어 드립니다. 사진이 부족하면 어떤 컷이 필요한지 먼저 알려드려요."],
-  ["무료 샘플은 정말 무료인가요? 조건이 있나요?", "네, 무료입니다. 결과물을 먼저 보여드리려는 것이라 별도 조건은 없어요. 샘플이 마음에 들 때만 편수·버전을 정해 진행하시면 되고, 아니면 전혀 부담 없습니다. 이번 달 선착순으로 받고 있어요."],
+  ["무료 샘플은 정말 무료인가요? 조건이 있나요?", "네, 무료입니다. 결과물을 먼저 보여드리려는 것이라 별도 조건은 없어요. 샘플이 마음에 들 때만 편수·버전을 정해 진행하시면 되고, 아니면 전혀 부담 없습니다. 이번 달 선착순 5팀으로 받고 있어요."],
   ["제작 기간은 얼마나 걸리나요?", "무료 샘플은 보통 문의 후 며칠 안에 보여드립니다. 본 제작은 편수와 구성에 따라 다르지만 대부분 짧은 기간에 받아보실 수 있어요."],
   ["만든 영상은 어디에 쓸 수 있나요?", "인스타 릴스·유튜브 쇼츠·네이버플레이스·매장 TV·배달앱 등 어디든 바로 쓰실 수 있습니다. 쓰실 곳에 맞춰 화면비(세로·정사각·가로)를 맞춰 드려요."],
   ["제주가 아니어도 되나요?", "네. 사진만 주고받으면 되기 때문에 전국 어디든 온라인으로 진행됩니다. 제주는 현장 촬영·드론도 가능하고, 그 외 지역은 온라인 제작으로 도와드려요."],
@@ -1256,7 +1256,7 @@ function industryPage(key) {
   const off = d.offer || {};
   const heroCta = off.heroCta || "무료 30초 샘플 받기 ↗";
   const ctaHref = routeHref(off.hrefSlug || "free");
-  const offK = off.k || "이번 달 선착순 · 무료";
+  const offK = off.k || "이번 달 선착순 5팀 · 무료";
   const offT = off.t || "사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요";
   const offX = off.x || "무료 샘플 받기 ↗";
   const ctaH = off.ctaH || "먼저 무료 샘플로 확인하세요.";
@@ -1347,7 +1347,7 @@ function mainPage() {
         </section>
 
         <a class="en-offer" href="${routeHref("free")}">
-          <span class="en-offer-k">이번 달 선착순 · 무료</span>
+          <span class="en-offer-k">이번 달 선착순 5팀 · 무료</span>
           <span class="en-offer-t">사진만 보내면, 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
           <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
         </a>
@@ -1770,6 +1770,7 @@ const quoteQuestions = [
   ["qn_name", "이름 / 업체명", "text", "김민지 / 제주 ○○카페", true],
   ["qn_contact", "연락처 (전화 또는 이메일)", "text", "010-0000-0000 또는 email@example.com", true],
   ["qn_service", "필요한 제작", "text", "AI 숏폼 / 드론 / 기업영상 / 홈페이지 등", true],
+  ["qn_goal", "이 영상으로 이루고 싶은 것 · 어디에 쓸지", "text", "예: 인스타 릴스로 신메뉴 홍보 / 네이버플레이스 방문 늘리기", true],
   ["qn_reference", "참고 영상 링크 (있으면 견적이 빨라져요)", "text", "예: 유튜브·릴스 URL, 원하는 스타일 영상"],
   ["qn_assets", "보유 자료", "text", "제품 사진 있음 / 기존 영상 있음 / 자료 없음"],
   ["qn_plan", "희망 일정 · 예산대", "text", "예: 8월 초 납품 / 예산 100만원대·미정"],
@@ -1905,7 +1906,7 @@ function detailPage(route) {
         </section>
 
         <a class="en-offer" href="${routeHref("free")}">
-          <span class="en-offer-k">이번 달 선착순 · 무료</span>
+          <span class="en-offer-k">이번 달 선착순 5팀 · 무료</span>
           <span class="en-offer-t">사진만 보내면 30초 홍보영상 샘플을 무료로 만들어 드려요</span>
           <span class="en-offer-x" aria-hidden="true">무료 샘플 받기 ↗</span>
         </a>
@@ -2036,7 +2037,7 @@ function render() {
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
-    : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내면 무료로 30초 홍보영상 샘플을 만들어 드립니다. 마음에 들 때만 진행하시면 됩니다. 이번 달 선착순."
+    : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내면 무료로 30초 홍보영상 샘플을 만들어 드립니다. 마음에 들 때만 진행하시면 됩니다. 이번 달 선착순 5팀."
     : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
   const pageUrl = industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
