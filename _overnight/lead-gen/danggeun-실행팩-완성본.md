@@ -24,7 +24,7 @@
 촬영 없이 사진만으로 만드는 30초 홍보영상(릴스·쇼츠)과,
 첫 화면에서 신뢰를 주는 가게 홈페이지를 만듭니다.
 
-· 촬영·방문 없이 사진만 → 무료 30초 샘플 먼저 보여드려요
+· 촬영·방문 없이 사진만 → 무료 샘플 컷 3장 먼저 보여드려요
 · 고정가 없이 딱 맞는 견적 · 마음에 들 때만 진행
 · 크몽 24건+ 완료 · 40+ 실제 제작 영상
 
@@ -42,7 +42,7 @@
 [제주 사장님 · 무료 30초 홍보영상 만들어 드려요]
 
 촬영도, 방문도 없습니다. 가게·제품 사진 3~5장만 보내주시면
-AI로 30초 세로 홍보영상 샘플을 무료로 만들어 먼저 보여드려요.
+영상에 그대로 들어갈 샘플 컷 3장을 무료로 먼저 만들어 드려요.
 
 릴스·쇼츠·매장 TV·네이버플레이스 어디든 바로 쓰실 수 있어요.
 마음에 들 때만 진행하시면 되고, 아니면 전혀 부담 없습니다.
@@ -87,7 +87,7 @@ AI로 30초 세로 홍보영상 샘플을 무료로 만들어 먼저 보여드�
 |---|---|---|---|
 | **A(추천)** | 검색해서 찾아온 손님이, 딴 데 안 가게 | 무료로 첫 화면 시안 받기 | `videoroastery.com/homepage/?utm_source=danggeun&utm_medium=cpc&utm_campaign=home_A` |
 | **B(문턱0)** | 지금 쓰는 홈페이지·인스타, 손님 눈엔 어떻게 보일까요? | 무료 진단 받기 (사진 1장) | `videoroastery.com/estimate/?utm_source=danggeun&utm_campaign=diagnosis_B` |
-| **C(제품)** | 제품 사진 몇 장이면, 광고 영상이 됩니다 | 무료 30초 샘플 받기 | `videoroastery.com/free/?utm_source=danggeun&utm_campaign=shortform_C` |
+| **C(제품)** | 제품 사진 몇 장이면, 광고 영상이 됩니다 | 무료 샘플 컷 3장 받기 | `videoroastery.com/free/?utm_source=danggeun&utm_campaign=shortform_C` |
 
 **업종 타깃 광고**(신규 랜딩 활용 — 업종별로 정밀 착지):
 - 음식점 타깃 → `videoroastery.com/jeju-food-video/?utm_source=danggeun&utm_campaign=ind_food`
