@@ -1,3 +1,21 @@
+// ── 유입 분석 (Vercel Web Analytics + Microsoft Clarity) — 프로덕션 도메인에서만 수집 ──
+(function initAnalytics() {
+  const host = location.hostname;
+  if (host !== "videoroastery.com" && host !== "www.videoroastery.com") return;
+  // Vercel Web Analytics — 방문자·페이지뷰·이탈률·유입경로
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  const vs = document.createElement("script");
+  vs.defer = true;
+  vs.src = "/_vercel/insights/script.js";
+  document.head.appendChild(vs);
+  // Microsoft Clarity — 세션 녹화·히트맵 (project: xo3gh5bnxm)
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "xo3gh5bnxm");
+})();
+
 const routes = [
   {
     slug: "homepage",
