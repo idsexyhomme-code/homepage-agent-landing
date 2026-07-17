@@ -12,3 +12,6 @@ index.html.bak_test
 *.bak_test
 *.command
 drone_*_candidates*.png
+
+# Claude Code 로컬 설정·훅 (배포 무관, 커밋 제외)
+.claude/
