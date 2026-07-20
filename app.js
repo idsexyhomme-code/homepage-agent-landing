@@ -757,6 +757,137 @@ function estimatePage() {
   `;
 }
 
+// ── 영/중 견적 페이지 — 한국어 /estimate 와 대칭(견적 절차·요인 안내 + 문의 폼) ──
+// slug: "en/estimate" · "zh/estimate" · "zh-hant/estimate" (경로 기반 라우팅이 하위경로 자동 지원)
+const i18nEstimateRoutes = { "en/estimate": "en", "zh/estimate": "hans", "zh-hant/estimate": "hant" };
+const i18nEstimateCopy = {
+  en: {
+    title: "Get a Quote — Video Roastery", url: "https://videoroastery.com/en/estimate/",
+    desc: "No fixed price list. Send what you have and the result you want — we confirm the scope and reply with a tailored quote. Jeju on-site, remote worldwide.",
+    navHome: "Home", navQuote: "Get a quote", skip: "Skip to content",
+    eyebrow: "Estimate", h1: "We reply with a tailored quote.",
+    lead: "We don't post fixed prices. Send us what you have and the result you want — we confirm the scope and send a quote built for your project.",
+    cta: "Request a quote ↗", stepsHead: "How it works", factorsHead: "What shapes the quote",
+    steps: [
+      ["01", "Send your materials", "Send the product shots, logo and reference videos you have, plus the result you want. Photos alone are fine — no shoot required."],
+      ["02", "We confirm the scope", "We organize the production scope and timeline from what you sent. Ask us anything by email first."],
+      ["03", "Tailored quote", "We reply with a quote — scope, structure and timeline built for your project. Only what you actually need, not a fixed price."],
+      ["04", "Production starts", "Once confirmed, we begin right away. Revisions are agreed up front and worked through together."]
+    ],
+    factors: [
+      ["Scope", "Number of videos, length, and versions — subtitled / clean / per-channel resizes."],
+      ["Shoot or not", "Whether on-site Jeju filming or drone is needed, or your existing materials are enough."],
+      ["Planning depth", "Simple editing, or concept and script from the ground up."],
+      ["Timeline", "A standard schedule or a rush deadline."],
+      ["Revisions", "The number of revision rounds, agreed in advance."],
+      ["Usage", "Social, ads, or broader commercial usage."]
+    ],
+    formHead: "Contact", formH: "Request a quote",
+    formNote: "Tell us what you have and the result you want — we'll confirm the scope and reply with a tailored quote.",
+    footer: "Jeju, South Korea · Remote worldwide"
+  },
+  hans: {
+    title: "获取报价 — Video Roastery", url: "https://videoroastery.com/zh/estimate/",
+    desc: "我们不标注固定价格。告诉我们您有什么、想要什么结果——确认制作范围后回复量身定制的报价。济州现场，全球远程。",
+    navHome: "首页", navQuote: "获取报价", skip: "跳到正文",
+    eyebrow: "报价说明", h1: "我们回复量身定制的报价。",
+    lead: "我们不标注固定价格。告诉我们您有什么、想要什么结果——我们确认制作范围后，回复为您项目量身打造的报价。",
+    cta: "索取报价 ↗", stepsHead: "报价流程", factorsHead: "影响报价的因素",
+    steps: [
+      ["01", "发送素材", "发送您现有的产品照片、logo、参考视频，以及想要的成品。只有照片也可以——无需拍摄。"],
+      ["02", "确认范围", "根据您发送的素材，我们梳理制作范围与时间。有疑问可先邮件咨询。"],
+      ["03", "定制报价", "我们回复一份报价——为您项目量身打造的范围、构成与时间。只做真正需要的，而非固定价。"],
+      ["04", "开始制作", "确认后立即开始。修改次数事先约定，一起打磨完成。"]
+    ],
+    factors: [
+      ["制作范围", "条数、时长与版本——带字幕／无字幕／各渠道尺寸。"],
+      ["是否拍摄", "是否需要济州现场拍摄或无人机，还是仅用现有素材即可。"],
+      ["策划深度", "是简单剪辑，还是从概念与脚本做起。"],
+      ["交期", "常规时间还是加急。"],
+      ["修改次数", "事先约定的修改轮数。"],
+      ["使用范围", "社交媒体、广告或更广的商业使用。"]
+    ],
+    formHead: "联系", formH: "索取报价",
+    formNote: "告诉我们您有什么、想要什么结果——我们确认范围后回复量身定制的报价。",
+    footer: "韩国济州岛 · 全球远程"
+  },
+  hant: {
+    title: "取得報價 — Video Roastery", url: "https://videoroastery.com/zh-hant/estimate/",
+    desc: "我們不標示固定價格。告訴我們您有什麼、想要什麼成果——確認製作範圍後回覆量身打造的報價。濟州現場，全球遠端。",
+    navHome: "首頁", navQuote: "取得報價", skip: "跳到正文",
+    eyebrow: "報價說明", h1: "我們回覆量身打造的報價。",
+    lead: "我們不標示固定價格。告訴我們您有什麼、想要什麼成果——我們確認製作範圍後，回覆為您專案量身打造的報價。",
+    cta: "索取報價 ↗", stepsHead: "報價流程", factorsHead: "影響報價的因素",
+    steps: [
+      ["01", "傳送素材", "傳送您現有的產品照片、logo、參考影片，以及想要的成品。只有照片也可以——無需拍攝。"],
+      ["02", "確認範圍", "根據您傳送的素材，我們整理製作範圍與時程。有疑問可先以電子郵件詢問。"],
+      ["03", "客製報價", "我們回覆一份報價——為您專案量身打造的範圍、架構與時程。只做真正需要的，而非固定價。"],
+      ["04", "開始製作", "確認後立即開始。修改次數事先協議，一起打磨完成。"]
+    ],
+    factors: [
+      ["製作範圍", "支數、長度與版本——含字幕／無字幕／各平台尺寸。"],
+      ["是否拍攝", "是否需要濟州現場拍攝或空拍，還是僅用現有素材即可。"],
+      ["企劃深度", "是單純剪輯，還是從概念與腳本做起。"],
+      ["交期", "一般時程或急件。"],
+      ["修改次數", "事先協議的修改輪數。"],
+      ["使用範圍", "社群、廣告或更廣的商業使用。"]
+    ],
+    formHead: "聯絡", formH: "索取報價",
+    formNote: "告訴我們您有什麼、想要什麼成果——我們確認範圍後回覆量身打造的報價。",
+    footer: "韓國濟州島 · 全球遠端"
+  }
+};
+
+function i18nEstimatePage(lang) {
+  const c = i18nEstimateCopy[lang];
+  const fc = i18nFormCopy[lang];
+  const homeSlug = { en: "en", hans: "zh", hant: "zh-hant" }[lang];
+  const basic = lang === "en" ? "" : " basic-zh";
+  const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(fc.subject)}`;
+  const steps = c.steps.map(([n, t, d]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  const factors = c.factors.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
+  return `
+    <a class="skip-link" href="#main">${c.skip}</a>
+    <div class="en-page${basic}">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref(homeSlug)}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="${routeHref(homeSlug)}">${c.navHome}</a><a href="#estimate-form">${c.navQuote}</a><span class="en-lang">${langSwitch(lang)}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${c.eyebrow}</p>
+          <h1 class="en-detail-h1">${c.h1}</h1>
+          <p class="en-detail-lead">${c.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="#estimate-form">${c.cta}</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${c.stepsHead}</span><span>(04)</span></div>
+          <div class="en-svc-list">${steps}</div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${c.factorsHead}</span><span>(06)</span></div>
+          <div class="en-svc-list">${factors}</div>
+        </section>
+
+        <section class="en-cta" id="estimate-form">
+          <p class="en-eyebrow">${c.formHead}</p>
+          <h2 class="en-cta-h">${c.formH}</h2>
+          <p class="en-cta-note" style="margin-top:14px">${c.formNote}</p>
+          ${i18nInquiryForm(lang, mail)}
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${c.footer}</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
 function aboutPage() {
   const ways = [
     ["실제 작업물로 이야기합니다", "말보다 만든 결과물을 먼저 보여드려요. 포트폴리오를 보고 판단하실 수 있습니다."],
@@ -923,7 +1054,7 @@ function enPage() {
     <div class="en-page">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="${routeHref("en/estimate")}">QUOTE</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -1029,7 +1160,7 @@ function zhPage(variant) {
     <div class="en-page basic-zh">
       <header class="en-bar">
         <a class="en-wm" href="${T.home}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="${T.cur}" aria-haspopup="dialog">${T.work}</a><a href="#services">${T.servicesH}</a><a href="#contact">${T.contact}</a><span class="en-lang">${langSwitch(T.cur)}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="${T.cur}" aria-haspopup="dialog">${T.work}</a><a href="#services">${T.servicesH}</a><a href="${routeHref((T.cur === "hant" ? "zh-hant" : "zh") + "/estimate")}">${i18nEstimateCopy[T.cur].navQuote}</a><a href="#contact">${T.contact}</a><span class="en-lang">${langSwitch(T.cur)}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -2167,6 +2298,7 @@ function footer() {
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
+  const i18nEst = i18nEstimateRoutes[slug]; // 영/중 견적 페이지("en/estimate" 등) 언어 키
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
   // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
   const seoTitles = {
@@ -2187,8 +2319,8 @@ function render() {
     rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
     free: "무료 홍보영상 샘플 컷 3장 — 제주 소상공인 | 비디오 로스터리",
   };
-  const pageTitle = (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
     : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
@@ -2196,7 +2328,7 @@ function render() {
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
     : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -2211,7 +2343,7 @@ function render() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
-  document.querySelector("#app").innerHTML = industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();

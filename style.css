@@ -2918,8 +2918,8 @@ h1, h2, h3, .h2-en { text-wrap: balance; }
 /* 라이트 히어로 위 nav — 흰 글씨는 안 보이므로 잉크색으로 */
 .en-bar--ink .en-wm, .en-bar--ink .en-nav a, .en-bar--ink .en-lang a{ color:var(--en-ink); text-shadow:none; }
 .en-bar--ink .en-nav a:hover, .en-bar--ink .en-lang a:hover{ color:var(--en-sub); }
-.basic-ko .en-detail-hero{ padding:clamp(92px,12vw,150px) clamp(18px,4vw,40px) clamp(30px,5vw,54px); border-bottom:1px solid var(--en-line); }
-.basic-ko .en-detail-hero .en-eyebrow{ color:var(--en-ink); }
+.en-detail-hero{ padding:clamp(92px,12vw,150px) clamp(18px,4vw,40px) clamp(30px,5vw,54px); border-bottom:1px solid var(--en-line); }
+.en-detail-hero .en-eyebrow{ color:var(--en-ink); }
 .en-detail-h1{ margin:14px 0 0; font-size:clamp(2.2rem,6.4vw,4.6rem); font-weight:700; line-height:1.0; letter-spacing:-.04em; max-width:20ch; text-wrap:balance; }
 .basic-ko .en-detail-h1{ font-size:clamp(1.6rem,3.4vw,2.5rem); font-weight:600; line-height:1.36; letter-spacing:-0.035em; max-width:26ch; }
 .en-detail-lead{ margin:22px 0 0; max-width:48ch; font-size:clamp(1.02rem,2.3vw,1.3rem); line-height:1.55; color:var(--en-sub); word-break:keep-all; }
