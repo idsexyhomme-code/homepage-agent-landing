@@ -877,7 +877,7 @@ function i18nEstimatePage(lang) {
           <p class="en-eyebrow">${c.formHead}</p>
           <h2 class="en-cta-h">${c.formH}</h2>
           <p class="en-cta-note" style="margin-top:14px">${c.formNote}</p>
-          ${i18nInquiryForm(lang, mail)}
+          ${i18nQuoteForm(lang)}
         </section>
       </main>
       <footer class="en-footer">
@@ -1087,7 +1087,8 @@ function enPage() {
         <section class="en-cta" id="contact">
           <p class="en-eyebrow">Start a project</p>
           <h2 class="en-cta-h">Tell us what you have.<br>We reply with a scope.</h2>
-          ${i18nInquiryForm("en", mail)}
+          <a class="en-cta-btn" href="${routeHref("en/estimate")}">Get a quote ↗</a>
+          <p class="en-cta-note">Send us what you have and the result you want — we'll confirm the scope and reply with a tailored quote.</p>
         </section>
       </main>
       <footer class="en-footer">
@@ -1194,7 +1195,7 @@ function zhPage(variant) {
           <p class="en-eyebrow">${T.contact}</p>
           <h2 class="en-cta-h">${T.contactH}</h2>
           <p class="en-cta-note" style="margin-top:14px">${T.contactNote}</p>
-          ${i18nInquiryForm(T.cur, mail)}
+          <a class="en-cta-btn" href="${routeHref((T.cur === "hant" ? "zh-hant" : "zh") + "/estimate")}">${i18nEstimateCopy[T.cur].navQuote} ↗</a>
         </section>
       </main>
       <footer class="en-footer">
@@ -2069,41 +2070,90 @@ function setupQuoteForm() {
   }
 }
 
-// ── 다국어(영/중) 문의 폼 — 한국어와 동일하게 서버리스 자동 접수(+mailto 폴백) ──
-// 밴쿠버 등 해외 고객이 메일 앱 없이도 문의 남기게. 회신 이메일(f_email)이 replyto로 들어가 대표가 바로 답장 가능.
+// ── 다국어(영/중) 견적 문의 폼 — 한국어 quoteForm 과 동일한 상세 8필드(번역) + 서버리스 자동 접수(+mailto 폴백) ──
+// 밴쿠버 등 해외 고객이 메일 앱 없이도 문의 남기게. 연락처가 이메일형이면 replyto로 들어가 대표가 바로 답장 가능.
 const i18nFormCopy = {
-  en:   { name: "Name / Company", email: "Email", msg: "What do you need? — project, goal, timeline", submit: "Send inquiry", sending: "Sending…", sentT: "Received ✓", sentB: "Thanks — we'll get back to you shortly.", orEmail: "or email us directly ↗", subject: "Project inquiry — Video Roastery", intro: "New project inquiry from the website." },
-  hans: { name: "姓名 / 公司", email: "邮箱", msg: "您需要什么？——项目、目标、时间", submit: "发送咨询", sending: "发送中…", sentT: "已收到 ✓", sentB: "谢谢，我们会尽快回复您。", orEmail: "或直接邮件联系我们 ↗", subject: "项目咨询 — Video Roastery", intro: "来自网站的新项目咨询。" },
-  hant: { name: "姓名 / 公司", email: "電子郵件", msg: "您需要什麼？——專案、目標、時間", submit: "發送諮詢", sending: "發送中…", sentT: "已收到 ✓", sentB: "謝謝，我們會盡快回覆您。", orEmail: "或直接郵件聯絡我們 ↗", subject: "專案諮詢 — Video Roastery", intro: "來自網站的新專案諮詢。" }
+  en:   { submit: "Send request", sending: "Sending…", sentT: "Received ✓", sentB: "Thanks — we'll get back to you shortly with a tailored quote.", orEmail: "or email us directly ↗", subject: "Project inquiry — Video Roastery", intro: "New project / quote request from the website.", hint: "Send us what you have — attach photos or videos to the email, or share a link. We'll confirm the scope and reply with a tailored quote." },
+  hans: { submit: "发送请求", sending: "发送中…", sentT: "已收到 ✓", sentB: "谢谢，我们会尽快回复量身定制的报价。", orEmail: "或直接邮件联系我们 ↗", subject: "项目咨询 — Video Roastery", intro: "来自网站的新项目／报价咨询。", hint: "把您现有的素材发给我们——照片或影片可附在邮件，或用链接分享。我们确认范围后回复量身定制的报价。" },
+  hant: { submit: "發送請求", sending: "發送中…", sentT: "已收到 ✓", sentB: "謝謝，我們會盡快回覆量身打造的報價。", orEmail: "或直接郵件聯絡我們 ↗", subject: "專案諮詢 — Video Roastery", intro: "來自網站的新專案／報價諮詢。", hint: "把您現有的素材傳給我們——照片或影片可附在郵件，或用連結分享。我們確認範圍後回覆量身打造的報價。" }
 };
 
-function i18nInquiryForm(lang, mailHref) {
+// 8필드 [name, label, placeholder, type, required] — 한국어 quoteQuestions 대칭
+const i18nQuoteQuestions = {
+  en: [
+    ["qn_name", "Name / Company", "e.g. Jane Kim / ABC Cafe", "text", true],
+    ["qn_contact", "Contact (email or phone)", "e.g. you@example.com", "text", true],
+    ["qn_service", "What you need", "AI short-form / drone / brand film / website…", "text", true],
+    ["qn_goal", "Your goal & where you'll use it", "e.g. Instagram Reels for a new menu / more bookings", "text", true],
+    ["qn_reference", "Reference links (optional — speeds up the quote)", "YouTube / Reels URLs, styles you like", "text", false],
+    ["qn_assets", "What you have", "product photos / existing footage / nothing yet", "text", false],
+    ["qn_plan", "Timeline & budget range", "e.g. deliver early Aug / budget ~$1,000, flexible", "text", false],
+    ["qn_message", "Message", "e.g. Can you make 4 reels from product photos?", "textarea", true]
+  ],
+  hans: [
+    ["qn_name", "姓名 / 公司", "例：张三 / 济州○○咖啡", "text", true],
+    ["qn_contact", "联系方式（邮箱或电话）", "例：you@example.com", "text", true],
+    ["qn_service", "需要的制作", "AI短视频 / 无人机 / 品牌短片 / 网站…", "text", true],
+    ["qn_goal", "想达成的目标·用在哪里", "例：用于Instagram Reels推广新品 / 增加预订", "text", true],
+    ["qn_reference", "参考链接（选填，报价更快）", "YouTube／Reels链接、喜欢的风格", "text", false],
+    ["qn_assets", "现有素材", "产品照片 / 已有影片 / 暂无", "text", false],
+    ["qn_plan", "期望时间·预算范围", "例：8月初交付 / 预算约1000美元、可议", "text", false],
+    ["qn_message", "咨询内容", "例：能否用产品照片制作4条Reels？", "textarea", true]
+  ],
+  hant: [
+    ["qn_name", "姓名 / 公司", "例：張三 / 濟州○○咖啡", "text", true],
+    ["qn_contact", "聯絡方式（電子郵件或電話）", "例：you@example.com", "text", true],
+    ["qn_service", "需要的製作", "AI短影音 / 空拍 / 品牌短片 / 網站…", "text", true],
+    ["qn_goal", "想達成的目標·用在哪裡", "例：用於Instagram Reels推廣新品 / 增加預約", "text", true],
+    ["qn_reference", "參考連結（選填，報價更快）", "YouTube／Reels連結、喜歡的風格", "text", false],
+    ["qn_assets", "現有素材", "產品照片 / 已有影片 / 暫無", "text", false],
+    ["qn_plan", "期望時程·預算範圍", "例：8月初交付 / 預算約1000美元、可議", "text", false],
+    ["qn_message", "諮詢內容", "例：能否用產品照片製作4支Reels？", "textarea", true]
+  ]
+};
+
+function i18nQuoteForm(lang) {
   const c = i18nFormCopy[lang] || i18nFormCopy.en;
+  const qs = i18nQuoteQuestions[lang] || i18nQuoteQuestions.en;
+  const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(c.subject)}`;
+  const fields = qs.map(([name, label, ph, type, req]) => {
+    const star = req ? ` <span class="req" aria-hidden="true">*</span>` : "";
+    const control = type === "textarea"
+      ? `<textarea id="${name}" class="en-form-in" name="${name}" rows="3" placeholder="${ph}"${req ? " required" : ""}></textarea>`
+      : `<input id="${name}" class="en-form-in" type="text" name="${name}" placeholder="${ph}"${req ? " required" : ""} />`;
+    return `<div class="en-form-field"><label for="${name}">${label}${star}</label>${control}</div>`;
+  }).join("");
   return `
-    <form class="en-form" id="i18n-inquiry-form" data-lang="${lang}" aria-label="${c.subject}">
-      <input class="en-form-in" type="text" name="f_name" placeholder="${c.name}" autocomplete="name" required />
-      <input class="en-form-in" type="email" name="f_email" placeholder="${c.email}" autocomplete="email" required />
-      <textarea class="en-form-in" name="f_msg" rows="3" placeholder="${c.msg}" required></textarea>
+    <form class="en-form en-form--quote" id="i18n-quote-form" data-lang="${lang}" aria-label="${c.subject}">
+      ${fields}
+      <p class="en-form-hint">${c.hint}</p>
       <button type="submit" class="en-cta-btn en-form-btn">${c.submit} ↗</button>
-      <a class="en-form-alt" href="${mailHref}">${c.orEmail}</a>
+      <a class="en-form-alt" href="${mail}">${c.orEmail}</a>
     </form>
   `;
 }
 
 function setupI18nForm() {
-  const form = document.querySelector("#i18n-inquiry-form");
+  const form = document.querySelector("#i18n-quote-form");
   if (!form) return;
   const lang = form.dataset.lang || "en";
   const c = i18nFormCopy[lang] || i18nFormCopy.en;
+  const qs = i18nQuoteQuestions[lang] || i18nQuoteQuestions.en;
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const val = (n) => ((form.elements[n] && form.elements[n].value) || "").trim();
-  const buildBody = () =>
-    [c.intro, "", `${c.name}: ${val("f_name") || "-"}`, `${c.email}: ${val("f_email") || "-"}`, "", val("f_msg"), "", `Page: ${location.origin}${location.pathname}`].join("\n");
+  const buildBody = () => {
+    const lines = [c.intro, ""];
+    qs.forEach(([name, label]) => lines.push(`${label.replace(/\s*\(.*\)\s*$/, "")}: ${val(name) || "-"}`));
+    lines.push("", `Page: ${location.origin}${location.pathname}`);
+    return lines.join("\n");
+  };
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     trackEvent("inquiry_i18n", { from: location.pathname });
     const btn = form.querySelector('button[type="submit"]');
     if (INQUIRY_FORM_KEY && btn) { btn.dataset.label = btn.textContent; btn.disabled = true; btn.textContent = c.sending; }
-    const sent = await submitInquiry({ subject: c.subject, body: buildBody(), name: val("f_name") || "Website inquiry", replyto: val("f_email") });
+    const cv = val("qn_contact");
+    const sent = await submitInquiry({ subject: c.subject, body: buildBody(), name: val("qn_name") || "Website inquiry", replyto: emailRe.test(cv) ? cv : "" });
     if (sent) {
       trackEvent("inquiry_i18n_sent", { from: location.pathname });
       const box = document.createElement("div");

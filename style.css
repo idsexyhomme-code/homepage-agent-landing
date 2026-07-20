@@ -2459,6 +2459,13 @@ textarea.en-form-in { resize: vertical; min-height: 92px; line-height: 1.5; }
 .en-form-alt:hover { color: var(--en-ink); }
 .en-form-sent { margin-top: 26px; max-width: 460px; }
 
+/* 다국어 상세 견적 폼(8필드, 라벨 포함) — 한국어 quoteForm 대칭 */
+.en-form--quote { gap: 16px; max-width: 520px; }
+.en-form-field { display: flex; flex-direction: column; gap: 6px; }
+.en-form-field label { font-size: 0.82rem; font-weight: 600; color: var(--en-sub); letter-spacing: -0.01em; }
+.en-form-field .req { color: #b4442f; }
+.en-form-hint { margin: 2px 0 0; font-size: 0.86rem; color: var(--en-sub); line-height: 1.55; max-width: 52ch; }
+
 /* 상세페이지 오버뷰 이미지 → 실제 사이트 링크 */
 .detail-window-link {
   position: relative;
