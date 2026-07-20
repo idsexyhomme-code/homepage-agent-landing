@@ -956,7 +956,7 @@ function enPage() {
         <section class="en-cta" id="contact">
           <p class="en-eyebrow">Start a project</p>
           <h2 class="en-cta-h">Tell us what you have.<br>We reply with a scope.</h2>
-          <a class="en-cta-btn" href="${mail}">Email us ↗</a>
+          ${i18nInquiryForm("en", mail)}
         </section>
       </main>
       <footer class="en-footer">
@@ -1062,8 +1062,8 @@ function zhPage(variant) {
         <section class="en-cta" id="contact">
           <p class="en-eyebrow">${T.contact}</p>
           <h2 class="en-cta-h">${T.contactH}</h2>
-          <a class="en-cta-btn" href="${mail}">${T.emailBtn} ↗</a>
-          <p class="en-cta-note">${T.contactNote}</p>
+          <p class="en-cta-note" style="margin-top:14px">${T.contactNote}</p>
+          ${i18nInquiryForm(T.cur, mail)}
         </section>
       </main>
       <footer class="en-footer">
@@ -1938,6 +1938,56 @@ function setupQuoteForm() {
   }
 }
 
+// ── 다국어(영/중) 문의 폼 — 한국어와 동일하게 서버리스 자동 접수(+mailto 폴백) ──
+// 밴쿠버 등 해외 고객이 메일 앱 없이도 문의 남기게. 회신 이메일(f_email)이 replyto로 들어가 대표가 바로 답장 가능.
+const i18nFormCopy = {
+  en:   { name: "Name / Company", email: "Email", msg: "What do you need? — project, goal, timeline", submit: "Send inquiry", sending: "Sending…", sentT: "Received ✓", sentB: "Thanks — we'll get back to you shortly.", orEmail: "or email us directly ↗", subject: "Project inquiry — Video Roastery", intro: "New project inquiry from the website." },
+  hans: { name: "姓名 / 公司", email: "邮箱", msg: "您需要什么？——项目、目标、时间", submit: "发送咨询", sending: "发送中…", sentT: "已收到 ✓", sentB: "谢谢，我们会尽快回复您。", orEmail: "或直接邮件联系我们 ↗", subject: "项目咨询 — Video Roastery", intro: "来自网站的新项目咨询。" },
+  hant: { name: "姓名 / 公司", email: "電子郵件", msg: "您需要什麼？——專案、目標、時間", submit: "發送諮詢", sending: "發送中…", sentT: "已收到 ✓", sentB: "謝謝，我們會盡快回覆您。", orEmail: "或直接郵件聯絡我們 ↗", subject: "專案諮詢 — Video Roastery", intro: "來自網站的新專案諮詢。" }
+};
+
+function i18nInquiryForm(lang, mailHref) {
+  const c = i18nFormCopy[lang] || i18nFormCopy.en;
+  return `
+    <form class="en-form" id="i18n-inquiry-form" data-lang="${lang}" aria-label="${c.subject}">
+      <input class="en-form-in" type="text" name="f_name" placeholder="${c.name}" autocomplete="name" required />
+      <input class="en-form-in" type="email" name="f_email" placeholder="${c.email}" autocomplete="email" required />
+      <textarea class="en-form-in" name="f_msg" rows="3" placeholder="${c.msg}" required></textarea>
+      <button type="submit" class="en-cta-btn en-form-btn">${c.submit} ↗</button>
+      <a class="en-form-alt" href="${mailHref}">${c.orEmail}</a>
+    </form>
+  `;
+}
+
+function setupI18nForm() {
+  const form = document.querySelector("#i18n-inquiry-form");
+  if (!form) return;
+  const lang = form.dataset.lang || "en";
+  const c = i18nFormCopy[lang] || i18nFormCopy.en;
+  const val = (n) => ((form.elements[n] && form.elements[n].value) || "").trim();
+  const buildBody = () =>
+    [c.intro, "", `${c.name}: ${val("f_name") || "-"}`, `${c.email}: ${val("f_email") || "-"}`, "", val("f_msg"), "", `Page: ${location.origin}${location.pathname}`].join("\n");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    trackEvent("inquiry_i18n", { from: location.pathname });
+    const btn = form.querySelector('button[type="submit"]');
+    if (INQUIRY_FORM_KEY && btn) { btn.dataset.label = btn.textContent; btn.disabled = true; btn.textContent = c.sending; }
+    const sent = await submitInquiry({ subject: c.subject, body: buildBody(), name: val("f_name") || "Website inquiry", replyto: val("f_email") });
+    if (sent) {
+      trackEvent("inquiry_i18n_sent", { from: location.pathname });
+      const box = document.createElement("div");
+      box.className = "consult-sent en-form-sent";
+      box.setAttribute("role", "status");
+      box.innerHTML = `<strong>${c.sentT}</strong><br>${c.sentB}`;
+      form.replaceWith(box);
+      return;
+    }
+    if (btn && btn.dataset.label) { btn.disabled = false; btn.textContent = btn.dataset.label; }
+    const alt = form.querySelector(".en-form-alt");
+    window.location.href = alt ? alt.href : `mailto:${consultEmail}`;
+  });
+}
+
 // 자주 묻는 질문(전 서비스 공통) — 예산/기간/리스크 답을 먼저 줘 문의 망설임을 줄임
 const faqItems = [
   ["제작 기간은 얼마나 걸리나요?", "분량과 범위에 따라 보통 1~4주입니다. 보유 자료를 확인한 뒤 정확한 일정을 먼저 안내드립니다."],
@@ -2167,6 +2217,7 @@ function render() {
   setupReelGallery();
   setupConsultForm();
   setupQuoteForm();
+  setupI18nForm();
   setupScrollReveal();
   setupHeroMotion();
   setupHeroWall();

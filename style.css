@@ -2437,6 +2437,28 @@ footer a {
 }
 .consult-sent strong { color: #0f6b57; font-size: 1.08rem; }
 
+/* 다국어(영/중) 문의 폼 — 라이트 BASIC 페이지(.en-cta)에 맞춘 좌측정렬 폼 */
+.en-form { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; max-width: 460px; text-align: left; }
+.en-form-in {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--en-line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--en-ink);
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.en-form-in::placeholder { color: var(--en-sub); }
+.en-form-in:focus { outline: none; border-color: var(--en-ink); background: #fff; }
+textarea.en-form-in { resize: vertical; min-height: 92px; line-height: 1.5; }
+.en-form-btn { margin-top: 4px; border: none; cursor: pointer; align-self: flex-start; }
+.en-form-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+.en-form-alt { color: var(--en-sub); font-size: 0.9rem; text-decoration: underline; text-underline-offset: 3px; }
+.en-form-alt:hover { color: var(--en-ink); }
+.en-form-sent { margin-top: 26px; max-width: 460px; }
+
 /* 상세페이지 오버뷰 이미지 → 실제 사이트 링크 */
 .detail-window-link {
   position: relative;
