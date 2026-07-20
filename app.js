@@ -16,6 +16,34 @@
   })(window, document, "clarity", "script", "xo3gh5bnxm");
 })();
 
+// ── 전환 계측 — 문의/견적 제출·CTA 클릭을 Clarity 커스텀 이벤트 + Vercel 이벤트로 기록 ──
+// (방문/이탈만 잡던 분석에 "몇 명이 실제 문의로 전환됐나"를 더함. 프로덕션에서만 초기화됨=분석과 동일 게이트)
+function trackEvent(name, meta) {
+  try {
+    if (typeof window.clarity === "function") {
+      window.clarity("event", name);
+      if (meta && meta.from) window.clarity("set", "conv_from", String(meta.from));
+    }
+    if (typeof window.va === "function") window.va("event", { name, ...(meta || {}) });
+  } catch (e) { /* 계측 실패가 사용자 흐름을 막지 않도록 무시 */ }
+}
+
+// 전역 위임 클릭 리스너 1회 설치 — 페이지 전환(SPA 재렌더)과 무관하게 지속.
+// mailto CTA(서비스 상세·리메모리·en/zh·업종 랜딩)와 무료/견적 유도 링크를 한 곳에서 포착.
+function setupConversionTracking() {
+  if (window.__convTrackInstalled) return;
+  window.__convTrackInstalled = true;
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    const href = a.getAttribute("href") || "";
+    const from = location.pathname;
+    if (href.startsWith("mailto:")) trackEvent("inquiry_mailto", { from });
+    else if (/\/free(\/|\?|$)/.test(href)) trackEvent("cta_free", { from });
+    else if (/\/estimate(\/|\?|$)/.test(href)) trackEvent("cta_estimate", { from });
+  }, true);
+}
+
 const routes = [
   {
     slug: "homepage",
@@ -1734,6 +1762,52 @@ function consultForm() {
   `;
 }
 
+// ── 서버리스 문의 전송(Web3Forms) — 제출 시 메일이 자동 발송되고 리드가 서버에 남음 ──
+// 액세스 키는 web3forms.com에서 대표 이메일로 무료 발급(무계정, 250건/월). 아래에 붙여넣으면 활성화.
+// 비어 있으면 서버리스 비활성 → 기존 mailto 방식 그대로 동작(안전한 기본값).
+const INQUIRY_FORM_KEY = "7996b1d4-cae4-4184-af39-b9022fb22f3a";
+
+// 폼에서 발신자 이름·회신 이메일을 추출(견적폼 qn_name/qn_contact 우선, 없으면 첫 입력·이메일형 값)
+function extractContact(form) {
+  const vals = [...form.elements].map((el) => ((el && el.value) || "").trim()).filter(Boolean);
+  const email = vals.find((v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  const name = (form.elements.qn_name && form.elements.qn_name.value.trim()) || vals[0] || "홈페이지 문의";
+  return { name, replyto: email || "" };
+}
+
+// Web3Forms로 POST. 성공 시 true(→ 인라인 확인), 실패·키미설정 시 false(→ mailto 폴백).
+async function submitInquiry({ subject, body, name, replyto }) {
+  if (!INQUIRY_FORM_KEY) return false;
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: INQUIRY_FORM_KEY,
+        subject,
+        from_name: name || "홈페이지 문의",
+        replyto: replyto || undefined,
+        message: body,
+        botcheck: ""
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    return !!(res.ok && data && data.success);
+  } catch (e) {
+    return false;
+  }
+}
+
+// 전송 성공 시 폼을 감사 메시지로 대체(SPA 재렌더 전까지 유지)
+function showInquirySuccess(form) {
+  const box = document.createElement("div");
+  box.className = "consult-sent";
+  box.setAttribute("role", "status");
+  box.innerHTML =
+    "<strong>접수됐습니다 ✓</strong><br>확인 후 회신드릴게요. 평균 1시간 내 응답 · 마음에 들 때만 진행합니다.";
+  form.replaceWith(box);
+}
+
 function setupConsultForm() {
   const form = document.querySelector("#consult-form");
   if (!form) return;
@@ -1748,8 +1822,15 @@ function setupConsultForm() {
     return lines.join("\n");
   };
   const subject = "[Video Roastery] AI 활용 컨설팅 사전 질문지";
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    trackEvent("inquiry_consult", { from: location.pathname });
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (INQUIRY_FORM_KEY && submitBtn) { submitBtn.dataset.label = submitBtn.textContent; submitBtn.disabled = true; submitBtn.textContent = "보내는 중…"; }
+    const c = extractContact(form);
+    const sent = await submitInquiry({ subject, body: buildBody(), name: c.name, replyto: c.replyto });
+    if (sent) { trackEvent("inquiry_consult_sent", { from: location.pathname }); showInquirySuccess(form); return; }
+    if (submitBtn && submitBtn.dataset.label) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label; }
     window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBody())}`;
   });
   // 메일 앱이 없는 환경 폴백: 작성 내용 클립보드 복사
@@ -1778,6 +1859,7 @@ function setupConsultForm() {
         "",
         `작성 페이지: ${currentPageUrl({ slug: "consulting" })}`
       ].join("\n");
+      trackEvent("inquiry_consult_quick", { from: location.pathname });
       window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent("[Video Roastery] 빠른 상담 문의")}&body=${encodeURIComponent(body)}`;
     });
   }
@@ -1831,8 +1913,15 @@ function setupQuoteForm() {
     return lines.join("\n");
   };
   const subject = "[Video Roastery] 제작 견적 요청";
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    trackEvent("inquiry_quote", { from: location.pathname });
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (INQUIRY_FORM_KEY && submitBtn) { submitBtn.dataset.label = submitBtn.textContent; submitBtn.disabled = true; submitBtn.textContent = "보내는 중…"; }
+    const c = extractContact(form);
+    const sent = await submitInquiry({ subject, body: buildBody(), name: c.name, replyto: c.replyto });
+    if (sent) { trackEvent("inquiry_quote_sent", { from: location.pathname }); showInquirySuccess(form); return; }
+    if (submitBtn && submitBtn.dataset.label) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label; }
     window.location.href = `mailto:${consultEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBody())}`;
   });
   const copyBtn = form.querySelector(".quote-copy");
@@ -2521,3 +2610,4 @@ function setupBackToTop() {
 
 render();
 setupBackToTop();
+setupConversionTracking();

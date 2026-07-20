@@ -2424,6 +2424,19 @@ footer a {
   text-align: center;
 }
 
+/* 서버리스 문의 전송 성공 시 폼 대체 메시지 */
+.consult-sent {
+  padding: 28px 24px;
+  border: 1px solid rgba(15, 107, 87, 0.28);
+  border-radius: 14px;
+  background: rgba(15, 107, 87, 0.06);
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+.consult-sent strong { color: #0f6b57; font-size: 1.08rem; }
+
 /* 상세페이지 오버뷰 이미지 → 실제 사이트 링크 */
 .detail-window-link {
   position: relative;

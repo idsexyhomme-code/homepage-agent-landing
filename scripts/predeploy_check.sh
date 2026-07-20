@@ -52,6 +52,10 @@ echo "== 6) 회귀 grep (내부문서 배포차단 / 수기 br / 미치환 도�
 grep -q "REMEMORY_HANDOFF.md" .vercelignore 2>/dev/null && ok "내부문서 .vercelignore 제외됨" || bad "REMEMORY_HANDOFF.md 미제외"
 BR=$(grep -oE '<br>' app.js | wc -l | tr -d ' '); [ "$BR" = "0" ] && ok "수기 <br> 0" || echo "  · 수기 <br> ${BR}개(참고)"
 grep -q "rememory\.kr" app.js rememory/index.html 2>/dev/null && bad "rememory.kr 미치환 잔재" || ok "rememory.kr 잔재 0"
+# 오퍼 통일: 옛 "무료 30초 샘플" 오퍼 잔재 차단(유료 릴스 길이 서술은 무해하나 "무료…30초…샘플" 조합만 검사)
+if grep -rnE '무료[^<]*30초[^<]*샘플|30초[^<]*샘플[^<]*(만들|드립)' --include='*.html' . >/dev/null 2>&1; then bad "옛 '무료 30초 샘플' 오퍼 잔재"; else ok "옛 30초 오퍼 잔재 0"; fi
+# 크몽 별점(★4.5/☆4.5) 표기 금지
+if grep -rnE '[★☆]\s*4\.5' --include='*.html' . >/dev/null 2>&1 || grep -nE '[★☆]\s*4\.5' app.js >/dev/null 2>&1; then bad "★4.5 별점 표기 잔재"; else ok "★4.5 별점 잔재 0"; fi
 
 echo ""
 if [ "$FAIL" = "0" ]; then echo "RESULT: PASS ✅  (배포 진행 가능)"; exit 0; else echo "RESULT: FAIL ❌  (배포 중단 — 위 ✗ 해결 필요)"; exit 1; fi
