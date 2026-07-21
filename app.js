@@ -888,6 +888,188 @@ function i18nEstimatePage(lang) {
   `;
 }
 
+// ── 영/중 서비스 상세 페이지 — 한국어 detailPage 와 대칭(히어로+구성+작업사례+FAQ+CTA) ──
+// 서비스 슬러그는 한국어 라우트와 동일(homepage/ai-shortform/brand-film/drone/wedding/content) → 포트폴리오 미디어 재사용.
+const i18nDetailUI = {
+  en:   { home: "Home", work: "Work", contact: "Contact", comp: "What's included", workOn: "Selected work", workOff: "Screens", play: "▶ tap to play", faq: "FAQ", ctaH: "Just send what you have.<br>We reply with the right scope.", ctaNote: "Send us what you have and the result you want — we'll confirm the scope and reply honestly.", seeWork: "See work ↓", skip: "Skip to content", footer: "Jeju, South Korea · Remote worldwide" },
+  hans: { home: "首页", work: "作品", contact: "联系", comp: "服务构成", workOn: "精选作品", workOff: "示例画面", play: "▶ 点击播放", faq: "常见问题", ctaH: "把您现有的发给我们，<br>我们回复合适的范围。", ctaNote: "告诉我们您有什么、想要什么结果——我们确认范围后如实回复。", seeWork: "查看作品 ↓", skip: "跳到正文", footer: "韩国济州岛 · 全球远程" },
+  hant: { home: "首頁", work: "作品", contact: "聯絡", comp: "服務構成", workOn: "精選作品", workOff: "示例畫面", play: "▶ 點擊播放", faq: "常見問題", ctaH: "把您現有的傳給我們，<br>我們回覆合適的範圍。", ctaNote: "告訴我們您有什麼、想要什麼成果——我們確認範圍後如實回覆。", seeWork: "查看作品 ↓", skip: "跳到正文", footer: "韓國濟州島 · 全球遠端" }
+};
+
+// 공통 FAQ(7) — hans/hant는 파일 하단 i18nDetailZh 병합으로 채움
+const i18nCommonFaq = {
+  en: [
+    ["How long does production take?", "Usually 1–4 weeks depending on length and scope. We confirm your materials, then give an exact schedule first."],
+    ["How is pricing decided?", "We don't post fixed prices; after checking your materials and scope, we reply with a tailored quote. Tell us your budget range and we'll organize what's possible and what to leave out."],
+    ["What about commercial usage rights?", "Delivered videos can be used for ads, websites, social and more within the scope agreed at the consult. If music, stock or AI-generated assets have usage limits, we confirm those before the contract."],
+    ["Can you make AI short-form without a shoot?", "Yes. Product photos, existing footage, a logo and key lines are enough to build Reels and Shorts AI short-form. If materials are short, we'll guide you on the photos needed."],
+    ["Are revisions possible?", "Revisions are included within the agreed scope. We lock tone, copy and structure first so big revisions don't come up."],
+    ["How do we start?", "Just send the result you want, what you have, and your preferred timeline — we'll reply with what's possible and the next step. Pre-contract consults are no-pressure."],
+    ["Do you work outside Jeju?", "Websites, video and content are produced online nationwide and worldwide. On-site filming and drone are arranged by schedule and region."]
+  ],
+  hans: [], hant: []
+};
+
+// 서비스 상세 콘텐츠 — en 채움, hans/hant는 하단 i18nDetailZh 병합으로 채움
+const i18nDetailContent = {
+  "brand-film": { en: {
+    kicker: "Brand Film", title: "Your company, told clearly on screen.",
+    lead: "We shape your brand message, services and events into a scene flow that reads like a well-made pitch — clear, in order, easy to follow.",
+    cta: "Plan a brand film",
+    windows: [["01", "Core message", "The one line people should remember, set first."], ["02", "Scene flow", "The order of space, people, product and service shots, designed."], ["03", "Where it's used", "Versions split for sales, hiring, listings and social."]],
+    faq: [["Can you work from existing materials only?", "Yes. We can build from your existing footage, photos and logo; if on-site filming is needed, we'll agree on a schedule."]]
+  } },
+  "drone": { en: {
+    kicker: "Aerial Video", title: "Aerial footage that shows scale and flow.",
+    lead: "Resorts, facilities, attractions, farms, night exteriors — we propose the wide shots and explanatory aerials that fit your purpose.",
+    cta: "Ask about aerial dates & quote",
+    windows: [["01", "Hero shot", "A wide shot that shows the scale and first impression."], ["02", "Explanatory shot", "Approach, surroundings and layout, made clear."], ["03", "Reuse shot", "Recut for website, ads, card news and short-form."]],
+    faq: [["How do you handle drone permits & safety?", "We check flight zones and permits in advance and shoot within safety rules. Region and dates are reviewed together during the consult."]]
+  } },
+  "ai-shortform": { en: {
+    kicker: "AI Shortform", title: "Turn product photos into short-form ads.",
+    lead: "With just product photos and a concept, we build Reels, Shorts and TikTok ads that catch the eye in the first 3 seconds.",
+    cta: "Get a short-form quote",
+    windows: [["01", "Product images", "We start from your real photos and packaging."], ["02", "Tone & manner", "Choose calm-premium, explanatory, or fast-compare."], ["03", "Upload channels", "Length and framing split for Reels, Shorts and TikTok."]],
+    faq: [["Can you work from existing materials only, no shoot?", "Yes. Product photos, existing footage or a concept are enough to build short-form ad material; if extra filming is needed we'll let you know."]]
+  } },
+  "homepage": { en: {
+    kicker: "Website", title: "Websites that turn visitors into inquiries.",
+    lead: "Clear on the first screen about what you offer, with portfolio and an inquiry form that flow naturally into contact.",
+    cta: "Get a website quote",
+    windows: [["01", "First screen", "Brand name and scope, summed up in one line."], ["02", "See examples", "We show industry examples and portfolio first."], ["03", "Inquiry flow", "Form, email and required-materials guidance in one flow."]],
+    faq: [["Can you handle edits & upkeep after launch?", "Yes. We keep helping with copy and image edits and light upkeep after launch. The scope of upkeep is agreed during the consult."]]
+  } },
+  "wedding": { en: {
+    kicker: "Wedding Film", title: "Wedding records, natural — with a light touch on privacy.",
+    lead: "We confirm the mood of the snaps and film first, and for shots where showing faces feels uncomfortable, we lean on detail and atmosphere.",
+    cta: "Ask about wedding dates",
+    windows: [["01", "Details", "Comfortable shots — rings, bouquet, hands, dress."], ["02", "Mood", "Scenes where lighting and movement come through."], ["03", "Reuse", "Split into snaps, a highlight film and social cuts."]],
+    faq: [["I'd rather not show faces — is that okay?", "We can work mood-first, centered on detail, silhouette and back views. We agree on how public it goes, first."]]
+  } },
+  "content": { en: {
+    kicker: "Content", title: "Card news and Reels that lead to inquiries.",
+    lead: "Copy, screen order, card news and Reels material — kept together so they work across ads and consults, not scattered.",
+    cta: "Ask about content & ops",
+    windows: [["01", "Message", "The core line one piece of content should deliver."], ["02", "Images", "Real materials chosen — product, space, screen captures."], ["03", "Operations", "A structure to reuse across Instagram, YouTube and your site."]],
+    faq: []
+  } }
+};
+
+const i18nDetailSvcOrder = ["brand-film", "drone", "ai-shortform", "homepage", "wedding", "content"];
+const i18nDetailRoutes = {};
+[["en", "en"], ["zh", "hans"], ["zh-hant", "hant"]].forEach(([prefix, lang]) => {
+  i18nDetailSvcOrder.forEach((svc) => { i18nDetailRoutes[`${prefix}/${svc}`] = { lang, svc }; });
+});
+
+function i18nDetailPage(lang, svc) {
+  const c = (i18nDetailContent[svc] && i18nDetailContent[svc][lang]) || i18nDetailContent[svc].en;
+  const ui = i18nDetailUI[lang];
+  const koRoute = routeBySlug[svc];
+  const homeSlug = { en: "en", hans: "zh", hant: "zh-hant" }[lang];
+  const estHref = routeHref(homeSlug + "/estimate");
+  const basic = lang === "en" ? "" : " basic-zh";
+  const items = portfolioItemsForRoute(koRoute);
+  if (items[0]) items[0] = { ...items[0], size: "large" };
+  const hasMedia = items.some((i) => portfolioLink(i));
+  const windows = (c.windows || []).map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`).join("");
+  const faqAll = i18nCommonFaq[lang].concat(c.faq || []);
+  const faq = faqAll.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  return `
+    <a class="skip-link" href="#main">${ui.skip}</a>
+    <div class="en-page${basic}">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref(homeSlug)}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="${routeHref(homeSlug)}">${ui.home}</a><a href="#work">${ui.work}</a><a href="#contact">${ui.contact}</a><span class="en-lang">${langSwitch(lang)}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${c.kicker}</p>
+          <h1 class="en-detail-h1">${c.title}</h1>
+          <p class="en-detail-lead">${c.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
+            <a class="en-detail-link" href="#work">${ui.seeWork}</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${ui.comp}</span><span>(0${(c.windows || []).length})</span></div>
+          <div class="en-svc-list">${windows}</div>
+        </section>
+
+        <section class="en-services" id="work">
+          <div class="en-sec-head"><span>${hasMedia ? ui.workOn : ui.workOff}</span><span>${hasMedia ? ui.play : ""}</span></div>
+          ${portfolioWall(items, "detail-wall", !hasMedia)}
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>${ui.faq}</span><span>FAQ</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">${ui.contact}</p>
+          <h2 class="en-cta-h">${ui.ctaH}</h2>
+          <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
+          <p class="en-cta-note">${ui.ctaNote}</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${ui.footer}</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
+// 중문(간체·번체) 서비스 상세 콘텐츠 — i18nDetailContent 에 병합(원어민 검토 권장)
+const i18nDetailZh = {
+  "brand-film": {
+    hans: { kicker: "品牌短片", title: "用影像，把公司讲清楚", lead: "我们把品牌信息、服务介绍和活动内容编排成有节奏的画面流程，像一份出色的提案——清晰、有序、一看就懂。", cta: "咨询企业宣传片方案", windows: [["01", "核心信息", "先确定一句让人记住的介绍语。"], ["02", "画面编排", "设计空间、人物、产品和服务镜头的先后顺序。"], ["03", "用在哪", "按销售提案、招聘、入驻提案和社交发布分成不同版本。"]], faq: [["不拍摄，只用现有素材也可以吗？", "可以。用现有的影像、照片和logo素材也能编排；如果需要现场拍摄，我们再一起商定日程。"]] },
+    hant: { kicker: "品牌短片", title: "用影像，把公司說清楚", lead: "我們把品牌訊息、服務介紹與活動內容編排成有節奏的畫面流程，像一份出色的提案——清晰、有序、一看就懂。", cta: "諮詢企業宣傳片方案", windows: [["01", "核心訊息", "先確定一句讓人記住的介紹語。"], ["02", "畫面編排", "設計空間、人物、產品與服務鏡頭的先後順序。"], ["03", "用在哪", "依銷售提案、招募、進駐提案與社群發佈分成不同版本。"]], faq: [["不拍攝，只用現有素材也可以嗎？", "可以。用現有的影音、照片與logo素材也能編排；若需要現場拍攝，我們再一起商定日程。"]] }
+  },
+  "drone": {
+    hans: { kicker: "无人机航拍", title: "看得见空间大小与动线的航拍", lead: "从住宿、设施、景点、农场到夜景外观，我们按用途提供合适的大场景镜头和用于说明的航拍镜头。", cta: "咨询无人机航拍日程与报价", windows: [["01", "主镜头", "展现空间规模和第一印象的大场景镜头。"], ["02", "说明镜头", "呈现进入动线、周边环境和设施布局的镜头。"], ["03", "复用镜头", "重新剪辑用于官网、广告、图文和短视频。"]], faq: [["无人机航拍的许可和安全怎么处理？", "我们会事先确认可飞行区域和许可情况，并按安全规定拍摄。地区和日程会在咨询时一起核对。"]] },
+    hant: { kicker: "無人機空拍", title: "看得見空間大小與動線的空拍", lead: "從住宿、設施、景點、農場到夜景外觀，我們依用途提供合適的大場景鏡頭與用於說明的空拍鏡頭。", cta: "諮詢無人機空拍日程與報價", windows: [["01", "主鏡頭", "展現空間規模與第一印象的大場景鏡頭。"], ["02", "說明鏡頭", "呈現進入動線、周邊環境與設施配置的鏡頭。"], ["03", "複用鏡頭", "重新剪輯用於官網、廣告、圖文與短影音。"]], faq: [["無人機空拍的許可與安全怎麼處理？", "我們會事先確認可飛行區域與許可狀況，並依安全規定拍攝。地區與日程會在諮詢時一起確認。"]] }
+  },
+  "ai-shortform": {
+    hans: { kicker: "AI短视频", title: "把产品照片变成短视频广告素材", lead: "只要有产品照片和概念，我们就能做出在前3秒抓住眼球的Reels、Shorts和TikTok广告。", cta: "用产品照片获取短视频报价", windows: [["01", "产品图片", "先确认你的实拍照片和包装图。"], ["02", "调性风格", "在沉稳高级、以说明为主、快速对比中选一个方向。"], ["03", "上传渠道", "按Reels、Shorts和TikTok调整时长和画面。"]], faq: [["不拍摄，只用现有素材也可以吗？", "可以。只要有产品照片、现有影像或概念，就能编排成短视频广告素材。如果需要补拍，我们会另行说明。"]] },
+    hant: { kicker: "AI短影音", title: "把產品照片變成短影音廣告素材", lead: "只要有產品照片與概念，我們就能做出在前3秒抓住眼球的Reels、Shorts與TikTok廣告。", cta: "用產品照片取得短影音報價", windows: [["01", "產品圖片", "先確認你的實拍照片與包裝圖。"], ["02", "調性風格", "在沉穩高級、以說明為主、快速比較中選一個方向。"], ["03", "上傳頻道", "依Reels、Shorts與TikTok調整長度與畫面。"]], faq: [["不拍攝，只用現有素材也可以嗎？", "可以。只要有產品照片、現有影音或概念，就能編排成短影音廣告素材。若需要補拍，我們會另行說明。"]] }
+  },
+  "homepage": {
+    hans: { kicker: "网站建设", title: "让访客变成咨询的网站", lead: "首屏就让人一眼看出你卖什么，作品集和咨询表单也自然衔接到联系。", cta: "获取网站首屏诊断与报价", windows: [["01", "首屏", "用一句话概括品牌名和业务范围。"], ["02", "查看范例", "先给你看分行业的页面范例和作品集。"], ["03", "咨询衔接", "把咨询表单、邮箱和所需资料指引放在同一个流程里。"]], faq: [["制作后还能修改和维护吗？", "上线后我们会继续帮你修改文案、图片和做简单的运营维护。维护范围在咨询时一起确定。"]] },
+    hant: { kicker: "網站建置", title: "讓訪客變成諮詢的網站", lead: "首屏就讓人一眼看出你賣什麼，作品集與諮詢表單也自然銜接到聯絡。", cta: "取得網站首屏診斷與報價", windows: [["01", "首屏", "用一句話概括品牌名與業務範圍。"], ["02", "查看範例", "先給你看分行業的頁面範例與作品集。"], ["03", "諮詢銜接", "把諮詢表單、信箱與所需資料指引放在同一個流程裡。"]], faq: [["製作後還能修改與維護嗎？", "上線後我們會繼續幫你修改文案、圖片與做簡單的營運維護。維護範圍在諮詢時一起確定。"]] }
+  },
+  "wedding": {
+    hans: { kicker: "婚礼影像", title: "婚礼记录自然留下，公开压力降到最低", lead: "我们先确认写真和影像的氛围，对于露脸会让人有顾虑的镜头，就以细节和氛围为主来提案。", cta: "咨询婚礼拍摄日程", windows: [["01", "细节", "戒指、手捧花、双手、婚纱这类没有压力的镜头。"], ["02", "氛围", "能看到空间光线和动作的画面。"], ["03", "复用", "分成写真、精华影像和社交用镜头。"]], faq: [["我不太想露脸，可以吗？", "可以，我们能以细节、剪影和背影为主做氛围剪辑。公开范围我们先商定。"]] },
+    hant: { kicker: "婚禮影像", title: "婚禮記錄自然留下，公開壓力降到最低", lead: "我們先確認寫真與影像的氛圍，對於露臉會讓人有顧慮的鏡頭，就以細節與氛圍為主來提案。", cta: "諮詢婚禮拍攝日程", windows: [["01", "細節", "戒指、捧花、雙手、婚紗這類沒有壓力的鏡頭。"], ["02", "氛圍", "能看到空間光線與動作的畫面。"], ["03", "複用", "分成寫真、精華影像與社群用鏡頭。"]], faq: [["我不太想露臉，可以嗎？", "可以，我們能以細節、剪影與背影為主做氛圍剪輯。公開範圍我們先商定。"]] }
+  },
+  "content": {
+    hans: { kicker: "内容运营", title: "让图文和Reels一路引导到咨询", lead: "宣传文案、画面顺序、图文和Reels素材不再零散摆放，而是编排成能同时用于广告和咨询。", cta: "咨询图文与Reels运营", windows: [["01", "信息", "确定一条内容要传达的核心句子。"], ["02", "图片", "从产品、空间、页面截图等实际素材中挑选。"], ["03", "运营", "可在Instagram、YouTube和官网复用的结构。"]], faq: [] },
+    hant: { kicker: "內容營運", title: "讓圖文與Reels一路引導到諮詢", lead: "宣傳文案、畫面順序、圖文與Reels素材不再零散擺放，而是編排成能同時用於廣告與諮詢。", cta: "諮詢圖文與Reels營運", windows: [["01", "訊息", "確定一則內容要傳達的核心句子。"], ["02", "圖片", "從產品、空間、頁面截圖等實際素材中挑選。"], ["03", "營運", "可在Instagram、YouTube與官網複用的結構。"]], faq: [] }
+  }
+};
+Object.keys(i18nDetailZh).forEach((svc) => Object.assign(i18nDetailContent[svc], i18nDetailZh[svc]));
+i18nCommonFaq.hans = [
+  ["制作周期大概多久？", "视分量和范围通常为1~4周。我们会先确认你的现有素材，再给出准确的日程。"],
+  ["费用怎么定？", "我们不在网站上统一标价，而是在确认你的现有素材和制作范围后，用定制报价单说明。告诉我们预算范围，我们会一起梳理可行的方案和可以省略的项目再回复。"],
+  ["影片的商业使用权怎么算？", "交付的影片可以在咨询时约定的范围内用于广告、官网、社交等。如果音乐、素材库或AI生成物有使用范围限制，我们会在签约前先确认。"],
+  ["不拍摄，只做AI短视频可以吗？", "可以。只要有产品照片、现有影像、logo和核心文案，就能做成Reels、Shorts用的AI短视频。素材不足时，我们会先告诉你所需照片的标准。"],
+  ["可以修改吗？", "在约定范围内包含修改。我们会先确定调性、文案和结构再制作，避免出现大改。"],
+  ["怎么开始？", "只要写下你想要的成品、现有素材和期望日程发给我们，我们就会回复可行范围和下一步。签约前咨询没有压力。"],
+  ["济州以外的地区也可以吗？", "网站、影片和内容制作在全国乃至全球线上进行。现场拍摄和无人机航拍会商定日程和地区后进行。"]
+];
+i18nCommonFaq.hant = [
+  ["製作週期大概多久？", "視分量與範圍通常為1~4週。我們會先確認你的現有素材，再給出準確的日程。"],
+  ["費用怎麼定？", "我們不在網站上統一標價，而是在確認你的現有素材與製作範圍後，用客製報價單說明。告訴我們預算範圍，我們會一起梳理可行的方案與可以省略的項目再回覆。"],
+  ["影片的商業使用權怎麼算？", "交付的影片可以在諮詢時約定的範圍內用於廣告、官網、社群等。若音樂、素材庫或AI生成物有使用範圍限制，我們會在簽約前先確認。"],
+  ["不拍攝，只做AI短影音可以嗎？", "可以。只要有產品照片、現有影音、logo與核心文案，就能做成Reels、Shorts用的AI短影音。素材不足時，我們會先告訴你所需照片的標準。"],
+  ["可以修改嗎？", "在約定範圍內包含修改。我們會先確定調性、文案與結構再製作，避免出現大改。"],
+  ["怎麼開始？", "只要寫下你想要的成品、現有素材與期望日程寄給我們，我們就會回覆可行範圍與下一步。簽約前諮詢沒有壓力。"],
+  ["濟州以外的地區也可以嗎？", "網站、影片與內容製作在全國乃至全球線上進行。現場拍攝與無人機空拍會商定日程與地區後進行。"]
+];
+
 function aboutPage() {
   const ways = [
     ["실제 작업물로 이야기합니다", "말보다 만든 결과물을 먼저 보여드려요. 포트폴리오를 보고 판단하실 수 있습니다."],
@@ -1039,13 +1221,13 @@ function rememoryPage() {
 // 영문/해외(캐나다)용 페이지 — BASIC/DEPT 스타일(모노크롬·그로테스크·여백·영상 히어로). 스코프 CSS는 .en-*.
 function enPage() {
   const services = [
-    ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them."],
-    ["Drone & Aerial", "The scale, flow and mood of a place — resorts, farms, facilities, coastline."],
-    ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed."],
-    ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert."],
-    ["Wedding Film", "Natural, detail-first records, with a light touch on privacy."],
-    ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch."]
-  ].map(([t, d], i) => `<a class="en-svc" href="#contact"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
+    ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them.", "brand-film"],
+    ["Drone & Aerial", "The scale, flow and mood of a place — resorts, farms, facilities, coastline.", "drone"],
+    ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed.", "ai-shortform"],
+    ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert.", "homepage"],
+    ["Wedding Film", "Natural, detail-first records, with a light touch on privacy.", "wedding"],
+    ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch.", "content"]
+  ].map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref("en/" + slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent("Project inquiry — Video Roastery")}`;
   // 히어로 배경: 대표 작업물 썸네일이 빠르게 흐르는 영상월(BASIC식). webp 스틸이라 초경량·안정(raw video 다수는 모바일 프리징).
   const wall = heroWallHtml();
@@ -1152,7 +1334,9 @@ function zhPage(variant) {
     emailBtn: "邮件联系我们", emailSubj: "项目咨询 — Video Roastery",
     footer: "韩国济州岛 · 影像、短片与网站制作 · 全球远程"
   };
-  const services = T.services.map(([t, d], i) => `<a class="en-svc" href="#contact"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
+  const zhSvcSlugs = ["homepage", "brand-film", "drone", "ai-shortform", "wedding", "content"];
+  const zhPrefix = T.cur === "hant" ? "zh-hant" : "zh";
+  const services = T.services.map(([t, d], i) => `<a class="en-svc" href="${routeHref(zhPrefix + "/" + zhSvcSlugs[i])}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const why = T.why.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
   const wall = heroWallHtml();
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(T.emailSubj)}`;
@@ -2349,6 +2533,8 @@ function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
   const i18nEst = i18nEstimateRoutes[slug]; // 영/중 견적 페이지("en/estimate" 등) 언어 키
+  const i18nDet = i18nDetailRoutes[slug]; // 영/중 서비스 상세("en/brand-film" 등) {lang,svc}
+  const i18nDetC = i18nDet ? (i18nDetailContent[i18nDet.svc][i18nDet.lang] || i18nDetailContent[i18nDet.svc].en) : null;
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
   // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
   const seoTitles = {
@@ -2369,8 +2555,8 @@ function render() {
     rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
     free: "무료 홍보영상 샘플 컷 3장 — 제주 소상공인 | 비디오 로스터리",
   };
-  const pageTitle = i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
     : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
@@ -2378,7 +2564,7 @@ function render() {
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
     : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -2393,7 +2579,7 @@ function render() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
-  document.querySelector("#app").innerHTML = i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();
