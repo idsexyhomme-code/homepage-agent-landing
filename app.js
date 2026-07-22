@@ -2529,6 +2529,33 @@ function footer() {
   `;
 }
 
+// FAQPage 구조화 데이터 동기화 — 화면에 실제 FAQ가 렌더되지만 정적 셸에 FAQPage가 없는
+// 페이지(업종 랜딩 10 · 영/중 서비스 상세 18)에 한해 런타임 주입해 FAQ 리치결과를 확보.
+// 정적 셸에 이미 FAQPage가 있으면(한국어 서비스·리메모리) 건너뛰어 @id 중복·충돌을 방지.
+function syncFaqJsonLd(items, pageUrl) {
+  const prev = document.querySelector('script[type="application/ld+json"][data-faq-dyn]');
+  if (prev) prev.remove();
+  const staticLd = document.querySelectorAll('script[type="application/ld+json"]:not([data-faq-dyn])');
+  for (const s of staticLd) { if (s.textContent && s.textContent.indexOf('"FAQPage"') !== -1) return; }
+  if (!items || !items.length) return;
+  const strip = (t) => String(t).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const node = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": pageUrl + "#faq",
+    "mainEntity": items.map(([q, a]) => ({
+      "@type": "Question",
+      "name": strip(q),
+      "acceptedAnswer": { "@type": "Answer", "text": strip(a) }
+    }))
+  };
+  const el = document.createElement("script");
+  el.type = "application/ld+json";
+  el.setAttribute("data-faq-dyn", "");
+  el.textContent = JSON.stringify(node);
+  document.head.appendChild(el);
+}
+
 function render() {
   const slug = currentSlug();
   const route = routeBySlug[slug];
@@ -2579,6 +2606,11 @@ function render() {
   }
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
+  // 이 페이지가 렌더하는 FAQ와 동일한 내용으로 FAQPage 스키마 주입(정적 FAQPage 없는 페이지 한정)
+  const pageFaq = i18nDet ? i18nCommonFaq[i18nDet.lang].concat((i18nDetC && i18nDetC.faq) || [])
+    : industryPages[slug] ? (industryPages[slug].faqItems || industryFaqItems)
+    : null;
+  syncFaqJsonLd(pageFaq, pageUrl);
   document.querySelector("#app").innerHTML = i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
