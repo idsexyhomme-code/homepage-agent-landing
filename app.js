@@ -2116,6 +2116,15 @@ async function submitInquiry({ subject, body, name, replyto }) {
 
 // 전송 성공 시 폼을 감사 메시지로 대체(SPA 재렌더 전까지 유지)
 function showInquirySuccess(form) {
+  // 전환 계측 가시화 — 문의 성공 시 가상 페이지뷰(/…/sent/) 1회를 발생시켜, 커스텀 이벤트가 안 보이는
+  // 무료 Vercel(Hobby)에서도 '전환 수'를 페이지뷰로 카운트. URL은 즉시 원복 → 새로고침·공유 시 404 방지.
+  // (Clarity는 *_sent 커스텀 이벤트로 별도 집계 중 → 이중 보장.) 실패는 조용히 무시.
+  try {
+    const orig = location.pathname + location.search;
+    const base = location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
+    history.pushState({}, "", base + "sent/"); // Vercel insights 스크립트가 pushState를 페이지뷰로 자동 집계
+    history.replaceState({}, "", orig);
+  } catch (e) { /* 계측 실패가 성공 UI를 막지 않도록 무시 */ }
   const box = document.createElement("div");
   box.className = "consult-sent";
   box.setAttribute("role", "status");
