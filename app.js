@@ -2584,26 +2584,6 @@ const routeFaqExtra = {
   content: [["꾸준한 콘텐츠 운영도 도와주나요?", "단건 제작뿐 아니라 카드뉴스·릴스 정기 운영 구성도 상담 가능합니다."]]
 };
 
-function faqSection(route) {
-  return `
-    <section class="section faq-section" id="faq" aria-label="${(route && route.nav) || "제작"} 자주 묻는 질문">
-      <div class="section-head">
-        <div>
-          <h2 class="h2-en">FAQ</h2>
-        </div>
-      </div>
-      <div class="faq-list">
-        ${faqItems.concat((route && routeFaqExtra[route.slug]) || []).map(([q, a]) => `
-          <details class="faq-item">
-            <summary>${q}</summary>
-            <p>${a}</p>
-          </details>
-        `).join("")}
-      </div>
-    </section>
-  `;
-}
-
 function detailPage(route) {
   // 오버뷰가 앞 3장(구성 이미지)을 쓰던 로직 제거 — BASIC은 '구성'을 텍스트 넘버드로, '작업 사례'는 전체 노출.
   const routePortfolioItems = portfolioItemsForRoute(route);

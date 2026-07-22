@@ -288,7 +288,7 @@ def schema_for(page):
             "url": DOMAIN,
             "name": "Video Roastery",
             "publisher": {"@id": f"{DOMAIN}/#organization"},
-            "inLanguage": "ko-KR",
+            "inLanguage": ["ko-KR", "en", "zh-Hans", "zh-Hant"],
         },
         web_page,
     ]
