@@ -2274,7 +2274,7 @@ function consultForm() {
       ${fields}
       <button type="submit" class="btn primary">작성 내용으로 상담 메일 보내기</button>
       <button type="button" class="btn secondary consult-copy">메일이 안 열리면 내용 복사하기</button>
-      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 메일 앱이 없으면 ‘내용 복사하기’ 후 <b>${consultEmail}</b> 으로 보내주세요.</p>
+      <p class="consult-hint">제출하면 바로 접수됩니다. 확인 후 회신드립니다. (전송이 안 되면 ‘내용 복사하기’ 후 <b>${consultEmail}</b> 으로 보내주세요.)</p>
     </form>
   `;
 }
@@ -2417,7 +2417,7 @@ function quoteForm() {
       ${fields}
       <button type="submit" class="btn primary">견적 요청 보내기</button>
       <button type="button" class="btn secondary quote-copy">메일이 안 열리면 내용 복사하기</button>
-      <p class="consult-hint">제출하면 메일 앱이 열리고 작성 내용이 자동으로 담깁니다. 보유 자료(사진·영상)는 메일에 첨부하거나 링크로 보내주세요. 확인 후 맞춤 견적서로 회신드립니다.</p>
+      <p class="consult-hint">제출하면 바로 접수됩니다. 보유 자료(사진·영상)는 링크로 함께 남겨주세요. 확인 후 맞춤 견적서로 회신드립니다. (전송이 안 되면 ‘내용 복사하기’로 보내주세요.)</p>
     </form>
   `;
 }
