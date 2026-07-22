@@ -1023,6 +1023,155 @@ function i18nDetailPage(lang, svc) {
   `;
 }
 
+// ── 영문 해외 인텐트 SEO 랜딩 — 한국어 서비스의 번역이 아니라 "해외 검색 의도" 전용 신규 페이지.
+// self-canonical(번역쌍 아님 → hreflang으로 묶지 않음). CTA는 /en/estimate 폼으로. FAQ는 i18nCommonFaq.en + 페이지 고유.
+const enLandingPages = {
+  "en/jeju-video-production": {
+    kicker: "Jeju Video Production",
+    h1: "Video production in Jeju, Korea — for brands, hotels &amp; tours",
+    lead: "Shooting a project in Jeju, or need Jeju footage from afar? We're a Jeju-based studio producing brand films, drone &amp; aerial, and short-form ads — on location here, and remote for teams worldwide. Send the goal and what you have; we reply with scope and a quote.",
+    title: "Jeju Video Production — Brand Film, Drone & AI Video | Video Roastery",
+    desc: "Jeju-based video production for brands, hotels and tours — brand films, drone & aerial, AI short-form ads. On location in Jeju, remote worldwide. Get a quote.",
+    portfolio: "brand-film",
+    windows: [
+      ["01", "On location in Jeju", "Full crew and drone on the ground in Jeju — resorts, coastline, farms, events."],
+      ["02", "Remote worldwide", "No shoot needed? We build from your footage and photos and deliver online."],
+      ["03", "Where it's used", "Recut for ads, website, social and pitch decks — vertical, square and wide."]
+    ],
+    faq: [
+      ["Can you shoot on location in Jeju?", "Yes — full video and drone crew based in Jeju. Tell us the dates and location and we'll confirm scope and a schedule."],
+      ["Do you work with overseas teams remotely?", "Yes. We work with brands worldwide over email and shared drives; on-site filming in Jeju and Korea is arranged by schedule."]
+    ]
+  },
+  "en/korea-drone-filming": {
+    kicker: "Drone &amp; Aerial Filming in Korea",
+    h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
+    lead: "Aerial footage that shows scale and place — Jeju coastline, resorts, facilities, city and countryside. Licensed drone work on the ground in Korea, delivered ready for ads, listings and brand films.",
+    title: "Korea Drone Filming — Aerial Video in Jeju & Korea | Video Roastery",
+    desc: "Licensed drone & aerial filming in Korea and Jeju — travel, real estate, resorts and brand projects. Hero and explanatory aerials, delivered for ads and web. Get a quote.",
+    portfolio: "drone",
+    windows: [
+      ["01", "Licensed &amp; safe", "We check flight zones and permits in advance and shoot within the rules."],
+      ["02", "Scale &amp; flow", "Hero wide shots plus explanatory aerials — approach, layout and surroundings."],
+      ["03", "Ready to use", "Recut for website, ads and social in vertical, square and wide."]
+    ],
+    faq: [
+      ["How do permits and flight zones work?", "We check permitted zones and clearances in advance and shoot within safety rules. Region and dates are reviewed together during the consult."],
+      ["Can you film outside Jeju?", "Yes — Jeju is our base, and we arrange aerial shoots elsewhere in Korea by schedule and region."]
+    ]
+  },
+  "en/jeju-tourism-video": {
+    kicker: "Jeju Tourism &amp; Hospitality Video",
+    h1: "Jeju tourism videos for hotels, tours &amp; destinations",
+    lead: "Make guests want to book before they arrive. We turn Jeju's coastline, stays and experiences — ocean views, rooms, activities — into videos that convert on booking sites, OTAs and social.",
+    title: "Jeju Tourism Video — Hotels, Tours & Destinations | Video Roastery",
+    desc: "Tourism & hospitality video in Jeju — hotels, resorts, tours and destinations. Drone and mood footage that drives bookings on OTAs and social. Get a quote.",
+    portfolio: "drone",
+    windows: [
+      ["01", "First-screen booking", "The first 3 seconds on an OTA or Instagram decide the booking. We build for that."],
+      ["02", "Scale by drone", "Ocean views, grounds and pools shown from the air — a different level from stills."],
+      ["03", "Ready before season", "One video before peak season lifts reach and conversion across channels."]
+    ],
+    faq: [
+      ["Do you work with hotels and tour operators?", "Yes — resorts, hotels, pensions, tours and activities. We tailor the cut for OTAs, your own site and social."],
+      ["Can you deliver without a shoot?", "Yes — we can build from your existing photos and footage; on-site filming and drone in Jeju are arranged by schedule."]
+    ]
+  },
+  "en/vancouver-korea-video-production": {
+    kicker: "Korea Video Production for Vancouver Brands",
+    h1: "Korea-based video production for Vancouver &amp; North American brands",
+    lead: "Need video shot in Korea, or a Korea-based team you can brief in English? We produce brand films, product and short-form for North American brands — filmed in Jeju and Korea, delivered online on your timezone.",
+    title: "Korea Video Production for Vancouver Brands | Video Roastery",
+    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Filmed in Jeju/Korea, briefed in English, delivered online. Get a quote.",
+    portfolio: "brand-film",
+    windows: [
+      ["01", "Briefed in English", "Send the goal and references in English; we reply with scope, timeline and a quote."],
+      ["02", "Filmed in Korea", "On-the-ground crew and drone in Jeju and Korea — footage you can't get from abroad."],
+      ["03", "Delivered online", "Files delivered over shared drives, cut for ads, web and social."]
+    ],
+    faq: [
+      ["I'm not in Korea — can we still work together?", "Yes. Most of the process is online — you brief us in English, we produce in Korea and deliver files. On-site filming is arranged by schedule."],
+      ["Can you match our timezone for calls?", "We schedule calls to fit North American hours and keep the rest async over email and shared drives."]
+    ]
+  },
+  "en/korea-product-video": {
+    kicker: "Product Video &amp; AI Short-form",
+    h1: "Product videos &amp; AI short-form ads for e-commerce brands",
+    lead: "Turn product photos into ads that stop the scroll. With just your product shots and a concept, we build Reels, Shorts and TikTok ads that catch the eye in the first 3 seconds — no shoot, no models.",
+    title: "Korea Product Video & AI Short-form Ads | Video Roastery",
+    desc: "Product video and AI short-form ads for e-commerce brands — Reels, Shorts and TikTok built from your product photos. No shoot needed. Get a quote.",
+    portfolio: "ai-shortform",
+    windows: [
+      ["01", "From your photos", "We start from your real product shots and packaging — no shoot required."],
+      ["02", "Tone &amp; hook", "Calm-premium, explanatory or fast-compare — built to hook in 3 seconds."],
+      ["03", "Every channel", "Length and framing split for Reels, Shorts, TikTok and product pages."]
+    ],
+    faq: [
+      ["Can you really work from photos only?", "Yes — product photos, existing footage or a concept are enough to build short-form ad material. If extra assets are needed we'll let you know."],
+      ["What about usage rights for music and assets?", "Delivered videos can be used for ads and social within the agreed scope; if music or stock has limits we confirm those before the contract."]
+    ]
+  }
+};
+
+function enLandingPage(key) {
+  const c = enLandingPages[key];
+  const ui = i18nDetailUI.en;
+  const estHref = routeHref("en/estimate");
+  const koRoute = routeBySlug[c.portfolio];
+  const items = portfolioItemsForRoute(koRoute);
+  if (items[0]) items[0] = { ...items[0], size: "large" };
+  const hasMedia = items.some((i) => portfolioLink(i));
+  const windows = (c.windows || []).map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`).join("");
+  const faqAll = i18nCommonFaq.en.concat(c.faq || []);
+  const faq = faqAll.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  return `
+    <a class="skip-link" href="#main">${ui.skip}</a>
+    <div class="en-page">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="${routeHref("en")}">${ui.home}</a><a href="${estHref}">QUOTE</a><a href="#contact">${ui.contact}</a><span class="en-lang">${langSwitch("en")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${c.kicker}</p>
+          <h1 class="en-detail-h1">${c.h1}</h1>
+          <p class="en-detail-lead">${c.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${estHref}">Get a quote ↗</a>
+            <a class="en-detail-link" href="#work">${ui.seeWork}</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${ui.comp}</span><span>(0${(c.windows || []).length})</span></div>
+          <div class="en-svc-list">${windows}</div>
+        </section>
+
+        <section class="en-services" id="work">
+          <div class="en-sec-head"><span>${hasMedia ? ui.workOn : ui.workOff}</span><span>${hasMedia ? ui.play : ""}</span></div>
+          ${portfolioWall(items, "detail-wall", !hasMedia)}
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>${ui.faq}</span><span>FAQ</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">${ui.contact}</p>
+          <h2 class="en-cta-h">${ui.ctaH}</h2>
+          <a class="en-cta-btn" href="${estHref}">Get a quote ↗</a>
+          <p class="en-cta-note">${ui.ctaNote}</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${ui.footer}</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
 // 중문(간체·번체) 서비스 상세 콘텐츠 — i18nDetailContent 에 병합(원어민 검토 권장)
 const i18nDetailZh = {
   "brand-film": {
@@ -2623,6 +2772,7 @@ function render() {
   const i18nEst = i18nEstimateRoutes[slug]; // 영/중 견적 페이지("en/estimate" 등) 언어 키
   const i18nDet = i18nDetailRoutes[slug]; // 영/중 서비스 상세("en/brand-film" 등) {lang,svc}
   const i18nDetC = i18nDet ? (i18nDetailContent[i18nDet.svc][i18nDet.lang] || i18nDetailContent[i18nDet.svc].en) : null;
+  const enLand = enLandingPages[slug]; // 영문 해외 인텐트 SEO 랜딩("en/jeju-video-production" 등)
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
   // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
   const seoTitles = {
@@ -2643,8 +2793,8 @@ function render() {
     rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
     free: "무료 홍보영상 샘플 컷 3장 — 제주 소상공인 | 비디오 로스터리",
   };
-  const pageTitle = i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
     : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
@@ -2652,7 +2802,7 @@ function render() {
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
     : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -2668,11 +2818,12 @@ function render() {
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
   // 이 페이지가 렌더하는 FAQ와 동일한 내용으로 FAQPage 스키마 주입(정적 FAQPage 없는 페이지 한정)
-  const pageFaq = i18nDet ? i18nCommonFaq[i18nDet.lang].concat((i18nDetC && i18nDetC.faq) || [])
+  const pageFaq = enLand ? i18nCommonFaq.en.concat(enLand.faq || [])
+    : i18nDet ? i18nCommonFaq[i18nDet.lang].concat((i18nDetC && i18nDetC.faq) || [])
     : industryPages[slug] ? (industryPages[slug].faqItems || industryFaqItems)
     : null;
   syncFaqJsonLd(pageFaq, pageUrl);
-  document.querySelector("#app").innerHTML = i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = enLand ? enLandingPage(slug) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();

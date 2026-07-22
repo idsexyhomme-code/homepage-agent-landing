@@ -23,7 +23,7 @@ echo "== 4) 각 페이지 정적 셸 JSON-LD 유효성 =="
 python3 - <<'PY'
 import re,json,glob,sys
 fail=0
-for f in ["index.html"]+glob.glob("*/index.html"):
+for f in glob.glob("index.html")+glob.glob("*/index.html")+glob.glob("*/*/index.html"):
     html=open(f,encoding="utf-8").read()
     for i,b in enumerate(re.findall(r'<script type="application/ld\+json">(.*?)</script>',html,re.S)):
         try: json.loads(b)
