@@ -3059,6 +3059,83 @@ function setupBackToTop() {
   toggle();
 }
 
-render();
-setupBackToTop();
-setupConversionTracking();
+// ── 해외 방문자 언어 자동 안내 ──
+// 1차 신호 = 브라우저 언어(언어 선택엔 국가 IP보다 정확 — 교포·여행자 케이스). 2차 신호 = 접속 국가
+// (Vercel 1st-party 엣지 함수 /api/geo). 메인(/)에 처음 온 비한국어 방문자를 각 언어 홈으로 1회 자동
+// 이동. 강제 아님: 한 번만, 수동 선택 우선, 검색 크롤러 제외(각 URL 그대로 색인), ?nolang 이스케이프.
+// 한국어 브라우저는 IP와 무관하게 유지(미국 거주 교포가 튕기지 않도록). 실패 시 조용히 미동작.
+function pickAutoLang(primary) {
+  primary = String(primary || "").toLowerCase();
+  if (primary.indexOf("ko") === 0) return null; // 한국어 → 그대로
+  if (primary.indexOf("zh") === 0) return /(hant|tw|hk|mo)/.test(primary) ? "zh-hant" : "zh";
+  if (primary.indexOf("en") === 0) return "en";
+  if (!primary) return null; // 언어 미상 → IP 보조판정으로 넘김
+  return "en"; // 그 외 비한국어 → 국제 기본값 영어
+}
+
+// 접속 국가(ISO2 대문자)로 언어 보정: 중화권 간/번체 판별 + 언어 미상 시 폴백
+function langByCountry(country) {
+  country = String(country || "").toUpperCase();
+  if (/^(TW|HK|MO)$/.test(country)) return "zh-hant";
+  if (/^(CN|SG)$/.test(country)) return "zh";
+  if (/^(KR)$/.test(country)) return null; // 한국 접속인데 언어정보 없음 → 한국어 유지
+  if (country) return "en"; // 그 외 국가 → 영어(국제 기본)
+  return null;
+}
+
+async function fetchCountry() {
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 600); // 지연 상한 — 넘으면 브라우저 언어만으로 진행
+    const res = await fetch("/api/geo", { signal: ctrl.signal, cache: "no-store" });
+    clearTimeout(timer);
+    if (!res.ok) return "";
+    const data = await res.json();
+    return (data && data.country) || "";
+  } catch (e) { return ""; }
+}
+
+async function maybeAutoLanguageRedirect() {
+  try {
+    if (currentSlug() !== "main") return false; // 메인(/)에서만 — 딥링크된 한국어 랜딩은 맥락 보존
+    if (new URLSearchParams(window.location.search).has("nolang")) return false;
+    if (localStorage.getItem("vr_lang_choice")) return false; // 이미 자동이동/수동선택함
+    const ua = (navigator.userAgent || "").toLowerCase();
+    if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|google|yandex|baiduspider|duckduck/.test(ua)) return false;
+    const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+    const primary = String(langs[0] || "").toLowerCase();
+    if (primary.indexOf("ko") === 0) return false; // 한국어 브라우저 → 유지(IP 무시)
+    let target = pickAutoLang(primary);
+    // IP(국가)를 보조 신호로: ⑴브라우저가 지역 없는 "zh"로만 올 때 간/번체 보정 ⑵언어 미상일 때 폴백
+    const genericZh = primary.indexOf("zh") === 0 && !/(hant|hans|tw|hk|mo|cn|sg)/.test(primary);
+    if (!primary || genericZh) {
+      const byCountry = langByCountry(await fetchCountry());
+      if (genericZh) {
+        // 중국어 브라우저는 계속 중국어 — 국가는 간/번체 판별에만 사용(영어로 뒤집지 않음), 불명이면 간체
+        target = byCountry === "zh" || byCountry === "zh-hant" ? byCountry : "zh";
+      } else {
+        target = byCountry; // 언어 미상: 국가로만 판정(불명이면 null=유지)
+      }
+    }
+    if (!target) return false;
+    localStorage.setItem("vr_lang_choice", "auto:" + target);
+    window.location.replace(routeHref(target));
+    return true;
+  } catch (e) { return false; }
+}
+
+// 수동 언어 선택은 항상 우선 — 한 번이라도 언어 스위처를 누르면 이후 자동 이동을 막음(왕복 방지)
+function setupLangChoiceMemory() {
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest(".lang-switch a");
+    if (a) { try { localStorage.setItem("vr_lang_choice", "manual"); } catch (_) { /* noop */ } }
+  }, true);
+}
+
+maybeAutoLanguageRedirect().then((redirecting) => {
+  if (redirecting) return; // 리다이렉트 중이면 렌더 생략(깜빡임 최소화)
+  render();
+  setupBackToTop();
+  setupConversionTracking();
+  setupLangChoiceMemory();
+});
