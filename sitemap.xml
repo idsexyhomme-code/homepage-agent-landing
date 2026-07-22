@@ -92,4 +92,24 @@
   <url><loc>https://videoroastery.com/zh-hant/drone/</loc><changefreq>monthly</changefreq><priority>0.6</priority><xhtml:link rel="alternate" hreflang="ko" href="https://videoroastery.com/drone/"/><xhtml:link rel="alternate" hreflang="en" href="https://videoroastery.com/en/drone/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://videoroastery.com/zh/drone/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://videoroastery.com/zh-hant/drone/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://videoroastery.com/drone/"/></url>
   <url><loc>https://videoroastery.com/zh-hant/wedding/</loc><changefreq>monthly</changefreq><priority>0.6</priority><xhtml:link rel="alternate" hreflang="ko" href="https://videoroastery.com/wedding/"/><xhtml:link rel="alternate" hreflang="en" href="https://videoroastery.com/en/wedding/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://videoroastery.com/zh/wedding/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://videoroastery.com/zh-hant/wedding/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://videoroastery.com/wedding/"/></url>
   <url><loc>https://videoroastery.com/zh-hant/content/</loc><changefreq>monthly</changefreq><priority>0.6</priority><xhtml:link rel="alternate" hreflang="ko" href="https://videoroastery.com/content/"/><xhtml:link rel="alternate" hreflang="en" href="https://videoroastery.com/en/content/"/><xhtml:link rel="alternate" hreflang="zh-Hans" href="https://videoroastery.com/zh/content/"/><xhtml:link rel="alternate" hreflang="zh-Hant" href="https://videoroastery.com/zh-hant/content/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://videoroastery.com/content/"/></url>
+  <url>
+    <loc>https://videoroastery.com/jeju-hotel-promo/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://videoroastery.com/jeju-real-estate-video/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://videoroastery.com/jeju-restaurant-menu-video/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://videoroastery.com/jeju-camping-video/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
