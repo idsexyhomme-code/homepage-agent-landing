@@ -3087,7 +3087,7 @@ async function fetchCountry() {
   try {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 600); // 지연 상한 — 넘으면 브라우저 언어만으로 진행
-    const res = await fetch("/api/geo", { signal: ctrl.signal, cache: "no-store" });
+    const res = await fetch("/api/geo/", { signal: ctrl.signal, cache: "no-store" }); // 트레일링 슬래시 = 리다이렉트 홉 회피
     clearTimeout(timer);
     if (!res.ok) return "";
     const data = await res.json();
