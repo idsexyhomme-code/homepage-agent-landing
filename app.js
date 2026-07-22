@@ -2605,7 +2605,6 @@ function faqSection(route) {
 }
 
 function detailPage(route) {
-  const inquiryHref = mailtoHref(route);
   // 오버뷰가 앞 3장(구성 이미지)을 쓰던 로직 제거 — BASIC은 '구성'을 텍스트 넘버드로, '작업 사례'는 전체 노출.
   const routePortfolioItems = portfolioItemsForRoute(route);
   if (routePortfolioItems[0]) routePortfolioItems[0] = { ...routePortfolioItems[0], size: "large" };
@@ -2632,7 +2631,7 @@ function detailPage(route) {
           <h1 class="en-detail-h1">${route.title}</h1>
           <p class="en-detail-lead">${route.lead}</p>
           <div class="en-detail-actions">
-            <a class="en-cta-btn" href="${inquiryHref}">${route.cta} ↗</a>
+            <a class="en-cta-btn" href="#contact">${route.cta} ↗</a>
             <a class="en-detail-link" href="#work">작업 사례 보기</a>
           </div>
         </section>
@@ -2658,11 +2657,13 @@ function detailPage(route) {
           <div class="en-faq">${faqItems.concat(routeFaqExtra[route.slug] || []).map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("")}</div>
         </section>
 
-        <section class="en-cta" id="contact">
-          <p class="en-eyebrow">문의</p>
-          <h2 class="en-cta-h">가진 자료만 주세요.<br>딱 맞는 범위로 회신합니다.</h2>
-          <a class="en-cta-btn" href="${inquiryHref}">${route.cta} ↗</a>
-          <p class="en-cta-note">보유 자료와 원하는 결과물만 보내주시면 제작 범위·일정을 정직하게 회신드립니다.</p>
+        <section class="section tight en-form-sec" id="contact">
+          <div class="cta-band has-form">
+            <h2>${route.nav} 문의</h2>
+            <p class="cta-note">가진 자료만 주세요. 보유 자료와 원하는 결과물만 보내주시면 제작 범위·일정을 정직하게 회신드립니다.</p>
+            <p class="contact-trust">평균 1시간 내 응답 · 보유 자료만 있어도 가능</p>
+            ${quoteForm()}
+          </div>
         </section>
       </main>
       <footer class="en-footer">
