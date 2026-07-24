@@ -32,6 +32,14 @@ sys.exit(fail)
 PY
 [ $? -eq 0 ] && ok "전 페이지 JSON-LD 유효" || FAIL=1
 
+echo "== 4b) WebSite #website inLanguage 배열 정합 (공유 @id 일관성) =="
+MISS=0; TOT=0
+while IFS= read -r f; do
+  TOT=$((TOT+1))
+  grep -qE '"ko-KR", ?"en", ?"zh-Hans", ?"zh-Hant"' "$f" || { printf "  ✗ %s inLanguage 배열 누락\n" "$f"; MISS=1; }
+done < <(grep -rlE '"@type": ?"WebSite"' --include='*.html' .)
+[ "$MISS" = "0" ] && ok "WebSite inLanguage 배열 전셸 정합 (${TOT}셸)" || FAIL=1
+
 echo "== 5) pic() 참조 자산 존재 (imgMeta 키가 assets/에 있나) =="
 python3 - <<'PY'
 import re,os,sys
