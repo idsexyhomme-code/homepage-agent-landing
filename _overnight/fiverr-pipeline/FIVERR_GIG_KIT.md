@@ -12,6 +12,7 @@
 > **I will create an AI powered market research and competitor analysis report**
 - 대안: `I will do market research, competitor analysis and market entry report`
 - 주키워드 = market research / competitor analysis (검증된 수요), 첫 40자 안에 위치.
+- ⚠️ **0리뷰 랭킹 현실(코덱스)**: broad `market research`는 500+리뷰 셀러가 지배 → 신규 0리뷰는 묻힘. **런칭 순서 뒤집기: 저경쟁 니치 Gig B(Korea/Asia market entry)를 먼저** 랭커블 진입점으로, 리뷰 쌓이면 Gig A(broad)로 확장. 태그도 니치 우선(`korea market entry`·`asia market research`)로 시작.
 
 ### 카테고리
 Business → Market Research → **Market Research Reports & Analysis**
@@ -19,31 +20,31 @@ Business → Market Research → **Market Research Reports & Analysis**
 ### 검색 태그 (5개 — 광범위 3 + 구체 2)
 `market research` · `competitor analysis` · `market analysis report` · `business research` · `market entry`
 
-### 패키지 (달러·피버 20% 수수료 반영 = 순수령 80%)
+### 패키지 (v2 — 코덱스 COGS 리뷰 반영, ⚠️숫자는 대표 최종확정)
+> v1($65/145/340)은 스코프 대비 시급 $7~11로 붕괴 판정(코덱스). → **가격 인상 + 스코프 현실화 + 납기 연장**으로 재설계. 목표 순시급 ≥$18.
 | | **BASIC — Snapshot** | **STANDARD — Deep Dive** | **PREMIUM — Full + Video** |
 |---|---|---|---|
-| 가격 | **$65** (순 ~$52) | **$145** (순 ~$116) | **$340** (순 ~$272) |
-| 납기 | 3일 | 4일 | 6일 |
+| 가격 | **$95** (순 ~$76) | **$220** (순 ~$176) | **$520** (순 ~$416) |
+| 납기 | 3일 | 5일 | 10일 |
 | 수정 | 1 | 2 | 3 |
-| 시장/산업 | 1 | 1 | 1 (심화) |
-| 경쟁사 | 3 (요약) | 3 (심층+강약점표) | **5 (심층)** |
+| 경쟁사 | 2 (요약) | 3 (심층+강약점표) | **5 (심층)** |
 | 포함 | 시장 트렌드 + 핵심 인사이트 요약 | + SWOT + 타깃 고객 프로파일 + 시장규모(TAM/SAM) | + 가격·포지셔닝 + 리스크/기회 + **실행 권고안** |
-| 산출물 | PDF ~8–10p | PDF+편집본(Docs/Slides) ~15–20p | 피치덱-레디 슬라이드 ~25–30p + **🎬 90초 비디오 요약** |
-| 차트/시각화 | 기본 | 데이터 시각화 강화 | 풀 인포그래픽 |
+| 산출물 | PDF ~4–6p | PDF+편집본(Docs/Slides) ~10–12p | 피치덱-레디 ~18–22p + **🎬 45–60초 템플릿 영상 recap** |
+| 예상 작업 | 4–5h (~$15/h) | 8–10h (~$18–22/h) | 16–20h (~$21–26/h) |
 
 **Gig Extras(애드온):**
-- 🎬 **90-sec video summary of your report** — **+$75** (Basic/Standard에 추가) ← *핵심 차별 애드온*
-- Extra fast 48h delivery +$40 / Additional competitor +$15 each / Extra revision +$20 / Editable source files +$25
+- 🎬 **45–60s template video recap** — **+$150**(net ~$120, 자막+모션·내레이션X·수정1) / **90s bespoke animated** — **+$280** ← *핵심 차별, 단 단가 방어*
+- Extra fast delivery +$60 / Additional competitor +$25 each / Extra revision +$30 / Editable source files +$30
 
-> 한국어 주석: 크몽 9k/29k/59k 사다리를 $ 프리미엄 앵커로 재배치. Basic $65는 $5~25 미끼존 위 = "싸구려 아님" 신호. 대표가 크몽서 찍은 99k(≈$72)는 여기 Basic~Standard 사이 = 현실적. 프리미엄 $340은 atulgulrajani7($400) 벤치 근처.
+> 한국어 주석: v1은 코덱스가 "출시 보류(단가 붕괴)"라 v2로 인상. Basic $95는 여전히 $5~25 미끼존 위. 대표 크몽 99k(≈$72)는 v2 Basic 근처. Premium $520은 스코프 대비 지속가능선. **90초 영상은 절대 $75 금지**(제작부담 큼) — 템플릿형으로 다운스코프하거나 $280.
 
 ### Gig 설명 (바이어용 영어 — 그대로 붙여넣기)
 ```
-📊 Know your market before you spend a won — or a dollar — on it.
+📊 Know your market before you bet on it.
 
-I'm a research + creative studio (Video Roastery). I turn scattered market
-signals into one clear, board-ready report you can hand to investors, a co-founder,
-or your own decision this week.
+I'm a research and creative studio (Video Roastery). I turn scattered market
+signals into one clear, board-ready report — something you can hand to an
+investor, a co-founder, or use to make the call yourself.
 
 WHAT YOU GET
 • Market size, trends & where the sector is heading
@@ -53,19 +54,22 @@ WHAT YOU GET
 • Clean charts & visuals you can drop straight into a pitch deck
 
 🎬 THE PART NOBODY ELSE OFFERS
-As a video studio, I can deliver a 90-second animated video summary of your
-report — so your team (or your investors) get the takeaways in 90 seconds,
-not 30 pages. Add it to any package.
+Because we're a video studio, I can add a short video recap of your report —
+so your team (or your investors) get the key takeaways in about a minute,
+not 20 pages. Included on Premium; available as an add-on on other packages.
 
 WHY ME
-• AI-accelerated research (I use frontier AI to cover more ground faster) —
-  but every insight is human-checked. You get judgment, not a raw AI dump.
-• Studio-grade design. Your report looks like it came from a consultancy,
+• AI-accelerated research: I use frontier AI to cover more ground faster,
+  then verify the key findings, sources, and numbers myself. You get
+  judgment, not a raw AI dump.
+• Studio-grade design. Your report reads like it came from a consultancy,
   not a template.
-• Specialist angle available: Korea & Asia market entry (see my other gig).
+• A specialist edge in Korea & Asia market entry — useful if you're a
+  foreign brand looking at the region.
 
-Fast delivery. Free revisions. Message me your industry + goal for a scope
-check before you order — I'll tell you honestly if I'm the right fit.
+Clear scope, on-time delivery, and revisions included on every package.
+Message me your industry and goal for a quick scope check before you order —
+I'll tell you honestly if I'm the right fit.
 ```
 
 ### 요구사항 (주문 후 바이어 입력)
@@ -76,7 +80,7 @@ check before you order — I'll tell you honestly if I'm the right fit.
 5. Any specific questions you need answered?
 
 ### FAQ (그대로)
-- **Is the research just AI-generated?** No. I use AI to accelerate coverage, then human-verify every claim, source, and number. You're paying for judgment and a decision-ready deliverable.
+- **Is the research just AI-generated?** No. I use AI to accelerate the research, then verify the key claims, sources, and numbers myself. You're paying for judgment and a decision-ready deliverable.
 - **Can you really do the 90-second video summary?** Yes — that's my core studio work. Add it as an extra and you'll get an animated recap of your report's key findings.
 - **Which industries do you cover?** Most B2C/B2B sectors. Message me first if it's highly technical/regulated so I can confirm fit.
 - **Do you specialize in any market?** Yes — Korea & Asia market entry is my edge (I'm based in Korea). Great if you're a foreign brand entering the region.

@@ -3003,29 +3003,50 @@ function reelGalleryVideoItems() {
 }
 
 const reelGalleryCopy = {
-  ko: { kicker: "Video Roastery® · 쇼릴", title: "우리가 만든 것", sub: "제주 현장 촬영·드론부터 AI 숏폼·브랜드필름까지. 눌러서 바로 재생해 보세요.", close: "닫기" },
-  en: { kicker: "Video Roastery® · Showreel", title: "Selected Work", sub: "Drone, brand film, AI short-form — all shot & cut in Jeju. Tap any clip to play.", close: "Close" },
-  hans: { kicker: "Video Roastery® · 展示卷", title: "精选作品", sub: "从济州岛现场航拍到 AI 短视频与品牌短片。点击任意作品即可播放。", close: "关闭" },
-  hant: { kicker: "Video Roastery® · 展示卷", title: "精選作品", sub: "從濟州島現場空拍到 AI 短影音與品牌短片。點擊任一作品即可播放。", close: "關閉" }
+  ko: { kicker: "Video Roastery® · 쇼릴", title: "우리가 만든 것", sub: "제주 현장 촬영·드론부터 AI 숏폼·브랜드필름까지. 눌러서 바로 재생해 보세요.", close: "닫기", dialogLabel: "작업 갤러리" },
+  en: { kicker: "Video Roastery® · Showreel", title: "Selected Work", sub: "Drone, brand film, AI short-form — all shot & cut in Jeju. Tap any clip to play.", close: "Close", dialogLabel: "Work gallery" },
+  hans: { kicker: "Video Roastery® · 展示卷", title: "精选作品", sub: "从济州岛现场航拍到 AI 短视频与品牌短片。点击任意作品即可播放。", close: "关闭", dialogLabel: "作品集" },
+  hant: { kicker: "Video Roastery® · 展示卷", title: "精選作品", sub: "從濟州島現場空拍到 AI 短影音與品牌短片。點擊任一作品即可播放。", close: "關閉", dialogLabel: "作品集" }
 };
-// 비한국어 갤러리 타일 제목 — 한글 설명 대신 언어별 카테고리 명칭(라이트박스 캡션에도 사용).
-const reelCatNames = {
-  en: { web: "Website", drone: "Drone & Aerial", content: "Content", system: "Automation", ai: "AI Short-form", wedding: "Wedding Film" },
-  hans: { web: "网站", drone: "无人机航拍", content: "内容", system: "自动化", ai: "AI 短视频", wedding: "婚礼影像" },
-  hant: { web: "網站", drone: "無人機空拍", content: "內容", system: "自動化", ai: "AI 短影音", wedding: "婚禮影像" }
+// 비한국어 갤러리 타일 제목 — slug 기준 언어별 명칭(brand-film·ai-shortform 정확 구분). 라이트박스 캡션에도 사용.
+const reelSlugNames = {
+  en: { homepage: "Website", drone: "Drone & Aerial", content: "Content", "inquiry-agent": "Automation", "brand-film": "Brand Film", "ai-shortform": "AI Short-form", wedding: "Wedding Film" },
+  hans: { homepage: "网站", drone: "无人机航拍", content: "内容", "inquiry-agent": "自动化", "brand-film": "品牌短片", "ai-shortform": "AI 短视频", wedding: "婚礼影像" },
+  hant: { homepage: "網站", drone: "無人機空拍", content: "內容", "inquiry-agent": "自動化", "brand-film": "品牌短片", "ai-shortform": "AI 短影音", wedding: "婚禮影像" }
+};
+// 타일 소문자 라벨칩 현지화(en은 영문 태그 유지, 중문만 번역).
+const reelLabelNames = {
+  hans: { WEB: "网站", DRONE: "航拍", CONTENT: "内容", SYSTEM: "自动化", BRAND: "品牌", "AI FILM": "AI 短片", "AI VISUAL": "AI 视觉", WEDDING: "婚礼", AD: "广告" },
+  hant: { WEB: "網站", DRONE: "空拍", CONTENT: "內容", SYSTEM: "自動化", BRAND: "品牌", "AI FILM": "AI 短片", "AI VISUAL": "AI 視覺", WEDDING: "婚禮", AD: "廣告" }
+};
+
+// 문서 언어 → 카피 키(ko/en/hans/hant). 라이트박스는 전역 공유라 페이지 lang을 출처로 삼는다.
+function docLangKey() {
+  const l = (document.documentElement.lang || "ko").toLowerCase();
+  if (l.indexOf("zh") === 0) return l.indexOf("hant") >= 0 ? "hant" : "hans";
+  if (l.indexOf("en") === 0) return "en";
+  return "ko";
+}
+const lightboxCopy = {
+  ko: { aria: "영상 미리보기", close: "닫기", fallback: "영상이 바로 안 열리면 새 창에서 보기 ↗" },
+  en: { aria: "Video preview", close: "Close", fallback: "If the video doesn't play, open in a new tab ↗" },
+  hans: { aria: "视频预览", close: "关闭", fallback: "如果视频无法播放，请在新窗口打开 ↗" },
+  hant: { aria: "影片預覽", close: "關閉", fallback: "如果影片無法播放，請在新視窗開啟 ↗" }
 };
 
 function reelGalleryMarkup(lang) {
   const c = reelGalleryCopy[lang] || reelGalleryCopy.ko;
   const ko = lang === "ko";
-  const names = reelCatNames[lang];
+  const slugMap = reelSlugNames[lang];
+  const labelMap = reelLabelNames[lang];
   const tiles = reelGalleryVideoItems().map(({ item, link }) => {
-    const title = ko ? item.title : (names && names[item.category]) || item.label;
+    const title = ko ? item.title : (slugMap && slugMap[item.slug]) || item.label;
+    const label = ko ? item.label : (labelMap && labelMap[item.label]) || item.label;
     return `
       <button class="reel-tile" type="button" data-video="${link.src}" aria-haspopup="dialog">
         <img src="${asset(item.image)}" alt="${title}" loading="lazy" decoding="async" />
         <span class="portfolio-play" aria-hidden="true"></span>
-        <span class="portfolio-meta"><small>${item.label}</small><strong>${title}</strong></span>
+        <span class="portfolio-meta"><small>${label}</small><strong>${title}</strong></span>
       </button>`;
   }).join("");
   return `
@@ -3090,6 +3111,7 @@ function setupReelGallery() {
     t.addEventListener("click", (e) => {
       e.preventDefault();
       const lang = t.getAttribute("data-reel-open") || "ko";
+      box.setAttribute("aria-label", (reelGalleryCopy[lang] || reelGalleryCopy.ko).dialogLabel);
       box.innerHTML = reelGalleryMarkup(lang);
       box.__trigger = t;
       box.classList.add("is-open");
@@ -3112,16 +3134,17 @@ function setupPortfolioLightbox() {
     box = document.createElement("div");
     box.id = "vr-lightbox";
     box.className = "vr-lightbox";
+    const L = lightboxCopy[docLangKey()] || lightboxCopy.ko;
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-modal", "true");
-    box.setAttribute("aria-label", "영상 미리보기");
+    box.setAttribute("aria-label", L.aria);
     box.innerHTML = `
-      <button class="vr-lightbox-close" type="button" aria-label="닫기">✕</button>
+      <button class="vr-lightbox-close" type="button" aria-label="${L.close}">✕</button>
       <figure class="vr-lightbox-stage">
         <video controls playsinline preload="none"></video>
         <span class="vr-lightbox-spinner" aria-hidden="true"></span>
         <figcaption class="vr-lightbox-caption"><span class="vr-cap-label"></span><strong class="vr-cap-title"></strong></figcaption>
-        <a class="vr-lightbox-fallback" target="_blank" rel="noopener" hidden>영상이 바로 안 열리면 새 창에서 보기 ↗</a>
+        <a class="vr-lightbox-fallback" target="_blank" rel="noopener" hidden>${L.fallback}</a>
       </figure>`;
     document.body.appendChild(box);
     const vEl = box.querySelector("video");
