@@ -1417,15 +1417,15 @@ function enPage() {
         <section class="en-proof" aria-label="Track record">
           <div class="en-sec-head"><span>Proof, not promises</span><span>(RESULTS)</span></div>
           <div class="en-proof-grid">
-            <div class="en-proof-item"><strong>180+</strong><span>projects delivered — government,<br>tourism, education, healthcare, F&amp;B, IT</span></div>
-            <div class="en-proof-item"><strong>30+</strong><span>public institutions served —<br>Provincial Gov · Tourism Org · Technopark</span></div>
+            <div class="en-proof-item"><strong>140+</strong><span>projects delivered — government,<br>tourism, education, healthcare, F&amp;B, IT</span></div>
+            <div class="en-proof-item"><strong>30+</strong><span>public-sector projects —<br>Provincial Gov · Tourism Org · Technopark</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>YouTube subscribers doubled<br>in one year of channel management</span></div>
           </div>
         </section>
 
         <section class="en-clients">
           <div class="en-sec-head"><span>Selected Clients</span></div>
-          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Provincial Office of Education &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL</p>
+          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Provincial Office of Education &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; LG U+</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -1936,15 +1936,15 @@ function mainPage() {
         <section class="en-proof" aria-label="작업 성과">
           <div class="en-sec-head"><span>결과로 보여드립니다</span><span>(PROOF)</span></div>
           <div class="en-proof-grid">
-            <div class="en-proof-item"><strong>180+</strong><span>누적 프로젝트 —<br>행정·관광·교육·의료·식품·IT까지</span></div>
-            <div class="en-proof-item"><strong>30+</strong><span>공공기관·기관 클라이언트 —<br>도청·교육청·관광공사·테크노파크·환경공단</span></div>
+            <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>행정·관광·교육·의료·식품·IT까지</span></div>
+            <div class="en-proof-item"><strong>30+</strong><span>공공기관·기관 프로젝트 —<br>도청·교육청·관광공사·테크노파크·환경공단</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
           </div>
         </section>
 
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주도교육청 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 김만덕기념관 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주상공회의소 &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL</p>
+          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주도교육청 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 김만덕기념관 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주상공회의소 &nbsp;·&nbsp; LG U+</p>
         </section>
 
         <section class="en-cta" id="contact">
