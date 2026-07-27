@@ -1418,7 +1418,7 @@ function enPage() {
           <div class="en-sec-head"><span>Proof, not promises</span><span>(RESULTS)</span></div>
           <div class="en-proof-grid">
             <div class="en-proof-item"><strong>140+</strong><span>projects delivered — government,<br>tourism, education, healthcare, F&amp;B, IT</span></div>
-            <div class="en-proof-item"><strong>30+</strong><span>public-sector projects —<br>Provincial Gov · Tourism Org · Technopark</span></div>
+            <div class="en-proof-item"><strong>10yr</strong><span>with Jeju Technopark —<br>a decade of repeat public-sector work</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>YouTube subscribers doubled<br>in one year of channel management</span></div>
           </div>
         </section>
@@ -1937,7 +1937,7 @@ function mainPage() {
           <div class="en-sec-head"><span>결과로 보여드립니다</span><span>(PROOF)</span></div>
           <div class="en-proof-grid">
             <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>행정·관광·교육·의료·식품·IT까지</span></div>
-            <div class="en-proof-item"><strong>30+</strong><span>공공기관·기관 프로젝트 —<br>도청·교육청·관광공사·테크노파크·환경공단</span></div>
+            <div class="en-proof-item"><strong>10년</strong><span>제주테크노파크와 함께한 시간 —<br>납품 기록으로 실측한 다년 파트너십</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
           </div>
         </section>
