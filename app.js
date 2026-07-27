@@ -1425,7 +1425,7 @@ function enPage() {
 
         <section class="en-clients">
           <div class="en-sec-head"><span>Selected Clients</span></div>
-          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Provincial Office of Education &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; LG U+</p>
+          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Provincial Office of Education &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; S-OIL</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -1944,7 +1944,7 @@ function mainPage() {
 
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주도교육청 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 김만덕기념관 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주상공회의소 &nbsp;·&nbsp; LG U+</p>
+          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주도교육청 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 김만덕기념관 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주상공회의소 &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL</p>
         </section>
 
         <section class="en-cta" id="contact">
