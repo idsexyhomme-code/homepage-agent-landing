@@ -1414,9 +1414,18 @@ function enPage() {
           <div class="en-svc-list">${services}</div>
         </section>
 
+        <section class="en-proof" aria-label="Track record">
+          <div class="en-sec-head"><span>Proof, not promises</span><span>(RESULTS)</span></div>
+          <div class="en-proof-grid">
+            <div class="en-proof-item"><strong>2×</strong><span>YouTube subscribers doubled<br>in one year of channel management</span></div>
+            <div class="en-proof-item"><strong>3</strong><span>Jeju public institutions served —<br>Provincial Gov · Tourism Org · Technopark</span></div>
+            <div class="en-proof-item"><strong>50+</strong><span>published works —<br>drone, brand film, AI short-form</span></div>
+          </div>
+        </section>
+
         <section class="en-clients">
           <div class="en-sec-head"><span>Selected Clients</span></div>
-          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Korean Anti-Tuberculosis Association &nbsp;·&nbsp; Jaksim Lab</p>
+          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Jaksim Lab</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -1924,9 +1933,18 @@ function mainPage() {
           <div class="en-svc-list">${services}</div>
         </section>
 
+        <section class="en-proof" aria-label="작업 성과">
+          <div class="en-sec-head"><span>결과로 보여드립니다</span><span>(PROOF)</span></div>
+          <div class="en-proof-grid">
+            <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
+            <div class="en-proof-item"><strong>3곳</strong><span>제주 공공기관과 작업 —<br>제주도청·제주관광공사·제주테크노파크</span></div>
+            <div class="en-proof-item"><strong>50+</strong><span>공개 작업 영상 —<br>드론·브랜드필름·AI 숏폼·웨딩</span></div>
+          </div>
+        </section>
+
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; 한국마사회 &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 작심랩</p>
+          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; 한국마사회 &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 작심랩</p>
         </section>
 
         <section class="en-cta" id="contact">

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>더사운드벙커 온라인 채널 분석·개선 제안서 — Video Roastery</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color:#191919; }
+  .page { width:210mm; height:297mm; padding:18mm 16mm; page-break-after:always; position:relative; background:#efeee9; overflow:hidden; }
+  .page:last-child { page-break-after:auto; }
+  /* ---------- 공통 ---------- */
+  .brand { font-size:9pt; letter-spacing:.18em; font-weight:700; color:#191919; }
+  .brand sup{ font-size:6pt; }
+  .gold { color:#a07820; }
+  .kicker { font-size:8.5pt; letter-spacing:.22em; color:#a07820; font-weight:700; text-transform:uppercase; }
+  h1 { font-size:23pt; font-weight:600; line-height:1.3; letter-spacing:-.01em; }
+  h2 { font-size:14pt; font-weight:600; margin-bottom:5mm; letter-spacing:-.01em; }
+  p, li, td, th { font-size:9.6pt; line-height:1.62; word-break:keep-all; }
+  .muted { color:#5a5a54; }
+  .foot { position:absolute; bottom:10mm; left:16mm; right:16mm; display:flex; justify-content:space-between; font-size:7.5pt; color:#8a887f; border-top:1px solid #d8d6cc; padding-top:3mm; }
+  /* ---------- 커버 ---------- */
+  .cover { background:#141414; color:#f4f2ea; display:flex; flex-direction:column; justify-content:space-between; }
+  .cover .kicker { color:#c9a227; }
+  .cover h1 { font-size:30pt; color:#f4f2ea; margin-top:6mm; }
+  .cover .sub { margin-top:6mm; font-size:11pt; color:#b9b6a9; }
+  .cover .brand { color:#f4f2ea; }
+  .cover .meta { font-size:9pt; color:#8a887f; line-height:1.9; }
+  .cover .freebadge { display:inline-block; margin-top:8mm; border:1px solid #c9a227; color:#c9a227; font-size:8.5pt; letter-spacing:.14em; padding:2.2mm 5mm; }
+  /* ---------- 요약 카드 ---------- */
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:2mm; }
+  .card { background:#fff; border:1px solid #e2e0d6; padding:5mm 5.5mm; }
+  .card .tag { font-size:7.5pt; letter-spacing:.16em; font-weight:700; margin-bottom:2mm; }
+  .tag.s { color:#3d6b35; } .tag.o { color:#a07820; }
+  .card p { font-size:9.2pt; }
+  .hero-issue { background:#141414; color:#f4f2ea; padding:6mm 6.5mm; margin-top:4mm; }
+  .hero-issue .tag { color:#c9a227; font-size:7.5pt; letter-spacing:.16em; font-weight:700; }
+  .hero-issue p { font-size:10.5pt; margin-top:2mm; line-height:1.55; }
+  /* ---------- 표 ---------- */
+  table { width:100%; border-collapse:collapse; margin-top:2mm; background:#fff; }
+  th { text-align:left; font-size:8pt; letter-spacing:.08em; color:#5a5a54; border-bottom:1.5px solid #191919; padding:2.6mm 3mm; }
+  td { border-bottom:1px solid #e2e0d6; padding:2.8mm 3mm; vertical-align:top; }
+  td:first-child { font-weight:600; white-space:nowrap; }
+  /* ---------- 넘버드 ---------- */
+  .num { display:flex; gap:5mm; padding:4.5mm 0; border-bottom:1px solid #d8d6cc; }
+  .num:last-child{ border-bottom:none; }
+  .num .n { font-size:10pt; font-weight:700; color:#a07820; min-width:9mm; }
+  .num b { display:block; font-size:10.3pt; margin-bottom:1.2mm; }
+  /* ---------- 처방 ---------- */
+  .rx { background:#fff; border:1.5px solid #191919; padding:6mm 6.5mm; margin-top:4mm; }
+  .rx .kicker{ margin-bottom:2.5mm; }
+  .rx h3 { font-size:13pt; font-weight:600; margin-bottom:2.5mm; }
+  .rx ul { list-style:none; margin-top:2mm; }
+  .rx li { padding-left:5mm; position:relative; margin-bottom:1.6mm; }
+  .rx li::before { content:"—"; position:absolute; left:0; color:#a07820; }
+  /* ---------- CTA ---------- */
+  .price { display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:4mm; }
+  .pbox { background:#fff; border:1px solid #e2e0d6; padding:5mm 5.5mm; }
+  .pbox.em { background:#141414; color:#f4f2ea; border-color:#141414; }
+  .pbox .t { font-size:8pt; letter-spacing:.14em; font-weight:700; color:#a07820; }
+  .pbox.em .t { color:#c9a227; }
+  .pbox b { display:block; font-size:11.5pt; margin:1.6mm 0 1mm; }
+  .pbox small { font-size:8.6pt; line-height:1.5; display:block; color:#5a5a54; }
+  .pbox.em small { color:#b9b6a9; }
+  .contact { margin-top:6mm; padding-top:4mm; border-top:1.5px solid #191919; display:flex; justify-content:space-between; align-items:flex-end; }
+  .contact .big { font-size:12pt; font-weight:600; }
+  .note { font-size:8pt; color:#8a887f; margin-top:4mm; }
+
+  .obs { background:#fff; border:1px solid #e2e0d6; padding:5mm 5.5mm; margin-bottom:4mm; }
+  .obs .where { font-size:8pt; letter-spacing:.14em; font-weight:700; color:#a07820; }
+  .obs b.t { display:block; font-size:10.5pt; margin:1.5mm 0 1mm; }
+  .obs p { font-size:9.3pt; }
+  .fix { border-left:2.5px solid #a07820; padding:1.5mm 0 1.5mm 4mm; margin-top:2.5mm; }
+  .fix small{ display:block; font-size:7.8pt; letter-spacing:.14em; color:#a07820; font-weight:700; margin-bottom:.8mm;}
+  .step { background:#fff; border:1px solid #e2e0d6; padding:5mm 5.5mm; margin-bottom:4mm; display:flex; gap:5mm;}
+  .step .sn { font-size:14pt; font-weight:700; color:#a07820; min-width:14mm;}
+  .step b.t { display:block; font-size:11pt; margin-bottom:1.5mm;}
+  .letter p { font-size:10.3pt; line-height:1.85; margin-bottom:4mm; }
+
+  .shot { width:100%; border:1px solid #d8d6cc; display:block; margin:2mm 0 1mm; }
+  .shotcap { font-size:7.6pt; color:#8a887f; margin-bottom:3mm; }
+</style>
+</head>
+<body>
+
+<!-- P1 커버 -->
+<div class="page cover">
+  <div><div class="brand">VIDEO ROASTERY<sup>®</sup></div></div>
+  <div>
+    <p class="kicker">Online Channel Review &amp; Proposal</p>
+    <h1>더사운드벙커는 지금,<br>온라인에서 이렇게 보입니다</h1>
+    <p class="sub">공개된 채널을 살펴보며 저희가 캐치한 것들과,<br>함께 개선해볼 수 있는 방법을 정리한 제안서입니다.</p>
+    <span class="freebadge">무료 분석·제안서 · 부담 없이 읽어보세요</span>
+  </div>
+  <div class="meta">2026. 07 · 공개 정보 기반 작성(내부 데이터 미사용)<br>Video Roastery — 제주 영상·브랜드 스튜디오 · videoroastery.com</div>
+</div>
+
+<!-- P2 드리는 말씀 -->
+<div class="page">
+  <p class="kicker">Intro</p>
+  <h2>드리는 말씀</h2>
+  <div class="letter">
+    <p>안녕하세요, 이용원 대표님. 제주에서 영상과 브랜드를 만드는 스튜디오, 비디오 로스터리입니다.</p>
+    <p>5월에 화순리에 문을 연 '사운드벙커 제주' 소식을 기사로 접했습니다. 소리를 기록하고 보존하는 공간, 귀로 걷는 제주 — 저희처럼 제주에서 콘텐츠를 만드는 사람에게는 정말 반갑고 귀한 시도라고 느꼈습니다.</p>
+    <p>그래서 저희가 할 수 있는 방식으로 응원을 드리고 싶었습니다. 더사운드벙커의 홈페이지와 온라인 채널을 공개된 범위 안에서 찬찬히 살펴보았고, 그 과정에서 <b>저희 눈에 캐치된 것들</b>이 있었습니다. 아깝다고 느낀 지점들입니다.</p>
+    <p>불편하지 않으시다면 — 그 관찰과, 저희가 생각한 개선 방향, 그리고 함께한다면 어떤 계획으로 도울 수 있는지를 이 문서에 정리해 보았습니다. 뒤쪽에는 단계별 실행 계획도 사업계획서 형태로 담았습니다.</p>
+    <p>영업 문서라기보다, 저희가 먼저 일해본 결과물입니다. <b>받아만 보셔도 괜찮고</b>, 유효하다고 느끼시는 부분이 있다면 그때 편하게 말 걸어주세요.</p>
+    <p class="muted">— 비디오 로스터리 드림</p>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 02</span></div>
+</div>
+
+<!-- P3 캐치 1/2 -->
+<div class="page">
+  <p class="kicker">01 · What We Noticed</p>
+  <h2>저희가 캐치한 것들 — 홈페이지</h2>
+  <div class="obs"><span class="where">soundtour.net · 첫 화면</span><b class="t">'소리'를 파는데, 첫 화면에서 소리가 나지 않습니다</b>
+    <p>히어로가 "Sound scape" 개념 설명 텍스트와 정적 숲 사진으로 시작합니다. 사운드스케이프가 낯선 방문자는 글로 개념을 이해해야 하는데, 이 회사의 상품은 글이 아니라 '경험'입니다. 첫 3초 안에 귀가 열리지 않으면, 스크롤은 이어지지 않습니다.</p>
+    <div class="fix"><small>개선 방향</small><p>첫 화면에 15초 무빙 히어로 영상(곶자왈 발걸음·바람·새소리 현장음) + "지금, 소리를 켜보세요 🔊" 버튼. 개념 설명은 영상 아래로.</p></div>
+    <img class="shot" src="sb_hero.jpg" alt="soundtour.net 첫 화면 캡처">
+    <p class="shotcap">soundtour.net 첫 화면 — 실제 화면 캡처 (2026. 07)</p>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 03</span></div>
+</div>
+
+<!-- P3b 캐치 2 -->
+<div class="page">
+  <p class="kicker">01 · What We Noticed</p>
+  <h2>저희가 캐치한 것들 — 홈페이지 (계속)</h2>
+  <div class="obs"><span class="where">soundtour.net · Sound bunker 섹션</span><b class="t">소리 명소 4곳이 '무음 사진'으로만 소개됩니다</b>
+    <p>차귀도·동백동산·이시돌목장·중문색달해변 — "새벽 목장의 소리를 듣고 싶다면"이라는 카피가 붙어 있는데, 정작 들을 방법이 없습니다. 가장 아까운 지점이라고 느꼈습니다.</p>
+    <div class="fix"><small>개선 방향</small><p>각 명소 카드에 15~20초 사운드 클립(영상+현장음) 임베드. 그 자체가 아카이브의 미리듣기이자, 방문 욕구를 만드는 장치가 됩니다.</p></div>
+    <img class="shot" src="sb_bunker.jpg" alt="Sound bunker 섹션 캡처">
+    <p class="shotcap">Sound bunker 섹션 — "새벽 목장의 소리를 듣고 싶다면"이라는 카피가 있지만, 들을 수 있는 장치는 없습니다. 실제 화면 캡처 (2026. 07)</p>
+  </div>
+  <div class="obs"><span class="where">soundtour.net · 예약 동선</span><b class="t">'사운드벙커 제주' 방문 예약이 첫 화면에서 보이지 않습니다</b>
+    <p>새로 연 오프라인 공간이 지금 가장 알려야 할 상품인데, 상단 메뉴·히어로에서 예약으로 가는 길이 한눈에 잡히지 않습니다.</p>
+    <div class="fix"><small>개선 방향</small><p>히어로에 고정 CTA "사운드벙커 제주 예약하기" 1개. 개관 프리미엄이 있는 지금이 동선을 세울 타이밍입니다.</p></div>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 04</span></div>
+</div>
+
+<!-- P4 캐치 3/4 -->
+<div class="page">
+  <p class="kicker">01 · What We Noticed</p>
+  <h2>저희가 캐치한 것들 — 쇼핑몰·검색·SNS</h2>
+  <div class="obs"><span class="where">soundtour.net · 사운드굿즈</span><b class="t">25만~49만원대 키트가 '설명'만으로 팔리고 있습니다</b>
+    <p>사운드스케이프 체험 키트(250,000원)·사운드워킹 키트(496,100원)는 고관여 가격대입니다. 이 가격을 설득하는 건 텍스트가 아니라 '사용하는 장면'인데, 상품 영상이 보이지 않았습니다(공개 페이지 기준 관찰).</p>
+    <div class="fix"><small>개선 방향</small><p>키트별 30~40초 사용 영상(개봉→착용→숲에서 듣는 순간). 고단가 상품일수록 영상 증거가 전환을 만듭니다.</p></div>
+  </div>
+  <div class="obs"><span class="where">구글·네이버 검색</span><b class="t">개관 기사 이후, 검색 결과가 멈춰 있습니다</b>
+    <p>5월 개관 때 뉴시스·서울신문·한라일보 등 9개 이상 매체가 보도했습니다 — 컨셉의 뉴스 가치는 증명됐습니다. 다만 그 이후 브랜드 자체 콘텐츠·방문 후기가 검색을 이어받지 못하고 있어, 지금 검색하는 여행자는 두 달 전 기사만 만나게 됩니다.</p>
+    <div class="fix"><small>개선 방향</small><p>릴스·쇼츠 정기 발행이 검색·추천 피드를 다시 채웁니다. 기사는 아카이브로, 방문 결정은 릴스로 이뤄집니다.</p></div>
+  </div>
+  <div class="obs"><span class="where">인스타그램 · 유튜브</span><b class="t">'듣는 여행'과 가장 잘 맞는 채널이 비어 있습니다</b>
+    <p>요즘 여행자는 릴스를 저장하며 목적지를 정합니다. 소리 중심 콘텐츠는 "소리를 켜세요" 훅으로 사운드 온 시청을 유도할 수 있는, 릴스 알고리즘과 정합이 특히 좋은 소재인데 — 활동 흔적이 검색에서 잘 잡히지 않았습니다.</p>
+    <div class="fix"><small>개선 방향</small><p>'귀로 걷는 제주' 릴스 시리즈로 채널의 뼈대를 세우고, 사운드벙커 방문 릴스(카드 터치 순간)로 예약을 연결.</p></div>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 05</span></div>
+</div>
+
+<!-- P5 종합 -->
+<div class="page">
+  <p class="kicker">02 · Summary</p>
+  <h2>종합 — 강점 위에서, 비어 있는 한 조각</h2>
+  <div class="cards">
+    <div class="card"><p class="tag s">이미 갖추신 것</p><p><b>국내 유일 포지션.</b> 사운드스케이프 프로그램·사운드워킹·지도자과정, 그리고 제주도·제주관광공사와 함께 연 공공 협업 공간까지. 콘셉트와 신뢰는 이미 앞서 있습니다.</p></div>
+    <div class="card"><p class="tag s">이미 갖추신 것</p><p><b>뉴스 가치 증명.</b> 개관 보도 9개 매체+. 스토리 자체의 힘은 검증이 끝났습니다.</p></div>
+    <div class="card"><p class="tag o">비어 있는 것</p><p><b>'들리는' 접점.</b> 홈페이지·검색·SNS 어디에서도 방문 전에 소리를 경험할 수 없습니다.</p></div>
+    <div class="card"><p class="tag o">비어 있는 것</p><p><b>개관 이후의 동력.</b> 기사 파도를 이어받을 자체 콘텐츠 채널이 아직 서 있지 않습니다.</p></div>
+  </div>
+  <div class="hero-issue">
+    <p class="tag">저희가 느낀 한 문장</p>
+    <p>기사는 개관을 알렸지만, <b>여행자가 "가보고 싶다"고 느끼는 건 기사가 아니라 릴스입니다.</b> 그 릴스를 지금 세우면, 개관 프리미엄이 지속 유입으로 바뀝니다.</p>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 06</span></div>
+</div>
+
+<!-- P6 실행계획 STEP -->
+<div class="page">
+  <p class="kicker">03 · Action Plan</p>
+  <h2>함께한다면 — 단계별 실행 계획</h2>
+  <p class="muted" style="margin-bottom:4mm">부담 없는 것부터 시작해, 효과를 확인하며 넓히는 구조로 잡았습니다. 어느 단계에서든 멈추셔도 됩니다.</p>
+  <div class="step"><span class="sn">S1</span><div><b class="t">가볍게 시작 — 촬영 없이 (약 2주)</b><p>보유하신 사진·아카이브 음원만으로: ①홈페이지 히어로용 15초 무빙 영상 1편 ②명소 사운드 클립 2편. 촬영 일정 없이, 지금 있는 자산으로 '들리는 첫 화면'을 먼저 세웁니다.</p></div></div>
+  <div class="step"><span class="sn">S2</span><div><b class="t">본격 — '귀로 걷는 제주' 시리즈 (약 1개월)</b><p>현장 촬영·수음 포함: ①릴스 4편(곶자왈 바람 · 파도와 몽돌 · 목장의 새벽 · 사운드벙커 카드 터치 순간) ②사운드벙커 제주 공간 필름 60초 1편(기관 보고·전시·홈페이지 상석용). 드론 항공 컷으로 '소리의 장소' 스케일 표현.</p></div></div>
+  <div class="step"><span class="sn">S3</span><div><b class="t">운영 — 지속 유입 만들기 (분기)</b><p>월 릴스 3~4편 정기 발행 + 키트 상품 영상 + 홈페이지 예약 동선·영상 임베드 정비. 검색과 추천 피드가 '두 달 전 기사'가 아니라 '이번 주 콘텐츠'를 만나게 합니다.</p></div></div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 07</span></div>
+</div>
+
+<!-- P7 기대효과+예산 -->
+<div class="page">
+  <p class="kicker">03 · Action Plan</p>
+  <h2>기대 효과와 예산 옵션</h2>
+  <table>
+    <tr><th>단계</th><th>산출물</th><th>기대 효과</th><th>예산(안)</th></tr>
+    <tr><td>S1 가볍게</td><td>히어로 영상 1 + 사운드 클립 2</td><td>첫 화면에서 '들리는' 경험 · 체류·스크롤 개선</td><td><b>30만원대</b></td></tr>
+    <tr><td>S2 본격</td><td>릴스 4 + 공간 필름 1(촬영·수음·항공)</td><td>지속 유입 채널 가동 · 예약 전환 연결 · 기관 보고 자산</td><td><b>백만원대 초반~</b> (맞춤 견적)</td></tr>
+    <tr><td>S3 운영</td><td>월 3~4편 + 상품영상 + 사이트 정비</td><td>검색·피드 상시 노출 · 계절 콘텐츠 축적</td><td><b>월 단위 협의</b></td></tr>
+  </table>
+  <p class="muted" style="margin-top:3mm">예산은 구성에 따라 조정됩니다. 정확한 금액은 30분 통화에서 범위를 확인한 뒤 견적서로 드립니다.</p>
+  <div style="margin-top:7mm">
+    <p class="kicker">참고 · 저희가 도울 수 있는 전체 영역</p>
+    <table style="margin-top:2mm">
+      <tr><td>영상</td><td>브랜드 필름 · 릴스/숏폼 · 드론 항공 · 촬영 없이 AI 숏폼</td></tr>
+      <tr><td>웹</td><td>홈페이지 첫 화면·예약 동선 정비 · 영상 임베드 · 문의 자동화</td></tr>
+      <tr><td>분석</td><td>시장·경쟁 분석 리포트(이 문서의 확장판) · 영문/다국어 콘텐츠</td></tr>
+    </table>
+    <p class="muted" style="margin-top:3mm">필요한 것만 골라 진행합니다 — 전부를 권하지 않습니다.</p>
+  </div>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 08</span></div>
+</div>
+
+<!-- P8 마무리 -->
+<div class="page">
+  <p class="kicker">04 · Closing</p>
+  <h2>같이 한번 해보시는 건 어떠세요?</h2>
+  <div class="letter">
+    <p>여기까지 읽어주셔서 감사합니다. 이 문서는 저희가 더사운드벙커의 공개 채널만 보고 만든 것이라, 내부 사정과 다른 부분이 있을 수 있습니다. 그 부분은 너그럽게 봐주시면 좋겠습니다.</p>
+    <p>다만 한 가지는 자신 있게 말씀드릴 수 있습니다 — <b>'귀로 걷는 제주'라는 이야기는, 영상과 소리로 보여주는 순간 훨씬 멀리 갑니다.</b> 그 일을 제주 안에서 가장 가까이서, 가장 빠르게 도울 수 있는 팀이 저희라고 생각합니다.</p>
+    <p>유효하다고 느끼신 부분이 하나라도 있다면, 30분 통화(무료)로 구체적인 구성을 설명드리겠습니다. 물론 이 문서의 개선 방향은 저희 없이 직접 실행하셔도 됩니다 — 그래도 저희는 기쁩니다.</p>
+  </div>
+  <div class="contact">
+    <div><p class="kicker">Contact</p><p class="big">Video Roastery</p><p class="muted">제주 영상·브랜드 스튜디오 · 4개국어 사이트 운영</p></div>
+    <div style="text-align:right"><p>videoroastery.com</p><p>kiwee1223@gmail.com</p></div>
+  </div>
+  <p class="note">본 제안서는 공개 정보만으로 작성한 무료 문서이며, 과장 없이 실제 관찰만 담았습니다. 내부 데이터가 필요한 판단(전환율 등)은 포함하지 않았습니다.</p>
+  <div class="foot"><span>더사운드벙커 온라인 채널 분석·개선 제안서</span><span>Video Roastery · 09</span></div>
+</div>
+
+</body>
+</html>
