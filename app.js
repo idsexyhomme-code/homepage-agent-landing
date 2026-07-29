@@ -1425,7 +1425,7 @@ function enPage() {
 
         <section class="en-clients">
           <div class="en-sec-head"><span>Selected Clients</span></div>
-          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Korean Anti-Tuberculosis Association &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; Jeju Provincial Government &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark</p>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korean Anti-Tuberculosis Association &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; MarkAny &nbsp;·&nbsp; Next Challenge &nbsp;·&nbsp; InCruises &nbsp;·&nbsp; Samjung Corp.</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -1936,7 +1936,7 @@ function mainPage() {
         <section class="en-proof" aria-label="작업 성과">
           <div class="en-sec-head"><span>결과로 보여드립니다</span><span>(PROOF)</span></div>
           <div class="en-proof-grid">
-            <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>행정·관광·교육·의료·식품·IT까지</span></div>
+            <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>기업·공공·교육·의료·식품·IT까지</span></div>
             <div class="en-proof-item"><strong>10년</strong><span>한 기관과 이어온 다년 작업 —<br>공공·기업 반복 계약으로 검증된 신뢰</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
           </div>
@@ -1944,7 +1944,7 @@ function mainPage() {
 
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주특별자치도 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크</p>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 마크애니 &nbsp;·&nbsp; 넥스트챌린지 &nbsp;·&nbsp; 인크루즈 &nbsp;·&nbsp; 삼정물산</p>
         </section>
 
         <section class="en-cta" id="contact">
