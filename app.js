@@ -1404,7 +1404,7 @@ function enPage() {
         <section class="en-statement">
           <div class="en-rule"></div>
           <div class="en-statement-grid">
-            <p class="en-statement-copy">Video Roastery is a Jeju-based studio building brand films, drone &amp; aerial, AI short-form ads, and conversion-focused websites — on location in Jeju, South Korea, and remote worldwide.</p>
+            <p class="en-statement-copy">Video Roastery builds brand films, drone &amp; aerial, AI short-form ads, and conversion-focused websites — on location across Korea and remote worldwide.</p>
             <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
         </section>
@@ -1418,14 +1418,14 @@ function enPage() {
           <div class="en-sec-head"><span>Proof, not promises</span><span>(RESULTS)</span></div>
           <div class="en-proof-grid">
             <div class="en-proof-item"><strong>140+</strong><span>projects delivered — government,<br>tourism, education, healthcare, F&amp;B, IT</span></div>
-            <div class="en-proof-item"><strong>10yr</strong><span>with Jeju Technopark —<br>a decade of repeat public-sector work</span></div>
+            <div class="en-proof-item"><strong>10yr</strong><span>a decade with one institution —<br>repeat contracts, public &amp; corporate</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>YouTube subscribers doubled<br>in one year of channel management</span></div>
           </div>
         </section>
 
         <section class="en-clients">
           <div class="en-sec-head"><span>Selected Clients</span></div>
-          <p class="en-clients-list">Jeju Special Self-Governing Province &nbsp;·&nbsp; Jeju Provincial Office of Education &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; S-OIL</p>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; Korea Environment Corporation &nbsp;·&nbsp; Korea Racing Authority &nbsp;·&nbsp; Korean Anti-Tuberculosis Association &nbsp;·&nbsp; Nexon Computer Museum &nbsp;·&nbsp; Jeju Provincial Government &nbsp;·&nbsp; Jeju Tourism Organization &nbsp;·&nbsp; Jeju Technopark</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -1917,7 +1917,7 @@ function mainPage() {
         <section class="en-statement">
           <div class="en-rule"></div>
           <div class="en-statement-grid">
-            <p class="en-statement-copy">제주에서 시작한 영상·필름·웹 스튜디오. 브랜드필름, 드론·항공, AI 숏폼, 전환 중심 홈페이지까지 — 현장에서 찍고, 필요한 것만 골라 맞춤 견적으로 회신합니다.</p>
+            <p class="en-statement-copy">브랜드필름, 드론·항공, AI 숏폼, 전환 중심 홈페이지를 만드는 영상·웹 스튜디오. 전국 어디든 촬영으로 찾아가고, 자료만 있으면 원격으로도 제작합니다.</p>
             <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
         </section>
@@ -1937,14 +1937,14 @@ function mainPage() {
           <div class="en-sec-head"><span>결과로 보여드립니다</span><span>(PROOF)</span></div>
           <div class="en-proof-grid">
             <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>행정·관광·교육·의료·식품·IT까지</span></div>
-            <div class="en-proof-item"><strong>10년</strong><span>제주테크노파크와 함께한 시간 —<br>납품 기록으로 실측한 다년 파트너십</span></div>
+            <div class="en-proof-item"><strong>10년</strong><span>한 기관과 이어온 다년 작업 —<br>공공·기업 반복 계약으로 검증된 신뢰</span></div>
             <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
           </div>
         </section>
 
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">제주특별자치도 &nbsp;·&nbsp; 제주도교육청 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크 &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 김만덕기념관 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주상공회의소 &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL</p>
+          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 한국마사회 렛츠런파크 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 제주특별자치도 &nbsp;·&nbsp; 제주관광공사 &nbsp;·&nbsp; 제주테크노파크</p>
         </section>
 
         <section class="en-cta" id="contact">
