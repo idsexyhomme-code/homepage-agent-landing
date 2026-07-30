@@ -174,7 +174,6 @@ const serviceOrder = [
 const displayRoutes = serviceOrder.map((slug) => routeBySlug[slug]).filter(Boolean);
 const coreRoutes = coreServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
 const opsRoutes = opsServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
-const alsoRoutes = alsoServiceSlugs.map((slug) => routeBySlug[slug]).filter(Boolean);
 const routeLabels = {
   homepage: ["WEB", "홈페이지 제작"],
   drone: ["DRONE", "드론 항공촬영"],
@@ -1826,14 +1825,6 @@ function routeCard(route) {
   `;
 }
 
-function supportCard(route) {
-  return `
-    <a class="support-card" href="${routeHref(route.slug)}">
-      ${pic(routeCardImages[route.slug] || route.heroImage, { alt: route.nav + " 서비스" })}
-      <span>${routeLabels[route.slug]?.[1] || route.nav}</span>
-    </a>
-  `;
-}
 
 function portfolioItemsForRoute(route) {
   // 각 작업 이미지는 자신에게 배정된 한 페이지(slug)에서만 노출 → 페이지 간 중복 0
