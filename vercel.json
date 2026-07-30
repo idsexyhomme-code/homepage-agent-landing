@@ -32,5 +32,47 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/wedding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wedding/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/wedding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/wedding/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/wedding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/wedding/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-hant/wedding",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-hant/wedding/",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

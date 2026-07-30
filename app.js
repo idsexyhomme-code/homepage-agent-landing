@@ -121,21 +121,6 @@ const routes = [
     ]
   },
   {
-    slug: "wedding",
-    nav: "웨딩",
-    badge: "videoroastery.com/wedding",
-    title: "웨딩 기록은 자연스럽게, 공개 부담은 낮게",
-    lead: "스냅과 영상의 분위기를 먼저 확인하고, 얼굴 노출이 부담스러운 컷은 디테일과 분위기 중심으로 제안합니다.",
-    heroVideo: "wedding_hero.mp4",
-    heroImage: "portfolio_wedding_studio_mood.jpg",
-    cta: "웨딩 촬영 일정 상담받기",
-    proof: [
-      ["초상권 배려", "공개용 포트폴리오는 얼굴 노출 부담을 낮춥니다."],
-      ["디테일", "사람보다 분위기, 움직임, 공간을 중심으로 보여줍니다."],
-      ["영상 활용", "본식 전후 하이라이트와 SNS용 컷으로 나눌 수 있습니다."]
-    ]
-  },
-  {
     slug: "content",
     nav: "콘텐츠",
     badge: "videoroastery.com/content",
@@ -180,9 +165,7 @@ const coreServiceSlugs = [
 const opsServiceSlugs = [
   "consulting"
 ];
-const alsoServiceSlugs = [
-  "wedding"
-];
+const alsoServiceSlugs = [];
 const serviceOrder = [
   ...coreServiceSlugs,
   ...opsServiceSlugs,
@@ -198,7 +181,6 @@ const routeLabels = {
   "ai-shortform": ["AI FILM", "AI 영상·숏폼"],
   "brand-film": ["BRAND", "기업 홍보영상"],
   "inquiry-agent": ["SYSTEM", "문의 자동정리"],
-  wedding: ["WEDDING", "웨딩 스냅·영상"],
   content: ["CONTENT", "카드뉴스·릴스"],
   consulting: ["AI OPS", "AI 활용 상담"]
 };
@@ -208,7 +190,6 @@ const routeCardImages = {
   "ai-shortform": "card_ai_shortform_photo.jpg",
   "brand-film": "card_brand_film_photo.jpg",
   "inquiry-agent": "card_inquiry_agent_photo.jpg",
-  wedding: "card_wedding.jpg",
   content: "portfolio_content_product.jpg",
   consulting: "card_consulting_photo.jpg"
 };
@@ -350,15 +331,6 @@ const portfolioWallItems = [
   ["route_plan_system.jpg", "system", "SYSTEM", "문의 시스템 설계", "consulting"],
   ["portfolio_covers/automation_05.jpg", "system", "SYSTEM", "포트폴리오 흐름 컷", "consulting"],
   ["portfolio_covers/automation_06.jpg", "system", "SYSTEM", "체크리스트 컷", "consulting"],
-  // WEDDING → wedding (covers + 드론 웨딩 신규 투입)
-  ["portfolio_wedding_ring_detail.jpg", "wedding", "WEDDING", "반지 디테일", "wedding"],
-  ["portfolio_wedding_bouquet_lens.jpg", "wedding", "WEDDING", "부케 디테일", "wedding"],
-  ["portfolio_wedding_flower_detail.jpg", "wedding", "WEDDING", "꽃 디테일", "wedding"],
-  ["portfolio_wedding_studio_mood.jpg", "wedding", "WEDDING", "실내 무드 컷", "wedding"],
-  ["portfolio_wedding_beach_privacy.jpg", "wedding", "WEDDING", "해변 무드 컷", "wedding"],
-  ["portfolio_wedding_detail_sixcut.jpg", "wedding", "WEDDING", "디테일 모음", "wedding"],
-  ["portfolio_drone_wedding_wide.jpg", "wedding", "WEDDING", "웨딩 항공 와이드", "wedding"],
-  ["portfolio_covers/wedding_01.jpg", "wedding", "WEDDING", "제주 웨딩 스냅", "wedding"],
   ["portfolio_covers/beauty.jpg", "video", "AD", "뷰티 브랜드 광고", "brand-film"],
 ].map(([image, category, label, title, slug, size = ""]) => ({
   image,
@@ -428,18 +400,6 @@ const routeDetails = {
     ],
     checkpoints: ["촬영 장소", "허가 필요 여부", "낮·야간 여부", "활용 목적"],
     related: ["homepage", "brand-film", "content"]
-  },
-  wedding: {
-    kicker: "Wedding Film",
-    title: "인물보다 분위기와 디테일을 먼저 보여주는 웨딩 기록",
-    lead: "공개 포트폴리오에서는 얼굴 노출 부담을 줄이고 반지, 부케, 드레스 라인, 공간 무드처럼 상담에 도움이 되는 컷을 중심으로 보여줍니다.",
-    windows: [
-      ["01", "디테일", "반지, 부케, 손, 드레스처럼 부담 없는 컷"],
-      ["02", "무드", "공간 조명과 움직임이 보이는 장면"],
-      ["03", "활용", "스냅, 하이라이트 영상, SNS용 컷으로 분리"]
-    ],
-    checkpoints: ["촬영 일정", "장소", "얼굴 공개 범위", "원하는 톤"],
-    related: ["drone", "content", "homepage"]
   },
   content: {
     kicker: "Content",
@@ -549,7 +509,6 @@ const heroStatements = {
   "ai-shortform": "SHORTFORM",
   "brand-film": "FILM",
   drone: "AERIAL",
-  wedding: "WEDDING",
   content: "CONTENT",
   consulting: "CONSULTING"
 };
@@ -893,7 +852,7 @@ function i18nEstimatePage(lang) {
 }
 
 // ── 영/중 서비스 상세 페이지 — 한국어 detailPage 와 대칭(히어로+구성+작업사례+FAQ+CTA) ──
-// 서비스 슬러그는 한국어 라우트와 동일(homepage/ai-shortform/brand-film/drone/wedding/content) → 포트폴리오 미디어 재사용.
+// 서비스 슬러그는 한국어 라우트와 동일(homepage/ai-shortform/brand-film/drone/content) → 포트폴리오 미디어 재사용.
 const i18nDetailUI = {
   en:   { home: "Home", work: "Work", contact: "Contact", comp: "What's included", workOn: "Selected work", workOff: "Screens", play: "▶ tap to play", faq: "FAQ", ctaH: "Just send what you have.<br>We reply with the right scope.", ctaNote: "Send us what you have and the result you want — we'll confirm the scope and reply honestly.", seeWork: "See work ↓", skip: "Skip to content", footer: "Jeju, South Korea · Remote worldwide" },
   hans: { home: "首页", work: "作品", contact: "联系", comp: "服务构成", workOn: "精选作品", workOff: "示例画面", play: "▶ 点击播放", faq: "常见问题", ctaH: "把您现有的发给我们，<br>我们回复合适的范围。", ctaNote: "告诉我们您有什么、想要什么结果——我们确认范围后如实回复。", seeWork: "查看作品 ↓", skip: "跳到正文", footer: "韩国济州岛 · 全球远程" },
@@ -944,109 +903,6 @@ const i18nDetailContent = {
     windows: [["01", "First screen", "Brand name and scope, summed up in one line."], ["02", "See examples", "We show industry examples and portfolio first."], ["03", "Inquiry flow", "Form, email and required-materials guidance in one flow."]],
     faq: [["Can you handle edits & upkeep after launch?", "Yes. We keep helping with copy and image edits and light upkeep after launch. The scope of upkeep is agreed during the consult."]]
   } },
-  "wedding": { en: {
-    kicker: "Wedding Film", title: "Wedding records, natural — with a light touch on privacy.",
-    lead: "We confirm the mood of the snaps and film first, and for shots where showing faces feels uncomfortable, we lean on detail and atmosphere.",
-    cta: "Ask about wedding dates",
-    windows: [["01", "Details", "Comfortable shots — rings, bouquet, hands, dress."], ["02", "Mood", "Scenes where lighting and movement come through."], ["03", "Reuse", "Split into snaps, a highlight film and social cuts."]],
-    faq: [["I'd rather not show faces — is that okay?", "We can work mood-first, centered on detail, silhouette and back views. We agree on how public it goes, first."]]
-  } },
-  "content": { en: {
-    kicker: "Content", title: "Card news and Reels that lead to inquiries.",
-    lead: "Copy, screen order, card news and Reels material — kept together so they work across ads and consults, not scattered.",
-    cta: "Ask about content & ops",
-    windows: [["01", "Message", "The core line one piece of content should deliver."], ["02", "Images", "Real materials chosen — product, space, screen captures."], ["03", "Operations", "A structure to reuse across Instagram, YouTube and your site."]],
-    faq: []
-  } }
-};
-
-const i18nDetailSvcOrder = ["brand-film", "drone", "ai-shortform", "homepage", "wedding", "content"];
-const i18nDetailRoutes = {};
-[["en", "en"], ["zh", "hans"], ["zh-hant", "hant"]].forEach(([prefix, lang]) => {
-  i18nDetailSvcOrder.forEach((svc) => { i18nDetailRoutes[`${prefix}/${svc}`] = { lang, svc }; });
-});
-
-function i18nDetailPage(lang, svc) {
-  const c = (i18nDetailContent[svc] && i18nDetailContent[svc][lang]) || i18nDetailContent[svc].en;
-  const ui = i18nDetailUI[lang];
-  const koRoute = routeBySlug[svc];
-  const homeSlug = { en: "en", hans: "zh", hant: "zh-hant" }[lang];
-  const estHref = routeHref(homeSlug + "/estimate");
-  const basic = lang === "en" ? "" : " basic-zh";
-  const items = portfolioItemsForRoute(koRoute);
-  if (items[0]) items[0] = { ...items[0], size: "large" };
-  const hasMedia = items.some((i) => portfolioLink(i));
-  const windows = (c.windows || []).map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`).join("");
-  const faqAll = i18nCommonFaq[lang].concat(c.faq || []);
-  const faq = faqAll.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
-  return `
-    <a class="skip-link" href="#main">${ui.skip}</a>
-    <div class="en-page${basic}">
-      <header class="en-bar en-bar--ink">
-        <a class="en-wm" href="${routeHref(homeSlug)}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="${routeHref(homeSlug)}">${ui.home}</a><a href="#work">${ui.work}</a><a href="#contact">${ui.contact}</a><span class="en-lang">${langSwitch(lang)}</span></nav>
-      </header>
-      <main id="main">
-        <section class="en-detail-hero">
-          <p class="en-eyebrow">${c.kicker}</p>
-          <h1 class="en-detail-h1">${c.title}</h1>
-          <p class="en-detail-lead">${c.lead}</p>
-          <div class="en-detail-actions">
-            <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
-            <a class="en-detail-link" href="#work">${ui.seeWork}</a>
-          </div>
-        </section>
-
-        <section class="en-services">
-          <div class="en-sec-head"><span>${ui.comp}</span><span>(0${(c.windows || []).length})</span></div>
-          <div class="en-svc-list">${windows}</div>
-        </section>
-
-        <section class="en-services" id="work">
-          <div class="en-sec-head"><span>${hasMedia ? ui.workOn : ui.workOff}</span><span>${hasMedia ? ui.play : ""}</span></div>
-          ${portfolioWall(items, "detail-wall", !hasMedia)}
-        </section>
-
-        <section class="en-services" id="faq">
-          <div class="en-sec-head"><span>${ui.faq}</span><span>FAQ</span></div>
-          <div class="en-faq">${faq}</div>
-        </section>
-
-        <section class="en-cta" id="contact">
-          <p class="en-eyebrow">${ui.contact}</p>
-          <h2 class="en-cta-h">${ui.ctaH}</h2>
-          <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
-          <p class="en-cta-note">${ui.ctaNote}</p>
-        </section>
-      </main>
-      <footer class="en-footer">
-        <span>VIDEO ROASTERY® — ${ui.footer}</span>
-        <a href="${routeHref()}">한국어 ↗</a>
-      </footer>
-    </div>
-  `;
-}
-
-// ── 영문 해외 인텐트 SEO 랜딩 — 한국어 서비스의 번역이 아니라 "해외 검색 의도" 전용 신규 페이지.
-// self-canonical(번역쌍 아님 → hreflang으로 묶지 않음). CTA는 /en/estimate 폼으로. FAQ는 i18nCommonFaq.en + 페이지 고유.
-const enLandingPages = {
-  "en/jeju-video-production": {
-    kicker: "Jeju Video Production",
-    h1: "Video production in Jeju, Korea — for brands, hotels &amp; tours",
-    lead: "Shooting a project in Jeju, or need Jeju footage from afar? We're a Jeju-based studio producing brand films, drone &amp; aerial, and short-form ads — on location here, and remote for teams worldwide. Send the goal and what you have; we reply with scope and a quote.",
-    title: "Jeju Video Production — Brand Film, Drone & AI Video | Video Roastery",
-    desc: "Jeju-based video production for brands, hotels and tours — brand films, drone & aerial, AI short-form ads. On location in Jeju, remote worldwide. Get a quote.",
-    portfolio: "brand-film",
-    windows: [
-      ["01", "On location in Jeju", "Full crew and drone on the ground in Jeju — resorts, coastline, farms, events."],
-      ["02", "Remote worldwide", "No shoot needed? We build from your footage and photos and deliver online."],
-      ["03", "Where it's used", "Recut for ads, website, social and pitch decks — vertical, square and wide."]
-    ],
-    faq: [
-      ["Can you shoot on location in Jeju?", "Yes — full video and drone crew based in Jeju. Tell us the dates and location and we'll confirm scope and a schedule."],
-      ["Do you work with overseas teams remotely?", "Yes. We work with brands worldwide over email and shared drives; on-site filming in Jeju and Korea is arranged by schedule."]
-    ]
-  },
   "en/korea-drone-filming": {
     kicker: "Drone &amp; Aerial Filming in Korea",
     h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
@@ -1193,10 +1049,6 @@ const i18nDetailZh = {
   "homepage": {
     hans: { kicker: "网站建设", title: "让访客变成咨询的网站", lead: "首屏就让人一眼看出你卖什么，作品集和咨询表单也自然衔接到联系。", cta: "获取网站首屏诊断与报价", windows: [["01", "首屏", "用一句话概括品牌名和业务范围。"], ["02", "查看范例", "先给你看分行业的页面范例和作品集。"], ["03", "咨询衔接", "把咨询表单、邮箱和所需资料指引放在同一个流程里。"]], faq: [["制作后还能修改和维护吗？", "上线后我们会继续帮你修改文案、图片和做简单的运营维护。维护范围在咨询时一起确定。"]] },
     hant: { kicker: "網站建置", title: "讓訪客變成諮詢的網站", lead: "首屏就讓人一眼看出你賣什麼，作品集與諮詢表單也自然銜接到聯絡。", cta: "取得網站首屏診斷與報價", windows: [["01", "首屏", "用一句話概括品牌名與業務範圍。"], ["02", "查看範例", "先給你看分行業的頁面範例與作品集。"], ["03", "諮詢銜接", "把諮詢表單、信箱與所需資料指引放在同一個流程裡。"]], faq: [["製作後還能修改與維護嗎？", "上線後我們會繼續幫你修改文案、圖片與做簡單的營運維護。維護範圍在諮詢時一起確定。"]] }
-  },
-  "wedding": {
-    hans: { kicker: "婚礼影像", title: "婚礼记录自然留下，公开压力降到最低", lead: "我们先确认写真和影像的氛围，对于露脸会让人有顾虑的镜头，就以细节和氛围为主来提案。", cta: "咨询婚礼拍摄日程", windows: [["01", "细节", "戒指、手捧花、双手、婚纱这类没有压力的镜头。"], ["02", "氛围", "能看到空间光线和动作的画面。"], ["03", "复用", "分成写真、精华影像和社交用镜头。"]], faq: [["我不太想露脸，可以吗？", "可以，我们能以细节、剪影和背影为主做氛围剪辑。公开范围我们先商定。"]] },
-    hant: { kicker: "婚禮影像", title: "婚禮記錄自然留下，公開壓力降到最低", lead: "我們先確認寫真與影像的氛圍，對於露臉會讓人有顧慮的鏡頭，就以細節與氛圍為主來提案。", cta: "諮詢婚禮拍攝日程", windows: [["01", "細節", "戒指、捧花、雙手、婚紗這類沒有壓力的鏡頭。"], ["02", "氛圍", "能看到空間光線與動作的畫面。"], ["03", "複用", "分成寫真、精華影像與社群用鏡頭。"]], faq: [["我不太想露臉，可以嗎？", "可以，我們能以細節、剪影與背影為主做氛圍剪輯。公開範圍我們先商定。"]] }
   },
   "content": {
     hans: { kicker: "内容运营", title: "让图文和Reels一路引导到咨询", lead: "宣传文案、画面顺序、图文和Reels素材不再零散摆放，而是编排成能同时用于广告和咨询。", cta: "咨询图文与Reels运营", windows: [["01", "信息", "确定一条内容要传达的核心句子。"], ["02", "图片", "从产品、空间、页面截图等实际素材中挑选。"], ["03", "运营", "可在Instagram、YouTube和官网复用的结构。"]], faq: [] },
@@ -1378,7 +1230,6 @@ function enPage() {
     ["Drone & Aerial", "The scale, flow and mood of a place — resorts, farms, facilities, coastline.", "drone"],
     ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed.", "ai-shortform"],
     ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert.", "homepage"],
-    ["Wedding Film", "Natural, detail-first records, with a light touch on privacy.", "wedding"],
     ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch.", "content"]
   ].map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref("en/" + slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent("Project inquiry — Video Roastery")}`;
@@ -1496,7 +1347,7 @@ function zhPage(variant) {
     emailBtn: "邮件联系我们", emailSubj: "项目咨询 — Video Roastery",
     footer: "韩国济州岛 · 影像、短片与网站制作 · 全球远程"
   };
-  const zhSvcSlugs = ["homepage", "brand-film", "drone", "ai-shortform", "wedding", "content"];
+  const zhSvcSlugs = ["homepage", "brand-film", "drone", "ai-shortform", "content"];
   const zhPrefix = T.cur === "hant" ? "zh-hant" : "zh";
   const services = T.services.map(([t, d], i) => `<a class="en-svc" href="${routeHref(zhPrefix + "/" + zhSvcSlugs[i])}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const why = T.why.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
@@ -1894,7 +1745,6 @@ function mainPage() {
     ["드론·항공", "숙소·시설·관광지·농장 — 공간의 규모와 동선, 분위기를 한눈에.", "drone"],
     ["AI 숏폼 광고", "제품 사진만으로, 촬영 없이 첫 3초에 시선을 잡는 릴스·쇼츠.", "ai-shortform"],
     ["홈페이지·랜딩", "첫 화면에서 신뢰를 주고, 방문자가 문의로 이어지게 만듭니다.", "homepage"],
-    ["웨딩 필름", "자연스럽고 디테일 중심의 기록 — 초상권은 조심스럽게 다룹니다.", "wedding"],
     ["콘텐츠·자동화", "카드뉴스·릴스·문의 자동정리까지, 런칭 후에도 계속 작동합니다.", "content"]
   ].map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref(slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   return `
@@ -2011,7 +1861,6 @@ const slugVideo = {
   "ai-shortform": "ai_shortform_hero_web.mp4",
   "brand-film": "brand_film_hero_web.mp4",
   drone: "drone_hero_web.mp4",
-  wedding: "wedding_hero.mp4",
   content: "content_hero.mp4",
   consulting: "live_hero.mp4"
 };
@@ -2028,9 +1877,7 @@ const portfolioMedia = {
   "portfolio_drone_village_overview.jpg": "portfolio_videos/drone_jeju_reel_03.mp4",
   // 04. 해변 무드 컷 — 실제 제주 웨딩(드론+해변 뒷모습+스튜디오 와이드+꽃/귀걸이 디테일) 재편집(23.5s, 16:9)
   //     초상권 배려: 얼굴 드러나는 컷 제외, privacy-safe·뒷모습·와이드만 사용
-  "portfolio_wedding_beach_privacy.jpg": "portfolio_videos/wedding_jeju_reel_04.mp4",
   // 05. 웨딩 항공 와이드 — 실제 제주 웨딩 항공 하이라이트(김녕해수욕장) 웹최적화(24s, 16:9)
-  "portfolio_drone_wedding_wide.jpg": "portfolio_videos/wedding_aerial_reel_05.mp4",
   // 06. 릴스 포트폴리오 — 실제 VR 콘텐츠 작업물(자매작업실 제주 수공예 모빌 릴, 오디오 포함) 웹최적화(21.6s, 세로)
   "portfolio_content_reels_page.jpg": "portfolio_videos/content_reel_06.mp4",
   // 07. 기업 홍보 컷 — 실제 VR 기업 홍보영상(주식 커뮤니티 핀테크 홍보, 오디오 포함) 웹최적화(31s, 세로)
@@ -2038,7 +1885,6 @@ const portfolioMedia = {
   // 08. 기관 외관 컷 — 실제 제주 항공(기관 건물 establishing + 시설 overview) 2컷 재편집(16s, 16:9)
   "portfolio_drone_museum_exterior.jpg": "portfolio_videos/drone_facility_reel_08.mp4",
   // 09. 디테일 모음 — 실제 제주 웨딩 6컷(귀걸이·드레스·해변 뒷모습, 얼굴 블러) + 꽃 디테일 재편집(15s, 16:9)
-  "portfolio_wedding_detail_sixcut.jpg": "portfolio_videos/wedding_detail_reel_09.mp4",
   // 10. 메시지 영상 컷 — 실제 VR ESG 시네마틱 브랜드필름(바다·지속가능성·해상풍력, 오디오) 트림(28s, 세로)
   "portfolio_covers/video_03.jpg": "portfolio_videos/esg_brandfilm_reel_10.mp4",
   // 11. 제품 릴스 컷 — 실제 VR AI 제품영상(zaksim 콤부차, 나레이션 포함) 웹최적화(30s, 세로)
@@ -2108,8 +1954,6 @@ const portfolioMedia = {
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
   "portfolio_covers/ai_esg_wind.jpg": "portfolio_videos/ai_esg_wind_reel.mp4",                // AI ESG 캠페인(그린로하스 ESG 공모전, PlasticToWind)
-  "portfolio_wedding_studio_mood.jpg": "portfolio_videos/wedding_reel_42.mp4",                 // 실내 무드 컷 → 웨딩 무드(드레스·스튜디오·꽃·귀걸이, 초상권안전)
-  "portfolio_covers/wedding_01.jpg": "portfolio_videos/wedding_reel_43.mp4",                   // 제주 웨딩 스냅 → 해변·드론(초상권안전)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
   "portfolio_drone_farm_terrace.jpg": "portfolio_videos/drone_reel_41.mp4"                      // 농업 방제 드론 컷 → 농약 아그로드론 옥수수밭 방제(4K)
 };
@@ -2606,7 +2450,6 @@ const routeFaqExtra = {
   "ai-shortform": [["촬영 없이 보유 자료만으로도 가능한가요?", "네. 제품 사진·기존 영상·콘셉트만 있어도 숏폼 광고 소재로 구성합니다. 추가 촬영이 필요하면 따로 안내드립니다."]],
   "brand-film": [["촬영 없이 보유 자료만으로도 가능한가요?", "네. 기존 영상·사진·로고 자료로도 구성 가능하며, 현장 촬영이 필요하면 일정을 협의합니다."]],
   drone: [["드론 촬영 허가·안전은 어떻게 처리하나요?", "비행 가능 구역과 허가 여부를 사전에 확인하고 안전 규정에 맞춰 촬영합니다. 지역·일정은 상담 때 함께 점검합니다."]],
-  wedding: [["얼굴 노출이 부담스러운데 괜찮나요?", "디테일·실루엣·뒷모습 중심의 무드 편집으로 진행할 수 있습니다. 공개 범위를 먼저 협의합니다."]],
   content: [["꾸준한 콘텐츠 운영도 도와주나요?", "단건 제작뿐 아니라 카드뉴스·릴스 정기 운영 구성도 상담 가능합니다."]]
 };
 
@@ -2790,7 +2633,6 @@ function render() {
     "ai-shortform": "비디오 로스터리 | AI 영상제작·AI 숏폼·릴스 광고",
     "brand-film": "비디오 로스터리 | 기업 홍보영상·브랜드필름 제작",
     drone: "비디오 로스터리 | 제주 드론촬영·항공영상",
-    wedding: "비디오 로스터리 | 제주 웨딩 스냅·영상 촬영",
     content: "비디오 로스터리 | 상세페이지·카드뉴스·릴스 제작",
     consulting: "비디오 로스터리 | AI 활용 컨설팅·자동화",
     about: "비디오 로스터리 회사소개 | 제주 영상·홈페이지 제작 스튜디오",
@@ -3036,9 +2878,9 @@ const reelGalleryCopy = {
 };
 // 비한국어 갤러리 타일 제목 — slug 기준 언어별 명칭(brand-film·ai-shortform 정확 구분). 라이트박스 캡션에도 사용.
 const reelSlugNames = {
-  en: { homepage: "Website", drone: "Drone & Aerial", content: "Content", "inquiry-agent": "Automation", "brand-film": "Brand Film", "ai-shortform": "AI Short-form", wedding: "Wedding Film" },
-  hans: { homepage: "网站", drone: "无人机航拍", content: "内容", "inquiry-agent": "自动化", "brand-film": "品牌短片", "ai-shortform": "AI 短视频", wedding: "婚礼影像" },
-  hant: { homepage: "網站", drone: "無人機空拍", content: "內容", "inquiry-agent": "自動化", "brand-film": "品牌短片", "ai-shortform": "AI 短影音", wedding: "婚禮影像" }
+  en: { homepage: "Website", drone: "Drone & Aerial", content: "Content", "inquiry-agent": "Automation", "brand-film": "Brand Film", "ai-shortform": "AI Short-form" },
+  hans: { homepage: "网站", drone: "无人机航拍", content: "内容", "inquiry-agent": "自动化", "brand-film": "品牌短片", "ai-shortform": "AI 短视频" },
+  hant: { homepage: "網站", drone: "無人機空拍", content: "內容", "inquiry-agent": "自動化", "brand-film": "品牌短片", "ai-shortform": "AI 短影音" }
 };
 // 타일 소문자 라벨칩 현지화(en은 영문 태그 유지, 중문만 번역).
 const reelLabelNames = {
