@@ -873,6 +873,94 @@ const i18nCommonFaq = {
 };
 
 // 서비스 상세 콘텐츠 — en 채움, hans/hant는 하단 i18nDetailZh 병합으로 채움
+const enLandingPages = {
+  "en/jeju-video-production": {
+    kicker: "Jeju Video Production",
+    h1: "Video production in Jeju, Korea — for brands, hotels &amp; tours",
+    lead: "Shooting a project in Jeju, or need Jeju footage from afar? We're a Jeju-based studio producing brand films, drone &amp; aerial, and short-form ads — on location here, and remote for teams worldwide. Send the goal and what you have; we reply with scope and a quote.",
+    title: "Jeju Video Production — Brand Film, Drone & AI Video | Video Roastery",
+    desc: "Jeju-based video production for brands, hotels and tours — brand films, drone & aerial, AI short-form ads. On location in Jeju, remote worldwide. Get a quote.",
+    portfolio: "brand-film",
+    windows: [
+      ["01", "On location in Jeju", "Full crew and drone on the ground in Jeju — resorts, coastline, farms, events."],
+      ["02", "Remote worldwide", "No shoot needed? We build from your footage and photos and deliver online."],
+      ["03", "Where it's used", "Recut for ads, website, social and pitch decks — vertical, square and wide."]
+    ],
+    faq: [
+      ["Can you shoot on location in Jeju?", "Yes — full video and drone crew based in Jeju. Tell us the dates and location and we'll confirm scope and a schedule."],
+      ["Do you work with overseas teams remotely?", "Yes. We work with brands worldwide over email and shared drives; on-site filming in Jeju and Korea is arranged by schedule."]
+    ]
+  },
+  "en/korea-drone-filming": {
+    kicker: "Drone &amp; Aerial Filming in Korea",
+    h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
+    lead: "Aerial footage that shows scale and place — Jeju coastline, resorts, facilities, city and countryside. Licensed drone work on the ground in Korea, delivered ready for ads, listings and brand films.",
+    title: "Korea Drone Filming — Aerial Video in Jeju & Korea | Video Roastery",
+    desc: "Licensed drone & aerial filming in Korea and Jeju — travel, real estate, resorts and brand projects. Hero and explanatory aerials, delivered for ads and web. Get a quote.",
+    portfolio: "drone",
+    windows: [
+      ["01", "Licensed &amp; safe", "We check flight zones and permits in advance and shoot within the rules."],
+      ["02", "Scale &amp; flow", "Hero wide shots plus explanatory aerials — approach, layout and surroundings."],
+      ["03", "Ready to use", "Recut for website, ads and social in vertical, square and wide."]
+    ],
+    faq: [
+      ["How do permits and flight zones work?", "We check permitted zones and clearances in advance and shoot within safety rules. Region and dates are reviewed together during the consult."],
+      ["Can you film outside Jeju?", "Yes — Jeju is our base, and we arrange aerial shoots elsewhere in Korea by schedule and region."]
+    ]
+  },
+  "en/jeju-tourism-video": {
+    kicker: "Jeju Tourism &amp; Hospitality Video",
+    h1: "Jeju tourism videos for hotels, tours &amp; destinations",
+    lead: "Make guests want to book before they arrive. We turn Jeju's coastline, stays and experiences — ocean views, rooms, activities — into videos that convert on booking sites, OTAs and social.",
+    title: "Jeju Tourism Video — Hotels, Tours & Destinations | Video Roastery",
+    desc: "Tourism & hospitality video in Jeju — hotels, resorts, tours and destinations. Drone and mood footage that drives bookings on OTAs and social. Get a quote.",
+    portfolio: "drone",
+    windows: [
+      ["01", "First-screen booking", "The first 3 seconds on an OTA or Instagram decide the booking. We build for that."],
+      ["02", "Scale by drone", "Ocean views, grounds and pools shown from the air — a different level from stills."],
+      ["03", "Ready before season", "One video before peak season lifts reach and conversion across channels."]
+    ],
+    faq: [
+      ["Do you work with hotels and tour operators?", "Yes — resorts, hotels, pensions, tours and activities. We tailor the cut for OTAs, your own site and social."],
+      ["Can you deliver without a shoot?", "Yes — we can build from your existing photos and footage; on-site filming and drone in Jeju are arranged by schedule."]
+    ]
+  },
+  "en/vancouver-korea-video-production": {
+    kicker: "Korea Video Production for Vancouver Brands",
+    h1: "Korea-based video production for Vancouver &amp; North American brands",
+    lead: "Need video shot in Korea, or a Korea-based team you can brief in English? We produce brand films, product and short-form for North American brands — filmed in Jeju and Korea, delivered online on your timezone.",
+    title: "Korea Video Production for Vancouver Brands | Video Roastery",
+    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Filmed in Jeju/Korea, briefed in English, delivered online. Get a quote.",
+    portfolio: "brand-film",
+    windows: [
+      ["01", "Briefed in English", "Send the goal and references in English; we reply with scope, timeline and a quote."],
+      ["02", "Filmed in Korea", "On-the-ground crew and drone in Jeju and Korea — footage you can't get from abroad."],
+      ["03", "Delivered online", "Files delivered over shared drives, cut for ads, web and social."]
+    ],
+    faq: [
+      ["I'm not in Korea — can we still work together?", "Yes. Most of the process is online — you brief us in English, we produce in Korea and deliver files. On-site filming is arranged by schedule."],
+      ["Can you match our timezone for calls?", "We schedule calls to fit North American hours and keep the rest async over email and shared drives."]
+    ]
+  },
+  "en/korea-product-video": {
+    kicker: "Product Video &amp; AI Short-form",
+    h1: "Product videos &amp; AI short-form ads for e-commerce brands",
+    lead: "Turn product photos into ads that stop the scroll. With just your product shots and a concept, we build Reels, Shorts and TikTok ads that catch the eye in the first 3 seconds — no shoot, no models.",
+    title: "Korea Product Video & AI Short-form Ads | Video Roastery",
+    desc: "Product video and AI short-form ads for e-commerce brands — Reels, Shorts and TikTok built from your product photos. No shoot needed. Get a quote.",
+    portfolio: "ai-shortform",
+    windows: [
+      ["01", "From your photos", "We start from your real product shots and packaging — no shoot required."],
+      ["02", "Tone &amp; hook", "Calm-premium, explanatory or fast-compare — built to hook in 3 seconds."],
+      ["03", "Every channel", "Length and framing split for Reels, Shorts, TikTok and product pages."]
+    ],
+    faq: [
+      ["Can you really work from photos only?", "Yes — product photos, existing footage or a concept are enough to build short-form ad material. If extra assets are needed we'll let you know."],
+      ["What about usage rights for music and assets?", "Delivered videos can be used for ads and social within the agreed scope; if music or stock has limits we confirm those before the contract."]
+    ]
+  }
+};
+
 const i18nDetailContent = {
   "brand-film": { en: {
     kicker: "Brand Film", title: "Your company, told clearly on screen.",
@@ -970,6 +1058,14 @@ const i18nDetailContent = {
       ["What about usage rights for music and assets?", "Delivered videos can be used for ads and social within the agreed scope; if music or stock has limits we confirm those before the contract."]
     ]
   }
+,
+  "content": { en: {
+    kicker: "Content", title: "Card news and Reels that lead to inquiries.",
+    lead: "Copy, screen order, card news and Reels material — kept together so they work across ads and consults, not scattered.",
+    cta: "Ask about content & ops",
+    windows: [["01", "Message", "The core line one piece of content should deliver."], ["02", "Images", "Real materials chosen — product, space, screen captures."], ["03", "Operations", "A structure to reuse across Instagram, YouTube and your site."]],
+    faq: []
+  } }
 };
 
 function enLandingPage(key) {
@@ -1031,6 +1127,73 @@ function enLandingPage(key) {
   `;
 }
 
+const i18nDetailSvcOrder = ["brand-film", "drone", "ai-shortform", "homepage", "content"];
+const i18nDetailRoutes = {};
+[["en", "en"], ["zh", "hans"], ["zh-hant", "hant"]].forEach(([prefix, lang]) => {
+  i18nDetailSvcOrder.forEach((svc) => { i18nDetailRoutes[`${prefix}/${svc}`] = { lang, svc }; });
+});
+
+function i18nDetailPage(lang, svc) {
+  const c = (i18nDetailContent[svc] && i18nDetailContent[svc][lang]) || i18nDetailContent[svc].en;
+  const ui = i18nDetailUI[lang];
+  const koRoute = routeBySlug[svc];
+  const homeSlug = { en: "en", hans: "zh", hant: "zh-hant" }[lang];
+  const estHref = routeHref(homeSlug + "/estimate");
+  const basic = lang === "en" ? "" : " basic-zh";
+  const items = portfolioItemsForRoute(koRoute);
+  if (items[0]) items[0] = { ...items[0], size: "large" };
+  const hasMedia = items.some((i) => portfolioLink(i));
+  const windows = (c.windows || []).map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`).join("");
+  const faqAll = i18nCommonFaq[lang].concat(c.faq || []);
+  const faq = faqAll.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  return `
+    <a class="skip-link" href="#main">${ui.skip}</a>
+    <div class="en-page${basic}">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref(homeSlug)}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="${routeHref(homeSlug)}">${ui.home}</a><a href="#work">${ui.work}</a><a href="#contact">${ui.contact}</a><span class="en-lang">${langSwitch(lang)}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${c.kicker}</p>
+          <h1 class="en-detail-h1">${c.title}</h1>
+          <p class="en-detail-lead">${c.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
+            <a class="en-detail-link" href="#work">${ui.seeWork}</a>
+          </div>
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>${ui.comp}</span><span>(0${(c.windows || []).length})</span></div>
+          <div class="en-svc-list">${windows}</div>
+        </section>
+
+        <section class="en-services" id="work">
+          <div class="en-sec-head"><span>${hasMedia ? ui.workOn : ui.workOff}</span><span>${hasMedia ? ui.play : ""}</span></div>
+          ${portfolioWall(items, "detail-wall", !hasMedia)}
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>${ui.faq}</span><span>FAQ</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">${ui.contact}</p>
+          <h2 class="en-cta-h">${ui.ctaH}</h2>
+          <a class="en-cta-btn" href="${estHref}">${c.cta} ↗</a>
+          <p class="en-cta-note">${ui.ctaNote}</p>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${ui.footer}</span>
+        <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
 // 중문(간체·번체) 서비스 상세 콘텐츠 — i18nDetailContent 에 병합(원어민 검토 권장)
 const i18nDetailZh = {
   "brand-film": {
@@ -1054,7 +1217,7 @@ const i18nDetailZh = {
     hant: { kicker: "內容營運", title: "讓圖文與Reels一路引導到諮詢", lead: "宣傳文案、畫面順序、圖文與Reels素材不再零散擺放，而是編排成能同時用於廣告與諮詢。", cta: "諮詢圖文與Reels營運", windows: [["01", "訊息", "確定一則內容要傳達的核心句子。"], ["02", "圖片", "從產品、空間、頁面截圖等實際素材中挑選。"], ["03", "營運", "可在Instagram、YouTube與官網複用的結構。"]], faq: [] }
   }
 };
-Object.keys(i18nDetailZh).forEach((svc) => Object.assign(i18nDetailContent[svc], i18nDetailZh[svc]));
+Object.keys(i18nDetailZh).forEach((svc) => { i18nDetailContent[svc] = Object.assign(i18nDetailContent[svc] || {}, i18nDetailZh[svc]); });
 i18nCommonFaq.hans = [
   ["制作周期大概多久？", "视分量和范围通常为1~4周。我们会先确认你的现有素材，再给出准确的日程。"],
   ["费用怎么定？", "我们不在网站上统一标价，而是在确认你的现有素材和制作范围后，用定制报价单说明。告诉我们预算范围，我们会一起梳理可行的方案和可以省略的项目再回复。"],
