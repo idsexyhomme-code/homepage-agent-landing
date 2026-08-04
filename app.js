@@ -238,6 +238,11 @@ const caseStudies = [
   }
 ];
 const portfolioWallItems = [
+  // 2026-08 신규 — FILA 캠페인 / 아이허브 AI 광고 캠페인
+  ["portfolio_covers/iherb_day365.jpg", "ai", "AD", "아이허브 AI 광고 캠페인 — 자체 기획", "ai-shortform", "wide"],
+  ["portfolio_covers/fila_tennis.jpg", "ai", "AD", "FILA 테니스 필름", "ai-shortform", "large"],
+  ["portfolio_covers/fila_running.jpg", "ai", "AD", "FILA 러닝 필름", "ai-shortform"],
+  ["portfolio_covers/fila_aifitting.jpg", "ai", "AD", "FILA AI 피팅", "ai-shortform"],
   // WEB → homepage 서비스 페이지
   ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
@@ -514,9 +519,9 @@ const heroStatements = {
 
 // 히어로 영상월 — 줄마다 '완전히 다른' 큐레이션 컷(줄 간 중복 0)으로 반복감 제거. 검증된 hero_wall/loops webp.
 const heroWallRows = [
-  ["hero_loops/loop_01.webp","hero_wall/hw_07.webp","hero_wall/food_meat_clean.webp","hero_wall/hw_29.webp","hero_wall/corp_tower_clean.webp","hero_wall/hw_03.webp","hero_wall/product_ingredients.webp","hero_wall/hw_24.webp","hero_wall/hw_26.webp"],
-  ["hero_wall/hw_10.webp","hero_wall/hw_18.webp","hero_loops/loop_06.webp","hero_wall/hw_04.webp","hero_wall/hw_05_clean.webp","hero_wall/hw_11.webp","hero_loops/loop_08.webp","hero_wall/hw_23.webp","hero_wall/hw_02.webp"],
-  ["hero_wall/hw_30.webp","hero_wall/hw_20.webp","hero_wall/hw_08.webp","hero_loops/loop_05.webp","hero_wall/hw_21.webp","hero_loops/loop_02.webp","hero_wall/hw_06.webp","hero_loops/loop_03.webp","hero_loops/loop_07.webp"]
+  ["hero_wall/hw_iherb_day365.webp","hero_wall/hw_07.webp","hero_wall/food_meat_clean.webp","hero_wall/hw_29.webp","hero_wall/corp_tower_clean.webp","hero_wall/hw_03.webp","hero_wall/product_ingredients.webp","hero_wall/hw_24.webp","hero_wall/hw_26.webp"],
+  ["hero_wall/hw_fila_tennis.webp","hero_wall/hw_18.webp","hero_loops/loop_06.webp","hero_wall/hw_04.webp","hero_wall/hw_05_clean.webp","hero_wall/hw_11.webp","hero_loops/loop_08.webp","hero_wall/hw_23.webp","hero_wall/hw_02.webp"],
+  ["hero_wall/hw_fila_running.webp","hero_wall/hw_20.webp","hero_wall/hw_08.webp","hero_loops/loop_05.webp","hero_wall/hw_21.webp","hero_loops/loop_02.webp","hero_wall/hw_06.webp","hero_loops/loop_03.webp","hero_loops/loop_07.webp"]
 ];
 function heroWallHtml() {
   const tile = (pth, primary) => `<img class="en-tile" src="${asset(pth)}" alt="" loading="eager" decoding="async"${primary ? ' fetchpriority="high"' : ""} width="480" height="270" />`;
@@ -1956,7 +1961,7 @@ function mainPage() {
 
         <section class="en-clients">
           <div class="en-sec-head"><span>주요 클라이언트</span></div>
-          <p class="en-clients-list">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 한국환경공단 &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 마크애니 &nbsp;·&nbsp; 넥스트챌린지 &nbsp;·&nbsp; 인크루즈 &nbsp;·&nbsp; 삼정물산</p>
+          <p class="en-clients-list">FILA &nbsp;·&nbsp; LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 마크애니 &nbsp;·&nbsp; 넥스트챌린지 &nbsp;·&nbsp; 인크루즈 &nbsp;·&nbsp; 삼정물산</p>
         </section>
 
         <section class="en-cta" id="contact">
@@ -2021,6 +2026,10 @@ const slugVideo = {
 // 항목별 실제 연결(가장 정확). key=이미지 경로, value=영상 파일명(assets 내) / 영상 URL(.mp4 등) / 라이브사이트 URL.
 // 24시간 동안 한 칸씩 정성껏 채워나가는 중 — 매칭 또는 30초 재편집 영상.
 const portfolioMedia = {
+  "portfolio_covers/iherb_day365.jpg": "portfolio_videos/iherb_day365.mp4",
+  "portfolio_covers/fila_tennis.jpg": "portfolio_videos/fila_tennis.mp4",
+  "portfolio_covers/fila_running.jpg": "portfolio_videos/fila_running.mp4",
+  "portfolio_covers/fila_aifitting.jpg": "portfolio_videos/fila_aifitting.mp4",
   "portfolio_covers/ad_beauty_finished.jpg": "portfolio_videos/ad_beauty_finished.mp4",
   "portfolio_covers/ad_kombucha.jpg": "portfolio_videos/ad_kombucha.mp4",
   "portfolio_covers/ad_beauty_ugc.jpg": "portfolio_videos/ad_beauty_ugc.mp4",
