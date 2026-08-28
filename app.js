@@ -2035,11 +2035,9 @@ const portfolioMedia = {
   "portfolio_covers/ad_beauty_finished.jpg": "portfolio_videos/ad_beauty_finished.mp4",
   "portfolio_covers/ad_kombucha.jpg": "portfolio_videos/ad_kombucha.mp4",
   "portfolio_covers/ad_beauty_ugc.jpg": "portfolio_videos/ad_beauty_ugc.mp4",
-  "portfolio_covers/ad_beauty_reveal.jpg": "portfolio_videos/ad_beauty_reveal.mp4",
   "portfolio_covers/beauty.jpg": "portfolio_videos/beauty_full.mp4",  // 뷰티 브랜드 광고(대표작)
   // 01. 제품 숏폼 광고 — 건강기능식품 micro-3D 4컷 재편집(16s)
   // 03. 마을 전경 컷 — 실제 제주 항공 드론(해안마을+리조트+농장) 3컷 재편집(24s, 16:9)
-  "portfolio_drone_village_overview.jpg": "portfolio_videos/drone_jeju_reel_03.mp4",
   // 04. 해변 무드 컷 — 실제 제주 웨딩(드론+해변 뒷모습+스튜디오 와이드+꽃/귀걸이 디테일) 재편집(23.5s, 16:9)
   //     초상권 배려: 얼굴 드러나는 컷 제외, privacy-safe·뒷모습·와이드만 사용
   // 05. 웨딩 항공 와이드 — 실제 제주 웨딩 항공 하이라이트(김녕해수욕장) 웹최적화(24s, 16:9)
@@ -2048,39 +2046,26 @@ const portfolioMedia = {
   // 07. 기업 홍보 컷 — 실제 VR 기업 홍보영상(주식 커뮤니티 핀테크 홍보, 오디오 포함) 웹최적화(31s, 세로)
   "portfolio_covers/video_04.jpg": "portfolio_videos/corporate_reel_07.mp4",
   // 08. 기관 외관 컷 — 실제 제주 항공(기관 건물 establishing + 시설 overview) 2컷 재편집(16s, 16:9)
-  "portfolio_drone_museum_exterior.jpg": "portfolio_videos/drone_facility_reel_08.mp4",
   // 09. 디테일 모음 — 실제 제주 웨딩 6컷(귀걸이·드레스·해변 뒷모습, 얼굴 블러) + 꽃 디테일 재편집(15s, 16:9)
   // 10. 메시지 영상 컷 — 실제 VR ESG 시네마틱 브랜드필름(바다·지속가능성·해상풍력, 오디오) 트림(28s, 세로)
   "portfolio_covers/video_03.jpg": "portfolio_videos/esg_brandfilm_reel_10.mp4",
   // 11. 제품 릴스 컷 — 실제 VR AI 제품영상(zaksim 콤부차, 나레이션 포함) 웹최적화(30s, 세로)
   "portfolio_covers/video_05.jpg": "portfolio_videos/kombucha_reel_11.mp4",
   // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
-  "portfolio_drone_coast_cliff.jpg": "portfolio_videos/coast_reel_12.mp4",
   // 13. NETIA 제품 광고 컷 — 실제 VR 제품 광고(NETIA 코스메틱, 창가 연출) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
   // 14. 푸드 브랜드 영상 — 외장하드 페를로(PERLO) 파스타 음식 프로모 재편집(22s, 16:9, 오디오)
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
-  "portfolio_drone_topdown_garden.jpg": "portfolio_videos/garden_reel_15.mp4",
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
-  "portfolio_drone_facility_route_clean.jpg": "portfolio_videos/facility_route_reel_16.mp4",
   // 17. 농장 전경 컷 — 외장하드 '농약' 프로젝트 실제 제주 농장 항공(서귀포 비닐하우스 단지, 4K) 웹최적화(23s, 16:9)
-  "portfolio_drone_farm_field.jpg": "portfolio_videos/farm_field_reel_17.mp4",
   // 18. 해안 들녘 컷 — 외장하드 '농약' 제주 해안·들녘·풍력 4K 항공(해안+농지+마을이 보여 '해안 들녘'에 적합) 웹최적화(13s, 16:9)
-  "portfolio_drone_coast_field.jpg": "portfolio_videos/coast_field_reel_18.mp4",
   // 19. 건물 외관 컷 — 외장하드 '국립제주교육박물관' 옥외정원 영상(건물·정원 항공, 인물無, VR 자체작) 재편집(18s, 16:9)
-  "portfolio_drone_grid_supplement.jpg": "portfolio_videos/building_reel_19.mp4",
   // 20. 시설 진입 항공 컷 — 외장하드 '라온힐조' 협재해변 리조트·해안마을 4K 항공(시설+진입로) 재편집(20s, 16:9)
-  "portfolio_drone_facility_route.jpg": "portfolio_videos/resort_reel_20.mp4",
   // 21. 항공 영상 컷 — 외장하드 '수망' 가을 숲·계곡 드론 2컷(기존 해안/농장과 다른 분위기) 재편집(18s, 16:9)
-  "portfolio_covers/drone_01.jpg": "portfolio_videos/aerial_reel_21.mp4",
   // 22. 와이드 항공 컷 — 외장하드 '제주외고' 해안 establishing 4K 항공(긴 백사장 와이드) 재편집(22s, 16:9)
-  "portfolio_covers/drone_05.jpg": "portfolio_videos/wide_aerial_reel_22.mp4",
   // 23. 농장 항공 컷 — 외장하드 '제주우유' 목초지·젖소 5K 항공(녹색 목장이 '농장 항공'에 적합) 재편집(20s, 16:9)
-  "portfolio_covers/drone_04.jpg": "portfolio_videos/farm_pasture_reel_23.mp4",
   // 24. 시설 항공 컷 — 외장하드 '모비' 태양광 발전시설 석양 항공(대규모 시설이 '시설 항공'에 적합) 재편집(20s, 16:9)
-  "portfolio_covers/drone_02.jpg": "portfolio_videos/facility_solar_reel_24.mp4",
   // 25. 영상 썸네일 컷 — 외장하드 '모비' 제주 신창 풍차해안 석양 시네마틱 항공(시네마틱 컷이라 '영상 썸네일'에 적합) 재편집(20s, 16:9)
-  "portfolio_covers/drone_06.jpg": "portfolio_videos/cinematic_reel_25.mp4",
   // 26~28. 기업영상 칸 신규 추가(외장하드 납품본) — brand-film 페이지에 더 보여주기
   "portfolio_covers/corp_01.jpg": "portfolio_videos/corp_reel_26.mp4",  // 대한결핵협회 공익 캠페인(40s 홍보영상, 오디오)
   "portfolio_covers/corp_02.jpg": "portfolio_videos/corp_reel_27.mp4",  // 마크애니 TOSS 시연(IT 서비스, 오디오)
@@ -2106,7 +2091,6 @@ const portfolioMedia = {
   "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
-  "portfolio_covers/content_04.jpg": "portfolio_videos/content_reel_36.mp4",                   // 숏폼 소재 컷 → 벨롱벨롱 디저트카페 세로 몽타주
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
@@ -2120,7 +2104,6 @@ const portfolioMedia = {
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
   "portfolio_covers/ai_esg_wind.jpg": "portfolio_videos/ai_esg_wind_reel.mp4",                // AI ESG 캠페인(그린로하스 ESG 공모전, PlasticToWind)
   "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
-  "portfolio_drone_farm_terrace.jpg": "portfolio_videos/drone_reel_41.mp4"                      // 농업 방제 드론 컷 → 농약 아그로드론 옥수수밭 방제(4K)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
@@ -3036,10 +3019,10 @@ function reelGalleryVideoItems() {
 }
 
 const reelGalleryCopy = {
-  ko: { kicker: "Video Roastery® · 쇼릴", title: "우리가 만든 것", sub: "제주 현장 촬영·드론부터 AI 숏폼·브랜드필름까지. 눌러서 바로 재생해 보세요.", close: "닫기", dialogLabel: "작업 갤러리" },
-  en: { kicker: "Video Roastery® · Showreel", title: "Selected Work", sub: "Drone, brand film, AI short-form — all shot & cut in Jeju. Tap any clip to play.", close: "Close", dialogLabel: "Work gallery" },
-  hans: { kicker: "Video Roastery® · 展示卷", title: "精选作品", sub: "从济州岛现场航拍到 AI 短视频与品牌短片。点击任意作品即可播放。", close: "关闭", dialogLabel: "作品集" },
-  hant: { kicker: "Video Roastery® · 展示卷", title: "精選作品", sub: "從濟州島現場空拍到 AI 短影音與品牌短片。點擊任一作品即可播放。", close: "關閉", dialogLabel: "作品集" }
+  ko: { kicker: "Video Roastery® · 쇼릴", title: "우리가 만든 것", sub: "실제 납품한 브랜드필름·기업영상·AI 숏폼. 눌러서 바로 재생해 보세요.", close: "닫기", dialogLabel: "작업 갤러리" },
+  en: { kicker: "Video Roastery® · Showreel", title: "Selected Work", sub: "Delivered brand films, corporate videos and AI short-form. Tap any clip to play.", close: "Close", dialogLabel: "Work gallery" },
+  hans: { kicker: "Video Roastery® · 展示卷", title: "精选作品", sub: "已交付的品牌短片、企业影片与 AI 短视频。点击任意作品即可播放。", close: "关闭", dialogLabel: "作品集" },
+  hant: { kicker: "Video Roastery® · 展示卷", title: "精選作品", sub: "已交付的品牌短片、企業影片與 AI 短影音。點擊任一作品即可播放。", close: "關閉", dialogLabel: "作品集" }
 };
 // 비한국어 갤러리 타일 제목 — slug 기준 언어별 명칭(brand-film·ai-shortform 정확 구분). 라이트박스 캡션에도 사용.
 const reelSlugNames = {
