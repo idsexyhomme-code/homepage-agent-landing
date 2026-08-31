@@ -1751,6 +1751,22 @@ footer a {
   font-size: 1.28rem;
 }
 
+/* 처리 위탁·쿠키 항목 목록 — 본문 단락과 같은 톤으로 읽히게 */
+.legal-card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+.legal-card li {
+  margin: 0 0 4px;
+}
+
+.legal-card li strong {
+  color: var(--ink);
+}
+
 .legal-date {
   margin-top: 28px;
 }

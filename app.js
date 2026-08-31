@@ -51,6 +51,7 @@ const routes = [
     badge: "videoroastery.com/homepage",
     title: "홈페이지 제작부터 문의 연결까지",
     lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 문의 양식까지 자연스럽게 이어지도록 정리합니다.",
+    metaDesc: "처음 들어온 사람이 무슨 일을 하는 곳인지 3초 만에 알고, 그 자리에서 문의를 남깁니다. 업종별 화면 예시를 먼저 보고 결정하세요. 제주 현장·전국 온라인 상담.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
     cta: "홈페이지 첫 화면 진단·견적 받기",
@@ -66,6 +67,7 @@ const routes = [
     badge: "videoroastery.com/inquiry-agent",
     title: "문의가 오면 답변할 내용부터 정리합니다",
     lead: "홈페이지, 폼, 메일, 메신저 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
+    metaDesc: "문의가 와 있는지 몰라 놓치는 일이 없어집니다. 고객 요청과 답장 초안이 먼저 정리돼 도착합니다. 폼·메일·카카오·시트·알림까지 한 흐름으로.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
     cta: "문의 자동정리 흐름 상담받기",
@@ -81,6 +83,7 @@ const routes = [
     badge: "videoroastery.com/ai-shortform",
     title: "제품 사진을 숏폼 광고 소재로 바꿉니다",
     lead: "제품 사진과 콘셉트만 있어도, 첫 3초에 시선을 잡는 릴스·쇼츠·틱톡 광고 영상으로 구성합니다.",
+    metaDesc: "촬영 없이 가진 제품 사진만으로 쇼츠·릴스·틱톡 세로 광고를 받아보세요. 모델도 스튜디오도 필요 없습니다. 실제 결과물을 먼저 확인하고 시작하세요.",
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "card_ai_shortform_photo.jpg",
     cta: "제품 사진으로 숏폼 견적 받기",
@@ -96,6 +99,7 @@ const routes = [
     badge: "videoroastery.com/brand-film",
     title: "회사 소개를 영상으로 선명하게 정리합니다",
     lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 잡아 제안서처럼 이해되게 만듭니다.",
+    metaDesc: "회사 이야기가 순서대로 전달되면 설득이 쉬워집니다. 기업 소개·브랜드 메시지·ESG·서비스 안내 영상, 실제 납품 사례를 먼저 보고 상담하세요. 제주 현장·전국 온라인.",
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
     cta: "기업 홍보영상 구성 상담받기",
@@ -111,6 +115,7 @@ const routes = [
     badge: "videoroastery.com/drone",
     title: "공간의 크기와 동선이 보이는 항공 촬영",
     lead: "숙소, 시설, 관광지, 농장, 야간 외관까지 목적에 맞는 와이드 컷과 설명용 항공 컷을 제안합니다.",
+    metaDesc: "숙소·시설·관광지·농장의 규모와 동선이 한 컷에 들어옵니다. 제주 드론 항공촬영, 야간 외관까지. 실제 촬영본을 먼저 보고 가능한 일정과 견적을 확인하세요.",
     heroVideo: "drone_hero_web.mp4",
     heroImage: "portfolio_drone_night_exterior_clean.jpg",
     cta: "드론 촬영 가능 일정·견적 묻기",
@@ -126,6 +131,7 @@ const routes = [
     badge: "videoroastery.com/content",
     title: "카드뉴스와 릴스를 상담까지 이어지게 만듭니다",
     lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
+    metaDesc: "한 번 만든 소재가 상세페이지·카드뉴스·릴스로 계속 쓰입니다. 매번 새로 찍지 않아도 됩니다. 실제 사례를 보고 필요한 만큼만 상담하세요.",
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
     cta: "카드뉴스·릴스 운영 상담받기",
@@ -141,6 +147,7 @@ const routes = [
     badge: "videoroastery.com/consulting",
     title: "제작 상담을 빠르게 시작하는 사전 질문지",
     lead: "홈페이지·영상·드론·콘텐츠 중 필요한 제작을 적어주시면 가능 범위와 다음 단계를 회신합니다.",
+    metaDesc: "반복되는 손일이 줄고, 사람이 해야 할 일에 시간이 남습니다. 노션·시트·폼·메일·AI 도구 — 지금 쓰는 방식 그대로. 무엇부터 줄일지 먼저 확인하세요.",
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
     cta: "10분 사전진단 보내기",
@@ -465,6 +472,12 @@ function asset(name) {
 }
 
 const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_aesop.jpg":[720,1290],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/video_03.jpg":[540,960],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/ai_soil.jpg":[720,1290],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136],"portfolio_covers/ad_kombucha.jpg":[1080,1920],"portfolio_covers/ad_beauty_ugc.jpg":[720,1280],"portfolio_covers/ad_beauty_reveal.jpg":[1172,784],"portfolio_covers/ad_beauty_finished.jpg":[1080,1920],"portfolio_covers/aifilm_daeumhoek.jpg":[720,1280],"portfolio_covers/aifilm_masahoe.jpg":[1280,720]};
+// 섹션 헤더의 항목 수 표기 — 목록이 늘거나 줄면 표기도 따라간다(웨딩 제거 후 (06)이 남아 5개를 6개로 표기했던 자리).
+function secCount(listHtml) {
+  var n = (String(listHtml).match(/class="en-svc[ "]/g) || []).length;
+  return "(" + String(n).padStart(2, "0") + ")";
+}
+
 function pic(name, opts) {
   opts = opts || {};
   var meta = imgMeta[name];
@@ -658,7 +671,7 @@ function testimonialsSection() {
 
 // 견적 안내 전용 페이지 (독립 라우트 /estimate/)
 function estimateSlip(i) {
-  const svcs = ["AI 숏폼", "기업영상", "드론 촬영", "홈페이지", "브랜드필름", "콘텐츠", "웨딩"];
+  const svcs = ["AI 숏폼", "기업영상", "드론 촬영", "홈페이지", "브랜드필름", "콘텐츠", "AI 시네마틱"];
   const svc = svcs[i % svcs.length];
   const rows = 2 + (i % 3);
   const lines = Array.from({ length: rows }, () => `<span class="est-line"></span>`).join("");
@@ -885,7 +898,7 @@ const enLandingPages = {
     h1: "Video production in Jeju, Korea — for brands, hotels &amp; tours",
     lead: "Shooting a project in Jeju, or need Jeju footage from afar? We're a Jeju-based studio producing brand films, drone &amp; aerial, and short-form ads — on location here, and remote for teams worldwide. Send the goal and what you have; we reply with scope and a quote.",
     title: "Jeju Video Production — Brand Film, Drone & AI Video | Video Roastery",
-    desc: "Jeju-based video production for brands, hotels and tours — brand films, drone & aerial, AI short-form ads. On location in Jeju, remote worldwide. Get a quote.",
+    desc: "Jeju-based video production for brands, hotels and tours — brand films, drone and aerial, AI short-form ads. On location in Jeju, remote worldwide.",
     portfolio: "brand-film",
     windows: [
       ["01", "On location in Jeju", "Full crew and drone on the ground in Jeju — resorts, coastline, farms, events."],
@@ -902,7 +915,7 @@ const enLandingPages = {
     h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
     lead: "Aerial footage that shows scale and place — Jeju coastline, resorts, facilities, city and countryside. Licensed drone work on the ground in Korea, delivered ready for ads, listings and brand films.",
     title: "Korea Drone Filming — Aerial Video in Jeju & Korea | Video Roastery",
-    desc: "Licensed drone & aerial filming in Korea and Jeju — travel, real estate, resorts and brand projects. Hero and explanatory aerials, delivered for ads and web. Get a quote.",
+    desc: "Licensed drone and aerial filming in Korea and Jeju — travel, real estate, resorts and brands. Hero aerials delivered for ads and web. Get a quote.",
     portfolio: "drone",
     windows: [
       ["01", "Licensed &amp; safe", "We check flight zones and permits in advance and shoot within the rules."],
@@ -936,7 +949,7 @@ const enLandingPages = {
     h1: "Korea-based video production for Vancouver &amp; North American brands",
     lead: "Need video shot in Korea, or a Korea-based team you can brief in English? We produce brand films, product and short-form for North American brands — filmed in Jeju and Korea, delivered online on your timezone.",
     title: "Korea Video Production for Vancouver Brands | Video Roastery",
-    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Filmed in Jeju/Korea, briefed in English, delivered online. Get a quote.",
+    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Briefed in English, delivered online.",
     portfolio: "brand-film",
     windows: [
       ["01", "Briefed in English", "Send the goal and references in English; we reply with scope, timeline and a quote."],
@@ -1001,7 +1014,7 @@ const i18nDetailContent = {
     h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
     lead: "Aerial footage that shows scale and place — Jeju coastline, resorts, facilities, city and countryside. Licensed drone work on the ground in Korea, delivered ready for ads, listings and brand films.",
     title: "Korea Drone Filming — Aerial Video in Jeju & Korea | Video Roastery",
-    desc: "Licensed drone & aerial filming in Korea and Jeju — travel, real estate, resorts and brand projects. Hero and explanatory aerials, delivered for ads and web. Get a quote.",
+    desc: "Licensed drone and aerial filming in Korea and Jeju — travel, real estate, resorts and brands. Hero aerials delivered for ads and web. Get a quote.",
     portfolio: "drone",
     windows: [
       ["01", "Licensed &amp; safe", "We check flight zones and permits in advance and shoot within the rules."],
@@ -1035,7 +1048,7 @@ const i18nDetailContent = {
     h1: "Korea-based video production for Vancouver &amp; North American brands",
     lead: "Need video shot in Korea, or a Korea-based team you can brief in English? We produce brand films, product and short-form for North American brands — filmed in Jeju and Korea, delivered online on your timezone.",
     title: "Korea Video Production for Vancouver Brands | Video Roastery",
-    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Filmed in Jeju/Korea, briefed in English, delivered online. Get a quote.",
+    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Briefed in English, delivered online.",
     portfolio: "brand-film",
     windows: [
       ["01", "Briefed in English", "Send the goal and references in English; we reply with scope, timeline and a quote."],
@@ -1412,6 +1425,7 @@ function enPage() {
       </header>
       <main id="main">
         <section class="en-hero" id="work">
+          <h1 class="sr-only">Video Roastery — Video, Film &amp; Web Studio in Jeju, Korea</h1>
           ${wall}
           <div class="en-hero-scrim" aria-hidden="true"></div>
           <div class="en-hero-center">
@@ -1429,7 +1443,7 @@ function enPage() {
         </section>
 
         <section class="en-services" id="services">
-          <div class="en-sec-head"><span>Services</span><span>(06)</span></div>
+          <div class="en-sec-head"><span>Services</span><span>${secCount(services)}</span></div>
           <div class="en-svc-list">${services}</div>
         </section>
 
@@ -1472,12 +1486,11 @@ function zhPage(variant) {
     trust: "網站 · 影像 · 無人機 · AI 短影音 · 濟州島現場 + 全球遠端",
     servicesH: "服務內容", whyH: "為什麼選擇我們",
     services: [
-      ["網站與著陸頁", "讓訪客轉換為諮詢的網站——第一屏就說清楚，為轉換而建。"],
-      ["品牌與企業短片", "把公司與品牌故事，依觀眾真正能理解的順序講述。"],
-      ["無人機空拍", "呈現空間的規模、動線與氛圍——度假村、農場、設施、海岸線。"],
-      ["AI 短影音廣告", "僅用您的產品照片製作 Reels 與短影音——無需拍攝、無需模特兒。"],
-      ["婚禮影像", "自然、注重細節的記錄，兼顧隱私。"],
-      ["內容與自動化", "卡片新聞、Reels 與諮詢自動化，上線後持續發揮作用。"]
+      ["網站與著陸頁", "讓訪客轉換為諮詢的網站——第一屏就說清楚，為轉換而建。", "homepage"],
+      ["品牌與企業短片", "把公司與品牌故事，依觀眾真正能理解的順序講述。", "brand-film"],
+      ["無人機空拍", "呈現空間的規模、動線與氛圍——度假村、農場、設施、海岸線。", "drone"],
+      ["AI 短影音廣告", "僅用您的產品照片製作 Reels 與短影音——無需拍攝、無需模特兒。", "ai-shortform"],
+      ["內容與自動化", "卡片新聞、Reels 與諮詢自動化，上線後持續發揮作用。", "content"]
     ],
     why: [
       ["先展示，再溝通", "我們以真實作品說話——您先看到，再決定需要什麼。"],
@@ -1497,12 +1510,11 @@ function zhPage(variant) {
     trust: "网站 · 影像 · 无人机 · AI 短视频 · 济州岛现场 + 全球远程",
     servicesH: "服务内容", whyH: "为什么选择我们",
     services: [
-      ["网站与落地页", "让访客转化为咨询的网站——第一屏就说清楚，为转化而建。"],
-      ["品牌与企业短片", "把公司与品牌故事，按观众真正能理解的顺序讲述。"],
-      ["无人机航拍", "呈现空间的规模、动线与氛围——度假村、农场、设施、海岸线。"],
-      ["AI 短视频广告", "仅用您的产品照片制作 Reels 与短视频——无需拍摄、无需模特。"],
-      ["婚礼影像", "自然、注重细节的记录，兼顾隐私。"],
-      ["内容与自动化", "卡片新闻、Reels 与咨询自动化，上线后持续发挥作用。"]
+      ["网站与落地页", "让访客转化为咨询的网站——第一屏就说清楚，为转化而建。", "homepage"],
+      ["品牌与企业短片", "把公司与品牌故事，按观众真正能理解的顺序讲述。", "brand-film"],
+      ["无人机航拍", "呈现空间的规模、动线与氛围——度假村、农场、设施、海岸线。", "drone"],
+      ["AI 短视频广告", "仅用您的产品照片制作 Reels 与短视频——无需拍摄、无需模特。", "ai-shortform"],
+      ["内容与自动化", "卡片新闻、Reels 与咨询自动化，上线后持续发挥作用。", "content"]
     ],
     why: [
       ["先展示，再沟通", "我们以真实作品说话——您先看到，再决定需要什么。"],
@@ -1515,9 +1527,9 @@ function zhPage(variant) {
     emailBtn: "邮件联系我们", emailSubj: "项目咨询 — Video Roastery",
     footer: "韩国济州岛 · 影像、短片与网站制作 · 全球远程"
   };
-  const zhSvcSlugs = ["homepage", "brand-film", "drone", "ai-shortform", "content"];
   const zhPrefix = T.cur === "hant" ? "zh-hant" : "zh";
-  const services = T.services.map(([t, d], i) => `<a class="en-svc" href="${routeHref(zhPrefix + "/" + zhSvcSlugs[i])}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
+  // 슬러그는 각 항목이 직접 들고 있음(별도 배열 인덱스 매핑 금지 — 항목 증감 시 어긋나 죽은 링크가 났던 자리).
+  const services = T.services.map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref(zhPrefix + "/" + slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const why = T.why.map(([t, d], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span></div>`).join("");
   const wall = heroWallHtml();
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent(T.emailSubj)}`;
@@ -1547,7 +1559,7 @@ function zhPage(variant) {
         </section>
 
         <section class="en-services" id="services">
-          <div class="en-sec-head"><span>${T.servicesH}</span><span>(06)</span></div>
+          <div class="en-sec-head"><span>${T.servicesH}</span><span>${secCount(services)}</span></div>
           <div class="en-svc-list">${services}</div>
         </section>
 
@@ -1947,7 +1959,7 @@ function mainPage() {
         </a>
 
         <section class="en-services" id="services">
-          <div class="en-sec-head"><span>서비스</span><span>(06)</span></div>
+          <div class="en-sec-head"><span>서비스</span><span>${secCount(services)}</span></div>
           <div class="en-svc-list">${services}</div>
         </section>
 
@@ -2797,7 +2809,7 @@ function render() {
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
-    : (route ? route.lead : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
+    : (route ? (route.metaDesc || route.lead) : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
   const pageUrl = enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
