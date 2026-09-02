@@ -165,10 +165,11 @@ const coreServiceSlugs = [
   "homepage",
   "brand-film",
   "ai-shortform",
-  "drone",
   "content",
   "inquiry-agent"
 ];
+// drone은 2026-09-03 홈 서비스 목록에서 제외(형 판단: 촬영 기본기라 전면 어필 불필요).
+// routeBySlug·/drone/ 상세페이지·영문 SEO 랜딩(en/korea-drone-filming)은 그대로 유지 — 검색 유입 계속 받음.
 const opsServiceSlugs = [
   "consulting"
 ];
@@ -254,7 +255,6 @@ const portfolioWallItems = [
   ["portfolio_covers/site_workradar_ko.jpg", "web", "WEB", "WorkRadar — 직업별 AI 리스크 진단", "homepage", "wide"],
   ["portfolio_covers/site_workradar_en.jpg", "web", "WEB", "WorkRadar EN — 영문판", "homepage", "wide"],
   ["portfolio_web_regional_brand.png", "web", "WEB", "제주 로컬 브랜드 30일 런치", "homepage", "wide"],
-  ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
   ["portfolio_web_beamish.png", "web", "WEB", "품질 엘리베이터 — AI 광고 분석", "homepage"],
@@ -269,7 +269,6 @@ const portfolioWallItems = [
   // AI FILM → ai-shortform / brand-film
   ["portfolio_covers/ad_kombucha.jpg", "ai", "AD", "콤부차 제품 광고", "ai-shortform"],
   ["portfolio_covers/ad_beauty_ugc.jpg", "ai", "AD", "뷰티 UGC 광고", "ai-shortform"],
-  ["portfolio_covers/ad_beauty_reveal.jpg", "ai", "AD", "뷰티 리빌 컷", "ai-shortform"],
   ["portfolio_video_corporate_main.jpg", "ai", "BRAND", "감귤 브랜드 영상", "brand-film"],
   ["portfolio_video_industrial_brand.jpg", "ai", "BRAND", "감귤 건강식품 영상", "brand-film"],
   ["portfolio_video_esg_brand.jpg", "ai", "BRAND", "ESG 메시지 영상", "brand-film"],
@@ -282,9 +281,6 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_esg_future.jpg", "ai", "AI FILM", "AI ESG 메시지 영상", "ai-shortform"],
   ["portfolio_covers/ai_superwater.jpg", "ai", "AI FILM", "AI 건강음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_lemondiet.jpg", "ai", "AI FILM", "AI 다이어트 보충제 숏폼", "ai-shortform"],
-  ["portfolio_covers/ai_soil.jpg", "ai", "AI VISUAL", "AI 에너지 브랜드 비주얼", "ai-shortform"],
-  ["portfolio_covers/ai_aesop.jpg", "ai", "AI VISUAL", "AI 핸드크림 제품 비주얼", "ai-shortform"],
-  ["portfolio_covers/video_03.jpg", "ai", "AI FILM", "AI ESG 바다 메시지", "ai-shortform"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "AI 기업 홍보 컷", "ai-shortform"],
   ["portfolio_covers/corp_01.jpg", "ai", "BRAND", "공익 캠페인 영상", "brand-film"],
   ["portfolio_covers/corp_02.jpg", "ai", "BRAND", "IT 서비스 영상", "brand-film"],
@@ -298,24 +294,7 @@ const portfolioWallItems = [
   ["portfolio_covers/video_05.jpg", "content", "CONTENT", "제품 릴스 컷", "content"],
   ["portfolio_covers/video_06.jpg", "ai", "AD", "NETIA 제품 광고 컷", "content"],
   // DRONE → drone (정적컷은 월 후순위로 정렬됨 → 앞에 둬도 무방)
-  ["portfolio_drone_coastal_overview_clean.jpg", "drone", "DRONE", "해안 와이드 컷", "drone"],
-  ["portfolio_drone_resort_facility.jpg", "drone", "DRONE", "ICC 컨벤션센터 항공 컷", "drone"],
   // 영상 연결 — 앞 3개가 상세 오버뷰(대표/설명/활용 컷) → 강한 컷 우선
-  ["portfolio_covers/drone_06.jpg", "drone", "DRONE", "풍차해안 석양 항공 컷", "drone"],
-  ["portfolio_drone_village_overview.jpg", "drone", "DRONE", "마을 전경 컷", "drone"],
-  ["portfolio_covers/drone_05.jpg", "drone", "DRONE", "와이드 항공 컷", "drone"],
-  ["portfolio_covers/drone_02.jpg", "drone", "DRONE", "태양광 시설 항공 컷", "drone"],
-  ["portfolio_drone_coast_cliff.jpg", "drone", "DRONE", "해안 절경 컷", "drone"],
-  ["portfolio_drone_coast_field.jpg", "drone", "DRONE", "해안 포구 항공 컷", "drone"],
-  ["portfolio_drone_facility_route.jpg", "drone", "DRONE", "해안 시설 항공 컷", "drone"],
-  ["portfolio_drone_facility_route_clean.jpg", "drone", "DRONE", "시설 동선 컷", "drone"],
-  ["portfolio_drone_grid_supplement.jpg", "drone", "DRONE", "박물관 항공 컷", "drone"],
-  ["portfolio_drone_museum_exterior.jpg", "drone", "DRONE", "기관 외관 컷", "drone"],
-  ["portfolio_drone_farm_field.jpg", "drone", "DRONE", "농장 전경 컷", "drone"],
-  ["portfolio_covers/drone_04.jpg", "drone", "DRONE", "농장 항공 컷", "drone"],
-  ["portfolio_drone_farm_terrace.jpg", "drone", "DRONE", "농업 방제 드론 컷", "drone"],
-  ["portfolio_drone_topdown_garden.jpg", "drone", "DRONE", "해안 공원 항공 컷", "drone"],
-  ["portfolio_covers/drone_01.jpg", "drone", "DRONE", "항공 영상 컷", "drone"],
   // CONTENT → content
   ["portfolio_content_product.jpg", "content", "CONTENT", "제품 카드뉴스 소재", "content"],
   ["portfolio_content_ai_video.jpg", "content", "CONTENT", "AI 영상 카드", "content"],
@@ -471,7 +450,7 @@ function asset(name) {
   return `${basePath}/assets/${name}`;
 }
 
-const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_aesop.jpg":[720,1290],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/video_03.jpg":[540,960],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/ai_soil.jpg":[720,1290],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/site_vrsub.jpg":[1280,800],"portfolio_covers/site_workradar_ko.jpg":[1280,800],"portfolio_covers/site_workradar_en.jpg":[1280,800],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136],"portfolio_covers/ad_kombucha.jpg":[1080,1920],"portfolio_covers/ad_beauty_ugc.jpg":[720,1280],"portfolio_covers/ad_beauty_reveal.jpg":[1172,784],"portfolio_covers/ad_barojuyu.jpg":[720,1280]};
+const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/site_vrsub.jpg":[1280,800],"portfolio_covers/site_workradar_ko.jpg":[1280,800],"portfolio_covers/site_workradar_en.jpg":[1280,800],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136],"portfolio_covers/ad_kombucha.jpg":[1080,1920],"portfolio_covers/ad_beauty_ugc.jpg":[720,1280],"portfolio_covers/ad_barojuyu.jpg":[720,1280]};
 // 섹션 헤더의 항목 수 표기 — 목록이 늘거나 줄면 표기도 따라간다(웨딩 제거 후 (06)이 남아 5개를 6개로 표기했던 자리).
 function secCount(listHtml) {
   var n = (String(listHtml).match(/class="en-svc[ "]/g) || []).length;
@@ -1408,7 +1387,6 @@ function rememoryPage() {
 function enPage() {
   const services = [
     ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them.", "brand-film"],
-    ["Drone & Aerial", "The scale, flow and mood of a place — resorts, farms, facilities, coastline.", "drone"],
     ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed.", "ai-shortform"],
     ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert.", "homepage"],
     ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch.", "content"]
@@ -1488,7 +1466,6 @@ function zhPage(variant) {
     services: [
       ["網站與著陸頁", "讓訪客轉換為諮詢的網站——第一屏就說清楚，為轉換而建。", "homepage"],
       ["品牌與企業短片", "把公司與品牌故事，依觀眾真正能理解的順序講述。", "brand-film"],
-      ["無人機空拍", "呈現空間的規模、動線與氛圍——度假村、農場、設施、海岸線。", "drone"],
       ["AI 短影音廣告", "僅用您的產品照片製作 Reels 與短影音——無需拍攝、無需模特兒。", "ai-shortform"],
       ["內容與自動化", "卡片新聞、Reels 與諮詢自動化，上線後持續發揮作用。", "content"]
     ],
@@ -1512,7 +1489,6 @@ function zhPage(variant) {
     services: [
       ["网站与落地页", "让访客转化为咨询的网站——第一屏就说清楚，为转化而建。", "homepage"],
       ["品牌与企业短片", "把公司与品牌故事，按观众真正能理解的顺序讲述。", "brand-film"],
-      ["无人机航拍", "呈现空间的规模、动线与氛围——度假村、农场、设施、海岸线。", "drone"],
       ["AI 短视频广告", "仅用您的产品照片制作 Reels 与短视频——无需拍摄、无需模特。", "ai-shortform"],
       ["内容与自动化", "卡片新闻、Reels 与咨询自动化，上线后持续发挥作用。", "content"]
     ],
@@ -1922,7 +1898,6 @@ function mainPage() {
   const wall = heroWallHtml();
   const services = [
     ["브랜드·기업 영상", "회사와 브랜드 이야기를, 보는 사람이 이해하는 순서로 풀어냅니다.", "brand-film"],
-    ["드론·항공", "숙소·시설·관광지·농장 — 공간의 규모와 동선, 분위기를 한눈에.", "drone"],
     ["AI 숏폼 광고", "제품 사진만으로, 촬영 없이 첫 3초에 시선을 잡는 릴스·쇼츠.", "ai-shortform"],
     ["홈페이지·랜딩", "첫 화면에서 신뢰를 주고, 방문자가 문의로 이어지게 만듭니다.", "homepage"],
     ["콘텐츠·자동화", "카드뉴스·릴스·문의 자동정리까지, 런칭 후에도 계속 작동합니다.", "content"]
@@ -2059,7 +2034,6 @@ const portfolioMedia = {
   // 08. 기관 외관 컷 — 실제 제주 항공(기관 건물 establishing + 시설 overview) 2컷 재편집(16s, 16:9)
   // 09. 디테일 모음 — 실제 제주 웨딩 6컷(귀걸이·드레스·해변 뒷모습, 얼굴 블러) + 꽃 디테일 재편집(15s, 16:9)
   // 10. 메시지 영상 컷 — 실제 VR ESG 시네마틱 브랜드필름(바다·지속가능성·해상풍력, 오디오) 트림(28s, 세로)
-  "portfolio_covers/video_03.jpg": "portfolio_videos/esg_brandfilm_reel_10.mp4",
   // 11. 제품 릴스 컷 — 실제 VR AI 제품영상(zaksim 콤부차, 나레이션 포함) 웹최적화(30s, 세로)
   "portfolio_covers/video_05.jpg": "portfolio_videos/kombucha_reel_11.mp4",
   // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
