@@ -2092,8 +2092,8 @@ const portfolioMedia = {
   "pawshare_landing.png": "https://pawshare-landing.vercel.app",                             // 커뮤니티 → pawshare 랜딩
   // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
   "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.vercel.app",                // 아티스트 음악 페이지
-  "portfolio_covers/site_sanjiro.jpg": "https://www.sanjiro.kr",                       // 농장 결제 플랫폼
-  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
+  "portfolio_covers/site_sanjiro.jpg": "https://www.sanjiro.kr",                       // 산지로 — 실서비스 www.sanjiro.kr (iOS·Android 배포)
+  "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 머슬부스터 — 운동 기록 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
   "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 페를로 파스타(가로 16:9)
