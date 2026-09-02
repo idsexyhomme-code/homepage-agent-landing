@@ -249,19 +249,19 @@ const portfolioWallItems = [
   //   아래 완성본 3편으로 대체. 〈귀양풀이〉도 완성 전이라 계속 비노출.
   ["portfolio_covers/ad_barojuyu.jpg", "ai", "AD", "GS칼텍스 바로주유 AI 광고 — 자체 기획", "ai-shortform", "wide"],
   // WEB → homepage 서비스 페이지
-  ["portfolio_web_regional_brand.png", "web", "WEB", "지역 브랜드형 화면", "homepage", "wide"],
+  ["portfolio_web_regional_brand.png", "web", "WEB", "제주 로컬 브랜드 30일 런치", "homepage", "wide"],
   ["portfolio_drone_night_exterior_clean.jpg", "drone", "DRONE", "야간 외관 촬영", "drone", "large"],
   ["portfolio_content_reels_page.jpg", "content", "CONTENT", "릴스 포트폴리오", "content", "wide"],
   ["portfolio_automation_examples.jpg", "system", "SYSTEM", "문의 자동정리", "inquiry-agent"],
-  ["portfolio_web_beamish.png", "web", "WEB", "영상 광고 분석 페이지", "homepage"],
-  ["portfolio_web_shortform_a.png", "web", "WEB", "숏폼 제작 페이지", "homepage"],
-  ["portfolio_web_ai_ops.png", "web", "WEB", "AI 마케팅 비서", "homepage"],
-  ["portfolio_covers/web_01.jpg", "web", "WEB", "pawshare 앱 화면", "homepage"],
-  ["portfolio_covers/web_03.jpg", "web", "WEB", "브랜드 제품 화면", "homepage"],
-  ["pawshare_landing.png", "web", "WEB", "pawshare 후원 페이지", "homepage"],
-  ["portfolio_covers/site_artist.jpg", "web", "WEB", "아티스트 음악 페이지", "homepage"],
-  ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "농장 결제 플랫폼", "homepage"],
-  ["portfolio_covers/site_muscle.jpg", "web", "WEB", "피트니스 운동 앱", "homepage"],
+  ["portfolio_web_beamish.png", "web", "WEB", "품질 엘리베이터 — AI 광고 분석", "homepage"],
+  ["portfolio_web_shortform_a.png", "web", "WEB", "Video Roastery 밴쿠버 랜딩", "homepage"],
+  ["portfolio_web_ai_ops.png", "web", "WEB", "품질 엘리베이터 — 소상공인 AI 비서", "homepage"],
+  ["portfolio_covers/web_01.jpg", "web", "WEB", "포쉐어 — 유기견 봉사 앱", "homepage"],
+  ["portfolio_covers/web_03.jpg", "web", "WEB", "MIMI-GRAPHICS 갤러리 필름", "homepage"],
+  ["pawshare_landing.png", "web", "WEB", "포쉐어 — 후원 랜딩", "homepage"],
+  ["portfolio_covers/site_artist.jpg", "web", "WEB", "SEO HYEONG 아티스트 공식 사이트", "homepage"],
+  ["portfolio_covers/site_sanjiro.jpg", "web", "WEB", "산지로 — 주문 수집·송장 자동화 (iOS·Android)", "homepage"],
+  ["portfolio_covers/site_muscle.jpg", "web", "WEB", "머슬부스터 — 운동 기록 앱", "homepage"],
   // AI FILM → ai-shortform / brand-film
   ["portfolio_covers/ad_kombucha.jpg", "ai", "AD", "콤부차 제품 광고", "ai-shortform"],
   ["portfolio_covers/ad_beauty_ugc.jpg", "ai", "AD", "뷰티 UGC 광고", "ai-shortform"],
@@ -2091,8 +2091,8 @@ const portfolioMedia = {
   "portfolio_covers/web_03.jpg": "https://fascinating-duckanoo-906886.netlify.app",         // 브랜드 제품 → From a Single Drop
   "pawshare_landing.png": "https://pawshare-landing.vercel.app",                             // 커뮤니티 → pawshare 랜딩
   // 미사용 실제 사이트 신규 칸(메인컷 대신 스크롤 구간 캡처)
-  "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.netlify.app",                // 아티스트 음악 페이지
-  "portfolio_covers/site_sanjiro.jpg": "https://sanjiroweb.vercel.app",                       // 농장 결제 플랫폼
+  "portfolio_covers/site_artist.jpg": "https://seo-hyeong-artist.vercel.app",                // 아티스트 음악 페이지
+  "portfolio_covers/site_sanjiro.jpg": "https://www.sanjiro.kr",                       // 농장 결제 플랫폼
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
