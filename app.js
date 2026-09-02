@@ -2096,9 +2096,9 @@ const portfolioMedia = {
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 피트니스 운동 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
-  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 릴스 → 페를로 파스타(콘텐츠로 이동)
-  "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보 릴스 → 태백산 고깃집(콘텐츠로 이동)
-  "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 숏폼(KINETIA supplement)
+  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 페를로 파스타(가로 16:9)
+  "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보영상 — 태백산 고깃집(가로 16:9)
+  "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 영상 — KINETIA(가로 16:9)
   "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
   "portfolio_covers/ai_superwater.jpg": "portfolio_videos/ai_superwater_reel.mp4",            // AI 건강음료 숏폼(작심랩 슈퍼워터 키네틱, 크몽 납품)
   "portfolio_covers/ai_lemondiet.jpg": "portfolio_videos/ai_lemondiet_reel.mp4",              // AI 다이어트 보충제 숏폼(알파레몬샷 NUTRICWELL, 크몽 납품)
