@@ -2077,8 +2077,8 @@ const portfolioMedia = {
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 머슬부스터 — 운동 기록 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
-  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 파스타 조리·플레이팅(가로 16:9)
-  "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보영상 — 태백산 고깃집(가로 16:9)
+  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 파스타 전문점 홍보영상 완성본(78.4s, 로고 엔딩 포함)
+  "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                  // 식당 홍보영상 — 고깃집 광고 완성본(30.1s, 로고 엔딩 포함)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 영상 — KINETIA(가로 16:9)
   "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
   "portfolio_covers/ai_superwater.jpg": "portfolio_videos/ai_superwater_reel.mp4",            // AI 건강음료 숏폼(작심랩 슈퍼워터 키네틱, 크몽 납품)
@@ -2088,7 +2088,7 @@ const portfolioMedia = {
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
   "portfolio_covers/ai_esg_wind.jpg": "portfolio_videos/ai_esg_wind_reel.mp4",                // AI ESG 캠페인(그린로하스 ESG 공모전, PlasticToWind)
-  "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 주방 조리 과정 컷 — 국수 전문점 조리 과정(실제 납품본)
+  "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 주방 조리 과정 컷 — 국수 전문점 홍보영상 완성본(78.8s, 로고 엔딩 포함)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
