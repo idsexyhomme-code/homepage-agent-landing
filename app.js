@@ -302,7 +302,7 @@ const portfolioWallItems = [
   ["portfolio_content_request_form.jpg", "content", "CONTENT", "요청서 화면", "content"],
   ["portfolio_content_review.jpg", "content", "CONTENT", "검수 흐름 화면", "content"],
   ["portfolio_covers/content_01.jpg", "content", "CONTENT", "제품 상세 컷", "content"],
-  ["portfolio_covers/content_02.jpg", "content", "CONTENT", "제품 과정 컷", "content"],
+  ["portfolio_covers/content_02.jpg", "content", "CONTENT", "주방 조리 과정 컷", "content"],
   ["portfolio_covers/content_03.jpg", "content", "CONTENT", "음식 브랜드 영상", "content"],
   ["portfolio_covers/content_04.jpg", "content", "CONTENT", "숏폼 소재 컷", "content"],
   ["portfolio_covers/content_05.jpg", "content", "CONTENT", "식당 홍보영상", "content"],
@@ -2039,7 +2039,7 @@ const portfolioMedia = {
   // 12. 해안 절경 컷 — 실제 제주 해안 항공(김녕해수욕장 드론 하이라이트) 웹최적화(28s, 16:9)
   // 13. NETIA 제품 광고 컷 — 실제 VR 제품 광고(NETIA 코스메틱, 창가 연출) 웹최적화(30s, 16:9)
   "portfolio_covers/video_06.jpg": "portfolio_videos/product_board_reel_13.mp4",
-  // 14. 푸드 브랜드 영상 — 외장하드 페를로(PERLO) 파스타 음식 프로모 재편집(22s, 16:9, 오디오)
+  // 14. 음식 브랜드 영상 — 파스타 전문점 프로모 재편집(22s, 16:9, 오디오)
   // 15. 정원 탑뷰 컷 — 실제 제주 해안 정원 항공(wind1947, 회전 transpose 보정) 웹최적화(28s, 16:9)
   // 16. 시설 동선 컷 — 실제 제주 항공(농장·시설 도로 + 리조트 시설) 다른 구간 2컷(16s, 16:9)
   // 17. 농장 전경 컷 — 외장하드 '농약' 프로젝트 실제 제주 농장 항공(서귀포 비닐하우스 단지, 4K) 웹최적화(23s, 16:9)
@@ -2077,7 +2077,7 @@ const portfolioMedia = {
   "portfolio_covers/site_muscle.jpg": "https://muscle-booster.vercel.app",                    // 머슬부스터 — 운동 기록 앱
   // 보완: 콘텐츠 페이지 칸 → 어울리는 영상 연결
   "portfolio_covers/content_01.jpg": "portfolio_videos/content_reel_37.mp4",                   // 제품 상세 컷 → 토버스 SUMBI Mist 화장품 숏폼(4K세로)
-  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 페를로 파스타(가로 16:9)
+  "portfolio_covers/content_03.jpg": "portfolio_videos/food_promo_reel_35.mp4",                // 음식 브랜드 영상 — 파스타 조리·플레이팅(가로 16:9)
   "portfolio_covers/content_05.jpg": "portfolio_videos/shortform_reel_40.mp4",                 // 식당 홍보영상 — 태백산 고깃집(가로 16:9)
   "portfolio_covers/ai_03.jpg": "portfolio_videos/ai_reel_47.mp4",                            // AI 제품 광고 영상 — KINETIA(가로 16:9)
   "portfolio_covers/ai_esg_future.jpg": "portfolio_videos/ai_esg_future_reel.mp4",            // AI ESG 메시지 영상(그린로하스 미래세대 ESG, 곶자왈 유리돌고래)
@@ -2088,7 +2088,7 @@ const portfolioMedia = {
   "portfolio_covers/ai_nadaum.jpg": "portfolio_videos/ai_nadaum_reel.mp4",                    // AI 브랜드 캠페인(유쓰쇼츠 나다움, LG U+)
   "portfolio_covers/ai_saemangeum.jpg": "portfolio_videos/ai_saemangeum_reel.mp4",            // AI 재생에너지 영상(새만금 공모전)
   "portfolio_covers/ai_esg_wind.jpg": "portfolio_videos/ai_esg_wind_reel.mp4",                // AI ESG 캠페인(그린로하스 ESG 공모전, PlasticToWind)
-  "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 제품 과정 컷 → 삼대국수(三代국수회관) 조리 과정(실제 납품본)
+  "portfolio_covers/content_02.jpg": "portfolio_videos/content_reel_38.mp4",                   // 주방 조리 과정 컷 — 국수 전문점 조리 과정(실제 납품본)
 };
 
 // 해당 항목이 눌렀을 때 열어야 할 실제 미디어를 돌려준다(영상 src 또는 외부 URL). 없으면 null.
@@ -2962,7 +2962,15 @@ function setupHeroWall() {
     fig.classList.remove("is-playing");
     active.delete(fig);
   };
-  const fill = () => { visible.forEach((fig) => { if (active.size < cap) start(fig); }); };
+  // 모달(작업 갤러리·영상 라이트박스)이 열리면 히어로월 재생을 멈춘다.
+  // 히어로월은 모달에 '가려질' 뿐 DOM에서 사라지지 않아 IntersectionObserver가 계속 교차로 보고,
+  // 그대로 두면 라이트박스 영상과 대역폭·디코더를 나눠 써 재생이 중간에 끊긴다.
+  let suspended = false;
+  const fill = () => { if (suspended) return; visible.forEach((fig) => { if (active.size < cap) start(fig); }); };
+  window.__vrHeroWall = {
+    pause() { suspended = true; Array.prototype.slice.call(active).forEach(stop); },
+    resume() { suspended = false; fill(); }
+  };
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) visible.add(e.target);
@@ -2997,6 +3005,16 @@ function setupHeroMotion() {
 // ===== 릴/작업 갤러리 — WATCH REEL(원형 버튼) 클릭 시 전체 작업을 한곳에 모아보기 =====
 // 영상이 연결된 포폴 항목만 모아 그리드로 보여주고, 타일 클릭은 기존 라이트박스(vr-lightbox)로 재생.
 // data-video 만 세팅하면 setupPortfolioLightbox가 그대로 연결해준다(신규 재생 로직 0).
+// 모달이 열려 있는 동안 히어로월 영상을 멈춰 라이트박스가 대역폭·디코더를 독점하게 한다.
+function vrSyncHeroWall() {
+  const hw = window.__vrHeroWall;
+  if (!hw) return;
+  const g = document.querySelector("#reel-gallery");
+  const lb = document.querySelector("#vr-lightbox");
+  const open = (g && g.classList.contains("is-open")) || (lb && lb.classList.contains("is-open"));
+  if (open) hw.pause(); else hw.resume();
+}
+
 function reelGalleryVideoItems() {
   return portfolioWallItems
     .map((item) => ({ item, link: portfolioLink(item) }))
@@ -3079,6 +3097,7 @@ function setupReelGallery() {
     const close = () => {
       box.classList.remove("is-open");
       document.documentElement.style.removeProperty("overflow");
+      vrSyncHeroWall();
       if (box.__trigger && box.__trigger.focus) box.__trigger.focus();
       box.__trigger = null;
     };
@@ -3117,6 +3136,7 @@ function setupReelGallery() {
       box.__trigger = t;
       box.classList.add("is-open");
       document.documentElement.style.overflow = "hidden";
+      vrSyncHeroWall();
       box.scrollTop = 0;
       // 타일(data-video) → 기존 라이트박스 재생 연결(중복 연결은 __wired 가드로 방지)
       setupPortfolioLightbox();
@@ -3142,7 +3162,7 @@ function setupPortfolioLightbox() {
     box.innerHTML = `
       <button class="vr-lightbox-close" type="button" aria-label="${L.close}">✕</button>
       <figure class="vr-lightbox-stage">
-        <video controls playsinline preload="none"></video>
+        <video controls playsinline preload="auto"></video>
         <span class="vr-lightbox-spinner" aria-hidden="true"></span>
         <figcaption class="vr-lightbox-caption"><span class="vr-cap-label"></span><strong class="vr-cap-title"></strong></figcaption>
         <a class="vr-lightbox-fallback" target="_blank" rel="noopener" hidden>${L.fallback}</a>
@@ -3157,6 +3177,7 @@ function setupPortfolioLightbox() {
     vEl.addEventListener("error", () => { box.classList.remove("is-loading"); fallback.hidden = false; });
     const close = () => {
       box.classList.remove("is-open");
+      vrSyncHeroWall();
       const v = box.querySelector("video");
       v.pause();
       v.removeAttribute("src");
@@ -3204,6 +3225,7 @@ function setupPortfolioLightbox() {
       const fb = box.querySelector(".vr-lightbox-fallback");
       if (fb) { fb.hidden = true; fb.href = video; }
       box.classList.add("is-open", "is-loading");
+      vrSyncHeroWall();
       v.src = video;
       // 모달 열리면 닫기 버튼으로 포커스 이동
       box.querySelector(".vr-lightbox-close").focus();
