@@ -2052,17 +2052,17 @@ const portfolioMedia = {
   // 24. 시설 항공 컷 — 외장하드 '모비' 태양광 발전시설 석양 항공(대규모 시설이 '시설 항공'에 적합) 재편집(20s, 16:9)
   // 25. 영상 썸네일 컷 — 외장하드 '모비' 제주 신창 풍차해안 석양 시네마틱 항공(시네마틱 컷이라 '영상 썸네일'에 적합) 재편집(20s, 16:9)
   // 26~28. 기업영상 칸 신규 추가(외장하드 납품본) — brand-film 페이지에 더 보여주기
-  "portfolio_covers/corp_01.jpg": "portfolio_videos/corp_reel_26.mp4",  // 대한결핵협회 공익 캠페인(40s 홍보영상, 오디오)
-  "portfolio_covers/corp_02.jpg": "portfolio_videos/corp_reel_27.mp4",  // 마크애니 TOSS 시연(IT 서비스, 오디오)
-  "portfolio_covers/corp_03.jpg": "portfolio_videos/corp_reel_28.mp4",  // 메이크어위시(비영리·행사, 오디오)
+  "portfolio_covers/corp_01.jpg": "portfolio_videos/corp_reel_26.mp4",  // 대한결핵협회 공익 캠페인 홍보영상 완성본(40s, 오디오)
+  "portfolio_covers/corp_02.jpg": "portfolio_videos/corp_reel_27.mp4",  // 마크애니 TOSS 시연 영상 완성본(100s, 오디오)
+  "portfolio_covers/corp_03.jpg": "portfolio_videos/corp_reel_28.mp4",  // 메이크어위시 프로젝트 완성본(316s, 오디오)
   // 29~31. 기업영상 칸 추가(2차)
-  "portfolio_covers/corp_04.jpg": "portfolio_videos/corp_reel_29.mp4",  // 도교육청 청렴릴레이(공공기관 캠페인)
-  "portfolio_covers/corp_05.jpg": "portfolio_videos/corp_reel_30.mp4",  // 라이온스클럽 행사 스케치
-  "portfolio_covers/corp_06.jpg": "portfolio_videos/corp_reel_31.mp4",  // 리치디바인 기업 인터뷰
+  "portfolio_covers/corp_04.jpg": "portfolio_videos/corp_reel_29.mp4",  // 도교육청 청렴릴레이 완성본(54s)
+  "portfolio_covers/corp_05.jpg": "portfolio_videos/corp_reel_30.mp4",  // 라이온스클럽 헌장의 밤 스케치 완성본(189s)
+  "portfolio_covers/corp_06.jpg": "portfolio_videos/corp_reel_31.mp4",  // 리치디바인 제주 워크샵 완성본(236s)
   // 32~34. 기업영상 칸 추가(3차)
-  "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 라이즈센터 RISE 포럼 스케치
-  "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상(제주 오름/농장)
-  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4",  // 렛츠런파크 레클리스 기념관(세로)
+  "portfolio_covers/corp_07.jpg": "portfolio_videos/corp_reel_32.mp4",  // 제주 라이즈 성과포럼 완성본(236s)
+  "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상 완성본(78s)
+  "portfolio_covers/corp_09.jpg": "portfolio_videos/corp_reel_34.mp4",  // 렛츠런파크 레클리스 기념관 완성본(54s)
   // ===== 홈페이지 포폴 칸 → 실제 라이브 사이트 연결(클릭 시 새 탭) =====
   "portfolio_web_regional_brand.png": "https://shimmering-sunburst-27f1cd.netlify.app",      // 지역 브랜드형 → 제주 로컬 브랜드 30일 런치
   "portfolio_web_beamish.png": "https://beamish-mooncake-b11a21.netlify.app",                // 영상 제작 랜딩 → 품질엘리베이터(당신의 영상을)
