@@ -16,9 +16,84 @@
   })(window, document, "clarity", "script", "xo3gh5bnxm");
 })();
 
+// ── 검색광고 전환 추적 (네이버 검색광고 프리미엄 로그분석 + Google Ads) ──
+// 광고 계정 개설 후 아래 ID만 채우면 활성화. 비어 있으면 아무 스크립트도 주입하지 않음.
+// 프로덕션 도메인 게이트는 initAnalytics와 동일(로컬·프리뷰에서 전환이 잡히지 않도록).
+const AD_TRACKING = {
+  naverWa: "",      // 네이버 검색광고 > 도구 > 프리미엄 로그분석 > 공통 스크립트의 wcs_add["wa"] 값 (예: "s_1a2b3c4d5e")
+  googleAw: "",     // Google Ads 전환 ID (예: "AW-123456789")
+  googleLabel: ""   // Google Ads 전환 라벨 (예: "AbCdEfGhIj-1234567890")
+};
+// 광고 유입 파라미터 — UTM + 네이버 검색광고 자동 추적 파라미터(n_*) + Google gclid.
+// 첫 착지에서 sessionStorage에 보관해, 다른 페이지로 이동한 뒤 문의해도 "어느 키워드·광고에서 왔는지"가 메일에 남도록.
+const AD_PARAM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "n_media", "n_query", "n_keyword", "n_match", "n_rank", "n_ad_group", "n_ad", "gclid"];
+const AD_PARAM_STORE = "vr_ad_params";
+function isProductionHost() {
+  const host = location.hostname;
+  return host === "videoroastery.com" || host === "www.videoroastery.com";
+}
+function rememberAdParams() {
+  try {
+    const p = new URLSearchParams(location.search);
+    const found = {};
+    AD_PARAM_KEYS.forEach((k) => { const v = p.get(k); if (v) found[k] = v; });
+    if (Object.keys(found).length) sessionStorage.setItem(AD_PARAM_STORE, JSON.stringify(found));
+  } catch (e) { /* 저장 불가 환경(시크릿 등)은 무시 */ }
+}
+function storedAdParams() {
+  try { return JSON.parse(sessionStorage.getItem(AD_PARAM_STORE) || "{}") || {}; } catch (e) { return {}; }
+}
+(function initAdTracking() {
+  rememberAdParams();
+  if (!isProductionHost()) return;
+  if (AD_TRACKING.naverWa) {
+    // 네이버 공통 스크립트 — 로드 완료 후 wcs_do()로 방문 기록 (SPA라 페이지 전환 시 adTrackPageview()가 재호출)
+    window.wcs_add = window.wcs_add || {};
+    window.wcs_add.wa = AD_TRACKING.naverWa;
+    const ns = document.createElement("script");
+    ns.async = true;
+    ns.src = "https://wcs.naver.net/wcslog.js";
+    ns.onload = () => { try { if (window.wcs && typeof window.wcs_do === "function") window.wcs_do(); } catch (e) { /* 무시 */ } };
+    document.head.appendChild(ns);
+  }
+  if (AD_TRACKING.googleAw) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    const gs = document.createElement("script");
+    gs.async = true;
+    gs.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(AD_TRACKING.googleAw);
+    document.head.appendChild(gs);
+    window.gtag("js", new Date());
+    window.gtag("config", AD_TRACKING.googleAw);
+  }
+})();
+// SPA 페이지 전환마다 네이버 로그분석에 방문 1건 추가(최초 로드는 스크립트 onload에서 처리)
+function adTrackPageview() {
+  try {
+    if (!isProductionHost() || !AD_TRACKING.naverWa) return;
+    if (window.__adFirstRender === undefined) { window.__adFirstRender = false; return; }
+    if (window.wcs && typeof window.wcs_do === "function") window.wcs_do();
+  } catch (e) { /* 무시 */ }
+}
+// 문의 폼 전송 성공(*_sent) 시 두 광고 플랫폼에 "전환 1건" 보고 — 광고 성과·자동입찰의 근거가 됨
+function fireAdConversion(eventName) {
+  try {
+    if (!isProductionHost()) return;
+    if (AD_TRACKING.naverWa && window.wcs && typeof window.wcs.cnv === "function" && typeof window.wcs_do === "function") {
+      const nasa = {};
+      nasa.cnv = window.wcs.cnv("4", "0"); // 전환유형 4 = 신청/예약(문의), 전환가치 미지정
+      window.wcs_do(nasa);
+    }
+    if (AD_TRACKING.googleAw && AD_TRACKING.googleLabel && typeof window.gtag === "function") {
+      window.gtag("event", "conversion", { send_to: AD_TRACKING.googleAw + "/" + AD_TRACKING.googleLabel, event_category: eventName });
+    }
+  } catch (e) { /* 계측 실패가 사용자 흐름을 막지 않도록 무시 */ }
+}
+
 // ── 전환 계측 — 문의/견적 제출·CTA 클릭을 Clarity 커스텀 이벤트 + Vercel 이벤트로 기록 ──
 // (방문/이탈만 잡던 분석에 "몇 명이 실제 문의로 전환됐나"를 더함. 프로덕션에서만 초기화됨=분석과 동일 게이트)
 function trackEvent(name, meta) {
+  if (/_sent$/.test(name)) fireAdConversion(name);
   try {
     if (typeof window.clarity === "function") {
       window.clarity("event", name);
@@ -1893,6 +1968,129 @@ function industryPage(key) {
   `;
 }
 
+// ── 검색광고 전용 랜딩 — 광고 클릭(네이버 파워링크·구글 검색광고) 착지점 ──
+// 원칙: 광고 문구=H1(메시지 일치), 이탈 링크 최소, 실제 제작 사례를 먼저, 문의 폼은 같은 페이지 안에(이동 0회).
+// 데이터맵 1개 + 렌더 함수 1개 — 키워드 그룹별 랜딩을 늘릴 때는 항목만 추가(셸·sitemap 동반).
+const adLandingPages = {
+  "ai-video": {
+    kicker: "AI 영상제작 · 촬영 없이 사진만으로",
+    h1: "AI 영상제작, 사진만 보내주세요",
+    lead: "제품·매장·서비스 사진과 원하는 방향만 알려주시면, 광고·홍보에 바로 쓰는 AI 영상을 만들어 드립니다. 촬영도 모델도 스튜디오도 필요 없습니다.",
+    title: "AI 영상제작 업체 | 촬영 없이 사진만으로 광고·홍보영상 — 비디오 로스터리",
+    desc: "AI 영상제작 전문. 촬영 없이 제품·매장 사진만으로 광고·홍보 영상을 만듭니다. 실제 제작 사례를 먼저 보고, 무료 샘플 컷 3장으로 시작하세요. 제주 스튜디오 · 전국 온라인.",
+    cta: "AI 영상 견적 받기",
+    portfolioSlug: "ai-shortform",
+    prefillService: "AI 영상제작",
+    formats: [
+      ["제품 광고 숏폼", "제품 사진만으로 릴스·쇼츠·틱톡 세로 광고. 첫 3초에 시선을 잡는 구성."],
+      ["브랜드·캠페인 영상", "브랜드 무드와 메시지를 담은 캠페인 영상. 실사 촬영이 어려운 장면도 AI로."],
+      ["기업·기관 홍보 영상", "사업·정책·서비스 소개를 이해되는 순서로. 공공·기업 캠페인 제작 경험."],
+      ["AI 시네마틱 필름", "촬영으로는 비용이 커지는 장면을 시네마틱 AI 영상으로. 광고·전시·발표용."]
+    ],
+    steps: [
+      ["자료 보내기", "제품·매장·서비스 사진 몇 장과 쓰실 곳(릴스·유튜브·매장 TV·광고)만 알려주세요."],
+      ["샘플 컷 무료 확인", "본 제작 전에 영상에 들어갈 샘플 컷 3장을 무료로 먼저 보여드립니다. 방향이 맞는지 여기서 확인."],
+      ["본 제작·납품", "확정된 방향으로 영상을 완성해 채널별 화면비(세로·정사각·가로)로 납품합니다."]
+    ],
+    faq: [
+      ["정말 촬영 없이 되나요?", "네. 제품·매장·서비스 사진 3~5장과 원하는 방향만 있으면 됩니다. 사진 상태에 따라 어떤 컷이 더 필요한지 먼저 알려드려요."],
+      ["AI 영상은 어색하지 않나요?", "이 페이지의 실제 제작 사례를 먼저 보시길 권해요. 제품·브랜드 톤에 맞춰 컷을 고르고, 편집·보정·사운드는 사람이 마무리합니다. 어색한 컷은 납품 전에 걸러냅니다."],
+      ["무료 샘플 컷은 조건이 있나요?", "없습니다. 영상에 그대로 들어갈 샘플 컷 3장을 먼저 만들어 보여드리고, 마음에 들 때만 진행합니다. 이번 달 선착순 5팀으로 받고 있어요."],
+      ["제작 기간은 얼마나 걸리나요?", "샘플 컷은 보통 문의 후 며칠 안에 보여드립니다. 본 제작은 편수와 구성에 따라 다르지만 대부분 짧은 기간에 받아보실 수 있어요."],
+      ["만든 영상은 어디에 쓸 수 있나요?", "인스타 릴스·유튜브·틱톡·네이버플레이스·매장 TV·온라인 광고 등 상담 때 정한 범위 안에서 자유롭게 쓰실 수 있습니다. 쓰실 곳에 맞춰 화면비를 맞춰 드려요."],
+      ["비용은 어떻게 되나요?", "고정가 대신 편수·구성에 맞춰 견적을 드립니다. 테스트 1건부터 월간 소재팩·광고 확장팩까지, 무료 샘플 컷을 보신 뒤 필요한 만큼만 정하시면 됩니다."],
+      ["제주가 아니어도 되나요?", "네. 사진만 주고받으면 되기 때문에 전국 어디든 온라인으로 진행됩니다."]
+    ]
+  }
+};
+
+function adLandingPage(key) {
+  const d = adLandingPages[key];
+  const list = (rows) => rows.map(([t, dd], i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${dd}</span></span></div>`).join("");
+  const formats = list(d.formats);
+  const steps = list(d.steps);
+  const faq = d.faq.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  // 실제 제작 사례 — 서비스 상세와 같은 칸(영상 연결 칸 우선). 광고 착지에서 "말보다 결과물"을 먼저.
+  const items = portfolioItemsForRoute({ slug: d.portfolioSlug }).slice(0, 9); // 모바일 세로 스크롤 과다 방지 — 폼까지 빨리 닿게
+  if (items[0]) items[0] = { ...items[0], size: "large" };
+  const hasMedia = items.some((item) => portfolioLink(item));
+  const tiers = (pricingGroups.find((g) => g.slug === d.portfolioSlug) || { tiers: [] }).tiers
+    .map((t, i) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t.tier}</span><span class="en-svc-d">${t.inc}</span></span></div>`).join("");
+  return `
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <div class="en-page basic-ko">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="메뉴"><a href="#work">제작 사례</a><a href="#how">진행 방법</a><a href="#contact">견적 문의</a></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">${d.kicker}</p>
+          <h1 class="en-detail-h1">${d.h1}</h1>
+          <p class="en-detail-lead">${d.lead}</p>
+          <div class="en-detail-actions">
+            <a class="en-cta-btn" href="#contact">${d.cta} ↗</a>
+            <a class="en-detail-link" href="#work">실제 제작 사례 보기</a>
+          </div>
+        </section>
+
+        <section class="en-proof" aria-label="작업 성과">
+          <div class="en-sec-head"><span>숫자로 보는 비디오 로스터리</span><span>(03)</span></div>
+          <div class="en-proof-grid">
+            <div class="en-proof-item"><strong>140+</strong><span>누적 프로젝트 —<br>기업·공공·교육·의료·식품·IT까지</span></div>
+            <div class="en-proof-item"><strong>10년</strong><span>한 기관과 이어온 다년 작업 —<br>공공·기업 반복 계약으로 검증된 신뢰</span></div>
+            <div class="en-proof-item"><strong>3장</strong><span>무료 샘플 컷 먼저 —<br>마음에 들 때만 본 제작 진행</span></div>
+          </div>
+        </section>
+
+        <section class="en-services" id="work">
+          <div class="en-sec-head"><span>실제 AI 제작 사례</span><span>${hasMedia ? "▶ 눌러서 재생" : ""}</span></div>
+          ${portfolioWall(items, "detail-wall ad-wall", !hasMedia)}
+        </section>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>무엇을 만들 수 있나요</span><span>${secCount(formats)}</span></div>
+          <div class="en-svc-list">${formats}</div>
+        </section>
+
+        <section class="en-services" id="how">
+          <div class="en-sec-head"><span>이렇게 진행돼요</span><span>${secCount(steps)}</span></div>
+          <div class="en-svc-list">${steps}</div>
+        </section>
+
+        <a class="en-offer" href="#contact">
+          <span class="en-offer-k">이번 달 선착순 5팀 · 무료</span>
+          <span class="en-offer-t">사진 보내주시면 샘플 컷 3장을 무료로 먼저 만들어 드려요</span>
+          <span class="en-offer-x" aria-hidden="true">무료 샘플 컷 받기 ↗</span>
+        </a>
+
+        <section class="en-services">
+          <div class="en-sec-head"><span>진행 방식</span><span>${secCount(tiers)}</span></div>
+          <div class="en-svc-list">${tiers}</div>
+        </section>
+
+        <section class="en-services" id="faq">
+          <div class="en-sec-head"><span>자주 묻는 질문</span><span>FAQ</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
+
+        <section class="section tight en-form-sec" id="contact">
+          <div class="cta-band has-form">
+            <h2>AI 영상 견적 문의</h2>
+            <p class="cta-note">사진과 쓰실 곳만 알려주세요. 확인 후 무료 샘플 컷 3장과 함께 제작 범위·견적을 회신드립니다.</p>
+            <p class="contact-trust">평균 1시간 내 응답 · 촬영·방문 없이 · 마음에 들 때만 진행</p>
+            ${quoteForm()}
+          </div>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — 제주, 대한민국 · 전국 온라인</span>
+        <a href="${routeHref("privacy")}">개인정보처리방침</a>
+      </footer>
+    </div>
+  `;
+}
+
 function mainPage() {
   // BASIC/DEPT 한글 홈 — /en/ 디자인 시스템(.en-*) 그대로 + Pretendard(.basic-ko). 다크 마퀴 히어로 → 라이트 웜페이퍼 본문.
   const wall = heroWallHtml();
@@ -2693,9 +2891,11 @@ function mailtoHref(route) {
 }
 
 function trackingEntries() {
+  // 현재 URL 파라미터 우선, 없으면 첫 착지 때 저장해 둔 광고 파라미터(다른 페이지로 이동한 뒤 문의해도 유입 키워드가 남도록)
   const source = new URLSearchParams(window.location.search);
-  return ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
-    .map((key) => [key, source.get(key)])
+  const stored = storedAdParams();
+  return AD_PARAM_KEYS
+    .map((key) => [key, source.get(key) || stored[key]])
     .filter(([, value]) => value);
 }
 
@@ -2756,6 +2956,7 @@ function render() {
   const i18nDet = i18nDetailRoutes[slug]; // 영/중 서비스 상세("en/brand-film" 등) {lang,svc}
   const i18nDetC = i18nDet ? (i18nDetailContent[i18nDet.svc][i18nDet.lang] || i18nDetailContent[i18nDet.svc].en) : null;
   const enLand = enLandingPages[slug]; // 영문 해외 인텐트 SEO 랜딩("en/jeju-video-production" 등)
+  const adLand = adLandingPages[slug]; // 검색광고 전용 랜딩("ai-video" 등)
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
   // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
   const seoTitles = {
@@ -2775,8 +2976,8 @@ function render() {
     rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
     free: "무료 홍보영상 샘플 컷 3장 — 제주 소상공인 | 비디오 로스터리",
   };
-  const pageTitle = enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
     : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
@@ -2784,7 +2985,7 @@ function render() {
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
     : (route ? (route.metaDesc || route.lead) : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = adLand ? `https://videoroastery.com/${slug}/` : enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -2800,22 +3001,25 @@ function render() {
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute("href", pageUrl);
   // 이 페이지가 렌더하는 FAQ와 동일한 내용으로 FAQPage 스키마 주입(정적 FAQPage 없는 페이지 한정)
-  const pageFaq = enLand ? i18nCommonFaq.en.concat(enLand.faq || [])
+  const pageFaq = adLand ? adLand.faq
+    : enLand ? i18nCommonFaq.en.concat(enLand.faq || [])
     : i18nDet ? i18nCommonFaq[i18nDet.lang].concat((i18nDetC && i18nDetC.faq) || [])
     : industryPages[slug] ? (industryPages[slug].faqItems || industryFaqItems)
     : null;
   syncFaqJsonLd(pageFaq, pageUrl);
-  document.querySelector("#app").innerHTML = enLand ? enLandingPage(slug) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = adLand ? adLandingPage(slug) : enLand ? enLandingPage(slug) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();
   setupConsultForm();
   setupQuoteForm();
+  if (adLand && adLand.prefillService) { const f = document.querySelector('#quote-form [name="qn_service"]'); if (f && !f.value) f.value = adLand.prefillService; }
   setupI18nForm();
   setupScrollReveal();
   setupHeroMotion();
   setupHeroWall();
   setupImageFade();
+  adTrackPageview();
 }
 
 // 프리미엄 이미지 페이드인 — 안전설계: CSS 기본 opacity:1(무JS·미처리 시 항상 보임).

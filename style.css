@@ -3019,6 +3019,8 @@ p { text-wrap: pretty; }
 
 /* 상세 포폴: 대표작 피처 타일(홈 featured-wall과 동일 위계) */
 @media (min-width: 640px) { .detail-wall .portfolio-item.is-large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; } }
+/* 광고 착지(/ai-video): 세로 커버(9:16)가 대표 타일이면 2행 높이를 넘겨 옆 칸이 비므로 4:3으로 고정 — 그리드 정렬 유지 */
+@media (min-width: 640px) { .ad-wall .portfolio-item.is-large { aspect-ratio: 4 / 3; } }
 
 /* 모바일 터치 타깃 최소 44px — 주요 텍스트 링크 (Codex 모바일 리뷰 반영) */
 @media (max-width: 640px) {
