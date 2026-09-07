@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GASP 스튜디오</title>
+<meta name="description" content="촬영 없이 만드는 AI 광고·브랜드 영상. 12년차 영상감독 + AI, 15초부터. STANDARD 15만원 · DELUXE 29만원 · PREMIUM 59만원. 견적은 인스타 DM '견적' 한 마디.">
+<link rel="canonical" href="https://videoroastery.com/gasp/">
+<meta property="og:title" content="GASP 스튜디오 — 촬영 없이 만드는 AI 광고 영상">
+<meta property="og:description" content="12년차 영상감독 + AI. 제품 릴스 15초 15만원부터. 포트폴리오 10편 · 가격표 · 진행 순서.">
+<meta property="og:image" content="https://videoroastery.com/assets/gasp/og.jpg">
+<meta property="og:url" content="https://videoroastery.com/gasp/">
+<meta name="theme-color" content="#0c0c0e">
+<link rel="icon" href="../assets/symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Playfair+Display:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:'Pretendard';src:url('../assets/fonts/PretendardVariable.subset.woff2') format('woff2');font-weight:100 900;font-display:swap}
+:root{--ink:#0c0c0e;--ink2:#16161a;--ink3:#1f1f25;--gold:#d6b25e;--gold-l:#ecd28c;--gold-d:#96783a;--ivory:#f0eadc;--ash:#96969e;--dim:#5c5c66;--line:rgba(255,255,255,.12);
+--serif:'Noto Serif KR',serif;--latin:'Playfair Display',Georgia,serif;--sans:'Pretendard','Noto Sans KR',-apple-system,'Apple SD Gothic Neo',sans-serif;}
+*{box-sizing:border-box}html{color-scheme:dark}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:var(--gold-l)}img,video{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.25;margin:0;text-wrap:balance;letter-spacing:-.01em;word-break:keep-all}
+p,li,summary,figcaption,td,th{word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.eyebrow{font-family:var(--latin);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(26px,4.2vw,36px);margin:10px 0 28px}
+.lead{color:var(--ash);max-width:34em;margin:0 0 28px}
+/* 상단 바 */
+.top{position:sticky;top:0;z-index:20;background:rgba(12,12,14,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-family:var(--latin);font-weight:700;letter-spacing:.18em;color:var(--gold);text-decoration:none;font-size:15px}
+.top nav{display:none;gap:22px;font-size:14px}.top nav a{color:var(--ash);text-decoration:none}
+@media(min-width:760px){.top nav{display:flex}}
+/* 히어로 */
+.hero{border-top:0;padding:40px 0 48px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+@media(min-width:760px){.hero .wrap{grid-template-columns:1.15fr .85fr;gap:56px}.hero{padding:72px 0}}
+.hero h1{font-size:clamp(38px,7vw,64px);font-weight:900;margin:14px 0 18px}
+.hero h1 em{font-style:normal;color:var(--gold-l)}
+.hero p{font-size:17px;color:var(--ash);max-width:30em;margin:0 0 26px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 10px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+@media(min-width:520px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats div b{display:block;font-family:var(--latin);font-size:30px;color:var(--ivory);line-height:1;font-variant-numeric:tabular-nums}
+.stats div b small{font-family:var(--serif);font-size:15px;margin-left:2px;color:var(--gold-l)}
+.stats div span{font-size:12px;color:var(--ash);letter-spacing:.02em}
+.reel{position:relative;aspect-ratio:9/16;max-width:360px;margin:0 auto;border-radius:22px;overflow:hidden;background:var(--ink2);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px var(--line)}
+.reel video,.reel img{width:100%;height:100%;object-fit:cover}
+.reel .tag{position:absolute;left:14px;top:14px;font-family:var(--latin);font-size:11px;letter-spacing:.16em;color:var(--gold);background:rgba(0,0,0,.55);padding:6px 10px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;text-decoration:none;border-radius:999px;padding:14px 24px;font-size:15px;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-gold{background:var(--gold);color:#141005}.btn-gold:hover{background:var(--gold-l)}
+.btn-ghost{border:1px solid var(--gold-d);color:var(--gold-l);background:transparent}.btn-ghost:hover{border-color:var(--gold)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-row small{color:var(--dim);font-size:13px}
+/* 장르 롤 */
+.roll{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;white-space:nowrap}
+.roll span{display:inline-block;font-family:var(--latin);font-size:13px;letter-spacing:.18em;color:var(--dim);padding:0 22px}
+.roll span i{font-style:normal;color:var(--gold-d);margin-right:22px}
+.roll .track{display:inline-block;animation:roll 38s linear infinite}
+@keyframes roll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.roll .track{animation:none}}
+/* 다른 점 */
+.diff{display:grid;gap:14px}@media(min-width:760px){.diff{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{font-size:19px;margin:10px 0 8px}.card p{margin:0;color:var(--ash);font-size:15px}
+/* 포트폴리오 */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.tile{margin:0}
+.tile-media{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--ink2);cursor:pointer}
+.tile-media img,.tile-media video{width:100%;height:100%;object-fit:cover}
+.tile-play{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.6);color:var(--gold-l);font-size:11px;display:flex;align-items:center;justify-content:center}
+.tile.playing .tile-play{opacity:0}
+.tile figcaption{display:grid;gap:3px;padding:12px 2px 0}
+.tile figcaption strong{font-family:var(--serif);font-size:17px;line-height:1.3}
+.tile-meta{font-size:12.5px;color:var(--ash)}.tile-pkg{font-size:12.5px;color:var(--gold-l);font-weight:700}
+/* 추천 대상 */
+.who{display:grid;gap:12px}@media(min-width:760px){.who{grid-template-columns:repeat(3,1fr)}}
+.who .card strong{font-family:var(--serif);font-size:18px;display:block;margin-bottom:6px}
+/* 패키지 */
+.pkgs{display:grid;gap:16px}@media(min-width:760px){.pkgs{grid-template-columns:repeat(3,1fr);align-items:start}}
+.pkg{position:relative;background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:26px 24px}
+.pkg[data-hot]{border-color:var(--gold);background:linear-gradient(180deg,rgba(214,178,94,.09),rgba(214,178,94,.02))}
+.pkg-badge{position:absolute;top:-13px;left:24px;background:var(--gold);color:#141005;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+.pkg-name{font-family:var(--latin);letter-spacing:.14em;color:var(--gold);font-size:13px}
+.pkg h3{font-size:23px;margin:6px 0 12px}.pkg h3 small{font-family:var(--sans);font-weight:500;color:var(--ash);font-size:14px;margin-left:6px}
+.pkg-price{margin:0 0 16px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pkg-tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--gold-d);border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.pkg-price s{color:var(--dim);font-size:15px}.pkg-price strong{font-family:var(--serif);font-size:34px;color:var(--ivory);font-variant-numeric:tabular-nums}
+.pkg-price em{font-style:normal;font-size:12px;color:var(--gold);border:1px solid var(--gold-d);border-radius:999px;padding:2px 9px}
+.pkg ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px;font-size:14.5px}
+.pkg li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px}
+.pkg li span{color:var(--ash)}.pkg li b{font-weight:500;text-align:right}
+.pkg .btn{width:100%}
+.note{font-size:13px;color:var(--dim);margin:18px 0 0}
+/* 비교표 */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{padding:12px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-family:var(--latin);letter-spacing:.1em;color:var(--gold);font-size:13px}
+thead th small{display:block;font-family:var(--sans);letter-spacing:0;color:var(--ash);font-weight:400;margin-top:3px}
+tbody th{color:var(--ash);font-weight:500;width:84px}
+tr.price td{font-variant-numeric:tabular-nums}tr.price s{color:var(--dim)}tr.price b{font-family:var(--serif);font-size:18px}
+/* 옵션 */
+.opts{display:grid;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.opts div{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;background:var(--ink2);border-bottom:1px solid var(--line);font-size:15px}
+.opts div:last-child{border-bottom:0}.opts div b{color:var(--gold-l);white-space:nowrap;font-weight:600}
+/* 프로세스 */
+.steps{counter-reset:s;display:grid;gap:0;position:relative;margin:0;padding:0}
+.steps li{list-style:none;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--latin);color:var(--gold);font-size:22px;line-height:1.2}
+.steps li strong{font-family:var(--serif);font-size:18px;display:block}.steps li span{color:var(--ash);font-size:14.5px}
+@media(min-width:760px){.steps{grid-template-columns:1fr 1fr;column-gap:40px}}
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:4px 0}
+summary{cursor:pointer;font-family:var(--serif);font-size:17px;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";color:var(--gold);font-family:var(--latin);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--ash);font-size:15px;max-width:40em}
+/* 마감 CTA */
+.final{text-align:center;padding:80px 0}.final h2{font-size:clamp(30px,5vw,44px);margin:12px 0 10px}
+.final .kw{font-family:var(--serif);font-weight:900;font-size:clamp(64px,12vw,120px);color:var(--gold-l);line-height:1;margin:18px 0 22px}
+.final p{color:var(--ash);margin:0 0 26px}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;font-size:13px;color:var(--dim)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+/* 하단 고정 바 */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(12,12,14,.9);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0}
+.bar small{color:var(--ash);font-size:13px;line-height:1.35}.bar small b{color:var(--ivory);display:block}
+.bar .btn{padding:12px 20px;white-space:nowrap}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">GASP STUDIO</a>
+  <nav><a href="#work">포트폴리오</a><a href="#price">가격</a><a href="#process">진행 순서</a><a href="#faq">자주 묻는 것</a></nav>
+  <a class="btn btn-gold" style="padding:9px 16px;font-size:14px" href="https://ig.me/m/gasp_ai">DM 견적</a>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="eyebrow">AI Film Studio · Jeju</span>
+    <h1>촬영 없이<br><em>광고 영상</em>을<br>만듭니다</h1>
+    <p>카메라도, 모델도, 스튜디오도 없이. 12년차 영상감독이 AI로 제품 릴스부터 브랜드 필름까지 만들어요. 15초는 15만원부터.</p>
+    <div class="cta-row"><a class="btn btn-gold" href="https://ig.me/m/gasp_ai">DM에 "견적" 보내기</a><small>30분 안에 견적과 예시 영상을 보내드려요</small></div>
+    <div class="stats">
+      <div><b>12<small>년</small></b><span>영상감독 경력</span></div>
+      <div><b>0<small>원</small></b><span>촬영·모델·장소비</span></div>
+      <div><b>3<small>편</small></b><span>공모전 출품작</span></div>
+      <div><b>15<small>초~</small></b><span>15만원부터</span></div>
+    </div>
+  </div>
+  <div class="reel"><span class="tag">SHOWREEL 2026</span><video autoplay muted loop playsinline poster="../assets/gasp/showreel.jpg" src="../assets/gasp/showreel.mp4"></video></div>
+</div></section>
+
+<div class="roll" aria-hidden="true"><div class="track"><span><i>·</i>CINEMATIC</span><span><i>·</i>PERIOD DRAMA</span><span><i>·</i>HORROR</span><span><i>·</i>SCI-FI</span><span><i>·</i>STOP-MOTION</span><span><i>·</i>ANIMATION</span><span><i>·</i>BEAUTY</span><span><i>·</i>LUXURY</span><span><i>·</i>FASHION</span><span><i>·</i>PRODUCT</span><span><i>·</i>BRAND FILM</span><span><i>·</i>GAME UA</span><span><i>·</i>CINEMATIC</span><span><i>·</i>PERIOD DRAMA</span><span><i>·</i>HORROR</span><span><i>·</i>SCI-FI</span><span><i>·</i>STOP-MOTION</span><span><i>·</i>ANIMATION</span><span><i>·</i>BEAUTY</span><span><i>·</i>LUXURY</span><span><i>·</i>FASHION</span><span><i>·</i>PRODUCT</span><span><i>·</i>BRAND FILM</span><span><i>·</i>GAME UA</span></div></div>
+
+<section id="diff"><div class="wrap">
+  <span class="eyebrow">이런 점이 다릅니다</span>
+  <h2>영상감독이 AI를 씁니다. AI가 영상을 만드는 게 아니라.</h2>
+  <div class="diff">
+    <div class="card"><span class="eyebrow">Direction</span><h3>12년의 컷 감각</h3><p>사극·공포·드론·광고·브랜드 필름을 찍어 온 감독이 컷표를 그립니다. 프롬프트가 아니라 연출이 먼저예요.</p></div>
+    <div class="card"><span class="eyebrow">Zero Shooting</span><h3>촬영비 0원</h3><p>모델·스튜디오·장소·장비 비용이 없어서 같은 예산으로 컷 수와 완성도를 더 가져갑니다.</p></div>
+    <div class="card"><span class="eyebrow">Proof</span><h3>공모전 출품작 3편</h3><p>궁중문화축전 「왕과 사는 나」, 한국마사회 「馬, 시대를 잇다」, 대전 AI-Kive 「다음획」 — 전부 AI로 만든 영상입니다.</p></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <span class="eyebrow">Portfolio · 10</span>
+  <h2>촬영 없이 만든 영상 10편</h2>
+  <p class="lead">공모전 출품작, 광고주 납품작, 자체 데모. 카드 아래 '이 정도 = 패키지'가 같은 수준의 영상을 받을 때 가격이에요.</p>
+  <div class="grid"><figure class="tile" data-no="01">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p01.jpg" data-src="../assets/gasp/p01.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">01 · 제품 광고</span>
+    <strong>아이허브 15초</strong>
+    <span class="tile-meta">아이허브 광고 공모 출품작</span>
+    <span class="tile-pkg">이 정도 = STANDARD 15만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="02">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p02.jpg" data-src="../assets/gasp/p02.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">02 · 시네마틱</span>
+    <strong>馬, 시대를 잇다</strong>
+    <span class="tile-meta">한국마사회 영상 공모전 출품작</span>
+    <span class="tile-pkg">이 정도 = PREMIUM 59만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="03">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p03.jpg" data-src="../assets/gasp/p03.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">03 · 사극</span>
+    <strong>왕과 사는 나</strong>
+    <span class="tile-meta">궁중문화축전 영상 공모전 출품작</span>
+    <span class="tile-pkg">이 정도 = PREMIUM 59만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="04">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p04.jpg" data-src="../assets/gasp/p04.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">04 · 브랜드 필름</span>
+    <strong>핸드밤 하나로 27초</strong>
+    <span class="tile-meta">자체 기획 데모 — 실제 제품 합성 (비공식)</span>
+    <span class="tile-pkg">이 정도 = PREMIUM 59만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="05">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p05.jpg" data-src="../assets/gasp/p05.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">05 · DTC 광고</span>
+    <strong>작심랩 콤부차</strong>
+    <span class="tile-meta">작심랩 납품작</span>
+    <span class="tile-pkg">이 정도 = DELUXE 29만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="06">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p06.jpg" data-src="../assets/gasp/p06.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">06 · 명품 캠페인</span>
+    <strong>명품 캠페인 3종</strong>
+    <span class="tile-meta">자체 제작 데모 — 촬영 0원</span>
+    <span class="tile-pkg">이 정도 = DELUXE 29만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="07">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p07.jpg" data-src="../assets/gasp/p07.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">07 · 소상공인 홍보</span>
+    <strong>자매작업실 제주공방</strong>
+    <span class="tile-meta">자매작업실 납품작 — 1호 고객</span>
+    <span class="tile-pkg">이 정도 = DELUXE 29만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="08">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p08.jpg" data-src="../assets/gasp/p08.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">08 · 브랜드 숏폼</span>
+    <strong>나다움 · 유쓰쇼츠</strong>
+    <span class="tile-meta">LG U+ 유쓰쇼츠 프로젝트</span>
+    <span class="tile-pkg">이 정도 = DELUXE 29만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="09">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p09.jpg" data-src="../assets/gasp/p09.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">09 · 게임 광고</span>
+    <strong>블라이트 워 · 게임 UA</strong>
+    <span class="tile-meta">히든몬스터 게임 UA 프로젝트</span>
+    <span class="tile-pkg">이 정도 = DELUXE 29만원~</span>
+  </figcaption>
+</figure><figure class="tile" data-no="10">
+  <div class="tile-media"><video preload="none" playsinline muted loop poster="../assets/gasp/p10.jpg" data-src="../assets/gasp/p10.mp4"></video><span class="tile-play" aria-hidden="true">▶</span></div>
+  <figcaption>
+    <span class="eyebrow">10 · 공포</span>
+    <strong>다음획 · 귀양풀이</strong>
+    <span class="tile-meta">대전 AI-Kive 영상제 출품작</span>
+    <span class="tile-pkg">이 정도 = PREMIUM 59만원~</span>
+  </figcaption>
+</figure></div>
+</div></section>
+
+<section id="who"><div class="wrap">
+  <span class="eyebrow">이런 분께 추천</span>
+  <h2>이런 상황이면 바로 맞아요</h2>
+  <div class="who">
+    <div class="card"><strong>제품은 있는데 영상이 없는 대표님</strong><p>스마트스토어·쿠팡 상세페이지, 인스타 광고에 붙일 15초가 필요할 때. 제품 사진만 주시면 됩니다.</p></div>
+    <div class="card"><strong>촬영 견적에 놀란 마케터</strong><p>모델·스튜디오·촬영팀 없이 30초 브랜드 광고를 만들고 싶을 때. 2종 비율로 드려요.</p></div>
+    <div class="card"><strong>브랜드 필름이 필요한 팀</strong><p>공모전·전시·런칭 행사용 60초 필름. 기획과 카피부터 같이 잡습니다.</p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <span class="eyebrow">상품 구성</span>
+  <h2>패키지 3종 · 런칭가</h2>
+  <p class="lead">첫 5팀까지 런칭가로 진행합니다. 부가세 별도, 계좌이체, 세금계산서 발행.</p>
+  <div class="pkgs"><article class="pkg">
+  
+  <span class="pkg-name">STANDARD</span>
+  <h3>제품 릴스 <small>15초 내외</small></h3>
+  <span class="pkg-tag">런칭가 · 첫 5팀</span>
+  <p class="pkg-price"><s>190,000원</s> <strong>150,000원</strong></p>
+  <ul><li><span>비율</span><b>9:16 세로 1종</b></li><li><span>컷 수</span><b>컷 4~6개</b></li><li><span>사운드</span><b>자막 + BGM</b></li><li><span>수정</span><b>수정 2회</b></li><li><span>납기</span><b>영업일 3일</b></li><li><span>해상도</span><b>1080p</b></li></ul>
+  <a class="btn btn-ghost" href="https://ig.me/m/gasp_ai">이 패키지로 견적 받기</a>
+</article><article class="pkg" data-hot="true">
+  <span class="pkg-badge">가장 많이 찾는</span>
+  <span class="pkg-name">DELUXE</span>
+  <h3>브랜드 광고 <small>30초 내외</small></h3>
+  <span class="pkg-tag">런칭가 · 첫 5팀</span>
+  <p class="pkg-price"><s>390,000원</s> <strong>290,000원</strong></p>
+  <ul><li><span>비율</span><b>9:16 + 1:1 (2종)</b></li><li><span>컷 수</span><b>컷 8~12개</b></li><li><span>사운드</span><b>자막 + BGM + 효과음</b></li><li><span>수정</span><b>수정 3회</b></li><li><span>납기</span><b>영업일 5일</b></li><li><span>해상도</span><b>4K</b></li><li><span>포함</span><b>컷표(스토리보드) 포함</b></li></ul>
+  <a class="btn btn-ghost" href="https://ig.me/m/gasp_ai">이 패키지로 견적 받기</a>
+</article><article class="pkg">
+  
+  <span class="pkg-name">PREMIUM</span>
+  <h3>브랜드 필름 <small>60초 내외</small></h3>
+  <span class="pkg-tag">런칭가 · 첫 5팀</span>
+  <p class="pkg-price"><s>790,000원</s> <strong>590,000원</strong></p>
+  <ul><li><span>비율</span><b>전 비율 (9:16·1:1·16:9)</b></li><li><span>컷 수</span><b>컷 15~20개</b></li><li><span>사운드</span><b>AI 나레이션 + 사운드 디자인</b></li><li><span>수정</span><b>수정 5회</b></li><li><span>납기</span><b>영업일 7~10일</b></li><li><span>해상도</span><b>4K</b></li><li><span>포함</span><b>기획·카피 + 15초 컷다운 1종</b></li></ul>
+  <a class="btn btn-ghost" href="https://ig.me/m/gasp_ai">이 패키지로 견적 받기</a>
+</article></div>
+  <p class="note">정가는 6번째 팀부터 적용됩니다. 실제 인물·립싱크·원본 프로젝트 파일은 별도 견적.</p>
+</div></section>
+
+<section id="compare"><div class="wrap">
+  <span class="eyebrow">한눈에 비교</span>
+  <h2>무엇이 포함되나요</h2>
+  <div class="scroll"><table><thead><tr><th></th><th>STANDARD<br><small>제품 릴스 15초 내외</small></th><th>DELUXE<br><small>브랜드 광고 30초 내외</small></th><th>PREMIUM<br><small>브랜드 필름 60초 내외</small></th></tr></thead><tbody><tr><th>비율</th><td>9:16 세로 1종</td><td>9:16 + 1:1 (2종)</td><td>전 비율 (9:16·1:1·16:9)</td></tr><tr><th>컷 수</th><td>컷 4~6개</td><td>컷 8~12개</td><td>컷 15~20개</td></tr><tr><th>사운드</th><td>자막 + BGM</td><td>자막 + BGM + 효과음</td><td>AI 나레이션 + 사운드 디자인</td></tr><tr><th>수정</th><td>수정 2회</td><td>수정 3회</td><td>수정 5회</td></tr><tr><th>납기</th><td>영업일 3일</td><td>영업일 5일</td><td>영업일 7~10일</td></tr><tr><th>해상도</th><td>1080p</td><td>4K</td><td>4K</td></tr><tr><th>포함</th><td>—</td><td>컷표(스토리보드) 포함</td><td>기획·카피 + 15초 컷다운 1종</td></tr><tr class='price'><th>런칭가</th><td><s>190,000</s><br><b>150,000원</b></td><td><s>390,000</s><br><b>290,000원</b></td><td><s>790,000</s><br><b>590,000원</b></td></tr></tbody></table></div>
+</div></section>
+
+<section id="options"><div class="wrap">
+  <span class="eyebrow">추가 옵션</span>
+  <h2>필요한 것만 더하세요</h2>
+  <div class="opts"><div><span>추가 수정 1회</span><b>30,000원</b></div><div><span>급행 48시간</span><b>패키지 금액의 +50%</b></div><div><span>추가 비율 1종</span><b>30,000원</b></div><div><span>브랜드 캐릭터 고정 (같은 인물로 시리즈)</span><b>50,000원</b></div><div><span>실제 제품·인물 합성, 립싱크</span><b>별도 견적</b></div><div><span>원본 프로젝트 파일</span><b>별도 견적</b></div></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <span class="eyebrow">작업 프로세스</span>
+  <h2>DM 한 마디에서 납품까지 8단계</h2>
+  <ol class="steps"><li><div><strong>DM에 "견적"</strong><span>한 마디면 시작</span></div></li><li><div><strong>질문 5개</strong><span>무엇을 · 누구에게 · 어디에 · 길이 · 기한</span></div></li><li><div><strong>30분 안에 견적</strong><span>비슷한 예시 영상과 함께</span></div></li><li><div><strong>컷표 확정</strong><span>레퍼런스 · 문구 · 제품 사진 취합</span></div></li><li><div><strong>선금 50%</strong><span>계좌이체 · 입금 확인 후 제작 시작</span></div></li><li><div><strong>제작</strong><span>패키지별 영업일 3 · 5 · 7~10일</span></div></li><li><div><strong>시사 · 수정</strong><span>패키지 수정 횟수 안에서</span></div></li><li><div><strong>납품 · 잔금 50%</strong><span>원본 파일 + 상업 사용 가능</span></div></li></ol>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <span class="eyebrow">수정 및 유의사항</span>
+  <h2>자주 묻는 것</h2>
+  <details open><summary>상업 광고에 써도 되나요?</summary><p>네. 납품본은 SNS 광고·홈페이지·매장 모니터 어디든 쓰실 수 있어요. 같은 프롬프트를 다른 분께 다시 쓰지 않습니다.</p></details><details><summary>우리 제품이 그대로 나오나요?</summary><p>제품 사진 5~10장을 주시면 영상 안에 합성합니다. 로고·패키지 정확도는 첫 시안에서 같이 확인해요.</p></details><details><summary>실제 사람이 나오나요?</summary><p>기본은 AI 인물이라 초상권 걱정이 없어요. 대표님이나 모델 출연은 실사 합성 옵션으로 진행합니다.</p></details><details><summary>납기는 언제부터 세나요?</summary><p>선금 입금과 컷표 확정, 둘 다 끝난 다음 영업일부터 셉니다.</p></details>
+  <details><summary>수정은 어디까지 되나요?</summary><p>패키지 수정 횟수 안에서 자막·컷 순서·BGM·색감 교체가 가능해요. 컷표 확정 후 기획 자체가 바뀌면 새 작업으로 봅니다. 추가 수정은 1회 3만원.</p></details>
+  <details><summary>결과물은 어떤 파일로 오나요?</summary><p>MP4(H.264) 1080p 또는 4K, 패키지에 맞는 비율별 파일. 자막 없는 클린본도 같이 드려요.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <span class="eyebrow">Contact</span>
+  <h2>견적은 DM에</h2>
+  <div class="kw">"견적"</div>
+  <p>한 마디면 됩니다. 30분 안에 견적과 비슷한 예시 영상을 보내드려요.<br>제품 사진이나 참고 링크가 있으면 같이 주세요.</p>
+  <a class="btn btn-gold" href="https://ig.me/m/gasp_ai">@gasp_ai DM 열기</a>
+</div></section>
+
+<footer><div class="wrap">
+  <span>GASP STUDIO · 서형민 · 12년차 영상감독 · Jeju, Korea</span>
+  <span>Higgsfield Academy 수료 · Video Roastery</span>
+</div></footer>
+
+<div class="bar"><div class="wrap"><small><b>촬영 없이, 15초는 15만원부터</b>런칭가 · 첫 5팀</small><a class="btn btn-gold" href="https://ig.me/m/gasp_ai">DM으로 견적 받기</a></div></div>
+
+<script>
+(function(){
+  var tiles=document.querySelectorAll('.tile');
+  tiles.forEach(function(t){
+    var v=t.querySelector('video'); if(!v) return;
+    t.querySelector('.tile-media').addEventListener('click',function(){
+      if(!v.src) v.src=v.dataset.src;
+      if(v.paused){ tiles.forEach(function(o){var ov=o.querySelector('video'); if(ov&&ov!==v){ov.pause();o.classList.remove('playing');}}); v.play(); t.classList.add('playing'); }
+      else { v.pause(); t.classList.remove('playing'); }
+    });
+    v.addEventListener('ended',function(){t.classList.remove('playing');});
+  });
+})();
+</script>
+</body>
+</html>
