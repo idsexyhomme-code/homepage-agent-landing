@@ -3019,8 +3019,15 @@ p { text-wrap: pretty; }
 
 /* 상세 포폴: 대표작 피처 타일(홈 featured-wall과 동일 위계) */
 @media (min-width: 640px) { .detail-wall .portfolio-item.is-large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; } }
-/* 광고 착지(/ai-video): 세로 커버(9:16)가 대표 타일이면 2행 높이를 넘겨 옆 칸이 비므로 4:3으로 고정 — 그리드 정렬 유지 */
-@media (min-width: 640px) { .ad-wall .portfolio-item.is-large { aspect-ratio: 4 / 3; } }
+/* 대표 타일 높이는 '그리드 2행'이 정한다 — 커버를 절대배치로 셀에 꽉 채워 이미지 비율이 행 높이를 밀지 못하게.
+   (세로 9:16 커버가 대표 타일이면 셀이 1392px까지 늘어나 같은 행의 4:3 칸들 아래가 통째로 비던 문제.
+    /ai-shortform·/content 실측: 행 690px → 289px, 월 높이 2295 → 1494. 커버 비율이 뭐든 정렬 유지.) */
+@media (min-width: 640px) {
+  .detail-wall .portfolio-item.is-large > picture,
+  .detail-wall .portfolio-item.is-large > picture > img,
+  .detail-wall .portfolio-item.is-large > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .detail-wall .portfolio-item.is-large img { object-position: center 25%; }
+}
 
 /* 모바일 터치 타깃 최소 44px — 주요 텍스트 링크 (Codex 모바일 리뷰 반영) */
 @media (max-width: 640px) {
