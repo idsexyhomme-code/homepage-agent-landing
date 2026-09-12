@@ -3023,9 +3023,16 @@ p { text-wrap: pretty; }
    (세로 9:16 커버가 대표 타일이면 셀이 1392px까지 늘어나 같은 행의 4:3 칸들 아래가 통째로 비던 문제.
     /ai-shortform·/content 실측: 행 690px → 289px, 월 높이 2295 → 1494. 커버 비율이 뭐든 정렬 유지.) */
 @media (min-width: 640px) {
+  /* 행 높이를 전부 동일하게(1fr) — 큰 타일만 있는 행이 min-height까지 주그러드는 것 방지 */
+  .detail-wall { grid-auto-rows: 1fr; }
+  /* is-wide(2칸 폭)는 4:3이면 한 행의 두 배 높이 → 1행만 차지하면 옆의 1칸 타일 아래가 빈다. 2행을 차지하게. */
+  .detail-wall .portfolio-item.is-wide { grid-row: span 2; aspect-ratio: auto; }
   .detail-wall .portfolio-item.is-large > picture,
   .detail-wall .portfolio-item.is-large > picture > img,
-  .detail-wall .portfolio-item.is-large > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .detail-wall .portfolio-item.is-large > img,
+  .detail-wall .portfolio-item.is-wide > picture,
+  .detail-wall .portfolio-item.is-wide > picture > img,
+  .detail-wall .portfolio-item.is-wide > img { position: absolute; inset: 0; width: 100%; height: 100%; }
   .detail-wall .portfolio-item.is-large img { object-position: center 25%; }
 }
 
