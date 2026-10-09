@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1분제주 | 제주 소식·여행 정보 · 광고 문의</title>
+<meta name="description" content="제주 사는 사람이 매일 1분으로 정리하는 제주 소식. 버스·한라산·오일장·축제 저장글 모음, 광고·협업 문의, 현장 제보.">
+<link rel="canonical" href="https://videoroastery.com/jeju/">
+<meta property="og:title" content="1분제주 — 제주 소식, 1분이면 끝">
+<meta property="og:description" content="저장해두면 좋은 제주 글 모음 · 광고/협업 문의 · 현장 제보">
+<meta property="og:image" content="https://videoroastery.com/assets/jeju/profile.webp">
+<meta property="og:url" content="https://videoroastery.com/jeju/">
+<meta name="theme-color" content="#123022">
+<link rel="icon" href="../assets/jeju/profile.webp">
+<style>
+@font-face{font-family:'Pretendard';src:url('../assets/fonts/PretendardVariable.subset.woff2') format('woff2');font-weight:100 900;font-display:swap}
+:root{--green:#123022;--green2:#1b4331;--cream:#f4efe6;--paper:#fffdf8;--ink:#2b2620;--mute:#8a7f6e;--tang:#f08a24;--tang-d:#d9721a;--line:rgba(52,46,38,.12);
+--sans:'Pretendard',-apple-system,'Apple SD Gothic Neo',sans-serif}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--green);font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.page{max-width:480px;margin:0 auto;min-height:100vh;background:var(--cream);padding:0 0 40px}
+/* 헤더 */
+.head{background:linear-gradient(180deg,var(--green) 0%,var(--green2) 100%);color:var(--cream);text-align:center;padding:40px 22px 30px;border-radius:0 0 28px 28px}
+.avatar{width:92px;height:92px;border-radius:50%;border:3px solid var(--tang);display:block;margin:0 auto 14px;object-fit:cover;background:#fff}
+.head h1{font-size:24px;font-weight:800;margin:0;letter-spacing:-.02em}
+.head .handle{font-size:13px;opacity:.7;margin:4px 0 12px}
+.head p{font-size:15px;line-height:1.6;margin:0;opacity:.92}
+.stats{display:flex;justify-content:center;gap:22px;margin-top:16px;font-size:12px;opacity:.85}
+.stats b{display:block;font-size:17px;color:#ffd7ad}
+/* 버튼 */
+.links{padding:22px 18px 6px;display:grid;gap:11px}
+.btn{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px 16px;font-size:15.5px;font-weight:600;box-shadow:0 2px 0 rgba(52,46,38,.06);transition:transform .12s}
+.btn:active{transform:scale(.98)}
+.btn .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;flex:none;background:var(--cream)}
+.btn small{display:block;font-size:12.5px;font-weight:400;color:var(--mute);margin-top:2px}
+.btn.primary{background:var(--tang);border-color:var(--tang-d);color:#fff}
+.btn.primary .ic{background:rgba(255,255,255,.22)}
+.btn.primary small{color:rgba(255,255,255,.85)}
+.btn.kakao .ic{background:#fee500}
+/* 섹션 */
+section{padding:28px 18px 0}
+h2{font-size:18px;font-weight:800;margin:0 0 4px;letter-spacing:-.02em}
+.sub{font-size:13.5px;color:var(--mute);margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:#ddd}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+.card span{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;font-size:13px;font-weight:700;color:#fff;line-height:1.35;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+/* 광고 */
+.ad{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px 18px;margin-top:4px}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 18px;text-align:center}
+.nums div{background:var(--cream);border-radius:12px;padding:12px 4px}
+.nums b{display:block;font-size:19px;color:var(--green)}
+.nums small{font-size:11.5px;color:var(--mute)}
+.menu{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.menu li{font-size:14px;line-height:1.5;padding:11px 13px;border-radius:12px;background:var(--cream)}
+.menu b{color:var(--green)}
+form{display:grid;gap:10px}
+label{font-size:13px;font-weight:600;display:grid;gap:5px}
+input,select,textarea{font:inherit;font-size:15px;padding:12px;border-radius:11px;border:1px solid var(--line);background:#fff;color:var(--ink);width:100%}
+textarea{min-height:96px;resize:vertical}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+button{font:inherit;font-size:16px;font-weight:700;padding:15px;border:0;border-radius:14px;background:var(--green);color:var(--cream);cursor:pointer}
+button:disabled{opacity:.6}
+.note{font-size:12px;color:var(--mute);margin:2px 0 0;line-height:1.5}
+.done{text-align:center;padding:26px 8px;font-size:15px;line-height:1.6}
+.done b{display:block;font-size:19px;color:var(--green);margin-bottom:6px}
+footer{text-align:center;font-size:12px;color:var(--mute);padding:34px 18px 0;line-height:1.7}
+footer a{text-decoration:underline}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="head">
+    <img class="avatar" src="../assets/jeju/profile.webp" alt="1분제주">
+    <h1>1분제주</h1>
+    <div class="handle">@1minute_jeju</div>
+    <p>🍊 제주 사는 사람이 매일 1분으로 정리하는 제주 소식<br>버스 · 한라산 · 오일장 · 축제 · 바다</p>
+    <div class="stats"><div><b>900+</b>팔로워</div><div><b>2,270</b>한 게시물 최고 도달</div><div><b>매일</b>업로드</div></div>
+  </header>
+
+  <nav class="links">
+    <a class="btn primary" href="#ad"><span class="ic">📩</span><span>광고 · 협업 문의<small>매장·행사·브랜드 소개 게시물</small></span></a>
+    <a class="btn kakao" href="https://open.kakao.com/o/sqp6y8Bi" target="_blank" rel="noopener"><span class="ic">💬</span><span>카톡으로 바로 문의<small>오픈채팅 · 평일 하루 안에 답장</small></span></a>
+    <a class="btn" href="https://ig.me/m/1minute_jeju" target="_blank" rel="noopener"><span class="ic">📢</span><span>제주 현장 제보하기<small>도로·날씨·행사·새로 연 가게, DM으로</small></span></a>
+    <a class="btn" href="https://ig.me/m/1minute_jeju" target="_blank" rel="noopener"><span class="ic">📸</span><span>내 제주 여행 사진 보내기<small>골라서 1분제주에 소개해 드려요</small></span></a>
+    <a class="btn" href="https://www.instagram.com/1minute_jeju/" target="_blank" rel="noopener"><span class="ic">🍊</span><span>인스타 1분제주 보러 가기</span></a>
+  </nav>
+
+  <section>
+    <h2>저장해두면 쓸 데 있는 글</h2>
+    <p class="sub">제주 오기 전에 한 번씩 보고 오세요</p>
+    <div class="grid">
+      <a class="card" href="https://www.instagram.com/p/DcyTlR4AcM2/" target="_blank" rel="noopener"><img src="../assets/jeju/bus.webp" alt=""><span>렌터카 없이 제주, 버스로 다 다니는 법</span></a>
+      <a class="card" href="https://www.instagram.com/p/Dd6SCT4k93p/" target="_blank" rel="noopener"><img src="../assets/jeju/october.webp" alt=""><span>10월 제주 주말 행사 달력</span></a>
+      <a class="card" href="https://www.instagram.com/p/Dc3cehVAdVe/" target="_blank" rel="noopener"><img src="../assets/jeju/halla.webp" alt=""><span>한라산 성판악, 이 표 하나면 끝</span></a>
+      <a class="card" href="https://www.instagram.com/p/DdNkyc9Hcmd/" target="_blank" rel="noopener"><img src="../assets/jeju/oiljang.webp" alt=""><span>제주 오일장 9곳 날짜 끝자리</span></a>
+      <a class="card" href="https://www.instagram.com/reel/Dczy8dCEniF/" target="_blank" rel="noopener"><img src="../assets/jeju/udo.webp" alt=""><span>우도, 렌터카 갖고 가면 안 되는 이유</span></a>
+      <a class="card" href="https://www.instagram.com/p/Dc3NKKiAVcO/" target="_blank" rel="noopener"><img src="../assets/jeju/tamna.webp" alt=""><span>제주에서 쓴 돈 10만원 돌려받기</span></a>
+    </div>
+  </section>
+
+  <section id="ad">
+    <div class="ad">
+      <h2>📩 광고 · 협업 문의</h2>
+      <p class="sub" style="margin:0">제주 여행 오는 사람들이 저장해 가는 계정이에요.<br>가게 사진만 있어도 게시물 한 편 만들어 드려요.</p>
+      <div class="nums">
+        <div><b>2,270</b><small>최고 도달<br>(팔로워의 2.6배)</small></div>
+        <div><b>31</b><small>게시물 1편<br>저장 수</small></div>
+        <div><b>매일</b><small>제주 소식<br>업로드</small></div>
+      </div>
+      <ul class="menu">
+        <li><b>피드 소개글</b> — 사진 넘겨보는 카드형 게시물 1편. 메뉴·가격·위치까지 정리</li>
+        <li><b>릴스</b> — 직접 찍거나 보내주신 영상으로 15~30초 편집</li>
+        <li><b>스토리 · 하이라이트</b> — 행사·오픈 소식 짧게 알리기</li>
+        <li><b>촬영 포함 패키지</b> — 영상팀(비디오 로스터리)이 직접 가서 촬영</li>
+      </ul>
+      <form id="adForm" novalidate>
+        <label>가게·브랜드 이름 *<input name="brand" required placeholder="예) 함덕 ○○카페"></label>
+        <div class="row">
+          <label>업종<select name="category"><option>카페·디저트</option><option>식당</option><option>숙소</option><option>체험·액티비티</option><option>행사·축제</option><option>쇼핑·상품</option><option>기타</option></select></label>
+          <label>원하는 상품<select name="product"><option>피드 소개글</option><option>릴스</option><option>스토리</option><option>촬영 포함 패키지</option><option>아직 모르겠어요</option></select></label>
+        </div>
+        <label>연락처 (전화 또는 이메일) *<input name="contact" required placeholder="010-0000-0000 / name@mail.com"></label>
+        <label>희망 시기<input name="when" placeholder="예) 10월 셋째 주, 오픈일 맞춰서"></label>
+        <label>하고 싶은 이야기<textarea name="message" placeholder="가게 위치, 알리고 싶은 메뉴·이벤트, 인스타 계정 등"></textarea></label>
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <button type="submit" id="adSubmit">문의 보내기</button>
+        <p class="note">보내주시면 하루 안에 단가와 일정 담아서 연락드려요. 급하면 위 카톡 버튼이 더 빨라요.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    1분제주 · 운영 <a href="https://videoroastery.com/" target="_blank" rel="noopener">비디오 로스터리</a><br>
+    제주 매장 영상·홈페이지 제작도 합니다
+  </footer>
+</main>
+<script>
+// 홈페이지 문의폼과 같은 Web3Forms 키 사용(공개용 키). 실패하면 메일 앱으로 폴백.
+const FORM_KEY = "7996b1d4-cae4-4184-af39-b9022fb22f3a";
+const FALLBACK_MAIL = "kiwee1223@gmail.com";
+const form = document.getElementById("adForm");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = form.elements;
+  if (!f.brand.value.trim() || !f.contact.value.trim()) {
+    (f.brand.value.trim() ? f.contact : f.brand).focus();
+    return;
+  }
+  const subject = `[1분제주 광고문의] ${f.brand.value.trim()} · ${f.product.value}`;
+  const body = [
+    `가게·브랜드: ${f.brand.value.trim()}`,
+    `업종: ${f.category.value}`,
+    `원하는 상품: ${f.product.value}`,
+    `연락처: ${f.contact.value.trim()}`,
+    `희망 시기: ${f.when.value.trim() || "-"}`,
+    "",
+    f.message.value.trim() || "(내용 없음)",
+    "",
+    "유입: videoroastery.com/jeju/"
+  ].join("\n");
+  const btn = document.getElementById("adSubmit");
+  btn.disabled = true; btn.textContent = "보내는 중…";
+  const contact = f.contact.value.trim();
+  let ok = false;
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: FORM_KEY, subject, from_name: f.brand.value.trim(),
+        replyto: /@/.test(contact) ? contact : undefined,
+        message: body, botcheck: f.botcheck.checked ? "1" : ""
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    ok = res.ok && data.success;
+  } catch (err) { ok = false; }
+  if (ok) {
+    form.outerHTML = '<div class="done"><b>문의 잘 받았어요 🍊</b>하루 안에 남겨주신 연락처로 답장드릴게요.</div>';
+  } else {
+    btn.disabled = false; btn.textContent = "문의 보내기";
+    location.href = `mailto:${FALLBACK_MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+});
+</script>
+</body>
+</html>
