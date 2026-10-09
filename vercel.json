@@ -35,6 +35,39 @@
   ],
   "redirects": [
     {
+      "source": "/jeju",
+      "has": [
+        {
+          "type": "host",
+          "value": "videoroastery.com"
+        }
+      ],
+      "destination": "https://jeju.videoroastery.com/",
+      "permanent": true
+    },
+    {
+      "source": "/jeju/",
+      "has": [
+        {
+          "type": "host",
+          "value": "videoroastery.com"
+        }
+      ],
+      "destination": "https://jeju.videoroastery.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path((?!assets/|jeju/).+)",
+      "has": [
+        {
+          "type": "host",
+          "value": "jeju.videoroastery.com"
+        }
+      ],
+      "destination": "https://jeju.videoroastery.com/",
+      "permanent": false
+    },
+    {
       "source": "/wedding",
       "destination": "/",
       "permanent": true
@@ -73,6 +106,18 @@
       "source": "/zh-hant/wedding/",
       "destination": "/",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "jeju.videoroastery.com"
+        }
+      ],
+      "destination": "/jeju/index.html"
     }
   ]
 }
