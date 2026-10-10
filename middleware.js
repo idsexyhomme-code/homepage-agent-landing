@@ -5,6 +5,6 @@ export const config = { matcher: "/" };
 export default function middleware(request) {
   const url = new URL(request.url);
   if (url.hostname !== "jeju.videoroastery.com") return;
-  url.pathname = "/jeju/index.html";
+  url.pathname = "/jeju/";
   return new Response(null, { headers: { "x-middleware-rewrite": url.toString() } });
 }
