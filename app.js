@@ -326,6 +326,8 @@ const portfolioWallItems = [
   ["portfolio_covers/ad_barojuyu.jpg", "ai", "AD", "GS칼텍스 바로주유 AI 광고 — 자체 기획", "ai-shortform", "wide"],
   // WEB → homepage 서비스 페이지
   // 2026-09 추가 — 라이브 운영 중인 자체·의뢰 서비스
+  // 2026-10 자연인 글램핑 예약 홈페이지(의뢰, 라이브) — 계약상 포트폴리오 활용 가능
+  ["portfolio_covers/site_jayeonin.jpg", "web", "WEB", "자연인 글램핑 — 예약 홈페이지 (제주시)", "homepage", "wide"],
   ["portfolio_covers/site_vrsub.jpg", "web", "WEB", "VR 영상 구독 — 월정액 브랜드 영상팀", "homepage", "wide"],
   ["portfolio_covers/site_workradar_ko.jpg", "web", "WEB", "WorkRadar — 직업별 AI 리스크 진단", "homepage", "wide"],
   ["portfolio_covers/site_workradar_en.jpg", "web", "WEB", "WorkRadar EN — 영문판", "homepage", "wide"],
@@ -529,7 +531,7 @@ function asset(name) {
   return `${basePath}/assets/${name}`;
 }
 
-const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/site_vrsub.jpg":[1280,800],"portfolio_covers/site_workradar_ko.jpg":[1280,800],"portfolio_covers/site_workradar_en.jpg":[1280,800],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136],"portfolio_covers/ad_kombucha.jpg":[1080,1920],"portfolio_covers/ad_beauty_ugc.jpg":[720,1280],"portfolio_covers/ad_barojuyu.jpg":[720,1280],"portfolio_covers/jeju_jayeonin.jpg":[1200,900],"portfolio_covers/jeju_1min.jpg":[1200,900],"portfolio_covers/gaebyeok_shorts.jpg":[720,1280]};
+const imgMeta = {"card_wedding.jpg":[1080,1080],"portfolio_video_esg_brand.jpg":[1200,750],"og_main.jpg":[1200,630],"portfolio_drone_wedding_wide.jpg":[960,540],"portfolio_drone_coast_cliff.jpg":[1100,619],"portfolio_wedding_beach_privacy.jpg":[960,540],"portfolio_automation_examples.jpg":[1200,750],"portfolio_drone_farm_terrace.jpg":[1280,720],"portfolio_content_reels_page.jpg":[540,960],"portfolio_automation_task_flow.jpg":[1200,750],"profile_symbol.png":[428,428],"portfolio_video_corporate_main.jpg":[1200,750],"card_ai_shortform_photo.jpg":[1200,1200],"portfolio_drone_coast_field.jpg":[1100,619],"portfolio_wedding_bouquet_lens.jpg":[1200,750],"muscle_booster.png":[1710,875],"portfolio_drone_grid_supplement.jpg":[960,540],"portfolio_automation_homepage_flow.jpg":[1200,750],"portfolio_drone_night_exterior_clean.jpg":[1200,750],"apple-touch-icon.png":[180,180],"videoroastery.png":[1710,875],"card_inquiry_agent_photo.jpg":[1200,1200],"danggeun_ad_homepage_ai_1080.jpg":[1080,1080],"portfolio_drone_topdown_garden.jpg":[960,540],"portfolio_drone_coastal_overview_clean.jpg":[960,600],"portfolio_content_request_form.jpg":[1200,750],"card_homepage.jpg":[1080,1080],"card_rememory.jpg":[1080,1080],"portfolio_covers/ai_nadaum_case.webp":[720,470],"rememory_before.jpg":[780,1045],"rememory_after.jpg":[780,1045],"rememory_scene.jpg":[1600,1073],"og_brand_film.jpg":[1200,630],"portfolio_drone_coastal_overview.jpg":[1200,750],"logo.png":[512,512],"ai_service_landing.png":[1710,875],"route_plan_system.jpg":[1280,1024],"portfolio_wedding_studio_mood.jpg":[1280,720],"og_content.jpg":[1200,630],"portfolio_web_product_drop.png":[1710,875],"portfolio_web_shortform_a.png":[1710,875],"vr_canada.png":[1710,875],"portfolio_drone_farm_field.jpg":[960,540],"vibecoding_1.png":[1710,875],"portfolio_wedding_detail_sixcut.jpg":[960,540],"portfolio_automation_scope.jpg":[1200,750],"portfolio_web_shortform_b.png":[1710,875],"og_inquiry_agent.jpg":[1200,630],"card_consulting_photo.jpg":[1200,1200],"pawshare_landing.png":[1710,875],"vibecoding_2.png":[1710,875],"portfolio_drone_village_overview.jpg":[1100,619],"portfolio_drone_museum_exterior.jpg":[1200,750],"favicon.png":[64,64],"route_plan_mockups.jpg":[1280,1280],"og_drone.jpg":[1200,630],"og_ai_shortform.jpg":[1200,630],"og_homepage.jpg":[1200,630],"og_consulting.jpg":[1200,630],"portfolio_drone_facility_route_clean.jpg":[1200,470],"card_brand_film_photo.jpg":[1200,1200],"vibecoding_3.png":[1710,875],"portfolio_video_industrial_brand.jpg":[1200,750],"portfolio_content_product.jpg":[1200,750],"portfolio_drone_facility_route.jpg":[960,540],"portfolio_video_product_style.jpg":[1280,720],"symbol.png":[256,256],"portfolio_content_context.jpg":[1200,750],"portfolio_drone_resort_facility.jpg":[1200,750],"portfolio_video_shortform_main.jpg":[720,1280],"portfolio_content_ai_video.jpg":[1200,750],"portfolio_automation_portfolio.jpg":[1200,750],"portfolio_wedding_ring_detail.jpg":[1200,750],"portfolio_web_video_dark_v2.png":[1280,720],"og_wedding.jpg":[1200,630],"portfolio_web_ai_ops.png":[1710,875],"route_plan_actual.jpg":[1280,1252],"portfolio_automation_main.jpg":[1200,750],"portfolio_content_review.jpg":[1200,750],"route_plan_mobile.jpg":[789,1280],"portfolio_drone_night_exterior.jpg":[1200,750],"portfolio_web_beamish.png":[1710,875],"portfolio_web_regional_brand.png":[1710,875],"card_drone.jpg":[1080,1080],"portfolio_wedding_flower_detail.jpg":[1200,750],"portfolio_covers/drone_06.jpg":[1100,619],"portfolio_covers/beauty.jpg":[1280,720],"portfolio_covers/ai_kombucha.jpg":[640,1138],"portfolio_covers/automation_01.jpg":[1200,900],"portfolio_covers/content_05.jpg":[1280,720],"portfolio_covers/corp_03.jpg":[1280,720],"portfolio_covers/web_02.jpg":[1200,900],"portfolio_covers/video_04.jpg":[405,720],"portfolio_covers/wedding_06.jpg":[1200,900],"portfolio_covers/web_03.jpg":[1200,900],"portfolio_covers/video_05.jpg":[540,960],"portfolio_covers/ai_saemangeum.jpg":[640,1138],"portfolio_covers/corp_02.jpg":[1280,720],"portfolio_covers/content_04.jpg":[720,1280],"portfolio_covers/corp_09.jpg":[1280,720],"portfolio_covers/content_03.jpg":[1280,720],"portfolio_covers/corp_05.jpg":[1280,720],"portfolio_covers/site_sanjiro.jpg":[1280,720],"portfolio_covers/ai_lemondiet.jpg":[640,1138],"portfolio_covers/web_04.jpg":[1200,900],"portfolio_covers/web_05.jpg":[1200,900],"portfolio_covers/ai_01.jpg":[1280,720],"portfolio_covers/corp_04.jpg":[1280,720],"portfolio_covers/automation_06.jpg":[1200,900],"portfolio_covers/content_02.jpg":[1280,720],"portfolio_covers/drone_01.jpg":[960,540],"portfolio_covers/wedding_01.jpg":[1280,720],"portfolio_covers/corp_08.jpg":[1280,720],"portfolio_covers/wedding_indoor.jpg":[1280,720],"portfolio_covers/wedding_02.jpg":[1200,900],"portfolio_covers/web_06.jpg":[1200,900],"portfolio_covers/corp_07.jpg":[1280,720],"portfolio_covers/content_01.jpg":[720,1280],"portfolio_covers/automation_05.jpg":[1200,900],"portfolio_covers/drone_02.jpg":[1100,619],"portfolio_covers/automation_04.jpg":[1200,900],"portfolio_covers/ai_esg_wind.jpg":[640,1138],"portfolio_covers/corp_06.jpg":[1280,720],"portfolio_covers/site_artist.jpg":[1280,720],"portfolio_covers/video_01.jpg":[1280,720],"portfolio_covers/ai_03.jpg":[1280,720],"portfolio_covers/wedding_03.jpg":[1200,900],"portfolio_covers/video_06.jpg":[960,540],"portfolio_covers/wedding_jeju_snap.jpg":[1280,720],"portfolio_covers/corp_01.jpg":[1280,720],"portfolio_covers/automation_03.jpg":[1200,900],"portfolio_covers/ai_game_ua.jpg":[405,720],"portfolio_covers/drone_04.jpg":[960,540],"portfolio_covers/wedding_04.jpg":[1200,900],"portfolio_covers/ai_superwater.jpg":[640,1138],"portfolio_covers/ai_nadaum.jpg":[640,1138],"portfolio_covers/ai_esg_future.jpg":[640,1138],"portfolio_covers/wedding_05.jpg":[1200,900],"portfolio_covers/drone_05.jpg":[1100,619],"portfolio_covers/content_06.jpg":[1200,900],"portfolio_covers/site_muscle.jpg":[1280,720],"portfolio_covers/site_vrsub.jpg":[1280,800],"portfolio_covers/site_workradar_ko.jpg":[1280,800],"portfolio_covers/site_workradar_en.jpg":[1280,800],"portfolio_covers/automation_02.jpg":[1200,900],"portfolio_covers/ai_05.jpg":[1280,720],"portfolio_covers/web_01.jpg":[1280,675],"logos/lg_uplus.png":[500,138],"logos/lions.png":[500,467],"logos/make_a_wish.png":[500,136],"portfolio_covers/ad_kombucha.jpg":[1080,1920],"portfolio_covers/ad_beauty_ugc.jpg":[720,1280],"portfolio_covers/ad_barojuyu.jpg":[720,1280],"portfolio_covers/jeju_jayeonin.jpg":[1200,900],"portfolio_covers/jeju_1min.jpg":[1200,900],"portfolio_covers/gaebyeok_shorts.jpg":[720,1280],"portfolio_covers/site_jayeonin.jpg":[1280,800]};
 // 섹션 헤더의 항목 수 표기 — 목록이 늘거나 줄면 표기도 따라간다(웨딩 제거 후 (06)이 남아 5개를 6개로 표기했던 자리).
 function secCount(listHtml) {
   var n = (String(listHtml).match(/class="en-svc[ "]/g) || []).length;
@@ -1019,6 +1021,40 @@ const enLandingPages = {
       ["Can you match our timezone for calls?", "We schedule calls to fit North American hours and keep the rest async over email and shared drives."]
     ]
   },
+  // 2026-10 — 밴쿠버 리얼터 월 릴스 편집(실고객 진행 중). 고객명·영상은 사전 동의 전이라 익명 표기만(계약 4항).
+  "en/real-estate-video-editing": {
+    kicker: "Real Estate Video Editing · Greater Vancouver",
+    h1: "Listing reels for Vancouver realtors — edited while you sleep",
+    lead: "Film the walkthrough on your phone and send the clips at the end of your day. We're 16 hours ahead in Korea, so the edit moves while you're off the clock — hook, specs on screen, captions, music and your own voiceover, ready to post. Brief us in English or Korean.",
+    title: "Real Estate Video Editing for Vancouver Realtors — Listing Reels | Video Roastery",
+    desc: "Remote real estate video editing for Greater Vancouver realtors — listing tour reels, neighbourhood guides and carousels. Send phone clips, get post-ready reels. English or Korean.",
+    portfolio: "content",
+    pick: ["portfolio_content_reels_page.jpg", "portfolio_covers/content_05.jpg", "portfolio_covers/content_03.jpg", "portfolio_covers/content_01.jpg", "portfolio_covers/content_02.jpg", "portfolio_covers/video_05.jpg", "portfolio_covers/ad_beauty_ugc.jpg"],
+    faqOnly: true,
+    windows: [
+      ["01", "Send clips, not a brief", "Phone walkthrough clips in any order plus the listing sheet — price, beds, square feet. We build the story from there."],
+      ["02", "16 hours ahead", "Send at the end of your day in Vancouver; we start on our morning. Most first cuts land within 48–72 business hours."],
+      ["03", "Ready to post", "Vertical 9:16 with a three-second hook, specs on screen, captions, music and your voiceover — for Instagram, TikTok and YouTube Shorts."]
+    ],
+    extra: `
+        <section class="en-services en-remote" aria-label="Monthly plan">
+          <div class="en-sec-head"><span>What a month looks like</span><span>(PLAN)</span></div>
+          <div class="en-remote-grid">
+            <div class="en-remote-card"><strong>4</strong><span>reels a month — listing tours and neighbourhood guides</span></div>
+            <div class="en-remote-card"><strong>2</strong><span>carousels for the feed — just listed, sold, market notes</span></div>
+            <div class="en-remote-card"><strong>2</strong><span>rounds of revisions on every piece, included</span></div>
+          </div>
+          <p class="en-remote-note">Now editing monthly for a Greater Vancouver REALTOR® — listing tours, neighbourhood guides and a Canada–Korea housing series.</p>
+        </section>`,
+    faq: [
+      ["What do I need to send?", "Your raw phone or camera clips (any order), the listing details, and a voiceover if you want one. Share them by Google Drive, Dropbox or WeTransfer."],
+      ["How fast is the first cut?", "Most reels take 48–72 business hours. Because we're 16 hours ahead of Vancouver, clips you send in the evening are being edited during your night."],
+      ["Can I brief you in Korean?", "Yes. We work in English and Korean — by email or KakaoTalk, whichever is easier for you."],
+      ["Is there a monthly plan?", "Yes. A monthly plan covers a set number of reels and carousels. Tell us how often you post and we'll reply with a quote."],
+      ["Are revisions included?", "Two rounds on every piece. We lock the hook and structure on the first cut so the second round is small."],
+      ["Do you film the property?", "We edit remotely, so filming is on your side — a phone is enough. Projects that need a crew in Korea are covered on our Korea production page."]
+    ]
+  },
   "en/korea-product-video": {
     kicker: "Product Video &amp; AI Short-form",
     h1: "Product videos &amp; AI short-form ads for e-commerce brands",
@@ -1067,75 +1103,6 @@ const i18nDetailContent = {
     windows: [["01", "First screen", "Brand name and scope, summed up in one line."], ["02", "See examples", "We show industry examples and portfolio first."], ["03", "Inquiry flow", "Form, email and required-materials guidance in one flow."]],
     faq: [["Can you handle edits & upkeep after launch?", "Yes. We keep helping with copy and image edits and light upkeep after launch. The scope of upkeep is agreed during the consult."]]
   } },
-  "en/korea-drone-filming": {
-    kicker: "Drone &amp; Aerial Filming in Korea",
-    h1: "Drone filming in Korea — travel, real estate &amp; brand projects",
-    lead: "Aerial footage that shows scale and place — Jeju coastline, resorts, facilities, city and countryside. Licensed drone work on the ground in Korea, delivered ready for ads, listings and brand films.",
-    title: "Korea Drone Filming — Aerial Video in Jeju & Korea | Video Roastery",
-    desc: "Licensed drone and aerial filming in Korea and Jeju — travel, real estate, resorts and brands. Hero aerials delivered for ads and web. Get a quote.",
-    portfolio: "drone",
-    windows: [
-      ["01", "Licensed &amp; safe", "We check flight zones and permits in advance and shoot within the rules."],
-      ["02", "Scale &amp; flow", "Hero wide shots plus explanatory aerials — approach, layout and surroundings."],
-      ["03", "Ready to use", "Recut for website, ads and social in vertical, square and wide."]
-    ],
-    faq: [
-      ["How do permits and flight zones work?", "We check permitted zones and clearances in advance and shoot within safety rules. Region and dates are reviewed together during the consult."],
-      ["Can you film outside Jeju?", "Yes — Jeju is our base, and we arrange aerial shoots elsewhere in Korea by schedule and region."]
-    ]
-  },
-  "en/jeju-tourism-video": {
-    kicker: "Jeju Tourism &amp; Hospitality Video",
-    h1: "Jeju tourism videos for hotels, tours &amp; destinations",
-    lead: "Make guests want to book before they arrive. We turn Jeju's coastline, stays and experiences — ocean views, rooms, activities — into videos that convert on booking sites, OTAs and social.",
-    title: "Jeju Tourism Video — Hotels, Tours & Destinations | Video Roastery",
-    desc: "Tourism & hospitality video in Jeju — hotels, resorts, tours and destinations. Drone and mood footage that drives bookings on OTAs and social. Get a quote.",
-    portfolio: "drone",
-    windows: [
-      ["01", "First-screen booking", "The first 3 seconds on an OTA or Instagram decide the booking. We build for that."],
-      ["02", "Scale by drone", "Ocean views, grounds and pools shown from the air — a different level from stills."],
-      ["03", "Ready before season", "One video before peak season lifts reach and conversion across channels."]
-    ],
-    faq: [
-      ["Do you work with hotels and tour operators?", "Yes — resorts, hotels, pensions, tours and activities. We tailor the cut for OTAs, your own site and social."],
-      ["Can you deliver without a shoot?", "Yes — we can build from your existing photos and footage; on-site filming and drone in Jeju are arranged by schedule."]
-    ]
-  },
-  "en/vancouver-korea-video-production": {
-    kicker: "Korea Video Production for Vancouver Brands",
-    h1: "Korea-based video production for Vancouver &amp; North American brands",
-    lead: "Need video shot in Korea, or a Korea-based team you can brief in English? We produce brand films, product and short-form for North American brands — filmed in Jeju and Korea, delivered online on your timezone.",
-    title: "Korea Video Production for Vancouver Brands | Video Roastery",
-    desc: "Korea-based video production for Vancouver and North American brands — brand films, product video, AI short-form. Briefed in English, delivered online.",
-    portfolio: "brand-film",
-    windows: [
-      ["01", "Briefed in English", "Send the goal and references in English; we reply with scope, timeline and a quote."],
-      ["02", "Filmed in Korea", "On-the-ground crew and drone in Jeju and Korea — footage you can't get from abroad."],
-      ["03", "Delivered online", "Files delivered over shared drives, cut for ads, web and social."]
-    ],
-    faq: [
-      ["I'm not in Korea — can we still work together?", "Yes. Most of the process is online — you brief us in English, we produce in Korea and deliver files. On-site filming is arranged by schedule."],
-      ["Can you match our timezone for calls?", "We schedule calls to fit North American hours and keep the rest async over email and shared drives."]
-    ]
-  },
-  "en/korea-product-video": {
-    kicker: "Product Video &amp; AI Short-form",
-    h1: "Product videos &amp; AI short-form ads for e-commerce brands",
-    lead: "Turn product photos into ads that stop the scroll. With just your product shots and a concept, we build Reels, Shorts and TikTok ads that catch the eye in the first 3 seconds — no shoot, no models.",
-    title: "Korea Product Video & AI Short-form Ads | Video Roastery",
-    desc: "Product video and AI short-form ads for e-commerce brands — Reels, Shorts and TikTok built from your product photos. No shoot needed. Get a quote.",
-    portfolio: "ai-shortform",
-    windows: [
-      ["01", "From your photos", "We start from your real product shots and packaging — no shoot required."],
-      ["02", "Tone &amp; hook", "Calm-premium, explanatory or fast-compare — built to hook in 3 seconds."],
-      ["03", "Every channel", "Length and framing split for Reels, Shorts, TikTok and product pages."]
-    ],
-    faq: [
-      ["Can you really work from photos only?", "Yes — product photos, existing footage or a concept are enough to build short-form ad material. If extra assets are needed we'll let you know."],
-      ["What about usage rights for music and assets?", "Delivered videos can be used for ads and social within the agreed scope; if music or stock has limits we confirm those before the contract."]
-    ]
-  }
-,
   "content": { en: {
     kicker: "Content", title: "Card news and Reels that lead to inquiries.",
     lead: "Copy, screen order, card news and Reels material — kept together so they work across ads and consults, not scattered.",
@@ -1150,11 +1117,11 @@ function enLandingPage(key) {
   const ui = i18nDetailUI.en;
   const estHref = routeHref("en/estimate");
   const koRoute = routeBySlug[c.portfolio];
-  const items = portfolioItemsForRoute(koRoute);
+  const items = c.pick ? c.pick.map((img) => portfolioWallItems.find((i) => i.image === img)).filter(Boolean) : portfolioItemsForRoute(koRoute);
   if (items[0]) items[0] = { ...items[0], size: "large" };
   const hasMedia = items.some((i) => portfolioLink(i));
   const windows = (c.windows || []).map(([n, t, b]) => `<div class="en-svc en-svc--static"><span class="en-svc-n">${n}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${b}</span></span></div>`).join("");
-  const faqAll = i18nCommonFaq.en.concat(c.faq || []);
+  const faqAll = (c.faqOnly ? [] : i18nCommonFaq.en).concat(c.faq || []);
   const faq = faqAll.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
   return `
     <a class="skip-link" href="#main">${ui.skip}</a>
@@ -1170,7 +1137,7 @@ function enLandingPage(key) {
           <p class="en-detail-lead">${c.lead}</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="${estHref}">Get a quote ↗</a>
-            <a class="en-detail-link" href="#work">${ui.seeWork}</a>
+            ${items.length ? `<a class="en-detail-link" href="#work">${ui.seeWork}</a>` : ""}
           </div>
         </section>
 
@@ -1178,11 +1145,11 @@ function enLandingPage(key) {
           <div class="en-sec-head"><span>${ui.comp}</span><span>(0${(c.windows || []).length})</span></div>
           <div class="en-svc-list">${windows}</div>
         </section>
-
-        <section class="en-services" id="work">
+${c.extra || ""}
+        ${items.length ? `<section class="en-services" id="work">
           <div class="en-sec-head"><span>${hasMedia ? ui.workOn : ui.workOff}</span><span>${hasMedia ? ui.play : ""}</span></div>
           ${portfolioWall(items, "detail-wall", !hasMedia)}
-        </section>
+        </section>` : ""}
 
         <section class="en-services" id="faq">
           <div class="en-sec-head"><span>${ui.faq}</span><span>FAQ</span></div>
@@ -1465,10 +1432,12 @@ function rememoryPage() {
 // 영문/해외(캐나다)용 페이지 — BASIC/DEPT 스타일(모노크롬·그로테스크·여백·영상 히어로). 스코프 CSS는 .en-*.
 function enPage() {
   const services = [
+    ["Real Estate Listing Reels", "For Vancouver realtors — phone clips in, post-ready reels out. Brief us in English or Korean.", "real-estate-video-editing"],
     ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them.", "brand-film"],
     ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed.", "ai-shortform"],
     ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert.", "homepage"],
-    ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch.", "content"]
+    ["Content & Automation", "Card news, reels and inquiry automation that keep working after launch.", "content"],
+    ["Filming in Korea for North American Brands", "Need footage from Korea? Brief us in English — we shoot here and deliver online.", "vancouver-korea-video-production"]
   ].map(([t, d, slug], i) => `<a class="en-svc" href="${routeHref("en/" + slug)}"><span class="en-svc-n">${String(i + 1).padStart(2, "0")}</span><span class="en-svc-b"><span class="en-svc-t">${t}</span><span class="en-svc-d">${d}</span></span><span class="en-svc-x" aria-hidden="true">↗</span></a>`).join("");
   const mail = `mailto:${consultEmail}?subject=${encodeURIComponent("Project inquiry — Video Roastery")}`;
   // 히어로 배경: 대표 작업물 썸네일이 빠르게 흐르는 영상월(BASIC식). webp 스틸이라 초경량·안정(raw video 다수는 모바일 프리징).
@@ -1478,7 +1447,7 @@ function enPage() {
     <div class="en-page">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="${routeHref("en/estimate")}">QUOTE</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="#remote">VANCOUVER</a><a href="${routeHref("en/estimate")}">QUOTE</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -1494,7 +1463,7 @@ function enPage() {
         <section class="en-statement">
           <div class="en-rule"></div>
           <div class="en-statement-grid">
-            <p class="en-statement-copy">Video Roastery builds brand films, drone &amp; aerial, AI short-form ads, and conversion-focused websites — on location across Korea and remote worldwide.</p>
+            <p class="en-statement-copy">Video Roastery is a video studio in Jeju, Korea. We edit short-form for North American businesses remotely, and shoot brand films, drone and websites on the ground in Korea.</p>
             <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
         </section>
@@ -1502,6 +1471,17 @@ function enPage() {
         <section class="en-services" id="services">
           <div class="en-sec-head"><span>Services</span><span>${secCount(services)}</span></div>
           <div class="en-svc-list">${services}</div>
+        </section>
+
+        <section class="en-services en-remote" id="remote" aria-label="Working with North America">
+          <div class="en-sec-head"><span>Working with Vancouver</span><span>(16 HRS AHEAD)</span></div>
+          <h2 class="en-remote-h">Your day ends. Our edit starts.</h2>
+          <ol class="en-remote-steps">
+            <li><span class="en-remote-t">4 PM · Vancouver</span><span class="en-remote-d">You send the clips and a few notes — English or Korean.</span></li>
+            <li><span class="en-remote-t">8 AM · Jeju, next day</span><span class="en-remote-d">We start the edit while you're off the clock.</span></li>
+            <li><span class="en-remote-t">48–72 business hours</span><span class="en-remote-d">First cut in your inbox. Two rounds of revisions included.</span></li>
+          </ol>
+          <p class="en-remote-note">Now editing monthly for a Greater Vancouver REALTOR® — listing tours, neighbourhood guides and a Canada–Korea housing series. <a href="${routeHref("en/real-estate-video-editing")}">Real estate reels ↗</a></p>
         </section>
 
         <section class="en-proof" aria-label="Track record">
@@ -2099,7 +2079,7 @@ function mainPage() {
   // BASIC/DEPT 한글 홈 — /en/ 디자인 시스템(.en-*) 그대로 + Pretendard(.basic-ko). 다크 마퀴 히어로 → 라이트 웜페이퍼 본문.
   const wall = heroWallHtml();
   const jejuCards = [
-    ["portfolio_covers/jeju_jayeonin.jpg", "글램핑 · 제주시 아라동", "추석·축구 중계 캠페인", "추석 연휴·축구 중계 행사를 알린 인스타 캐러셀·당근 소식·스토리, 3개월 관리 진행 중", routeHref("content"), ""],
+    ["portfolio_covers/site_jayeonin.jpg", "글램핑 · 제주시 아라동", "자연인 글램핑 예약 홈페이지", "예약 홈페이지를 새로 만들고, 릴스·카드뉴스·샤오홍슈 3개월 관리를 함께 진행합니다", "https://jayeonin-glamping.vercel.app/", ' target="_blank" rel="noopener"'],
     ["portfolio_covers/jeju_1min.jpg", "자체 운영 채널", "1분제주", "버스·한라산·오일장 저장글 47편. 제주 가게 소개와 광고 문의를 받습니다", "https://jeju.videoroastery.com/", ' target="_blank" rel="noopener"'],
     ["portfolio_video_corporate_main.jpg", "농식품 · 제주 감귤", "감귤 브랜드 영상", "감귤 브랜드의 계절과 제품 이야기를 한 편에 담은 영상", routeHref("brand-film"), ""]
   ].map(([img, k, t, d, href, ext]) => `<a class="en-jeju-card" href="${href}"${ext}>${pic(img, { alt: t })}<span class="en-jeju-k">${k}</span><strong>${t}</strong><span class="en-jeju-d">${d}</span></a>`).join("");
@@ -2120,7 +2100,7 @@ function mainPage() {
     <div class="en-page basic-ko">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="메뉴"><a href="#work" data-reel-open="ko" aria-haspopup="dialog">작업</a><a href="#services">서비스</a><a href="#jeju">제주</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+        <nav class="en-nav" aria-label="메뉴"><a href="#work" data-reel-open="ko" aria-haspopup="dialog">작업</a><a href="#services">서비스</a><a href="#jeju">제주</a><a href="#abroad">해외</a><a href="#contact">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -2135,7 +2115,7 @@ function mainPage() {
         <section class="en-statement">
           <div class="en-rule"></div>
           <div class="en-statement-grid">
-            <p class="en-statement-copy">브랜드필름, 드론·항공, AI 숏폼, 전환 중심 홈페이지를 만드는 영상·웹 스튜디오. 전국 어디든 촬영으로 찾아가고, 자료만 있으면 원격으로도 제작합니다.</p>
+            <p class="en-statement-copy">브랜드필름, 드론·항공, AI 숏폼, 전환 중심 홈페이지를 만드는 영상·웹 스튜디오. 전국 어디든 찾아가 촬영하고, 캐나다 밴쿠버 고객의 영상도 원격으로 편집합니다.</p>
             <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
         </section>
@@ -2159,6 +2139,17 @@ function mainPage() {
           </div>
           <div class="en-jeju-grid">${jejuCards}</div>
           <nav class="en-jeju-chips" aria-label="제주 업종별 안내">${jejuChips}</nav>
+        </section>
+
+        <section class="en-services en-remote" id="abroad" aria-label="해외 작업">
+          <div class="en-sec-head"><span>해외에서도</span><span>(VANCOUVER)</span></div>
+          <h2 class="en-remote-h">밴쿠버가 잠든 사이,<br>편집이 끝납니다.</h2>
+          <ol class="en-remote-steps">
+            <li><span class="en-remote-t">밴쿠버 오후 4시</span><span class="en-remote-d">고객이 하루 일을 마치고 촬영본을 보냅니다. 한국어·영어 모두 OK.</span></li>
+            <li><span class="en-remote-t">제주 다음 날 오전 8시</span><span class="en-remote-d">16시간 빠른 제주에서 바로 편집을 시작합니다.</span></li>
+            <li><span class="en-remote-t">영업일 48~72시간</span><span class="en-remote-d">1차본을 메일로 받습니다. 수정은 2회까지 포함.</span></li>
+          </ol>
+          <p class="en-remote-note">지금 캐나다 밴쿠버 현지 부동산 중개인(REALTOR®)의 매물 투어·동네 소개 릴스를 매달 편집하고 있습니다. <a href="${routeHref("en/real-estate-video-editing")}">영문 안내 페이지 ↗</a></p>
         </section>
 
         <section class="en-proof" aria-label="작업 성과">
@@ -2238,6 +2229,7 @@ const slugVideo = {
 // 24시간 동안 한 칸씩 정성껏 채워나가는 중 — 매칭 또는 30초 재편집 영상.
 const portfolioMedia = {
   "portfolio_covers/jeju_1min.jpg": "https://jeju.videoroastery.com/",
+  "portfolio_covers/site_jayeonin.jpg": "https://jayeonin-glamping.vercel.app/",
   "portfolio_covers/site_vrsub.jpg": "https://vr-video-subscription.vercel.app",
   "portfolio_covers/site_workradar_ko.jpg": "https://upsight-blue.vercel.app",
   "portfolio_covers/site_workradar_en.jpg": "https://en-blush.vercel.app",
@@ -2331,8 +2323,87 @@ function portfolioLink(item) {
   return null;
 }
 
+// 영문 페이지 타일 제목 — 영문 페이지에 한글 제목이 그대로 보이던 문제(2026-10) 수정. 없는 키는 slug 명칭 → 한글 순으로 폴백.
+const portfolioTitleI18n = {
+  en: {
+    "portfolio_covers/ad_barojuyu.jpg": "GS Caltex Baro Fuel — AI ad (self-initiated)",
+    "portfolio_covers/site_jayeonin.jpg": "Jayeonin Glamping — booking website (Jeju)",
+    "portfolio_covers/site_vrsub.jpg": "VR Video Subscription — a monthly brand video team",
+    "portfolio_covers/site_workradar_ko.jpg": "WorkRadar — AI risk check by job",
+    "portfolio_covers/site_workradar_en.jpg": "WorkRadar — English edition",
+    "portfolio_web_regional_brand.png": "Jeju local brand — 30-day launch",
+    "portfolio_content_reels_page.jpg": "Reels portfolio",
+    "portfolio_automation_examples.jpg": "Inquiry auto-sorting",
+    "portfolio_web_beamish.png": "Quality Elevator — AI ad analysis",
+    "portfolio_web_shortform_a.png": "Video Roastery — Vancouver landing page",
+    "portfolio_web_ai_ops.png": "Quality Elevator — AI assistant for small businesses",
+    "portfolio_covers/web_01.jpg": "PawShare — shelter volunteer app",
+    "portfolio_covers/web_03.jpg": "MIMI-GRAPHICS gallery film",
+    "pawshare_landing.png": "PawShare — donation landing page",
+    "portfolio_covers/site_artist.jpg": "SEO HYEONG — official artist site",
+    "portfolio_covers/site_sanjiro.jpg": "Sanjiro — order & shipping automation (iOS · Android)",
+    "portfolio_covers/site_muscle.jpg": "Muscle Booster — workout log app",
+    "portfolio_covers/ad_kombucha.jpg": "Kombucha product ad",
+    "portfolio_covers/ad_beauty_ugc.jpg": "Beauty UGC ad",
+    "portfolio_video_corporate_main.jpg": "Jeju tangerine brand film",
+    "portfolio_video_industrial_brand.jpg": "Tangerine health food film",
+    "portfolio_video_esg_brand.jpg": "ESG message film",
+    "portfolio_covers/ai_03.jpg": "AI product ad",
+    "portfolio_covers/ai_kombucha.jpg": "AI kombucha product reel",
+    "portfolio_covers/ai_nadaum.jpg": "AI brand campaign",
+    "portfolio_covers/ai_esg_wind.jpg": "AI ESG campaign",
+    "portfolio_covers/ai_game_ua.jpg": "AI game ad",
+    "portfolio_covers/ai_saemangeum.jpg": "AI renewable energy film",
+    "portfolio_covers/ai_esg_future.jpg": "AI ESG message film",
+    "portfolio_covers/ai_superwater.jpg": "AI wellness drink short",
+    "portfolio_covers/ai_lemondiet.jpg": "AI diet supplement short",
+    "portfolio_covers/video_04.jpg": "AI corporate promo",
+    "portfolio_covers/corp_01.jpg": "Public health campaign",
+    "portfolio_covers/corp_02.jpg": "IT service film",
+    "portfolio_covers/corp_03.jpg": "Non-profit event film",
+    "portfolio_covers/corp_04.jpg": "Public agency campaign",
+    "portfolio_covers/corp_05.jpg": "Event highlight film",
+    "portfolio_covers/corp_06.jpg": "Corporate interview film",
+    "portfolio_covers/corp_07.jpg": "Forum & networking film",
+    "portfolio_covers/corp_08.jpg": "Farm brand film",
+    "portfolio_covers/corp_09.jpg": "Memorial hall promo",
+    "portfolio_covers/video_05.jpg": "Product reel",
+    "portfolio_covers/video_06.jpg": "NETIA product ad",
+    "portfolio_covers/jeju_jayeonin.jpg": "Jayeonin Glamping — holiday & live-match campaign (Jeju)",
+    "portfolio_covers/jeju_1min.jpg": "1-Minute Jeju — the Jeju guide channel we run",
+    "portfolio_covers/gaebyeok_shorts.jpg": "Gaebyeok Seonwon — YouTube Shorts & long-form channel",
+    "portfolio_content_product.jpg": "Product card news",
+    "portfolio_content_ai_video.jpg": "AI video card",
+    "portfolio_content_context.jpg": "Reference board",
+    "portfolio_content_request_form.jpg": "Request form screen",
+    "portfolio_content_review.jpg": "Review workflow screen",
+    "portfolio_covers/content_01.jpg": "Product detail reel",
+    "portfolio_covers/content_02.jpg": "Kitchen process reel",
+    "portfolio_covers/content_03.jpg": "Food brand film",
+    "portfolio_covers/content_04.jpg": "Short-form clips",
+    "portfolio_covers/content_05.jpg": "Restaurant promo",
+    "portfolio_covers/content_06.jpg": "Operations screen",
+    "portfolio_automation_main.jpg": "Post-launch workflow automation",
+    "portfolio_automation_task_flow.jpg": "Inquiry form → auto-sort workflow",
+    "portfolio_automation_scope.jpg": "Website scope document",
+    "portfolio_covers/automation_01.jpg": "n8n chatbot blueprint",
+    "portfolio_covers/automation_02.jpg": "Chatbot screen (mobile)",
+    "portfolio_covers/automation_03.jpg": "AI reply draft screen",
+    "portfolio_covers/automation_04.jpg": "Chatbot conversation UI",
+    "route_plan_actual.jpg": "Nine industry landing pages",
+    "route_plan_mobile.jpg": "First screen after an ad click",
+    "route_plan_mockups.jpg": "Landing page spec",
+    "route_plan_system.jpg": "One home + eight ad landings",
+    "portfolio_covers/automation_05.jpg": "Chatbot UI set",
+    "portfolio_covers/automation_06.jpg": "Workflow audit",
+    "portfolio_covers/beauty.jpg": "Beauty brand ad"
+  }
+};
+
 function portfolioCard(item, staticMode = false) {
   const link = portfolioLink(item);
+  const lk = docLangKey();
+  const title = lk === "ko" ? item.title : ((portfolioTitleI18n[lk] || {})[item.image] || (reelSlugNames[lk] || {})[item.slug] || item.title);
   const sizeClass = item.size ? ` is-${item.size}` : "";
   let href = item.slug ? routeHref(item.slug) : "#portfolio-hub";
   let linkAttr = "";
@@ -2345,14 +2416,14 @@ function portfolioCard(item, staticMode = false) {
     href = link.href; // 실제 라이브 사이트로 직접(가운데클릭·링크복사·JS-off·스크린리더 정상)
     linkAttr = ` data-site="${link.href}"`;
     extraAttr = ` target="_blank" rel="noopener"`;
-    badge = `<span class="portfolio-open">사이트 열기 ↗</span>`;
+    badge = `<span class="portfolio-open">${{ ko: "사이트 열기", en: "Open site", hans: "打开网站", hant: "開啟網站" }[lk]} ↗</span>`;
   }
   const inner = `
-      ${pic(item.image, { alt: "Video Roastery " + item.label + " 제작 사례 — " + item.title })}
+      ${pic(item.image, { alt: lk === "ko" ? "Video Roastery " + item.label + " 제작 사례 — " + item.title : "Video Roastery " + item.label + " — " + title })}
       ${badge}
       <span class="portfolio-meta">
         <small>${item.label}</small>
-        <strong>${item.title}</strong>
+        <strong>${title}</strong>
       </span>`;
   // 연결된 영상/사이트가 없고 정적 모드(전부 화면 예시인 페이지)면 클릭 안 되는 figure로 렌더(오해 방지)
   if (staticMode && !link) {
@@ -3005,7 +3076,7 @@ function render() {
   const pageTitle = adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
   const pageDesc = adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
-    : slug === "en" ? "Jeju-based studio for brand films, drone & aerial, AI short-form ads, and conversion-focused websites. On-site in Jeju, remote worldwide."
+    : slug === "en" ? "Video studio in Jeju, Korea — remote short-form and listing reel editing for North American businesses, plus brand films, drone and websites shot in Korea."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
@@ -3028,7 +3099,7 @@ function render() {
   if (canonical) canonical.setAttribute("href", pageUrl);
   // 이 페이지가 렌더하는 FAQ와 동일한 내용으로 FAQPage 스키마 주입(정적 FAQPage 없는 페이지 한정)
   const pageFaq = adLand ? adLand.faq
-    : enLand ? i18nCommonFaq.en.concat(enLand.faq || [])
+    : enLand ? (enLand.faqOnly ? [] : i18nCommonFaq.en).concat(enLand.faq || [])
     : i18nDet ? i18nCommonFaq[i18nDet.lang].concat((i18nDetC && i18nDetC.faq) || [])
     : industryPages[slug] ? (industryPages[slug].faqItems || industryFaqItems)
     : null;
