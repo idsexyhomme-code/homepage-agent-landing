@@ -1024,8 +1024,8 @@ const enLandingPages = {
   // 2026-10 — 밴쿠버 리얼터 월 릴스 편집(실고객 진행 중). 고객명·영상은 사전 동의 전이라 익명 표기만(계약 4항).
   "en/real-estate-video-editing": {
     kicker: "Real Estate Video Editing · Greater Vancouver",
-    h1: "Listing reels for Vancouver realtors — edited while you sleep",
-    lead: "Film the walkthrough on your phone and send the clips at the end of your day. We're 16 hours ahead in Korea, so the edit moves while you're off the clock — hook, specs on screen, captions, music and your own voiceover, ready to post. Brief us in English or Korean.",
+    h1: "Listing reel editing for Vancouver realtors",
+    lead: "Send the phone clips from your walkthrough and the listing details. We return a vertical reel ready to post — hook, specs on screen, captions, music and your own voiceover. First cuts in 48–72 business hours. English or Korean.",
     title: "Real Estate Video Editing for Vancouver Realtors — Listing Reels | Video Roastery",
     desc: "Remote real estate video editing for Greater Vancouver realtors — listing tour reels, neighbourhood guides and carousels. Send phone clips, get post-ready reels. English or Korean.",
     portfolio: "content",
@@ -1033,7 +1033,7 @@ const enLandingPages = {
     faqOnly: true,
     windows: [
       ["01", "Send clips, not a brief", "Phone walkthrough clips in any order plus the listing sheet — price, beds, square feet. We build the story from there."],
-      ["02", "16 hours ahead", "Send at the end of your day in Vancouver; we start on our morning. Most first cuts land within 48–72 business hours."],
+      ["02", "Time zone", "Korea is 16 hours ahead of Vancouver. Clips sent in your evening are edited on our morning; most first cuts arrive within 48–72 business hours."],
       ["03", "Ready to post", "Vertical 9:16 with a three-second hook, specs on screen, captions, music and your voiceover — for Instagram, TikTok and YouTube Shorts."]
     ],
     extra: `
@@ -1474,12 +1474,12 @@ function enPage() {
         </section>
 
         <section class="en-services en-remote" id="remote" aria-label="Working with North America">
-          <div class="en-sec-head"><span>Working with Vancouver</span><span>(16 HRS AHEAD)</span></div>
-          <h2 class="en-remote-h">Your day ends. Our edit starts.</h2>
+          <div class="en-sec-head"><span>Working with Vancouver</span><span>(REMOTE)</span></div>
+          <h2 class="en-remote-h">Remote video editing for Vancouver businesses.</h2>
           <ol class="en-remote-steps">
-            <li><span class="en-remote-t">4 PM · Vancouver</span><span class="en-remote-d">You send the clips and a few notes — English or Korean.</span></li>
-            <li><span class="en-remote-t">8 AM · Jeju, next day</span><span class="en-remote-d">We start the edit while you're off the clock.</span></li>
-            <li><span class="en-remote-t">48–72 business hours</span><span class="en-remote-d">First cut in your inbox. Two rounds of revisions included.</span></li>
+            <li><span class="en-remote-t">Send the clips</span><span class="en-remote-d">Phone or camera footage and a few notes — in English or Korean.</span></li>
+            <li><span class="en-remote-t">We edit</span><span class="en-remote-d">Hook, captions, music and your voiceover, cut vertical for Reels, TikTok and Shorts.</span></li>
+            <li><span class="en-remote-t">First cut in 48–72 hrs</span><span class="en-remote-d">Business hours. Two rounds of revisions included.</span></li>
           </ol>
           <p class="en-remote-note">Now editing monthly for a Greater Vancouver REALTOR® — listing tours, neighbourhood guides and a Canada–Korea housing series. <a href="${routeHref("en/real-estate-video-editing")}">Real estate reels ↗</a></p>
         </section>
@@ -2142,14 +2142,14 @@ function mainPage() {
         </section>
 
         <section class="en-services en-remote" id="abroad" aria-label="해외 작업">
-          <div class="en-sec-head"><span>해외에서도</span><span>(VANCOUVER)</span></div>
-          <h2 class="en-remote-h">밴쿠버가 잠든 사이,<br>편집이 끝납니다.</h2>
+          <div class="en-sec-head"><span>해외 작업</span><span>(VANCOUVER)</span></div>
+          <h2 class="en-remote-h">캐나다 밴쿠버 부동산 중개인의<br>릴스를 매달 편집합니다.</h2>
           <ol class="en-remote-steps">
-            <li><span class="en-remote-t">밴쿠버 오후 4시</span><span class="en-remote-d">고객이 하루 일을 마치고 촬영본을 보냅니다. 한국어·영어 모두 OK.</span></li>
-            <li><span class="en-remote-t">제주 다음 날 오전 8시</span><span class="en-remote-d">16시간 빠른 제주에서 바로 편집을 시작합니다.</span></li>
-            <li><span class="en-remote-t">영업일 48~72시간</span><span class="en-remote-d">1차본을 메일로 받습니다. 수정은 2회까지 포함.</span></li>
+            <li><span class="en-remote-t">촬영본 전달</span><span class="en-remote-d">휴대폰으로 찍은 매물 영상과 매물 정보를 받습니다. 한국어·영어 모두 가능.</span></li>
+            <li><span class="en-remote-t">편집</span><span class="en-remote-d">매물 투어·동네 소개 릴스 월 4편, 캐러셀 월 2편.</span></li>
+            <li><span class="en-remote-t">1차본 48~72시간</span><span class="en-remote-d">영업일 기준. 수정 2회 포함.</span></li>
           </ol>
-          <p class="en-remote-note">지금 캐나다 밴쿠버 현지 부동산 중개인(REALTOR®)의 매물 투어·동네 소개 릴스를 매달 편집하고 있습니다. <a href="${routeHref("en/real-estate-video-editing")}">영문 안내 페이지 ↗</a></p>
+          <p class="en-remote-note">밴쿠버와 시차가 16시간이라, 현지 저녁에 보낸 촬영본을 제주 오전에 바로 편집합니다. <a href="${routeHref("en/real-estate-video-editing")}">영문 안내 페이지 ↗</a></p>
         </section>
 
         <section class="en-proof" aria-label="작업 성과">
