@@ -1057,36 +1057,20 @@ const enLandingPages = {
   },
   // 2026-10 — 밴쿠버 리얼터 월 릴스 편집(실고객 진행 중). 고객명·영상은 사전 동의 전이라 익명 표기만(계약 4항).
   "en/real-estate-video-editing": {
-    kicker: "Real Estate Video Editing · Greater Vancouver",
-    h1: "Listing reel editing for Vancouver realtors",
-    lead: "Send the phone clips from your walkthrough and the listing details. We return a vertical reel ready to post — hook, specs on screen, captions, music and your own voiceover. First cuts in 48–72 business hours. English or Korean.",
-    title: "Real Estate Video Editing for Vancouver Realtors — Listing Reels | Video Roastery",
-    desc: "Remote real estate video editing for Greater Vancouver realtors — listing tour reels, neighbourhood guides and carousels. Send phone clips, get post-ready reels. English or Korean.",
+    kicker: "Listing Reels · Greater Vancouver",
+    h1: "Send a listing. Get a reel plan by morning.",
+    lead: "We write the hook, the shot list and your voiceover. You film on your phone in ten minutes. We edit it ready to post.",
+    title: "Listing Reels for Vancouver Realtors — Reel Plan by Morning | Video Roastery",
+    desc: "Send a listing and get a one-page reel plan by your next morning — hook, shot list, voiceover and caption. Film on your phone, we edit it ready to post. For Greater Vancouver realtors, in English or Korean.",
     portfolio: "content",
-    pick: ["portfolio_content_reels_page.jpg", "portfolio_covers/content_05.jpg", "portfolio_covers/content_03.jpg", "portfolio_covers/content_01.jpg", "portfolio_covers/content_02.jpg", "portfolio_covers/video_05.jpg", "portfolio_covers/ad_beauty_ugc.jpg"],
     faqOnly: true,
-    windows: [
-      ["01", "Send clips, not a brief", "Phone walkthrough clips in any order plus the listing sheet — price, beds, square feet. We build the story from there."],
-      ["02", "Time zone", "Korea is 16 hours ahead of Vancouver. Clips sent in your evening are edited on our morning; most first cuts arrive within 48–72 business hours."],
-      ["03", "Ready to post", "Vertical 9:16 with a three-second hook, specs on screen, captions, music and your voiceover — for Instagram, TikTok and YouTube Shorts."]
-    ],
-    extra: `
-        <section class="en-services en-remote" aria-label="Monthly plan">
-          <div class="en-sec-head"><span>What a month looks like</span><span>(PLAN)</span></div>
-          <div class="en-remote-grid">
-            <div class="en-remote-card"><strong>4</strong><span>reels a month — listing tours and neighbourhood guides</span></div>
-            <div class="en-remote-card"><strong>2</strong><span>carousels for the feed — just listed, sold, market notes</span></div>
-            <div class="en-remote-card"><strong>2</strong><span>rounds of revisions on every piece, included</span></div>
-          </div>
-          <p class="en-remote-note">Now editing monthly for a Greater Vancouver REALTOR® — listing tours, neighbourhood guides and a Canada–Korea housing series.</p>
-        </section>`,
     faq: [
-      ["What do I need to send?", "Your raw phone or camera clips (any order), the listing details, and a voiceover if you want one. Share them by Google Drive, Dropbox or WeTransfer."],
-      ["How fast is the first cut?", "Most reels take 48–72 business hours. Because we're 16 hours ahead of Vancouver, clips you send in the evening are being edited during your night."],
-      ["Can I brief you in Korean?", "Yes. We work in English and Korean — by email or KakaoTalk, whichever is easier for you."],
-      ["Is there a monthly plan?", "Yes. A monthly plan covers a set number of reels and carousels. Tell us how often you post and we'll reply with a quote."],
-      ["Are revisions included?", "Two rounds on every piece. We lock the hook and structure on the first cut so the second round is small."],
-      ["Do you film the property?", "We edit remotely, so filming is on your side — a phone is enough. Projects that need a crew in Korea are covered on our Korea production page."]
+      ["What do I need to send?", "The MLS link or address, a few phone photos, the price and what stands out. That is enough for us to write the plan."],
+      ["When do I get the plan?", "By your next morning, Vancouver time. Send it in the evening and the plan is in your inbox when you start your day."],
+      ["Do I need a camera?", "No. A phone filming vertically is enough. The shot list tells you where to stand and how long to hold each shot."],
+      ["How fast is the edited reel?", "First cut in 48–72 business hours after we receive your clips. Two rounds of revisions are included."],
+      ["Can I request in Korean?", "Yes. Send the request and get the plan in English or Korean — by email or KakaoTalk."],
+      ["Is there a monthly option?", "Yes. A monthly plan covers four reels and two carousels, with a reel plan for each. Tell us how often you post and we'll quote it."]
     ]
   },
   "en/korea-product-video": {
@@ -1200,6 +1184,117 @@ ${c.extra || ""}
       <footer class="en-footer">
         <span>VIDEO ROASTERY® — ${ui.footer}</span>
         <a href="${routeHref()}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
+}
+
+// ── 2026-10 리얼터 전용: "매물을 보내면 → 아침에 릴스 기획안 → 폰으로 찍으면 → 편집 납품" ──
+const reIcon = {
+  door: '<path d="M7 3h10v18H7z"/><circle cx="14.5" cy="12" r=".9"/>',
+  sofa: '<path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M3 12h18v5H3z"/><path d="M5 17v2M19 17v2"/>',
+  kitchen: '<path d="M4 10h16v10H4z"/><path d="M4 14h16"/><path d="M8 6c0-1 1-2 2-2M12 6c0-1 1-2 2-2"/>',
+  desk: '<path d="M3 10h18"/><path d="M5 10v9M19 10v9"/><path d="M9 10V6h6v4"/>',
+  bed: '<path d="M3 18v-7h18v7"/><path d="M3 14h18"/><path d="M6 11V8h5v3"/>',
+  view: '<circle cx="12" cy="9" r="3"/><path d="M3 20l6-6 4 4 3-3 5 5"/>',
+  you: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/>'
+};
+function realEstatePage() {
+  const c = enLandingPages["en/real-estate-video-editing"];
+  const ic = (k) => `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${reIcon[k]}</svg>`;
+  const shots = [
+    ["door", "Walk in from the front door", "5s", "Start outside, one smooth step in."],
+    ["sofa", "Living room, wide", "4s", "Stand in the corner, phone at chest height."],
+    ["kitchen", "Kitchen details", "4s", "Counter, then one slow pan to the appliances."],
+    ["desk", "The den", "4s", "Show a chair at the desk so it reads as an office."],
+    ["bed", "Primary bedroom", "4s", "From the doorway, toward the window."],
+    ["view", "Balcony and view", "5s", "End on the view and hold for three seconds."],
+    ["you", "You, to camera", "5s", "One line: the price and how to book a showing."]
+  ].map(([k, t, sec, tip], i) => `<li><span class="re-sh-n">${String(i + 1).padStart(2, "0")}</span><span class="re-sh-ic">${ic(k)}</span><span class="re-sh-b"><b>${t}</b><span>${tip}</span></span><span class="re-sh-s">${sec}</span></li>`).join("");
+  const steps = [
+    ["Send the listing", "MLS link or address, a few phone photos, the price and what stands out."],
+    ["Get your reel plan", "By your next morning: three hook options, a shot list in filming order, a voiceover script and a caption."],
+    ["Film in ten minutes", "Follow the shot list on your phone. Vertical, any order — we sort it out."],
+    ["Post the reel", "First cut in 48–72 business hours. Two rounds of revisions included."]
+  ].map(([t, d], i) => `<li><span class="re-step-n">${String(i + 1).padStart(2, "0")}</span><h3>${t}</h3><p>${d}</p></li>`).join("");
+  const faq = c.faq.map(([q, a]) => `<details class="en-faq-item"><summary><span>${q}</span><span class="en-faq-mk" aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("");
+  return `
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="en-page re-page">
+      <header class="en-bar re-bar">
+        <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="#how">HOW IT WORKS</a><a href="#sample">SAMPLE PLAN</a><a href="#request">REQUEST</a><span class="en-lang">${langSwitch("en")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="re-hero">
+          ${pic("portfolio_drone_night_exterior_clean.jpg", { cls: "re-hero-img", alt: "", loading: "eager" })}
+          <div class="re-hero-scrim" aria-hidden="true"></div>
+          <div class="re-hero-in">
+            <p class="re-eye">FOR GREATER VANCOUVER REALTORS</p>
+            <h1 class="re-h1">Send a listing.<br>Get a reel plan<br>by morning.</h1>
+            <p class="re-lead">We write the hook, the shot list and your voiceover. You film on your phone in ten minutes. We edit it ready to post.</p>
+            <div class="re-cta"><a class="re-btn" href="#request">Request a reel plan ↗</a><a class="re-btn line" href="#sample">See a sample plan</a></div>
+            <p class="re-note">English or Korean · 한국어로도 요청하실 수 있어요</p>
+          </div>
+        </section>
+
+        <section class="re-sec" id="how">
+          <div class="en-sec-head"><span>How a request works</span><span>(04)</span></div>
+          <ol class="re-steps">${steps}</ol>
+        </section>
+
+        <section class="re-sec re-sample" id="sample">
+          <div class="en-sec-head"><span>This is what lands in your inbox</span><span>(SAMPLE)</span></div>
+          <article class="re-plan" aria-label="Sample reel plan">
+            <header class="re-plan-top">
+              <div><p class="re-plan-k">REEL PLAN · SAMPLE</p><h2 class="re-plan-t">2 Bed + Den Condo · Burnaby</h2></div>
+              <div class="re-chips"><span>30–40 sec</span><span>Vertical 9:16</span><span>Your voiceover</span></div>
+            </header>
+            <div class="re-plan-grid">
+              <div class="re-plan-col">
+                <h3 class="re-plan-h">Hook — pick one</h3>
+                <ol class="re-hooks"><li><b>A</b>This Burnaby two-bed has a den you'd actually work in.</li><li><b>B</b>Under $900K with this view? Let's walk through it.</li><li><b>C</b>Three things buyers ask about this building, answered in 30 seconds.</li></ol>
+                <h3 class="re-plan-h">Voiceover</h3>
+                <p class="re-vo">"Two bedrooms, a real den, and a kitchen that opens straight onto the living room. Out here, the balcony faces north, so the light stays soft all afternoon. Message me to book a showing this weekend."</p>
+                <h3 class="re-plan-h">Caption</h3>
+                <p class="re-cap">2 bed + den in Burnaby, minutes from the SkyTrain. DM to book a showing.<br><span>#burnabyrealestate #vancouverrealtor #condotour #justlisted</span></p>
+              </div>
+              <div class="re-plan-col">
+                <h3 class="re-plan-h">Shot list — film in this order</h3>
+                <ol class="re-shots">${shots}</ol>
+              </div>
+            </div>
+            <p class="re-plan-foot">Sample only. Every plan is written for your listing.</p>
+          </article>
+        </section>
+
+        <section class="re-sec">
+          <div class="en-sec-head"><span>Pick how often</span><span>(02)</span></div>
+          <div class="re-offers">
+            <div class="re-offer"><p class="re-offer-k">ONE LISTING</p><h3>A plan and one reel</h3><p>Send one listing, get the plan by morning and one edited reel after you film.</p></div>
+            <div class="re-offer dark"><p class="re-offer-k">MONTHLY</p><h3>Four reels and two carousels</h3><p>A plan for every listing or neighbourhood guide, plus feed carousels for just listed and sold.</p></div>
+          </div>
+          <p class="re-offers-note">We reply with a quote within a day.</p>
+        </section>
+
+        <section class="re-sec re-req" id="request">
+          <div class="re-req-l">
+            <p class="re-eye dark">REQUEST A REEL PLAN</p>
+            <h2 class="re-req-h">Send one listing.<br>See the plan tomorrow.</h2>
+            <ul class="re-check"><li>MLS link or address</li><li>A few phone photos</li><li>Price and what stands out</li><li>When you can film</li></ul>
+            <p class="re-note dark">Prefer KakaoTalk? Leave your ID in the contact field.</p>
+          </div>
+          <div class="re-req-r">${i18nQuoteForm("re")}</div>
+        </section>
+
+        <section class="re-sec" id="faq">
+          <div class="en-sec-head"><span>Questions</span><span>FAQ</span></div>
+          <div class="en-faq">${faq}</div>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — Jeju, Korea · Working with Greater Vancouver realtors</span>
+        <a href="${routeHref("en")}">Video Roastery ↗</a>
       </footer>
     </div>
   `;
@@ -1457,7 +1552,7 @@ function rememoryPage() {
 // 영문/해외(캐나다)용 페이지 — BASIC/DEPT 스타일(모노크롬·그로테스크·여백·영상 히어로). 스코프 CSS는 .en-*.
 function enPage() {
   const services = [
-    ["Real Estate Listing Reels", "For Vancouver realtors — phone clips in, post-ready reels out. Brief us in English or Korean.", "real-estate-video-editing"],
+    ["Real Estate Listing Reels", "For Vancouver realtors — send a listing, get a reel plan by morning, film on your phone, we edit.", "real-estate-video-editing"],
     ["Brand & Corporate Film", "Company and brand stories, told in the order people actually understand them.", "brand-film"],
     ["AI Short-form Ads", "Reels & shorts built from product photos. No shoot, no models needed.", "ai-shortform"],
     ["Websites & Landing Pages", "Sites that turn visitors into inquiries — clear on the first screen, built to convert.", "homepage"],
@@ -1472,7 +1567,7 @@ function enPage() {
     <div class="en-page">
       <header class="en-bar">
         <a class="en-wm" href="${routeHref("en")}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="#remote">VANCOUVER</a><a href="${routeHref("en/estimate")}">QUOTE</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
+        <nav class="en-nav" aria-label="menu"><a href="#work" data-reel-open="en" aria-haspopup="dialog">WORK</a><a href="#services">SERVICES</a><a href="#remote">REALTORS</a><a href="${routeHref("en/estimate")}">QUOTE</a><a href="#contact">CONTACT</a><span class="en-lang">${langSwitch("en")}</span></nav>
       </header>
       <main id="main">
         <section class="en-hero" id="work">
@@ -1488,7 +1583,7 @@ function enPage() {
         <section class="en-statement">
           <div class="en-rule"></div>
           <div class="en-statement-grid">
-            <p class="en-statement-copy">Video Roastery is a video studio in Jeju, Korea. We edit short-form for North American businesses remotely, and shoot brand films, drone and websites on the ground in Korea.</p>
+            <p class="en-statement-copy">Video Roastery is a video studio in Jeju, Korea. We plan and edit listing reels for Vancouver realtors, and shoot brand films, drone and websites on the ground in Korea.</p>
             <div class="en-bigmark" aria-hidden="true">VR<sup>®</sup></div>
           </div>
         </section>
@@ -1498,15 +1593,15 @@ function enPage() {
           <div class="en-svc-list">${services}</div>
         </section>
 
-        <section class="en-services en-remote" id="remote" aria-label="Working with North America">
-          <div class="en-sec-head"><span>Working with Vancouver</span><span>(REMOTE)</span></div>
-          <h2 class="en-remote-h">Remote video editing for Vancouver businesses.</h2>
+        <section class="en-services en-remote" id="remote" aria-label="For Vancouver realtors">
+          <div class="en-sec-head"><span>For Vancouver realtors</span><span>(LISTING REELS)</span></div>
+          <h2 class="en-remote-h">Send a listing. Get a reel plan by morning.</h2>
           <ol class="en-remote-steps">
-            <li><span class="en-remote-t">Send the clips</span><span class="en-remote-d">Phone or camera footage and a few notes — in English or Korean.</span></li>
-            <li><span class="en-remote-t">We edit</span><span class="en-remote-d">Hook, captions, music and your voiceover, cut vertical for Reels, TikTok and Shorts.</span></li>
-            <li><span class="en-remote-t">First cut in 48–72 hrs</span><span class="en-remote-d">Business hours. Two rounds of revisions included.</span></li>
+            <li><span class="en-remote-t">Send the listing</span><span class="en-remote-d">MLS link, a few phone photos, the price and what stands out.</span></li>
+            <li><span class="en-remote-t">Get your reel plan</span><span class="en-remote-d">Hook options, a shot list in filming order, a voiceover script and a caption.</span></li>
+            <li><span class="en-remote-t">Film, we edit</span><span class="en-remote-d">Ten minutes on your phone. First cut in 48–72 business hours.</span></li>
           </ol>
-          <p class="en-remote-note">Now editing monthly for a Greater Vancouver REALTOR® — listing tours, neighbourhood guides and a Canada–Korea housing series. <a href="${routeHref("en/real-estate-video-editing")}">Real estate reels ↗</a></p>
+          <p class="en-remote-note">Now working monthly with a Greater Vancouver REALTOR®. <a href="${routeHref("en/real-estate-video-editing")}">See a sample plan ↗</a></p>
         </section>
 
         <section class="en-proof" aria-label="Track record">
@@ -2133,7 +2228,7 @@ function mainPage() {
             <div class="en-proof-item"><strong>2×</strong><span>브랜드 채널 1년 운영,<br>유튜브 구독자 두 배</span></div>
           </div>
           <p class="en-clients-list ko-clients">LG U+ &nbsp;·&nbsp; S-OIL &nbsp;·&nbsp; 대한결핵협회 &nbsp;·&nbsp; 넥슨컴퓨터박물관 &nbsp;·&nbsp; 마크애니 &nbsp;·&nbsp; 넥스트챌린지 &nbsp;·&nbsp; 인크루즈 &nbsp;·&nbsp; 삼정물산</p>
-          <p class="en-remote-note">캐나다 밴쿠버 부동산 중개인의 릴스도 매달 원격으로 편집합니다. <a href="${routeHref("en/real-estate-video-editing")}">영문 안내 ↗</a></p>
+          <p class="en-remote-note">밴쿠버 부동산 중개인 매물 릴스 — 매물 정보를 받으면 다음 날 아침 촬영 기획안부터 보내 드립니다. <a href="${routeHref("en/real-estate-video-editing")}">기획안 샘플 보기 ↗</a></p>
         </section>
 
         ${koCta()}
@@ -2905,6 +3000,7 @@ function setupQuoteForm() {
 // ── 다국어(영/중) 견적 문의 폼 — 한국어 quoteForm 과 동일한 상세 8필드(번역) + 서버리스 자동 접수(+mailto 폴백) ──
 // 밴쿠버 등 해외 고객이 메일 앱 없이도 문의 남기게. 연락처가 이메일형이면 replyto로 들어가 대표가 바로 답장 가능.
 const i18nFormCopy = {
+  re:   { submit: "Request my reel plan", sending: "Sending…", sentT: "Received ✓", sentB: "Thanks — your reel plan will be in your inbox by your next morning, Vancouver time.", orEmail: "or email the listing to us ↗", subject: "Reel plan request — Video Roastery", intro: "New listing reel plan request (realtor page).", hint: "The MLS link and a few phone photos are enough. We reply with a one-page plan: hook, shot list, voiceover and caption." },
   en:   { submit: "Send request", sending: "Sending…", sentT: "Received ✓", sentB: "Thanks — we'll get back to you shortly with a tailored quote.", orEmail: "or email us directly ↗", subject: "Project inquiry — Video Roastery", intro: "New project / quote request from the website.", hint: "Send us what you have — attach photos or videos to the email, or share a link. We'll confirm the scope and reply with a tailored quote." },
   hans: { submit: "发送请求", sending: "发送中…", sentT: "已收到 ✓", sentB: "谢谢，我们会尽快回复量身定制的报价。", orEmail: "或直接邮件联系我们 ↗", subject: "项目咨询 — Video Roastery", intro: "来自网站的新项目／报价咨询。", hint: "把您现有的素材发给我们——照片或影片可附在邮件，或用链接分享。我们确认范围后回复量身定制的报价。" },
   hant: { submit: "發送請求", sending: "發送中…", sentT: "已收到 ✓", sentB: "謝謝，我們會盡快回覆量身打造的報價。", orEmail: "或直接郵件聯絡我們 ↗", subject: "專案諮詢 — Video Roastery", intro: "來自網站的新專案／報價諮詢。", hint: "把您現有的素材傳給我們——照片或影片可附在郵件，或用連結分享。我們確認範圍後回覆量身打造的報價。" }
@@ -2912,6 +3008,15 @@ const i18nFormCopy = {
 
 // 8필드 [name, label, placeholder, type, required] — 한국어 quoteQuestions 대칭
 const i18nQuoteQuestions = {
+  re: [
+    ["qn_name", "Your name / brokerage", "e.g. Jane Kim, Sutton Group", "text", true],
+    ["qn_contact", "Email or phone (KakaoTalk is fine)", "e.g. you@example.com", "text", true],
+    ["qn_listing", "Listing link or address", "MLS / realtor.ca link, or the address", "text", true],
+    ["qn_details", "Price, beds/baths and what stands out", "e.g. $879K · 2 bed + den · north-facing view", "text", false],
+    ["qn_dates", "When can you film, and when do you want to post?", "e.g. film Sat, post Mon", "text", false],
+    ["qn_voice", "Voiceover", "my voice / captions only / not sure", "text", false],
+    ["qn_note", "Anything else", "style you like, English or Korean, a reel you want to match", "textarea", false]
+  ],
   en: [
     ["qn_name", "Name / Company", "e.g. Jane Kim / ABC Cafe", "text", true],
     ["qn_contact", "Contact (email or phone)", "e.g. you@example.com", "text", true],
@@ -3207,7 +3312,7 @@ function render() {
   const pageTitle = adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
   const pageDesc = adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
-    : slug === "en" ? "Video studio in Jeju, Korea — remote short-form and listing reel editing for North American businesses, plus brand films, drone and websites shot in Korea."
+    : slug === "en" ? "Video studio in Jeju, Korea — listing reel plans and edits for Vancouver realtors, plus brand films, drone and websites shot in Korea."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
@@ -3240,7 +3345,7 @@ function render() {
     : slug === "video" ? videoFaq
     : null;
   syncFaqJsonLd(pageFaq, pageUrl);
-  document.querySelector("#app").innerHTML = adLand ? adLandingPage(slug) : enLand ? enLandingPage(slug) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : slug === "work" ? workPage() : slug === "management" ? managementPage() : slug === "video" ? videoPage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = adLand ? adLandingPage(slug) : enLand ? (slug === "en/real-estate-video-editing" ? realEstatePage() : enLandingPage(slug)) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : slug === "work" ? workPage() : slug === "management" ? managementPage() : slug === "video" ? videoPage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();
