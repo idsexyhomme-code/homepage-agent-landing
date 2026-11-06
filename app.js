@@ -1427,7 +1427,7 @@ function aboutPage() {
         <section class="en-detail-hero">
           <p class="en-eyebrow">회사소개</p>
           <h1 class="en-detail-h1">비디오 로스터리, 이런 회사예요</h1>
-          <p class="en-detail-lead">제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 가게는 좋은데 온라인에서는 그 매력이 다 안 보이는 곳이 많아요. 사장님이 가진 이야기와 자료를, 손님이 믿고 문의하고 싶은 형태로 바꿔드립니다.</p>
+          <p class="en-detail-lead">방송국에서 12년 동안 PD로 일한 대표가 제주에서 운영하는 영상·홈페이지 제작 스튜디오입니다. 공공기관·기업·비영리 단체에 140건 넘게 납품했고, 기획부터 촬영·편집까지 직접 합니다. 가게는 좋은데 온라인에서는 그 매력이 다 안 보이는 곳이 많아요. 사장님이 가진 이야기와 자료를, 손님이 믿고 문의하고 싶은 형태로 바꿔드립니다.</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
             <a class="en-detail-link" href="${routeHref("work")}">작업 사례 보기</a>
@@ -3311,7 +3311,7 @@ function render() {
   };
   const pageTitle = adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
   const pageDesc = adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
-    : slug === "about" ? "비디오 로스터리(Video Roastery)는 제주에서 시작한 영상·홈페이지 제작 스튜디오입니다. 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담합니다."
+    : slug === "about" ? "비디오 로스터리(Video Roastery)는 방송국 PD 12년 경력의 대표가 운영하는 제주 영상·홈페이지 제작 스튜디오입니다. 공공기관·기업·비영리 단체에 140건 넘게 납품했고, 기획부터 촬영·편집까지 직접 합니다."
     : slug === "en" ? "Video studio in Jeju, Korea — listing reel plans and edits for Vancouver realtors, plus brand films, drone and websites shot in Korea."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"

@@ -66,4 +66,8 @@ if grep -rnE '무료[^<]*30초[^<]*샘플|30초[^<]*샘플[^<]*(만들|드립)' 
 if grep -rnE '[★☆]\s*4\.5' --include='*.html' . >/dev/null 2>&1 || grep -nE '[★☆]\s*4\.5' app.js >/dev/null 2>&1; then bad "★4.5 별점 표기 잔재"; else ok "★4.5 별점 잔재 0"; fi
 
 echo ""
+echo "== 7) 정적 프리렌더 (검색로봇이 본문을 읽는지) =="
+EMPTY=$(grep -l '<div id="app"></div>' index.html */index.html */*/index.html 2>/dev/null | grep -v "^_overnight/" || true)
+if [ -z "$EMPTY" ]; then ok "app.js 셸 전부 프리렌더됨"; else bad "프리렌더 안 된 셸: $(echo $EMPTY | tr '\n' ' ') → python3 scripts/prerender.py"; fi
+
 if [ "$FAIL" = "0" ]; then echo "RESULT: PASS ✅  (배포 진행 가능)"; exit 0; else echo "RESULT: FAIL ❌  (배포 중단 — 위 ✗ 해결 필요)"; exit 1; fi
