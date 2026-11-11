@@ -327,8 +327,8 @@ const portfolioWallItems = [
   // WEB → homepage 서비스 페이지
   // 2026-09 추가 — 라이브 운영 중인 자체·의뢰 서비스
   // 2026-10 자연인 글램핑 예약 홈페이지(의뢰, 라이브) — 계약상 포트폴리오 활용 가능
-  ["portfolio_covers/site_jayeonin.jpg", "web", "WEB", "자연인 글램핑 — 예약 홈페이지 (제주시)", "homepage", "wide"],
   ["portfolio_covers/site_livingshow.jpg", "web", "WEB", "리빙쇼 제주 — 커튼·가구 쇼룸 홈페이지 (제주시)", "homepage", "wide"],
+  ["portfolio_covers/site_jayeonin.jpg", "web", "WEB", "자연인 글램핑 — 예약 홈페이지 (제주시)", "homepage", "wide"],
   ["portfolio_covers/site_vrsub_v3.jpg", "web", "WEB", "VR 영상 구독 — 월정액 브랜드 영상팀", "homepage", "wide"],
   ["portfolio_covers/site_workradar_ko_v3.jpg", "web", "WEB", "WorkRadar — 직업별 AI 리스크 진단", "homepage", "wide"],
   ["portfolio_covers/site_workradar_en_v3.jpg", "web", "WEB", "WorkRadar EN — 영문판", "homepage", "wide"],
@@ -563,7 +563,7 @@ function langSwitch(cur) {
 const koDoors = [
   ["management", "월 관리", "제주 가게 사장님", "한 달에 한 번 찾아가 찍고, 그 촬영본으로 릴스·카드뉴스·소식을 한 달 동안 올립니다.", "portfolio_covers/content_05.jpg"],
   ["video", "영상 제작", "기업·기관 담당자", "홍보영상·행사 영상, 사진으로 만드는 AI 영상, 드론 촬영.", "portfolio_covers/perlo_land.jpg"],
-  ["homepage", "홈페이지·앱", "예약·문의가 필요한 곳", "예약과 문의가 들어오는 홈페이지, 주문과 업무를 줄여 주는 앱.", "portfolio_covers/site_jayeonin.jpg"]
+  ["homepage", "홈페이지·앱", "예약·문의가 필요한 곳", "예약과 문의가 들어오는 홈페이지, 주문과 업무를 줄여 주는 앱.", "portfolio_covers/site_livingshow.jpg"]
 ];
 const jejuIndustryLinks = [
   ["jeju-food-video", "음식점"], ["jeju-restaurant-menu-video", "메뉴 영상"], ["jeju-cafe-reels", "카페"], ["jeju-pension-video", "펜션·숙소"],
