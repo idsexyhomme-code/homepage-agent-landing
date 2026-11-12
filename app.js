@@ -2409,7 +2409,6 @@ function workPage() {
   const body = `
         <section class="en-services ko-cases" id="cases">
           <div class="en-sec-head"><span>프로젝트 사례</span><span>(${String(projectCases.length).padStart(2, "0")})</span></div>
-          <p class="ko-cases-lead">사례마다 처음 과제, 한 일, 남긴 결과물을 정리했습니다.</p>
           <nav class="en-jeju-chips ko-work-chips" aria-label="사례 분류">${caseChips}</nav>
 ${projectCaseCats.map(([k, t]) => `
           <div class="ko-case-group" id="c-${k}">
@@ -2421,7 +2420,7 @@ ${projectCaseCats.map(([k, t]) => `
         </section>
 
         <section class="en-services ko-collection" id="collection">
-          <div class="en-sec-head"><span>영상·홈페이지 모음</span><span>누르면 재생·사이트 열림</span></div>
+          <div class="en-sec-head"><span>영상·홈페이지 모음</span></div>
           <nav class="en-jeju-chips ko-work-chips" aria-label="분야별 보기">${chips}</nav>
         </section>
 ${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) items[0] = { ...items[0], size: "large" }; return `
@@ -2432,9 +2431,9 @@ ${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) 
 
         ${koCta()}`;
   return koDetailShell({
-    kicker: "작업 사례",
-    h1: "실제로 납품하고 운영 중인 작업",
-    lead: "SNS 운영·상세페이지·영상·수업 프로젝트 사례와, 누르면 바로 재생되는 영상·홈페이지 모음입니다.",
+    kicker: "WORK",
+    h1: "작업 사례",
+    lead: "SNS 운영 · 상세페이지 · 영상 · 홈페이지",
     actions: `<a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a>`,
     body
   });

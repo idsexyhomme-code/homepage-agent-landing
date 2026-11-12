@@ -3383,7 +3383,6 @@ p { text-wrap: pretty; }
 @media (max-width:640px){ .re-bar .en-nav a[href="#how"], .re-bar .en-nav a[href="#sample"]{ display:none; } }
 
 /* /work/ 프로젝트 사례 구역 (정적 사례 페이지 /cases/<slug>/ 로 연결) */
-.ko-cases-lead{ margin:16px 0 0; color:var(--en-muted, #5f6a73); }
 .ko-case-group{ margin-top:clamp(24px,4vw,40px); scroll-margin-top:80px; }
 .ko-case-group h3{ margin:0 0 14px; font-size:1.15rem; letter-spacing:-.02em; }
 .ko-case-grid{ display:grid; grid-template-columns:1fr; gap:18px; }

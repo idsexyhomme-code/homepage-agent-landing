@@ -80,8 +80,7 @@ def topbar():
 
 def cta_block():
     return f"""<section class="cs-cta">
-  <h2>비슷한 일이 필요하신가요?</h2>
-  <p>지금 운영 중인 채널이나 자료 링크만 보내 주시면, 어디부터 손대면 좋을지 먼저 정리해 드립니다.</p>
+  <h2>문의</h2>
   <div class="cs-cta-row">
     <a class="cs-btn primary" href="{KAKAO}" target="_blank" rel="noopener" data-cta="kakao">카카오톡으로 문의</a>
     <a class="cs-btn" href="/#contact" data-cta="form">문의 남기기</a>
@@ -233,7 +232,6 @@ def build_case(i, c):
 {gallery}
   </section>
   <section class="cs-body">
-    <p class="cs-intro">{e(c['intro'])}</p>
 {blocks}
     <div class="cs-deliver"><h3>산출물</h3><ul>{deliver}</ul></div>
   </section>
