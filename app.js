@@ -124,8 +124,8 @@ const routes = [
     slug: "homepage",
     nav: "홈페이지",
     badge: "videoroastery.com/homepage",
-    title: "홈페이지 제작부터 문의 연결까지",
-    lead: "첫 화면에서 무엇을 파는지 바로 보이고, 포트폴리오와 문의 양식까지 자연스럽게 이어지도록 정리합니다.",
+    title: "홈페이지 제작 · 문의 연결",
+    lead: "첫 화면 · 포트폴리오 · 문의 양식",
     metaDesc: "처음 들어온 사람이 무슨 일을 하는 곳인지 3초 만에 알고, 그 자리에서 문의를 남깁니다. 업종별 화면 예시를 먼저 보고 결정하세요. 제주 현장·전국 온라인 상담.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_homepage_flow.jpg",
@@ -140,8 +140,8 @@ const routes = [
     slug: "inquiry-agent",
     nav: "문의자동화",
     badge: "videoroastery.com/inquiry-agent",
-    title: "문의가 오면 답변할 내용부터 정리합니다",
-    lead: "홈페이지, 폼, 메일, 메신저 문의를 모아 요청 내용과 확인 항목, 답장 초안을 빠르게 준비합니다.",
+    title: "문의 자동 정리",
+    lead: "홈페이지 · 폼 · 메일 · 메신저 문의 · 답장 초안",
     metaDesc: "문의가 와 있는지 몰라 놓치는 일이 없어집니다. 고객 요청과 답장 초안이 먼저 정리돼 도착합니다. 폼·메일·카카오·시트·알림까지 한 흐름으로.",
     heroVideo: "live_hero.mp4",
     heroImage: "portfolio_automation_examples.jpg",
@@ -156,8 +156,8 @@ const routes = [
     slug: "ai-shortform",
     nav: "AI숏폼",
     badge: "videoroastery.com/ai-shortform",
-    title: "제품 사진을 숏폼 광고 소재로 바꿉니다",
-    lead: "제품 사진과 콘셉트만 있어도, 첫 3초에 시선을 잡는 릴스·쇼츠·틱톡 광고 영상으로 구성합니다.",
+    title: "제품 사진 숏폼 광고",
+    lead: "제품 사진 · 릴스 · 쇼츠 · 틱톡 광고",
     metaDesc: "촬영 없이 가진 제품 사진만으로 쇼츠·릴스·틱톡 세로 광고를 받아보세요. 모델도 스튜디오도 필요 없습니다. 실제 결과물을 먼저 확인하고 시작하세요.",
     heroVideo: "ai_shortform_hero_web.mp4",
     heroImage: "card_ai_shortform_photo.jpg",
@@ -172,8 +172,8 @@ const routes = [
     slug: "brand-film",
     nav: "기업영상",
     badge: "videoroastery.com/brand-film",
-    title: "회사 소개를 영상으로 선명하게 정리합니다",
-    lead: "브랜드 메시지, 서비스 설명, 행사·기관 소개를 장면 흐름으로 잡아 제안서처럼 이해되게 만듭니다.",
+    title: "회사 소개 영상",
+    lead: "브랜드 메시지 · 서비스 설명 · 행사·기관 소개",
     metaDesc: "회사 이야기가 순서대로 전달되면 설득이 쉬워집니다. 기업 소개·브랜드 메시지·ESG·서비스 안내 영상, 실제 납품 사례를 먼저 보고 상담하세요. 제주 현장·전국 온라인.",
     heroVideo: "brand_film_hero_web.mp4",
     heroImage: "portfolio_video_industrial_brand.jpg",
@@ -188,8 +188,8 @@ const routes = [
     slug: "drone",
     nav: "드론",
     badge: "videoroastery.com/drone",
-    title: "공간의 크기와 동선이 보이는 항공 촬영",
-    lead: "숙소, 시설, 관광지, 농장, 야간 외관까지 목적에 맞는 와이드 컷과 설명용 항공 컷을 제안합니다.",
+    title: "드론 항공 촬영",
+    lead: "숙소 · 시설 · 관광지 · 농장 · 야간 외관",
     metaDesc: "숙소·시설·관광지·농장의 규모와 동선이 한 컷에 들어옵니다. 제주 드론 항공촬영, 야간 외관까지. 실제 촬영본을 먼저 보고 가능한 일정과 견적을 확인하세요.",
     heroVideo: "drone_hero_web.mp4",
     heroImage: "portfolio_drone_night_exterior_clean.jpg",
@@ -204,8 +204,8 @@ const routes = [
     slug: "content",
     nav: "콘텐츠",
     badge: "videoroastery.com/content",
-    title: "카드뉴스와 릴스를 상담까지 이어지게 만듭니다",
-    lead: "홍보 문구, 화면 순서, 카드뉴스, 릴스 소재를 흩어두지 않고 광고와 상담에 함께 쓰이도록 구성합니다.",
+    title: "카드뉴스 · 릴스",
+    lead: "홍보 문구 · 카드뉴스 · 릴스 소재",
     metaDesc: "한 번 만든 소재가 상세페이지·카드뉴스·릴스로 계속 쓰입니다. 매번 새로 찍지 않아도 됩니다. 실제 사례를 보고 필요한 만큼만 상담하세요.",
     heroVideo: "content_hero.mp4",
     heroImage: "portfolio_content_reels_page.jpg",
@@ -220,8 +220,8 @@ const routes = [
     slug: "consulting",
     nav: "컨설팅",
     badge: "videoroastery.com/consulting",
-    title: "제작 상담을 빠르게 시작하는 사전 질문지",
-    lead: "홈페이지·영상·드론·콘텐츠 중 필요한 제작을 적어주시면 가능 범위와 다음 단계를 회신합니다.",
+    title: "제작 상담 사전 질문지",
+    lead: "홈페이지 · 영상 · 드론 · 콘텐츠",
     metaDesc: "반복되는 손일이 줄고, 사람이 해야 할 일에 시간이 남습니다. 노션·시트·폼·메일·AI 도구 — 지금 쓰는 방식 그대로. 무엇부터 줄일지 먼저 확인하세요.",
     heroVideo: "live_hero.mp4",
     heroImage: "ai_service_landing.png",
@@ -592,9 +592,9 @@ function koFooter() {
 function koDoorCards() {
   return koDoors.map(([slug, t, who, d, img]) => `<a class="en-jeju-card" href="${routeHref(slug)}">${pic(img, { alt: t })}<span class="en-jeju-k">${who}</span><strong>${t}</strong><span class="en-jeju-d">${d}</span></a>`).join("");
 }
-function koCta(h = "가진 자료만 주세요.<br>딱 맞는 범위로 회신합니다.") {
+function koCta(h = "문의") {
   return `<section class="en-cta" id="contact">
-          <p class="en-eyebrow">문의</p>
+          <p class="en-eyebrow">CONTACT</p>
           <h2 class="en-cta-h">${h}</h2>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a>
@@ -799,8 +799,8 @@ function estimatePage() {
       <main id="main">
         <section class="en-detail-hero">
           <p class="en-eyebrow">견적 안내</p>
-          <h1 class="en-detail-h1">맞춤 견적서로 회신드립니다</h1>
-          <p class="en-detail-lead">홈페이지에 고정 가격을 적어두지 않습니다. 보유 자료와 원하는 결과물만 보내주시면, 필요한 제작 범위를 확인해 프로젝트에 딱 맞는 견적서를 보내드립니다.</p>
+          <h1 class="en-detail-h1">맞춤 견적</h1>
+          <p class="en-detail-lead">고정 가격 없음 · 보유 자료 기준 견적서</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="#estimate-form">견적 요청하기 ↗</a>
             ${kakaoUrl ? `<a class="en-detail-link" href="${kakaoUrl}" target="_blank" rel="noopener">카카오톡으로 먼저 물어보기</a>` : ""}
@@ -1425,7 +1425,7 @@ function aboutPage() {
       <main id="main">
         <section class="en-detail-hero">
           <p class="en-eyebrow">회사소개</p>
-          <h1 class="en-detail-h1">비디오 로스터리, 이런 회사예요</h1>
+          <h1 class="en-detail-h1">회사 소개</h1>
           <p class="en-detail-lead">방송국에서 12년 동안 PD로 일한 대표가 제주에서 운영하는 영상·홈페이지 제작 스튜디오입니다. 공공기관·기업·비영리 단체에 140건 넘게 납품했고, 기획부터 촬영·편집까지 직접 합니다. 가게는 좋은데 온라인에서는 그 매력이 다 안 보이는 곳이 많아요. 사장님이 가진 이야기와 자료를, 손님이 믿고 문의하고 싶은 형태로 바꿔드립니다.</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
@@ -1444,8 +1444,8 @@ function aboutPage() {
         </section>
 
         <section class="en-cta" id="contact">
-          <p class="en-eyebrow">문의</p>
-          <h2 class="en-cta-h">제작이 필요하시면, 편하게 말 거세요.</h2>
+          <p class="en-eyebrow">CONTACT</p>
+          <h2 class="en-cta-h">문의</h2>
           <a class="en-cta-btn" href="${routeHref("estimate")}">견적 문의하기 ↗</a>
           <p class="en-cta-note">보유 자료와 원하는 결과물만 알려주시면, 딱 맞는 범위와 견적으로 정직하게 회신드립니다.</p>
         </section>
@@ -1491,8 +1491,8 @@ function rememoryPage() {
       <main id="main">
         <section class="en-detail-hero">
           <p class="en-eyebrow">리메모리 · 옛 사진 복원</p>
-          <h1 class="en-detail-h1">빛바랜 그날의 사진을, 다시 손에 쥐어 드립니다</h1>
-          <p class="en-detail-lead">촬영 없이 사진만 보내주세요. 스크래치·흐림·변색을 복원하고, 흑백사진은 자연스러운 컬러로 되살립니다. 무료 앱과 달리 사람이 한 장씩 검수해 원본의 닮음을 지킵니다. 금혼식·칠순·어버이날, 부모님께 드리는 가장 따뜻한 선물.</p>
+          <h1 class="en-detail-h1">옛 사진 복원</h1>
+          <p class="en-detail-lead">스크래치·흐림·변색 복원 · 흑백 컬러 복원 · 한 장씩 검수</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="${mailHref}">무료로 복원 확인받기 ↗</a>
             <a class="en-detail-link" href="#plans">가격 보기</a>
@@ -1534,8 +1534,8 @@ function rememoryPage() {
         </section>
 
         <section class="en-cta" id="contact">
-          <p class="en-eyebrow">문의</p>
-          <h2 class="en-cta-h">먼저, 사진 한 장 보여주세요.</h2>
+          <p class="en-eyebrow">CONTACT</p>
+          <h2 class="en-cta-h">문의</h2>
           <a class="en-cta-btn" href="${mailHref}">무료로 복원 확인받기 ↗</a>
           <p class="en-cta-note">복원 가능 여부와 예상 결과를 무료로 확인해 드립니다. 옛 사진을 휴대폰으로 찍어 보내주시면 됩니다.</p>
         </section>
@@ -1767,8 +1767,8 @@ function freePage() {
       <main id="main">
         <section class="en-detail-hero">
           <p class="en-eyebrow">무료 샘플 컷 3장 · 이번 달 선착순 5팀</p>
-          <h1 class="en-detail-h1">제주 사장님, 무료로 샘플 컷 3장 먼저 만들어 드립니다</h1>
-          <p class="en-detail-lead">촬영도 방문도 없이, 가게·제품 사진만 보내주세요. 영상에 그대로 들어갈 샘플 컷 3장을 무료로 먼저 만들어 드려요. 마음에 들면 그 컷 그대로 릴스·영상으로 제작합니다.</p>
+          <h1 class="en-detail-h1">무료 샘플 컷 3장</h1>
+          <p class="en-detail-lead">가게·제품 사진 · 촬영·방문 없음 · 마음에 들면 릴스·영상으로</p>
           <div class="en-detail-actions">
             <a class="en-cta-btn" href="#free-form">무료 샘플 컷 신청하기 ↗</a>
             <a class="en-detail-link" href="#work" data-reel-open="ko" aria-haspopup="dialog">실제 작업 보기</a>
@@ -1781,8 +1781,8 @@ function freePage() {
         </section>
 
         <section class="en-cta">
-          <p class="en-eyebrow">왜 무료로 해드리나요</p>
-          <h2 class="en-cta-h">말보다, 결과물을 먼저 보여드립니다.</h2>
+          <p class="en-eyebrow">무료 이유</p>
+          <h2 class="en-cta-h">샘플 먼저</h2>
           <p class="en-cta-note">40+ 실제 제작 영상 · 촬영 없이 사진만으로. 백 마디 설명보다 사장님 가게가 영상이 된 걸 직접 보시는 게 빠르니까요.</p>
         </section>
 
@@ -1809,8 +1809,8 @@ function freePage() {
 const industryPages = {
   "jeju-food-video": {
     kicker: "제주 음식점·맛집 홍보영상",
-    h1: "제주 맛집 사장님, 손님이 오고 싶게 만드는 30초",
-    lead: "메뉴 사진은 예쁜데 영상이 없어 SNS·네이버플레이스에서 밀리는 가게가 많아요. 촬영 없이 보유 사진만으로, 군침 도는 30초 릴스를 만들어 드립니다.",
+    h1: "제주 맛집 30초 릴스",
+    lead: "보유 사진 · 30초 릴스 · 촬영 없음",
     title: "제주 음식점 홍보영상·맛집 릴스 제작 | 비디오 로스터리",
     desc: "제주 맛집·음식점 홍보영상, 촬영 없이 사진만으로 30초 릴스 제작. 무료 샘플 컷 먼저 확인하세요. 40+ 실제 제작 영상.",
     why: [
@@ -1821,8 +1821,8 @@ const industryPages = {
   },
   "jeju-pension-video": {
     kicker: "제주 펜션·숙소 홍보영상·드론",
-    h1: "제주 펜션, 예약을 부르는 영상과 드론컷",
-    lead: "숙소는 좋은데 온라인에선 그 분위기가 다 안 보이죠. 공간의 규모·오션뷰·동선을 드론과 무드컷으로 담아, 예약으로 이어지는 영상을 만듭니다.",
+    h1: "제주 펜션 영상 · 드론",
+    lead: "공간 규모 · 오션뷰 · 동선 · 드론",
     title: "제주 펜션·숙소 홍보영상·드론촬영 | 비디오 로스터리",
     desc: "제주 펜션·독채·풀빌라 홍보영상과 드론 항공컷. 예약을 부르는 30초. 무료 샘플 컷 먼저 확인. 40+ 실제 제작 영상.",
     why: [
@@ -1833,8 +1833,8 @@ const industryPages = {
   },
   "jeju-cafe-reels": {
     kicker: "제주 카페 릴스·감성 영상",
-    h1: "제주 카페, 감성이 도는 릴스 한 편",
-    lead: "감성 좋은 카페일수록 릴스가 손님을 부릅니다. 시그니처 메뉴·공간·창밖 풍경을 무드 있게 담아, 저장·공유되는 릴스를 만들어 드립니다.",
+    h1: "제주 카페 릴스",
+    lead: "시그니처 메뉴 · 공간 · 창밖 풍경",
     title: "제주 카페 릴스·감성 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 감성 카페 릴스·홍보영상, 촬영 없이 사진만으로. 저장·공유되는 30초. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1845,8 +1845,8 @@ const industryPages = {
   },
   "jeju-farm-video": {
     kicker: "제주 농장·체험 홍보영상",
-    h1: "제주 농장·체험, 신뢰를 주는 소개 영상",
-    lead: "귤밭·목장·체험 프로그램은 '어떤 곳인지' 보여줄 때 신뢰가 생깁니다. 현장 드론과 소개컷으로, 예약·구매로 이어지는 영상을 만들어 드립니다.",
+    h1: "제주 농장·체험 소개 영상",
+    lead: "귤밭 · 목장 · 체험 프로그램 · 드론",
     title: "제주 농장·체험·귤밭 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 농장·귤밭·체험 프로그램 홍보영상과 드론. 신뢰를 주는 소개 영상. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1857,8 +1857,8 @@ const industryPages = {
   },
   "jeju-clinic-video": {
     kicker: "제주 병원·의원·한의원 홍보영상",
-    h1: "제주 병원·의원, 환자가 믿고 찾아오는 소개 영상",
-    lead: "진료는 좋은데 온라인에선 '어떤 곳인지' 안 보여 첫 방문이 망설여지죠. 공간과 진료 분위기를 신뢰감 있게 담아, 검색하고 찾아온 환자가 예약으로 이어지게 만듭니다.",
+    h1: "제주 병원·의원 소개 영상",
+    lead: "공간 · 진료 분위기 · 예약 연결",
     title: "제주 병원·의원·한의원 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 병원·의원·치과·한의원 홍보영상. 신뢰를 주는 소개 영상으로 첫 방문을 예약으로. 무료 샘플 컷 먼저 확인. 40+ 실제 제작 영상.",
     why: [
@@ -1869,8 +1869,8 @@ const industryPages = {
   },
   "jeju-beauty-video": {
     kicker: "제주 미용실·네일·뷰티샵 릴스",
-    h1: "제주 미용실·뷰티샵, 예약을 부르는 감성 릴스",
-    lead: "시술 결과는 좋은데 그 감각이 온라인에 다 드러나지 않죠. 비포애프터와 공간 무드를 감성 있게 담아, 저장되고 예약으로 이어지는 릴스를 만듭니다.",
+    h1: "제주 미용실·뷰티샵 릴스",
+    lead: "비포애프터 · 공간 무드 · 예약 릴스",
     title: "제주 미용실·네일·속눈썹 뷰티 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 미용실·네일샵·속눈썹·왁싱 릴스, 촬영 없이 사진만으로. 비포애프터로 예약을 부르는 30초. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1881,8 +1881,8 @@ const industryPages = {
   },
   "jeju-fitness-video": {
     kicker: "제주 헬스장·필라테스·요가 홍보영상",
-    h1: "제주 헬스장·필라테스, 등록을 부르는 공간 영상",
-    lead: "시설과 프로그램은 좋은데 온라인에선 규모와 분위기가 안 느껴지죠. 운동 공간·기구·수업 분위기를 역동적으로 담아, 상담·등록으로 이어지는 영상을 만듭니다.",
+    h1: "제주 헬스장·필라테스 영상",
+    lead: "운동 공간 · 기구 · 수업 분위기",
     title: "제주 헬스장·필라테스·요가 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 헬스장·필라테스·요가·크로스핏 홍보영상. 공간과 분위기로 등록을 부르는 영상. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1893,8 +1893,8 @@ const industryPages = {
   },
   "jeju-academy-video": {
     kicker: "제주 학원·교습소 홍보영상",
-    h1: "제주 학원, 학부모가 믿고 등록하는 소개 영상",
-    lead: "커리큘럼은 탄탄한데 온라인에선 그 강점이 안 보여 상담이 망설여지죠. 강의실·수업 분위기를 신뢰감 있게 담아, 학부모 상담으로 이어지게 만듭니다.",
+    h1: "제주 학원 소개 영상",
+    lead: "강의실 · 수업 분위기 · 학부모 상담",
     title: "제주 학원·교습소·공부방 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 학원·교습소·공부방 홍보영상. 학부모 신뢰를 주는 소개 영상으로 상담·등록을. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1905,8 +1905,8 @@ const industryPages = {
   },
   "jeju-activity-video": {
     kicker: "제주 체험·액티비티·투어 홍보영상",
-    h1: "제주 체험·액티비티, 예약을 부르는 현장 영상",
-    lead: "액티비티는 직접 해보면 좋은데 온라인에선 그 재미가 안 느껴지죠. 현장의 생생함과 제주 풍경을 드론과 함께 담아, 여행객이 바로 예약하게 만듭니다.",
+    h1: "제주 체험·액티비티 영상",
+    lead: "현장 영상 · 제주 풍경 · 드론",
     title: "제주 체험·액티비티·투어·레저 홍보영상 제작 | 비디오 로스터리",
     desc: "제주 체험·액티비티·투어·레저 홍보영상과 드론. 생생한 현장으로 여행객 예약을. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1917,8 +1917,8 @@ const industryPages = {
   },
   "jeju-homepage": {
     kicker: "제주 소상공인 홈페이지 제작",
-    h1: "제주 사장님, 검색하고 찾아온 손님이 딴 데 안 가는 홈페이지",
-    lead: "네이버·인스타에서 발견돼도, 홈페이지 첫 화면이 허술하면 손님은 그냥 떠납니다. 첫 화면에서 '여기 믿을 만하다'가 느껴지고, 바로 문의·예약으로 이어지는 홈페이지를 만듭니다.",
+    h1: "제주 가게 홈페이지",
+    lead: "첫 화면 · 문의·예약 연결",
     title: "제주 소상공인·자영업 홈페이지 제작 | 비디오 로스터리",
     desc: "제주 소상공인·자영업·매장 홈페이지 제작. 첫 화면에서 신뢰를 주고 문의로 이어지는 사이트. 무료 진단 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1932,7 +1932,7 @@ const industryPages = {
       k: "무료 진단 · 이번 달 선착순",
       t: "지금 쓰는 홈페이지·인스타, 손님 눈엔 어떻게 보일까요? 무료로 봐드려요",
       x: "무료 진단 받기 ↗",
-      ctaH: "먼저 무료 진단으로 확인하세요.",
+      ctaH: "무료 진단",
       note: "지금 쓰시는 홈페이지·SNS 주소만 보내주시면, 좋은 점·아쉬운 점·바꾸면 좋을 것을 무료로 짚어 드립니다. 40+ 실제 제작."
     },
     faqItems: [
@@ -1946,8 +1946,8 @@ const industryPages = {
   },
   "jeju-hotel-promo": {
     kicker: "제주 호텔·리조트 홍보영상·드론",
-    h1: "제주 호텔·리조트, 예약을 부르는 홍보영상과 드론컷",
-    lead: "객실은 좋은데 온라인에선 그 규모와 뷰가 다 안 보이죠. 오션뷰·부대시설·객실 동선을 드론과 무드컷으로 담아, 예약 사이트 첫 화면에서 '여기 묵고 싶다'가 바로 오게 만듭니다.",
+    h1: "제주 호텔·리조트 홍보영상 · 드론",
+    lead: "오션뷰 · 부대시설 · 객실 동선 · 드론",
     title: "제주 호텔·리조트 홍보영상·드론촬영 제작 | 비디오 로스터리",
     desc: "제주 호텔·리조트 홍보영상과 드론 항공촬영. 오션뷰·시설·객실을 담아 예약을 부르는 영상. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1958,8 +1958,8 @@ const industryPages = {
   },
   "jeju-real-estate-video": {
     kicker: "제주 부동산·매물·토지 영상",
-    h1: "제주 부동산, 매물이 한눈에 들어오는 영상과 항공컷",
-    lead: "사진 몇 장으론 매물의 위치·규모·주변 환경이 안 잡히죠. 토지·건물·상가를 드론과 현장컷으로 담아, 매수자가 직접 가보기 전에 '가치'가 먼저 보이게 만듭니다.",
+    h1: "제주 부동산 매물 영상 · 항공컷",
+    lead: "토지 · 건물 · 상가 · 드론 · 현장컷",
     title: "제주 부동산 매물·토지 드론촬영·영상 제작 | 비디오 로스터리",
     desc: "제주 부동산 매물·토지·상가 영상과 드론 항공촬영. 위치·규모·주변을 한눈에. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -1970,8 +1970,8 @@ const industryPages = {
   },
   "jeju-restaurant-menu-video": {
     kicker: "제주 식당 메뉴 영상·배달앱 메뉴 컷",
-    h1: "제주 식당, 메뉴 하나하나가 팔리는 영상이 됩니다",
-    lead: "메뉴 사진은 있는데 배달앱 썸네일·메뉴판이 밋밋해 주문으로 안 이어지죠. 가진 메뉴 사진만으로, 메뉴별로 먹고 싶어지는 짧은 컷을 만들어 배달앱·메뉴판·플레이스에 바로 얹어 드립니다.",
+    h1: "제주 식당 메뉴 영상",
+    lead: "메뉴별 짧은 컷 · 배달앱 · 메뉴판 · 플레이스",
     title: "제주 식당 메뉴 영상·배달앱 메뉴 컷 제작 | 비디오 로스터리",
     desc: "제주 식당 메뉴 영상, 촬영 없이 메뉴 사진만으로 배달앱 썸네일·메뉴판·메뉴별 클립 제작. 주문으로 잇는 30초. 무료 샘플 컷 먼저. 40+ 실제 제작.",
     why: [
@@ -1982,8 +1982,8 @@ const industryPages = {
   },
   "jeju-camping-video": {
     kicker: "제주 캠핑장·글램핑 홍보영상",
-    h1: "제주 캠핑장·글램핑, 예약을 부르는 감성 영상과 드론",
-    lead: "자연 속 분위기가 강점인데 사진으론 그 감성이 다 안 담기죠. 사이트 전경·노을·불멍·부대시설을 드론과 무드컷으로 담아, 보자마자 예약하고 싶은 영상을 만듭니다.",
+    h1: "제주 캠핑장·글램핑 영상 · 드론",
+    lead: "사이트 전경 · 노을 · 불멍 · 부대시설",
     title: "제주 캠핑장·글램핑 홍보영상·드론촬영 제작 | 비디오 로스터리",
     desc: "제주 캠핑장·글램핑·오토캠핑 홍보영상과 드론. 자연 감성으로 예약을 부르는 30초. 무료 샘플 컷 먼저. 40+ 실제 제작 영상.",
     why: [
@@ -2014,7 +2014,7 @@ function industryPage(key) {
   const offK = off.k || "이번 달 선착순 5팀 · 무료";
   const offT = off.t || "사진 보내주시면 샘플 컷 3장을 무료로 먼저 만들어 드려요";
   const offX = off.x || "무료 샘플 컷 받기 ↗";
-  const ctaH = off.ctaH || "먼저 무료 샘플 컷으로 확인하세요.";
+  const ctaH = off.ctaH || "무료 샘플 컷";
   const ctaNote = off.note || "업종과 사진(링크 또는 설명)만 보내주시면, 무료 샘플 컷 3장과 함께 범위·견적을 회신드립니다. 40+ 실제 제작 영상.";
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
@@ -2065,8 +2065,8 @@ function industryPage(key) {
 const adLandingPages = {
   "ai-video": {
     kicker: "AI 영상제작 · 촬영 없이 사진만으로",
-    h1: "AI 영상제작, 사진만 보내주세요",
-    lead: "제품·매장·서비스 사진과 원하는 방향만 알려주시면, 광고·홍보에 바로 쓰는 AI 영상을 만들어 드립니다. 촬영도 모델도 스튜디오도 필요 없습니다.",
+    h1: "AI 영상 제작",
+    lead: "제품·매장·서비스 사진 · 촬영·모델·스튜디오 없음",
     title: "AI 영상제작 업체 | 촬영 없이 사진만으로 광고·홍보영상 — 비디오 로스터리",
     desc: "AI 영상제작 전문. 촬영 없이 제품·매장 사진만으로 광고·홍보 영상을 만듭니다. 실제 제작 사례를 먼저 보고, 무료 샘플 컷 3장으로 시작하세요. 제주 스튜디오 · 전국 온라인.",
     cta: "AI 영상 견적 받기",
@@ -2215,8 +2215,16 @@ function mainPage() {
         </section>
 
         <section class="en-services" id="work">
-          <div class="en-sec-head"><span>최근 작업</span><a class="en-sec-more" href="${routeHref("work")}">작업 사례 보기 ↗</a></div>
+          <div class="en-sec-head"><span>최근 작업</span><a class="en-sec-more" href="${routeHref("work")}">전체 작업 ↗</a></div>
           ${portfolioWall(recent, "detail-wall home-recent")}
+        </section>
+
+        <section class="en-services ko-home-cases" id="cases">
+          <div class="en-sec-head"><span>프로젝트 사례</span><a class="en-sec-more" href="/work/#cases">${projectCases.length}건 전체 ↗</a></div>
+          <div class="ko-case-rail">
+          ${homeCaseSlugs.map((slug) => projectCases.find((c) => c[0] === slug)).filter(Boolean).map(projectCaseCard).join("")}
+          </div>
+          <a class="ko-cases-more" href="/work/#cases"><span>프로젝트 사례 ${projectCases.length}건 전체 보기</span><b aria-hidden="true">→</b></a>
         </section>
 
         <section class="en-proof" aria-label="작업 성과">
@@ -2307,7 +2315,7 @@ function managementPage() {
 
         <section class="en-services">
           <div class="en-sec-head"><span>1분제주에도 소개</span><span>(JEJU)</span></div>
-          <p class="ko-sec-lead">저희가 운영하는 제주 정보 채널 1분제주(게시물 47편)에 맡겨 주신 가게를 소개합니다. <a href="https://jeju.videoroastery.com/" target="_blank" rel="noopener">1분제주 보기 ↗</a></p>
+          <p class="ko-sec-lead">제주 정보 채널 1분제주 · 게시물 47편 <a href="https://jeju.videoroastery.com/" target="_blank" rel="noopener">1분제주 보기 ↗</a></p>
         </section>
 
         <section class="en-services" id="work">
@@ -2328,8 +2336,8 @@ function managementPage() {
         ${koCta()}`;
   return koDetailShell({
     kicker: "월 관리 · 제주 가게",
-    h1: "제주 가게의 촬영과 SNS를 매달 맡습니다.",
-    lead: "한 달에 한 번 가게에 찾아가 찍고, 그 촬영본으로 릴스와 카드뉴스를 만들어 한 달 동안 올립니다. 필요하면 예약 홈페이지와 샤오홍슈까지 함께 맡습니다.",
+    h1: "월 관리 · 촬영 · SNS",
+    lead: "월 1회 촬영 · 릴스 · 카드뉴스 · 예약 홈페이지 · 샤오홍슈",
     actions: `<a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a><a class="en-detail-link" href="${routeHref("free")}">무료 샘플 컷 받기</a>`,
     body
   });
@@ -2379,8 +2387,8 @@ function videoPage() {
         ${koCta()}`;
   return koDetailShell({
     kicker: "영상 제작",
-    h1: "기업·기관 홍보영상, AI 영상, 드론 촬영",
-    lead: "회사·기관·제품 이야기를 영상으로 만듭니다. 공공기관·기업·비영리 단체에 140건 넘게 납품했고, 촬영 없이 사진만으로 만드는 AI 영상도 제작합니다.",
+    h1: "기업·기관 홍보영상 · AI 영상 · 드론 촬영",
+    lead: "공공기관 · 기업 · 비영리 단체 140건+ 납품",
     actions: `<a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a><a class="en-detail-link" href="#work">작업 사례 보기</a>`,
     body
   });
@@ -2388,6 +2396,8 @@ function videoPage() {
 
 // 프로젝트 사례 12건 — 개별 페이지는 정적(/cases/<slug>/, scripts/gen_cases.py). [slug, 분류, 업체, 제목, 부제]
 const projectCases = [["seogwipo-black-pork-sns", "sns", "남매네", "흑돼지 식당 SNS 종합 운영", "서귀포 흑돼지 전문점 · 2개 지점 · 월 운영"], ["seogwipo-restaurant-china-tourist-content", "sns", "남매네", "해외 관광객 플랫폼별 콘텐츠 세트", "서귀포 흑돼지 전문점 · 중국·대만 관광객 대상"], ["jeju-glamping-chinese-restaurant-sns", "sns", "자연인 글램핑 · 중식당", "글램핑 · 중식당 두 가게 통합 운영", "제주시 글램핑장 + 중식당 · 월 운영"], ["jeju-house-presale-marketing", "sns", "리빙쇼", "단독주택 단지 분양 마케팅", "제주 단독주택 단지 · 분양·인테리어 회사 · 월 운영"], ["seogwipo-italian-restaurant-marketing", "sns", "페를로", "이탈리안 레스토랑 마케팅 진단 · 기획", "서귀포 안덕 레스토랑 · 진단 보고서 · 기획안"], ["jeju-farm-food-detail-page", "print", "", "농산물 · 식품 상세페이지", "스마트스토어 상품 5종 · 식당 브랜드 CI"], ["order-service-launch-detail-page", "print", "산지로", "주문 정리 서비스 런칭 콘텐츠", "택배 주문 자동 정리 서비스 · 펀딩 · B2B"], ["jeju-agri-brand-leaflet", "print", "제우스", "농업 브랜드 인증 · 리플렛 디자인", "제주 농업 법인 · 인쇄물 2종 · 약 1주"], ["jeju-youtube-channel-management", "video", "개벽선원", "유튜브 채널 운영", "제주 선원 채널 · 쇼츠 · 롱폼 · 카드뉴스 · 월 운영"], ["vancouver-realtor-reels", "video", "", "해외 부동산 리얼터 릴스 · 캐러셀", "캐나다 밴쿠버 한인 리얼터 · 원격 월 운영"], ["jeju-smartstore-1on1-class", "class", "", "스마트스토어 1:1 실전 수업", "감귤 유통 법인 담당자 · 방문 6회"], ["jeju-3d-photo-practical-class", "class", "", "1:1 · 소그룹 실무 수업", "3D 모델링(블렌더) · 미디어아트 사진 촬영"]];
+// 홈 '프로젝트 사례' 6칸 — 분류마다 고르게
+const homeCaseSlugs = ["seogwipo-black-pork-sns", "jeju-glamping-chinese-restaurant-sns", "jeju-house-presale-marketing", "jeju-farm-food-detail-page", "jeju-youtube-channel-management", "jeju-smartstore-1on1-class"];
 const projectCaseCats = [["sns", "SNS 운영"], ["print", "상세페이지·인쇄물"], ["video", "영상"], ["class", "수업"]];
 
 function projectCaseCard([slug, , client, title, sub]) {
