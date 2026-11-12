@@ -35,6 +35,16 @@
   ],
   "redirects": [
     {
+      "source": "/cases",
+      "destination": "/work/",
+      "permanent": true
+    },
+    {
+      "source": "/cases/",
+      "destination": "/work/",
+      "permanent": true
+    },
+    {
       "source": "/consulting",
       "destination": "/management/",
       "permanent": true

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""사례 페이지 생성 — scripts/cases_data.json → /cases/index.html + /cases/<slug>/index.html
+"""사례 페이지 생성 — scripts/cases_data.json → /cases/<slug>/index.html
+(목록은 app.js workPage의 caseStudies — 데이터 바꾸면 거기도 같이 갱신)
 
 app.js 셸이 아닌 자체 정적 페이지(privacy·jeju와 같은 방식)라 prerender.py 대상이 아니다.
 카톡으로 링크 하나 보내면 폰에서 바로 열리도록 모바일 우선, 외부 스크립트는 분석 태그만.
@@ -90,7 +91,7 @@ def cta_block():
 
 def footer():
     return """<footer class="cs-foot">
-  <a href="/cases/">전체 사례</a><a href="/">홈</a><a href="/privacy/">개인정보처리방침</a>
+  <a href="/work/#cases">작업 사례</a><a href="/">홈</a><a href="/privacy/">개인정보처리방침</a>
   <p>© Video Roastery · 제주</p>
 </footer>"""
 
@@ -191,7 +192,7 @@ def build_case(i, c):
                 "isPartOf": {"@id": SITE + "/#website"},
                 "genre": CAT_NAME[c["cat"]],
             },
-            breadcrumb([("홈", "/"), ("작업 사례", "/cases/"), (c["title"], path)]),
+            breadcrumb([("홈", "/"), ("작업 사례", "/work/"), (c["title"], path)]),
         ],
     }
     hi, lazy = 'fetchpriority="high"', 'loading="lazy"'
@@ -216,7 +217,7 @@ def build_case(i, c):
     html = head(title, desc, path, imgs[0], ld) + f"""<body>
 {topbar()}
 <main class="cs-main cs-detail">
-  <a class="cs-back" href="/cases/#{c['cat']}">← 전체 사례</a>
+  <a class="cs-back" href="/work/#c-{c['cat']}">← 전체 작업 사례</a>
   <header class="cs-head">
     <p class="cs-kicker">{e(CAT_NAME[c['cat']])}</p>
     <h1>{e(c['title'])}</h1>
@@ -249,7 +250,6 @@ def build_case(i, c):
 
 
 if __name__ == "__main__":
-    build_index()
     for i, c in enumerate(DATA):
         build_case(i, c)
-    print(f"cases: index + {len(DATA)} pages")
+    print(f"cases: {len(DATA)} pages (목록은 /work/ 프로젝트 사례 구역, /cases/ → /work/ 301)")

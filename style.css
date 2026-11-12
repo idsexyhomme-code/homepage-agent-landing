@@ -3285,7 +3285,6 @@ p { text-wrap: pretty; }
 
 /* 2026-10 재기획 — 한글 공통 푸터·홈 서비스 문 3개·최근 작업 9칸·작업 페이지 */
 .en-jeju > .en-jeju-grid{ margin-top:22px; }
-.en-sec-links{ display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end; }
 .en-sec-more{ color:var(--en-ink); text-decoration:none; letter-spacing:.04em; }
 .en-sec-more:hover{ text-decoration:underline; text-underline-offset:3px; }
 .home-recent{ margin-top:22px; grid-template-columns:repeat(3,minmax(0,1fr)); }
@@ -3382,3 +3381,20 @@ p { text-wrap: pretty; }
 .re-req-r .en-form{ margin-top:0; }
 @media (max-width:860px){ .re-req{ grid-template-columns:1fr; } }
 @media (max-width:640px){ .re-bar .en-nav a[href="#how"], .re-bar .en-nav a[href="#sample"]{ display:none; } }
+
+/* /work/ 프로젝트 사례 구역 (정적 사례 페이지 /cases/<slug>/ 로 연결) */
+.ko-cases-lead{ margin:16px 0 0; color:var(--en-muted, #5f6a73); }
+.ko-case-group{ margin-top:clamp(24px,4vw,40px); scroll-margin-top:80px; }
+.ko-case-group h3{ margin:0 0 14px; font-size:1.15rem; letter-spacing:-.02em; }
+.ko-case-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+.ko-case-card{ display:block; text-decoration:none; color:inherit; background:#fff; border:1px solid var(--en-line, #e2ddd0); border-radius:14px; overflow:hidden; transition:transform .2s ease, box-shadow .2s ease; }
+.ko-case-card img{ display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; background:#f4efe3; }
+.ko-case-meta{ display:block; padding:14px 16px 16px; }
+.ko-case-meta small{ display:block; font-size:.75rem; font-weight:700; color:#0f7f62; }
+.ko-case-meta strong{ display:block; font-size:1.05rem; line-height:1.4; letter-spacing:-.02em; }
+.ko-case-meta em{ display:block; margin-top:4px; font-style:normal; font-size:.85rem; color:#5f6a73; line-height:1.5; }
+.ko-collection{ padding-bottom:0; }
+@media (hover:hover){ .ko-case-card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(16,21,27,.1); } }
+@media (min-width:640px){ .ko-case-grid{ grid-template-columns:1fr 1fr; gap:20px; } }
+@media (min-width:960px){ .ko-case-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (prefers-reduced-motion:reduce){ .ko-case-card{ transition:none; } }

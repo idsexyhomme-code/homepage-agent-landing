@@ -2215,7 +2215,7 @@ function mainPage() {
         </section>
 
         <section class="en-services" id="work">
-          <div class="en-sec-head"><span>최근 작업</span><span class="en-sec-links"><a class="en-sec-more" href="/cases/">사례 12건 자세히 ↗</a><a class="en-sec-more" href="${routeHref("work")}">전체 작업 보기 ↗</a></span></div>
+          <div class="en-sec-head"><span>최근 작업</span><a class="en-sec-more" href="${routeHref("work")}">작업 사례 보기 ↗</a></div>
           ${portfolioWall(recent, "detail-wall home-recent")}
         </section>
 
@@ -2386,6 +2386,17 @@ function videoPage() {
   });
 }
 
+// 프로젝트 사례 12건 — 개별 페이지는 정적(/cases/<slug>/, scripts/gen_cases.py). [slug, 분류, 업체, 제목, 부제]
+const projectCases = [["seogwipo-black-pork-sns", "sns", "남매네", "흑돼지 식당 SNS 종합 운영", "서귀포 흑돼지 전문점 · 2개 지점 · 월 운영"], ["seogwipo-restaurant-china-tourist-content", "sns", "남매네", "해외 관광객 플랫폼별 콘텐츠 세트", "서귀포 흑돼지 전문점 · 중국·대만 관광객 대상"], ["jeju-glamping-chinese-restaurant-sns", "sns", "자연인 글램핑 · 중식당", "글램핑 · 중식당 두 가게 통합 운영", "제주시 글램핑장 + 중식당 · 월 운영"], ["jeju-house-presale-marketing", "sns", "리빙쇼", "단독주택 단지 분양 마케팅", "제주 단독주택 단지 · 분양·인테리어 회사 · 월 운영"], ["seogwipo-italian-restaurant-marketing", "sns", "페를로", "이탈리안 레스토랑 마케팅 진단 · 기획", "서귀포 안덕 레스토랑 · 진단 보고서 · 기획안"], ["jeju-farm-food-detail-page", "print", "", "농산물 · 식품 상세페이지", "스마트스토어 상품 5종 · 식당 브랜드 CI"], ["order-service-launch-detail-page", "print", "산지로", "주문 정리 서비스 런칭 콘텐츠", "택배 주문 자동 정리 서비스 · 펀딩 · B2B"], ["jeju-agri-brand-leaflet", "print", "제우스", "농업 브랜드 인증 · 리플렛 디자인", "제주 농업 법인 · 인쇄물 2종 · 약 1주"], ["jeju-youtube-channel-management", "video", "개벽선원", "유튜브 채널 운영", "제주 선원 채널 · 쇼츠 · 롱폼 · 카드뉴스 · 월 운영"], ["vancouver-realtor-reels", "video", "", "해외 부동산 리얼터 릴스 · 캐러셀", "캐나다 밴쿠버 한인 리얼터 · 원격 월 운영"], ["jeju-smartstore-1on1-class", "class", "", "스마트스토어 1:1 실전 수업", "감귤 유통 법인 담당자 · 방문 6회"], ["jeju-3d-photo-practical-class", "class", "", "1:1 · 소그룹 실무 수업", "3D 모델링(블렌더) · 미디어아트 사진 촬영"]];
+const projectCaseCats = [["sns", "SNS 운영"], ["print", "상세페이지·인쇄물"], ["video", "영상"], ["class", "수업"]];
+
+function projectCaseCard([slug, , client, title, sub]) {
+  return `<a class="ko-case-card" href="/cases/${slug}/">
+            <img src="/assets/cases/${slug}/01.jpg" width="1200" height="900" alt="${title} 사례 대표 이미지" loading="lazy" decoding="async" />
+            <span class="ko-case-meta">${client ? `<small>${client}</small>` : ""}<strong>${title}</strong><em>${sub}</em></span>
+          </a>`;
+}
+
 function workPage() {
   const by = (slugs) => portfolioWallItems.filter((it) => slugs.includes(it.slug)).sort((a, b) => (portfolioMedia[b.image] ? 1 : 0) - (portfolioMedia[a.image] ? 1 : 0));
   const groups = [
@@ -2394,8 +2405,23 @@ function workPage() {
     ["w-web", "홈페이지·앱", ["homepage", "inquiry-agent"], "homepage"]
   ];
   const chips = groups.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("");
+  const caseChips = projectCaseCats.map(([k, t]) => `<a href="#c-${k}">${t} ${projectCases.filter((c) => c[1] === k).length}</a>`).join("");
   const body = `
-        <section class="en-services">
+        <section class="en-services ko-cases" id="cases">
+          <div class="en-sec-head"><span>프로젝트 사례</span><span>(${String(projectCases.length).padStart(2, "0")})</span></div>
+          <p class="ko-cases-lead">사례마다 처음 과제, 한 일, 남긴 결과물을 정리했습니다.</p>
+          <nav class="en-jeju-chips ko-work-chips" aria-label="사례 분류">${caseChips}</nav>
+${projectCaseCats.map(([k, t]) => `
+          <div class="ko-case-group" id="c-${k}">
+            <h3>${t}</h3>
+            <div class="ko-case-grid">
+          ${projectCases.filter((c) => c[1] === k).map(projectCaseCard).join("")}
+            </div>
+          </div>`).join("")}
+        </section>
+
+        <section class="en-services ko-collection" id="collection">
+          <div class="en-sec-head"><span>영상·홈페이지 모음</span><span>누르면 재생·사이트 열림</span></div>
           <nav class="en-jeju-chips ko-work-chips" aria-label="분야별 보기">${chips}</nav>
         </section>
 ${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) items[0] = { ...items[0], size: "large" }; return `
@@ -2408,7 +2434,7 @@ ${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) 
   return koDetailShell({
     kicker: "작업 사례",
     h1: "실제로 납품하고 운영 중인 작업",
-    lead: "누르면 영상이 재생되거나 실제 사이트가 열립니다.",
+    lead: "SNS 운영·상세페이지·영상·수업 프로젝트 사례와, 누르면 바로 재생되는 영상·홈페이지 모음입니다.",
     actions: `<a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a>`,
     body
   });
@@ -3302,7 +3328,7 @@ function render() {
     "zh-hant": "Video Roastery — 韓國濟州島影像 · 短片 · 網站製作工作室",
     rememory: "리메모리 | 옛날 결혼사진 복원·부모님 리마인드 웨딩 앨범",
     free: "무료 홍보영상 샘플 컷 3장 — 제주 소상공인 | 비디오 로스터리",
-    work: "비디오 로스터리 | 작업 사례 — 영상·홈페이지·SNS 운영",
+    work: "비디오 로스터리 | 작업 사례 — SNS 운영·상세페이지·영상·홈페이지",
     management: "비디오 로스터리 | 제주 가게 월 관리·SNS 운영·릴스 제작",
     video: "비디오 로스터리 | 기업 홍보영상·AI 영상·드론 촬영",
   };
@@ -3314,7 +3340,7 @@ function render() {
     : slug === "zh-hant" ? "位於韓國濟州島的製作工作室：品牌短片、無人機空拍、AI 短影音廣告與以轉換為核心的網站設計。濟州現場，全球遠端。"
     : slug === "rememory" ? "촬영 없이 옛 사진만 보내면, 빛바랜 결혼사진을 사람이 직접 복원합니다. 흑백 컬러 복원부터 금혼식·칠순 리마인드 웨딩 앨범·액자 제작까지. 부모님께 드리는 가장 따뜻한 선물, 리메모리."
     : slug === "free" ? "제주 사장님, 촬영 없이 사진만 보내주시면, 무료로 샘플 컷 3장을 먼저 만들어 드립니다. 마음에 들면 그 컷 그대로 릴스·영상으로 제작. 이번 달 선착순 5팀."
-    : slug === "work" ? "비디오 로스터리가 실제로 납품하고 운영 중인 작업 — 제주 가게 월 관리, 기업·기관 홍보영상, AI 영상, 홈페이지·앱. 누르면 영상이 재생되거나 사이트가 열립니다."
+    : slug === "work" ? "제주·서귀포 식당, 글램핑, 분양, 농업 법인과 함께한 SNS 운영·상세페이지·인쇄물·영상·수업 프로젝트 사례 12건과, 누르면 바로 재생되는 영상·홈페이지 모음."
     : slug === "management" ? "제주 가게 월 관리 — 한 달에 한 번 찾아가 촬영하고, 릴스·카드뉴스를 만들어 인스타그램·당근에 한 달 동안 올립니다. 예약 홈페이지·샤오홍슈까지."
     : slug === "video" ? "기업·기관 홍보영상, 사진으로 만드는 AI 영상, 드론 촬영. 공공기관·기업·비영리 단체에 140건 넘게 납품한 제주 영상 제작 스튜디오."
     : (route ? (route.metaDesc || route.lead) : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
