@@ -2215,7 +2215,7 @@ function mainPage() {
         </section>
 
         <section class="en-services" id="work">
-          <div class="en-sec-head"><span>최근 작업</span><a class="en-sec-more" href="${routeHref("work")}">전체 작업 보기 ↗</a></div>
+          <div class="en-sec-head"><span>최근 작업</span><span class="en-sec-links"><a class="en-sec-more" href="/cases/">사례 12건 자세히 ↗</a><a class="en-sec-more" href="${routeHref("work")}">전체 작업 보기 ↗</a></span></div>
           ${portfolioWall(recent, "detail-wall home-recent")}
         </section>
 

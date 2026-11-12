@@ -3285,6 +3285,7 @@ p { text-wrap: pretty; }
 
 /* 2026-10 재기획 — 한글 공통 푸터·홈 서비스 문 3개·최근 작업 9칸·작업 페이지 */
 .en-jeju > .en-jeju-grid{ margin-top:22px; }
+.en-sec-links{ display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end; }
 .en-sec-more{ color:var(--en-ink); text-decoration:none; letter-spacing:.04em; }
 .en-sec-more:hover{ text-decoration:underline; text-underline-offset:3px; }
 .home-recent{ margin-top:22px; grid-template-columns:repeat(3,minmax(0,1fr)); }
