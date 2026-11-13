@@ -16,7 +16,7 @@ DATA = json.loads((ROOT / "scripts/cases_data.json").read_text(encoding="utf-8")
 I18N = json.loads((ROOT / "scripts/cases_i18n.json").read_text(encoding="utf-8"))
 SITE = "https://videoroastery.com"
 KAKAO = "https://open.kakao.com/o/sqp6y8Bi"
-VER = "20261113a"
+VER = "20261113b"
 CAT_KEYS = ["sns", "print", "video", "class"]
 
 # 언어별 화면 글자 — 제목·머리말은 전부 짧은 명사형(설명 문장 금지)
