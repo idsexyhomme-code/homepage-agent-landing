@@ -3381,6 +3381,8 @@ p { text-wrap: pretty; }
 .re-req-r .en-form{ margin-top:0; }
 @media (max-width:860px){ .re-req{ grid-template-columns:1fr; } }
 @media (max-width:640px){ .re-bar .en-nav a[href="#how"], .re-bar .en-nav a[href="#sample"]{ display:none; } }
+/* 영문 홈 상단 메뉴 — 폰에서 6칸이 화면 밖으로 밀려 가로 스크롤이 생기던 것(REALTORS는 본문 구역으로 충분) */
+@media (max-width:480px){ .en-nav a[href="#remote"]{ display:none; } }
 
 /* /work/ 프로젝트 사례 구역 (정적 사례 페이지 /cases/<slug>/ 로 연결) */
 .ko-case-group{ margin-top:clamp(24px,4vw,40px); scroll-margin-top:80px; }

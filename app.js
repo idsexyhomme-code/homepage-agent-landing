@@ -549,12 +549,14 @@ function pic(name, opts) {
   return '<picture><source type="image/webp" srcset="' + webp + '" />' + img + '</picture>';
 }
 
-function langSwitch(cur) {
+function langSwitch(cur, sub = "") {
+  // sub: 네 언어에 같은 경로로 있는 페이지("work")면 홈이 아니라 그 페이지의 언어판으로 보낸다
+  const to = (prefix) => routeHref([prefix, sub].filter(Boolean).join("/"));
   const links = [];
-  if (cur !== "ko") links.push(`<a href="${routeHref()}" hreflang="ko">한국어</a>`);
-  if (cur !== "en") links.push(`<a href="${routeHref("en")}" hreflang="en">EN</a>`);
-  if (cur !== "hans") links.push(`<a href="${routeHref("zh")}" hreflang="zh-Hans">简体</a>`);
-  if (cur !== "hant") links.push(`<a href="${routeHref("zh-hant")}" hreflang="zh-Hant">繁體</a>`);
+  if (cur !== "ko") links.push(`<a href="${to("")}" hreflang="ko">한국어</a>`);
+  if (cur !== "en") links.push(`<a href="${to("en")}" hreflang="en">EN</a>`);
+  if (cur !== "hans") links.push(`<a href="${to("zh")}" hreflang="zh-Hans">简体</a>`);
+  if (cur !== "hant") links.push(`<a href="${to("zh-hant")}" hreflang="zh-Hant">繁體</a>`);
   return `<span class="lang-switch" role="group" aria-label="Language">${links.join("")}</span>`;
 }
 
@@ -571,10 +573,10 @@ const jejuIndustryLinks = [
   ["jeju-clinic-video", "병원·한의원"], ["jeju-beauty-video", "뷰티샵"], ["jeju-fitness-video", "헬스·필라테스"], ["jeju-academy-video", "학원"],
   ["jeju-real-estate-video", "부동산·토지"], ["jeju-homepage", "홈페이지"]
 ];
-function koBar(ink = true) {
+function koBar(ink = true, langSub = "") {
   return `<header class="en-bar${ink ? " en-bar--ink" : ""}">
         <a class="en-wm" href="${routeHref()}">VIDEO ROASTERY<sup>®</sup></a>
-        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref("work")}">작업</a><a href="${sectionHref("services")}">서비스</a><a href="${routeHref("about")}">회사소개</a><a href="${routeHref("estimate")}">문의</a><span class="en-lang">${langSwitch("ko")}</span></nav>
+        <nav class="en-nav" aria-label="메뉴"><a href="${routeHref("work")}">작업</a><a href="${sectionHref("services")}">서비스</a><a href="${routeHref("about")}">회사소개</a><a href="${routeHref("estimate")}">문의</a><span class="en-lang">${langSwitch("ko", langSub)}</span></nav>
       </header>`;
 }
 function koFooter() {
@@ -1592,6 +1594,8 @@ function enPage() {
           <div class="en-svc-list">${services}</div>
         </section>
 
+        ${i18nHomeCases("en")}
+
         <section class="en-services en-remote" id="remote" aria-label="For Vancouver realtors">
           <div class="en-sec-head"><span>For Vancouver realtors</span><span>(LISTING REELS)</span></div>
           <h2 class="en-remote-h">Send a listing. Get a reel plan by morning.</h2>
@@ -1716,6 +1720,8 @@ function zhPage(variant) {
           <div class="en-sec-head"><span>${T.servicesH}</span><span>${secCount(services)}</span></div>
           <div class="en-svc-list">${services}</div>
         </section>
+
+        ${i18nHomeCases(T.cur)}
 
         <section class="en-services">
           <div class="en-sec-head"><span>${T.whyH}</span><span>(03)</span></div>
@@ -2222,7 +2228,7 @@ function mainPage() {
         <section class="en-services ko-home-cases" id="cases">
           <div class="en-sec-head"><span>프로젝트 사례</span><a class="en-sec-more" href="/work/#cases">${projectCases.length}건 전체 ↗</a></div>
           <div class="ko-case-rail">
-          ${homeCaseSlugs.map((slug) => projectCases.find((c) => c[0] === slug)).filter(Boolean).map(projectCaseCard).join("")}
+          ${homeCaseSlugs.map((slug) => projectCases.find((c) => c[0] === slug)).filter(Boolean).map((c) => projectCaseCard(c)).join("")}
           </div>
           <a class="ko-cases-more" href="/work/#cases"><span>프로젝트 사례 ${projectCases.length}건 전체 보기</span><b aria-hidden="true">→</b></a>
         </section>
@@ -2253,11 +2259,11 @@ const homeRecentWork = [
 ];
 
 // ── 서비스 문 3개 중 새 페이지 2개 + 작업 사례 전체 ──
-function koDetailShell({ kicker, h1, lead, actions, body }) {
+function koDetailShell({ kicker, h1, lead, actions, body, langSub = "" }) {
   return `
     <a class="skip-link" href="#main">본문 바로가기</a>
     <div class="en-page basic-ko">
-      ${koBar()}
+      ${koBar(true, langSub)}
       <main id="main">
         <section class="en-detail-hero">
           <p class="en-eyebrow">${kicker}</p>
@@ -2400,9 +2406,16 @@ const projectCases = [["seogwipo-black-pork-sns", "sns", "남매네", "흑돼지
 const homeCaseSlugs = ["seogwipo-black-pork-sns", "jeju-glamping-chinese-restaurant-sns", "jeju-house-presale-marketing", "jeju-farm-food-detail-page", "jeju-youtube-channel-management", "jeju-smartstore-1on1-class"];
 const projectCaseCats = [["sns", "SNS 운영"], ["print", "상세페이지·인쇄물"], ["video", "영상"], ["class", "수업"]];
 
-function projectCaseCard([slug, , client, title, sub]) {
-  return `<a class="ko-case-card" href="/cases/${slug}/">
-            <img src="/assets/cases/${slug}/01.jpg" width="1200" height="900" alt="${title} 사례 대표 이미지" loading="lazy" decoding="async" />
+// 영·간체·번체 카드 글자 {언어: {slug: [업체, 제목, 부제]}} — scripts/cases_i18n.json에서 뽑은 값(바꾸면 같이 갱신)
+const projectCasesI18n = {"en": {"seogwipo-black-pork-sns": ["Nammaene", "Black Pork Restaurant Social Media Management", "Black pork restaurant in Seogwipo · 2 locations · monthly"], "seogwipo-restaurant-china-tourist-content": ["Nammaene", "Platform-by-Platform Content Set for Overseas Visitors", "Black pork restaurant in Seogwipo · for visitors from China and Taiwan"], "jeju-glamping-chinese-restaurant-sns": ["Jayeonin Glamping · Chinese restaurant", "Glamping Site and Chinese Restaurant, Managed Together", "Glamping site + Chinese restaurant in Jeju City · monthly"], "jeju-house-presale-marketing": ["Livingshow", "Sales Marketing for a Detached House Development", "Detached house development in Jeju · sales and interior company · monthly"], "seogwipo-italian-restaurant-marketing": ["Perlo", "Italian Restaurant Marketing Audit · Planning", "Restaurant in Andeok, Seogwipo · audit report · content plan"], "jeju-farm-food-detail-page": ["", "Produce · Food Product Detail Pages", "5 Smart Store products · restaurant brand identity"], "order-service-launch-detail-page": ["Sanjiro", "Launch Content for an Order Sorting Service", "Automatic parcel order sorting service · crowdfunding · B2B"], "jeju-agri-brand-leaflet": ["Zeus", "Agricultural Brand Certification · Leaflet Design", "Agricultural company in Jeju · 2 print pieces · about 1 week"], "jeju-youtube-channel-management": ["Gaebyeok Seonwon", "YouTube Channel Management", "Seon center channel in Jeju · Shorts · long-form · card news · monthly"], "vancouver-realtor-reels": ["", "Reels · Carousels for an Overseas Realtor", "Korean realtor in Vancouver, Canada · remote · monthly"], "jeju-smartstore-1on1-class": ["", "One-on-One Smart Store Practical Class", "Staff member at a mandarin distribution company · 6 on-site sessions"], "jeju-3d-photo-practical-class": ["", "One-on-One · Small-Group Practical Classes", "3D modeling (Blender) · media art photography"]}, "hans": {"seogwipo-black-pork-sns": ["Nammaene", "黑猪肉餐厅社交媒体综合运营", "西归浦黑猪肉专门店 · 2 家分店 · 按月运营"], "seogwipo-restaurant-china-tourist-content": ["Nammaene", "面向海外游客的分平台内容套装", "西归浦黑猪肉专门店 · 面向中国大陆与台湾游客"], "jeju-glamping-chinese-restaurant-sns": ["Jayeonin 露营 · 中餐厅", "豪华露营地 · 中餐厅两家店整合运营", "济州市豪华露营地 + 中餐厅 · 按月运营"], "jeju-house-presale-marketing": ["Livingshow", "独栋住宅社区销售营销", "济州独栋住宅社区 · 销售与室内设计公司 · 按月运营"], "seogwipo-italian-restaurant-marketing": ["Perlo", "意大利餐厅营销诊断 · 策划", "西归浦安德餐厅 · 诊断报告 · 策划案"], "jeju-farm-food-detail-page": ["", "农产品 · 食品详情页", "Smart Store 商品 5 种 · 餐厅品牌识别"], "order-service-launch-detail-page": ["Sanjiro", "订单整理服务上线内容", "快递订单自动整理服务 · 众筹 · B2B"], "jeju-agri-brand-leaflet": ["Zeus", "农业品牌认证 · 折页设计", "济州农业公司 · 印刷品 2 种 · 约 1 周"], "jeju-youtube-channel-management": ["Gaebyeok Seonwon", "YouTube 频道运营", "济州禅院频道 · Shorts · 长视频 · 图文卡片 · 按月运营"], "vancouver-realtor-reels": ["", "海外房产经纪人 Reels · 轮播图", "加拿大温哥华韩裔房产经纪人 · 远程按月运营"], "jeju-smartstore-1on1-class": ["", "Smart Store 一对一实战课程", "柑橘流通公司负责人 · 上门 6 次"], "jeju-3d-photo-practical-class": ["", "一对一 · 小班实务课程", "3D 建模（Blender）· 媒体艺术摄影"]}, "hant": {"seogwipo-black-pork-sns": ["Nammaene", "黑豬肉餐廳社群媒體綜合營運", "西歸浦黑豬肉專門店 · 2 家分店 · 按月營運"], "seogwipo-restaurant-china-tourist-content": ["Nammaene", "面向海外遊客的分平台內容套裝", "西歸浦黑豬肉專門店 · 面向中國與台灣遊客"], "jeju-glamping-chinese-restaurant-sns": ["Jayeonin 露營 · 中餐廳", "豪華露營地 · 中餐廳兩家店整合營運", "濟州市豪華露營地 + 中餐廳 · 按月營運"], "jeju-house-presale-marketing": ["Livingshow", "獨棟住宅社區銷售行銷", "濟州獨棟住宅社區 · 銷售與室內設計公司 · 按月營運"], "seogwipo-italian-restaurant-marketing": ["Perlo", "義大利餐廳行銷診斷 · 企劃", "西歸浦安德餐廳 · 診斷報告 · 企劃案"], "jeju-farm-food-detail-page": ["", "農產品 · 食品詳情頁", "Smart Store 商品 5 種 · 餐廳品牌識別"], "order-service-launch-detail-page": ["Sanjiro", "訂單整理服務上線內容", "快遞訂單自動整理服務 · 群眾募資 · B2B"], "jeju-agri-brand-leaflet": ["Zeus", "農業品牌認證 · 摺頁設計", "濟州農業公司 · 印刷品 2 種 · 約 1 週"], "jeju-youtube-channel-management": ["Gaebyeok Seonwon", "YouTube 頻道營運", "濟州禪院頻道 · Shorts · 長影片 · 圖文卡片 · 按月營運"], "vancouver-realtor-reels": ["", "海外房產經紀人 Reels · 輪播圖", "加拿大溫哥華韓裔房產經紀人 · 遠端按月營運"], "jeju-smartstore-1on1-class": ["", "Smart Store 一對一實戰課程", "柑橘流通公司負責人 · 上門 6 次"], "jeju-3d-photo-practical-class": ["", "一對一 · 小班實務課程", "3D 建模（Blender）· 媒體藝術攝影"]}};
+const i18nLangPrefix = { ko: "", en: "en", hans: "zh", hant: "zh-hant" };
+
+function projectCaseCard([slug, , client, title, sub], lang = "ko") {
+  const tr = (projectCasesI18n[lang] || {})[slug];
+  if (tr) [client, title, sub] = tr;
+  const pre = i18nLangPrefix[lang] ? "/" + i18nLangPrefix[lang] : "";
+  return `<a class="ko-case-card" href="${pre}/cases/${slug}/">
+            <img src="/assets/cases/${slug}/01.jpg" width="1200" height="900" alt="${title}${lang === "ko" ? " 사례 대표 이미지" : ""}" loading="lazy" decoding="async" />
             <span class="ko-case-meta">${client ? `<small>${client}</small>` : ""}<strong>${title}</strong><em>${sub}</em></span>
           </a>`;
 }
@@ -2424,7 +2437,7 @@ ${projectCaseCats.map(([k, t]) => `
           <div class="ko-case-group" id="c-${k}">
             <h3>${t}</h3>
             <div class="ko-case-grid">
-          ${projectCases.filter((c) => c[1] === k).map(projectCaseCard).join("")}
+          ${projectCases.filter((c) => c[1] === k).map((c) => projectCaseCard(c)).join("")}
             </div>
           </div>`).join("")}
         </section>
@@ -2444,9 +2457,100 @@ ${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) 
     kicker: "WORK",
     h1: "작업 사례",
     lead: "SNS 운영 · 상세페이지 · 영상 · 홈페이지",
+    langSub: "work",
     actions: `<a class="en-cta-btn" href="${routeHref("estimate")}">문의하기 ↗</a>`,
     body
   });
+}
+
+// 영·간체·번체 작업 페이지(/en/work/ 등) — 한국어 /work/와 같은 구성: 프로젝트 사례 12건 → 영상·홈페이지 모음
+const i18nWorkRoutes = { "en/work": "en", "zh/work": "hans", "zh-hant/work": "hant" };
+const i18nWorkUI = {
+  en: { h1: "Project Cases", lead: "Social media · Detail pages · Video · Websites", cases: "Project cases", cats: ["Social Media", "Detail Pages · Print", "Video", "Classes"], coll: "Video · Website Collection", groups: ["Monthly Management · Content", "Video Production", "Websites · Apps"], svc: "Service ↗", quote: "Get a quote", contact: "Contact", all: "All 12 ↗", more: "All 12 project cases", chips: "Case categories", chips2: "Browse by field",
+    title: "Project Cases: Social Media, Detail Pages, Video, Websites — Video Roastery",
+    desc: "12 project cases with restaurants, a glamping site, a housing development and agricultural companies in Jeju and Seogwipo — social media management, detail pages, print, video and classes — plus a collection of videos and websites that play on tap." },
+  hans: { h1: "项目案例", lead: "社交媒体运营 · 详情页 · 视频 · 网站", cases: "项目案例", cats: ["社交媒体运营", "详情页 · 印刷品", "视频", "课程"], coll: "视频 · 网站合集", groups: ["按月管理 · 内容", "视频制作", "网站 · 应用"], svc: "查看服务 ↗", quote: "获取报价", contact: "咨询", all: "全部 12 个 ↗", more: "查看全部 12 个项目案例", chips: "案例分类", chips2: "按领域查看",
+    title: "项目案例：社交媒体运营 · 详情页 · 视频 · 网站 — Video Roastery",
+    desc: "与济州、西归浦的餐厅、露营地、住宅销售、农业公司合作的 12 个项目案例：社交媒体运营、详情页、印刷品、视频与课程，以及点击即可播放的视频与网站合集。" },
+  hant: { h1: "專案案例", lead: "社群媒體營運 · 商品頁 · 影片 · 網站", cases: "專案案例", cats: ["社群媒體營運", "商品頁 · 印刷品", "影片", "課程"], coll: "影片 · 網站合集", groups: ["按月管理 · 內容", "影片製作", "網站 · 應用"], svc: "查看服務 ↗", quote: "取得報價", contact: "諮詢", all: "全部 12 個 ↗", more: "查看全部 12 個專案案例", chips: "案例分類", chips2: "依領域查看",
+    title: "專案案例：社群媒體營運 · 商品頁 · 影片 · 網站 — Video Roastery",
+    desc: "與濟州、西歸浦的餐廳、露營地、住宅銷售、農業公司合作的 12 個專案案例：社群媒體營運、商品頁、印刷品、影片與課程，以及點擊即可播放的影片與網站合集。" }
+};
+
+// 영·중 홈의 '프로젝트 사례' 줄 — 한국어 홈과 같은 6칸 + 큰 버튼
+function i18nHomeCases(lang) {
+  const ui = i18nWorkUI[lang];
+  const workHref = routeHref(i18nLangPrefix[lang] + "/work") + "#cases";
+  return `<section class="en-services ko-home-cases" id="cases">
+          <div class="en-sec-head"><span>${ui.cases}</span><a class="en-sec-more" href="${workHref}">${ui.all}</a></div>
+          <div class="ko-case-rail">
+          ${homeCaseSlugs.map((slug) => projectCases.find((c) => c[0] === slug)).filter(Boolean).map((c) => projectCaseCard(c, lang)).join("")}
+          </div>
+          <a class="ko-cases-more" href="${workHref}"><span>${ui.more}</span><b aria-hidden="true">→</b></a>
+        </section>`;
+}
+
+function i18nWorkPage(lang) {
+  const ui = i18nWorkUI[lang];
+  const dui = i18nDetailUI[lang];
+  const homeSlug = i18nLangPrefix[lang];
+  const estHref = routeHref(homeSlug + "/estimate");
+  const by = (slugs) => portfolioWallItems.filter((it) => slugs.includes(it.slug)).sort((a, b) => (portfolioMedia[b.image] ? 1 : 0) - (portfolioMedia[a.image] ? 1 : 0));
+  const groups = [
+    ["w-management", ui.groups[0], ["content"], "content"],
+    ["w-video", ui.groups[1], ["brand-film", "ai-shortform"], "brand-film"],
+    ["w-web", ui.groups[2], ["homepage", "inquiry-agent"], "homepage"]
+  ];
+  const cats = projectCaseCats.map(([k], i) => [k, ui.cats[i]]);
+  return `
+    <a class="skip-link" href="#main">${dui.skip}</a>
+    <div class="en-page${lang === "en" ? "" : " basic-zh"}">
+      <header class="en-bar en-bar--ink">
+        <a class="en-wm" href="${routeHref(homeSlug)}">VIDEO ROASTERY<sup>®</sup></a>
+        <nav class="en-nav" aria-label="menu"><a href="${routeHref(homeSlug)}">${dui.home}</a><a href="#cases">${dui.work}</a><a href="${estHref}">${dui.contact}</a><span class="en-lang">${langSwitch(lang, "work")}</span></nav>
+      </header>
+      <main id="main">
+        <section class="en-detail-hero">
+          <p class="en-eyebrow">WORK</p>
+          <h1 class="en-detail-h1">${ui.h1}</h1>
+          <p class="en-detail-lead">${ui.lead}</p>
+          <div class="en-detail-actions"><a class="en-cta-btn" href="${estHref}">${ui.quote} ↗</a></div>
+        </section>
+
+        <section class="en-services ko-cases" id="cases">
+          <div class="en-sec-head"><span>${ui.cases}</span><span>(${String(projectCases.length).padStart(2, "0")})</span></div>
+          <nav class="en-jeju-chips ko-work-chips" aria-label="${ui.chips}">${cats.map(([k, t]) => `<a href="#c-${k}">${t} ${projectCases.filter((c) => c[1] === k).length}</a>`).join("")}</nav>
+${cats.map(([k, t]) => `
+          <div class="ko-case-group" id="c-${k}">
+            <h3>${t}</h3>
+            <div class="ko-case-grid">
+          ${projectCases.filter((c) => c[1] === k).map((c) => projectCaseCard(c, lang)).join("")}
+            </div>
+          </div>`).join("")}
+        </section>
+
+        <section class="en-services ko-collection" id="collection">
+          <div class="en-sec-head"><span>${ui.coll}</span></div>
+          <nav class="en-jeju-chips ko-work-chips" aria-label="${ui.chips2}">${groups.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("")}</nav>
+        </section>
+${groups.map(([id, t, slugs, door]) => { const items = by(slugs); if (items[0]) items[0] = { ...items[0], size: "large" }; return `
+        <section class="en-services" id="${id}">
+          <div class="en-sec-head"><span>${t}</span><a class="en-sec-more" href="${routeHref(homeSlug + "/" + door)}">${ui.svc}</a></div>
+          ${portfolioWall(items, "detail-wall")}
+        </section>`; }).join("")}
+
+        <section class="en-cta" id="contact">
+          <p class="en-eyebrow">CONTACT</p>
+          <h2 class="en-cta-h">${ui.contact}</h2>
+          <a class="en-cta-btn" href="${estHref}">${ui.quote} ↗</a>
+        </section>
+      </main>
+      <footer class="en-footer">
+        <span>VIDEO ROASTERY® — ${dui.footer}</span>
+        <a href="${routeHref("work")}">한국어 ↗</a>
+      </footer>
+    </div>
+  `;
 }
 
 function routeCard(route) {
@@ -3319,6 +3423,7 @@ function render() {
   const i18nDetC = i18nDet ? (i18nDetailContent[i18nDet.svc][i18nDet.lang] || i18nDetailContent[i18nDet.svc].en) : null;
   const enLand = enLandingPages[slug]; // 영문 해외 인텐트 SEO 랜딩("en/jeju-video-production" 등)
   const adLand = adLandingPages[slug]; // 검색광고 전용 랜딩("ai-video" 등)
+  const i18nWork = i18nWorkRoutes[slug]; // 영/중 작업 페이지("en/work" 등) 언어 키
   // 메인(no route) title/desc는 정적 index.html과 동일하게 유지(크롤러가 정적↔JS 불일치 보는 것 방지)
   // SEO 제목: 브랜드(비디오 로스터리) 앞 + 검색 키워드 나열. 정적 HTML(generate_route_html.py)과 동일 유지 → 크롤러 불일치 방지.
   const seoTitles = {
@@ -3341,8 +3446,8 @@ function render() {
     management: "비디오 로스터리 | 제주 가게 월 관리·SNS 운영·릴스 제작",
     video: "비디오 로스터리 | 기업 홍보영상·AI 영상·드론 촬영",
   };
-  const pageTitle = adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
-  const pageDesc = adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
+  const pageTitle = i18nWork ? i18nWorkUI[i18nWork].title : adLand ? adLand.title : enLand ? enLand.title : i18nDet ? `${i18nDetC.title} — Video Roastery` : i18nEst ? i18nEstimateCopy[i18nEst].title : (industryPages[slug] && industryPages[slug].title) || seoTitles[slug] || (route ? `${route.nav} | Video Roastery` : seoTitles.main);
+  const pageDesc = i18nWork ? i18nWorkUI[i18nWork].desc : adLand ? adLand.desc : enLand ? enLand.desc : i18nDet ? i18nDetC.lead : i18nEst ? i18nEstimateCopy[i18nEst].desc : industryPages[slug] ? industryPages[slug].desc : slug === "estimate" ? "고정 가격 대신 맞춤 견적서로 안내합니다. 보유 자료와 원하는 결과물만 보내주시면 제작 범위를 확인해 견적서를 회신합니다."
     : slug === "about" ? "비디오 로스터리(Video Roastery)는 방송국 PD 12년 경력의 대표가 운영하는 제주 영상·홈페이지 제작 스튜디오입니다. 공공기관·기업·비영리 단체에 140건 넘게 납품했고, 기획부터 촬영·편집까지 직접 합니다."
     : slug === "en" ? "Video studio in Jeju, Korea — listing reel plans and edits for Vancouver realtors, plus brand films, drone and websites shot in Korea."
     : slug === "zh" ? "位于韩国济州岛的制作工作室：品牌短片、无人机航拍、AI 短视频广告与以转化为核心的网站设计。济州现场，全球远程。"
@@ -3353,7 +3458,7 @@ function render() {
     : slug === "management" ? "제주 가게 월 관리 — 한 달에 한 번 찾아가 촬영하고, 릴스·카드뉴스를 만들어 인스타그램·당근에 한 달 동안 올립니다. 예약 홈페이지·샤오홍슈까지."
     : slug === "video" ? "기업·기관 홍보영상, 사진으로 만드는 AI 영상, 드론 촬영. 공공기관·기업·비영리 단체에 140건 넘게 납품한 제주 영상 제작 스튜디오."
     : (route ? (route.metaDesc || route.lead) : "제주 촬영부터 전국 온라인 제작까지 — 홈페이지·영상·드론·AI 숏폼·콘텐츠를 실제 작업물 기준으로 상담하고, 보고 바로 문의로 이어지게 만듭니다.");
-  const pageUrl = adLand ? `https://videoroastery.com/${slug}/` : enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : ["work", "management", "video"].includes(slug) ? `https://videoroastery.com/${slug}/` : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
+  const pageUrl = i18nWork || adLand ? `https://videoroastery.com/${slug}/` : enLand ? `https://videoroastery.com/${slug}/` : i18nDet ? `https://videoroastery.com/${slug}/` : i18nEst ? i18nEstimateCopy[i18nEst].url : industryPages[slug] ? `https://videoroastery.com/${slug}/` : slug === "estimate" ? "https://videoroastery.com/estimate/" : slug === "about" ? "https://videoroastery.com/about/" : slug === "en" ? "https://videoroastery.com/en/" : slug === "zh" ? "https://videoroastery.com/zh/" : slug === "zh-hant" ? "https://videoroastery.com/zh-hant/" : slug === "rememory" ? "https://videoroastery.com/rememory/" : slug === "free" ? "https://videoroastery.com/free/" : ["work", "management", "video"].includes(slug) ? `https://videoroastery.com/${slug}/` : (route ? `https://videoroastery.com/${route.slug}/` : "https://videoroastery.com/");
   document.title = pageTitle;
   for (const [selector, value] of [
     ['meta[name="description"]', pageDesc],
@@ -3377,7 +3482,7 @@ function render() {
     : slug === "video" ? videoFaq
     : null;
   syncFaqJsonLd(pageFaq, pageUrl);
-  document.querySelector("#app").innerHTML = adLand ? adLandingPage(slug) : enLand ? (slug === "en/real-estate-video-editing" ? realEstatePage() : enLandingPage(slug)) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : slug === "work" ? workPage() : slug === "management" ? managementPage() : slug === "video" ? videoPage() : (route ? detailPage(route) : mainPage());
+  document.querySelector("#app").innerHTML = i18nWork ? i18nWorkPage(i18nWork) : adLand ? adLandingPage(slug) : enLand ? (slug === "en/real-estate-video-editing" ? realEstatePage() : enLandingPage(slug)) : i18nDet ? i18nDetailPage(i18nDet.lang, i18nDet.svc) : i18nEst ? i18nEstimatePage(i18nEst) : industryPages[slug] ? industryPage(slug) : slug === "estimate" ? estimatePage() : slug === "about" ? aboutPage() : slug === "en" ? enPage() : slug === "zh" ? zhPage("hans") : slug === "zh-hant" ? zhPage("hant") : slug === "rememory" ? rememoryPage() : slug === "free" ? freePage() : slug === "work" ? workPage() : slug === "management" ? managementPage() : slug === "video" ? videoPage() : (route ? detailPage(route) : mainPage());
   setupStickyCta();
   setupPortfolioLightbox();
   setupReelGallery();

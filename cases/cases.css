@@ -30,6 +30,8 @@ body {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+html[lang="zh-Hans"] body { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Pretendard Variable", sans-serif; word-break: normal; }
+html[lang="zh-Hant"] body { font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Pretendard Variable", sans-serif; word-break: normal; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 
@@ -55,7 +57,7 @@ a { color: inherit; }
 /* 목록 */
 .cs-hero { padding: 36px 0 8px; }
 .cs-kicker { margin: 0 0 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; color: var(--green); }
-.cs-hero h1, .cs-head h1 { margin: 0; font-size: clamp(28px, 7vw, 44px); line-height: 1.25; letter-spacing: -0.03em; font-weight: 800; }
+.cs-hero h1, .cs-head h1 { text-wrap: balance; margin: 0; font-size: clamp(28px, 7vw, 44px); line-height: 1.25; letter-spacing: -0.03em; font-weight: 800; }
 .cs-lead { margin: 12px 0 0; color: var(--muted); max-width: 40em; }
 .cs-tabs { display: flex; gap: 8px; overflow-x: auto; margin: 22px -16px 0; padding: 0 16px 4px; scrollbar-width: none; }
 .cs-tabs::-webkit-scrollbar { display: none; }
@@ -84,7 +86,11 @@ a { color: inherit; }
 
 /* 상세 */
 .cs-detail { max-width: 760px; }
-.cs-back { display: inline-block; margin: 18px 0 0; font-size: 14px; color: var(--muted); text-decoration: none; }
+.cs-toprow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 0; }
+.cs-back { font-size: 14px; color: var(--muted); text-decoration: none; }
+.cs-lang { display: flex; gap: 10px; flex: none; font-size: 13px; font-weight: 650; }
+.cs-lang a { color: var(--muted); text-decoration: none; padding: 4px 0; }
+.cs-lang a:hover { color: var(--ink); }
 .cs-head { padding: 14px 0 6px; }
 .cs-sub { margin: 10px 0 0; font-weight: 600; }
 .cs-period { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
