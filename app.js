@@ -315,9 +315,6 @@ const caseStudies = [
   },
   {
     client: "LG U+", tag: "AI 브랜드 캠페인", cover: "portfolio_covers/ai_nadaum_case.webp", slug: "ai-shortform", hook: "브랜드 무드까지 담은 AI 세로 캠페인"
-  },
-  {
-    client: "대한결핵협회", tag: "공익 캠페인 · 기업영상", cover: "portfolio_covers/corp_01.jpg", slug: "brand-film", hook: "공익 메시지를 40초 홍보영상으로"
   }
 ];
 const portfolioWallItems = [
@@ -359,13 +356,7 @@ const portfolioWallItems = [
   ["portfolio_covers/ai_superwater.jpg", "ai", "AI FILM", "AI 건강음료 숏폼", "ai-shortform"],
   ["portfolio_covers/ai_lemondiet.jpg", "ai", "AI FILM", "AI 다이어트 보충제 숏폼", "ai-shortform"],
   ["portfolio_covers/video_04.jpg", "ai", "AI FILM", "AI 기업 홍보 컷", "ai-shortform"],
-  ["portfolio_covers/corp_01.jpg", "ai", "BRAND", "공익 캠페인 영상", "brand-film"],
-  ["portfolio_covers/corp_02.jpg", "ai", "BRAND", "IT 서비스 영상", "brand-film"],
-  ["portfolio_covers/corp_03.jpg", "ai", "BRAND", "비영리·행사 영상", "brand-film"],
   ["portfolio_covers/perlo_land.jpg", "ai", "BRAND", "페를로 인접 토지 매각 홍보영상 (서귀포)", "brand-film", "wide"],
-  ["portfolio_covers/corp_05.jpg", "ai", "BRAND", "행사 스케치 영상", "brand-film"],
-  ["portfolio_covers/corp_06.jpg", "ai", "BRAND", "기업 인터뷰 영상", "brand-film"],
-  ["portfolio_covers/corp_08.jpg", "ai", "BRAND", "농장 브랜드 영상", "brand-film"],
   ["portfolio_covers/video_05.jpg", "content", "CONTENT", "제품 릴스 컷", "content"],
   ["portfolio_covers/video_06.jpg", "ai", "AD", "NETIA 제품 광고 컷", "content"],
   // DRONE → drone (정적컷은 월 후순위로 정렬됨 → 앞에 둬도 무방)
@@ -2254,8 +2245,8 @@ function mainPage() {
 // 홈 '최근 작업' 9칸 — 누르면 영상이 재생되거나 실제 사이트가 열리는 칸만.
 const homeRecentWork = [
   "portfolio_covers/site_jayeonin.jpg", "portfolio_covers/jeju_1min.jpg", "portfolio_covers/content_03.jpg",
-  "portfolio_covers/corp_03.jpg", "portfolio_covers/ad_barojuyu.jpg", "portfolio_covers/site_sanjiro.jpg",
-  "portfolio_covers/corp_05.jpg", "portfolio_covers/beauty.jpg", "portfolio_covers/site_vrsub_v3.jpg"
+  "portfolio_covers/perlo_land.jpg", "portfolio_covers/ad_barojuyu.jpg", "portfolio_covers/site_sanjiro.jpg",
+  "portfolio_covers/content_05.jpg", "portfolio_covers/beauty.jpg", "portfolio_covers/site_vrsub_v3.jpg"
 ];
 
 // ── 서비스 문 3개 중 새 페이지 2개 + 작업 사례 전체 ──
@@ -2642,15 +2633,9 @@ const portfolioMedia = {
   // 24. 시설 항공 컷 — 외장하드 '모비' 태양광 발전시설 석양 항공(대규모 시설이 '시설 항공'에 적합) 재편집(20s, 16:9)
   // 25. 영상 썸네일 컷 — 외장하드 '모비' 제주 신창 풍차해안 석양 시네마틱 항공(시네마틱 컷이라 '영상 썸네일'에 적합) 재편집(20s, 16:9)
   // 26~28. 기업영상 칸 신규 추가(외장하드 납품본) — brand-film 페이지에 더 보여주기
-  "portfolio_covers/corp_01.jpg": "portfolio_videos/corp_reel_26.mp4",  // 대한결핵협회 공익 캠페인 홍보영상 완성본(40s, 오디오)
-  "portfolio_covers/corp_02.jpg": "portfolio_videos/corp_reel_27.mp4",  // 마크애니 TOSS 시연 영상 완성본(100s, 오디오)
-  "portfolio_covers/corp_03.jpg": "portfolio_videos/corp_reel_28.mp4",  // 메이크어위시 프로젝트 완성본(316s, 오디오)
   // 29~31. 기업영상 칸 추가(2차)
   "portfolio_covers/perlo_land.jpg": "portfolio_videos/perlo_land_film.mp4",  // 페를로 인접 토지 매각 영상 최종 납품본(105s, 2026-11-11 메일 납품)
-  "portfolio_covers/corp_05.jpg": "portfolio_videos/corp_reel_30.mp4",  // 라이온스클럽 헌장의 밤 스케치 완성본(189s)
-  "portfolio_covers/corp_06.jpg": "portfolio_videos/corp_reel_31.mp4",  // 리치디바인 제주 워크샵 완성본(236s)
   // 32~34. 기업영상 칸 추가(3차)
-  "portfolio_covers/corp_08.jpg": "portfolio_videos/corp_reel_33.mp4",  // 모루농장 브랜드영상 완성본(78s)
   // ===== 홈페이지 포폴 칸 → 실제 라이브 사이트 연결(클릭 시 새 탭) =====
   "portfolio_covers/site_regional_v3.jpg": "https://shimmering-sunburst-27f1cd.netlify.app",      // 지역 브랜드형 → 제주 로컬 브랜드 30일 런치
   "portfolio_covers/site_beamish_v3.jpg": "https://beamish-mooncake-b11a21.netlify.app",                // 영상 제작 랜딩 → 품질엘리베이터(당신의 영상을)
@@ -2731,13 +2716,7 @@ const portfolioTitleI18n = {
     "portfolio_covers/ai_superwater.jpg": "AI wellness drink short",
     "portfolio_covers/ai_lemondiet.jpg": "AI diet supplement short",
     "portfolio_covers/video_04.jpg": "AI corporate promo",
-    "portfolio_covers/corp_01.jpg": "Public health campaign",
-    "portfolio_covers/corp_02.jpg": "IT service film",
-    "portfolio_covers/corp_03.jpg": "Non-profit event film",
     "portfolio_covers/perlo_land.jpg": "Land sale promo film — next to Perlo restaurant (Seogwipo)",
-    "portfolio_covers/corp_05.jpg": "Event highlight film",
-    "portfolio_covers/corp_06.jpg": "Corporate interview film",
-    "portfolio_covers/corp_08.jpg": "Farm brand film",
     "portfolio_covers/video_05.jpg": "Product reel",
     "portfolio_covers/video_06.jpg": "NETIA product ad",
     "portfolio_covers/jeju_jayeonin.jpg": "Jayeonin Glamping — holiday & live-match campaign (Jeju)",
